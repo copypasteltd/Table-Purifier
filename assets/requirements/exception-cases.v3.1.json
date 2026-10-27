@@ -1,0 +1,421 @@
+{
+  "baseline": "v3.1",
+  "status": "DESIGN_CASES_NOT_EXECUTED",
+  "cases": [
+    {
+      "id": "P07-E01",
+      "title": "没有模板/用途为空",
+      "given": "用户仅添加可读材料",
+      "when": "不上传模板且用途留空，点击检查资料并确认允许范围",
+      "expected": "进入DISCOVER并推荐默认规范，不返回模板必需错误",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F24",
+        "P07-F29"
+      ],
+      "page_ids": [
+        "MP01",
+        "MP06"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E02",
+      "title": "模板包含样例",
+      "given": "表头下带一行公司示例",
+      "when": "选择带样例的模板与独立源资料，确认目标后执行并查看候选",
+      "expected": "示例只解释规则，不成为源事实或候选",
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F32"
+      ],
+      "page_ids": [
+        "MP03",
+        "MP08"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E03",
+      "title": "多主题不同粒度",
+      "given": "联系人与订单混合",
+      "when": "提交联系人和订单材料，响应主表澄清后查看未纳入信息",
+      "expected": "只澄清本次主表，其他重要内容明确未纳入",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F29",
+        "P07-F31"
+      ],
+      "page_ids": [
+        "MP06",
+        "MP07"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E04",
+      "title": "稀有字段",
+      "given": "三份报价只有一份写保修",
+      "when": "运行三份报价的全范围发现，展开字段建议与代表预览",
+      "expected": "保留可空保修或明示未纳入，不向别行复制12个月",
+      "requirement_ids": [
+        "P07-F29",
+        "P07-F31"
+      ],
+      "page_ids": [
+        "MP06",
+        "MP08"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E05",
+      "title": "无单价",
+      "given": "原文为单价待议",
+      "when": "采用必填单价规范并整理单价待议报价，查看问题详情",
+      "expected": "value=null/MISSING，不能补0，必填时不通过",
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F23",
+        "P07-F27"
+      ],
+      "page_ids": [
+        "MP09",
+        "MP10"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E06",
+      "title": "冲突多来源",
+      "given": "同一对象两份材料交期不同",
+      "when": "打开同一对象的交期冲突问题并展开两个来源，不作选择",
+      "expected": "保留两个候选及来源，初始不选最新值",
+      "requirement_ids": [
+        "P07-F11",
+        "P07-F13",
+        "P07-F27"
+      ],
+      "page_ids": [
+        "MP10",
+        "MP11"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E07",
+      "title": "非法补值",
+      "given": "选补价但空输入/格式不合法",
+      "when": "选择补充单价，分别保持空值/输入非法文本并尝试提交",
+      "expected": "内联错误、提交禁用，不生成决定或扣修订",
+      "requirement_ids": [
+        "P07-F27",
+        "P07-F36"
+      ],
+      "page_ids": [
+        "MP10"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E08",
+      "title": "保留待补",
+      "given": "用户明确KEEP_UNRESOLVED",
+      "when": "选择保留待补并提交，等待原操作完成后重查质量状态",
+      "expected": "保存决定与说明但质量仍待核，不自动通过",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F27"
+      ],
+      "page_ids": [
+        "MP08",
+        "MP10"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E09",
+      "title": "旧草案采用",
+      "given": "另一端已更新proposal",
+      "when": "在提案已更新后提交携旧proposal_version的采用请求",
+      "expected": "409保留未提交稿，刷新比较；不改旧绑定",
+      "requirement_ids": [
+        "P07-F30",
+        "P07-F35"
+      ],
+      "page_ids": [
+        "MP06",
+        "MP07"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E10",
+      "title": "重复采用",
+      "given": "网络超时后重放同键",
+      "when": "在采用已提交但响应丢失后，用同幂等键和载荷重放",
+      "expected": "返回同一Binding/operation，只恢复一次执行",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F30",
+        "P07-F37"
+      ],
+      "page_ids": [
+        "MP06"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E11",
+      "title": "分页期间修订",
+      "given": "旧cursor绑定结果4但现为5",
+      "when": "取第一页后提交修订生成新版，再用原cursor取第二页",
+      "expected": "明确快照或409刷新，不把新旧分页拼接",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F36"
+      ],
+      "page_ids": [
+        "MP08",
+        "MP09"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E12",
+      "title": "重复修订提交",
+      "given": "同batch幂等重放两次",
+      "when": "同一决定预览提交两次并分别模拟修订成功/永久失败",
+      "expected": "只有一子Run/一次轮次预留，发布失败释放预留",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F27",
+        "P07-F37"
+      ],
+      "page_ids": [
+        "MP10",
+        "MP05"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E13",
+      "title": "平台漏识别",
+      "given": "原资料保修被漏抽",
+      "when": "标记原资料已存在但未抽取的保修字段，发起平台纠错复验",
+      "expected": "在原范围纠错不扣用户轮次，不要求新单",
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F27",
+        "P07-F31"
+      ],
+      "page_ids": [
+        "MP09",
+        "MP18"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E14",
+      "title": "执行后发现超限",
+      "given": "第51单元/第1001候选",
+      "when": "处理到第51单元或第1001候选时检查预算与范围报告",
+      "expected": "停止新增计算、说明已读/未读，原合同处理；不截断冒完整",
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F19",
+        "P07-F25"
+      ],
+      "page_ids": [
+        "MP05",
+        "MP08"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E15",
+      "title": "worker旧租约",
+      "given": "重试新attempt后旧worker完成",
+      "when": "令旧worker租约失效后新attempt执行，再恢复旧worker提交",
+      "expected": "旧输出不发布/不覆盖，审计并清临时内容",
+      "requirement_ids": [
+        "P07-F13",
+        "P07-F17"
+      ],
+      "page_ids": [
+        "MP05"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E16",
+      "title": "支付未知",
+      "given": "客户端success但服务端未核实",
+      "when": "仅触发客户端支付success而不提供服务端确定付款事实",
+      "expected": "显示核对中，查原单，不放行或再次付",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F37"
+      ],
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E17",
+      "title": "支付晚到",
+      "given": "用户离开/订单显示过期后正式付款事件到",
+      "when": "订单内部到期后注入正式可验证的晚到支付事件并对账",
+      "expected": "查原通道事实；不得消失已付记录；按原范围履约或原路退",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F19",
+        "P07-F40"
+      ],
+      "page_ids": [
+        "MP16",
+        "MP05"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E18",
+      "title": "取消与完成竞态",
+      "given": "取消和原子发布同时发生",
+      "when": "在结果原子发布边界同时提交取消，查询最终执行/退款/权益",
+      "expected": "条件更新只有一分支生效，退款/权益据最终事实一致",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F19"
+      ],
+      "page_ids": [
+        "MP05",
+        "MP16"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E19",
+      "title": "退款请求未知",
+      "given": "通道提交超时/重复回调",
+      "when": "让退款提交响应丢失，重查同单并重放重复退款结果事件",
+      "expected": "查同退款单，累计不超原实付，不把申请写到账",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F19"
+      ],
+      "page_ids": [
+        "MP16"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E20",
+      "title": "导出只有缓存",
+      "given": "saveFile或下载成功无真实系统保存证据",
+      "when": "完成下载或应用内saveFile但不提供系统导出回执，查看文案",
+      "expected": "只显示缓存/获取；记录用户确认和平台回执不同，不重收费",
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F38"
+      ],
+      "page_ids": [
+        "MP12"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E21",
+      "title": "源先到期",
+      "given": "原件已清理但结果摘录仍有效",
+      "when": "清理原件而保持结果摘录有效，打开来源页和原图操作",
+      "expected": "原图不可查看有原因，摘录标自己到期；不生成假证据",
+      "requirement_ids": [
+        "P07-F13",
+        "P07-F18",
+        "P07-F20"
+      ],
+      "page_ids": [
+        "MP11"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E22",
+      "title": "删内容与执行竞态",
+      "given": "删除请求时worker仍运行",
+      "when": "worker处理时提交整任务内容删除，再恢复worker尝试发布",
+      "expected": "先撤访问/标记取消，新输出不得重新公开；账务/退款必要记录分开",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F26",
+        "P07-F37"
+      ],
+      "page_ids": [
+        "MP17",
+        "MP16"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E23",
+      "title": "私有规范复用",
+      "given": "另存后源被删除",
+      "when": "主动另存规范后删原件，在本人新任务选用同模板版本",
+      "expected": "模板可在本人新任务复用，无真实样例/证据/访问引用",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F32",
+        "P07-F39"
+      ],
+      "page_ids": [
+        "MP14",
+        "MP03"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P07-E24",
+      "title": "未获准收费",
+      "given": "当前app/SKU/OS未开通",
+      "when": "关闭当前app/SKU/OS收费资格，从客户端直接请求收银接口",
+      "expected": "服务端拒新收银，显示范围；不引导Web/其他端付款",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F40",
+        "P07-F41"
+      ],
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ],
+      "execution_status": "NOT_RUN",
+      "evidence": null
+    }
+  ]
+}

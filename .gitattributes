@@ -1,0 +1,11 @@
+# Preserve the exact bytes of frozen manifests and their inventories on every OS.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp4 binary
+*.webm binary
+*.pdf binary
+# Preserve command transcripts' recorded final blank lines.
+docs/实施/验证记录/*.txt whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof

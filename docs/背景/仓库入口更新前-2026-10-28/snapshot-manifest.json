@@ -1,0 +1,17 @@
+{
+  "reason": "User-authorized bilingual repository entry and persistent contribution workflow, 2026-10-28. Original design-baseline manifests remain unchanged.",
+  "files": [
+    {
+      "original_path": "README.md",
+      "archive_path": "docs/背景/仓库入口更新前-2026-10-28/README.md",
+      "bytes": 1991,
+      "sha256": "6f2ceec681aef18ab297a9d876a8bce58e8c228bbe6394cd6970deb40267ed06"
+    },
+    {
+      "original_path": "AGENTS.md",
+      "archive_path": "docs/背景/仓库入口更新前-2026-10-28/AGENTS.md",
+      "bytes": 3536,
+      "sha256": "cd0b47bd9eb6d92bb5f24c67680fd15a92c1958e490d36163110006815a6153c"
+    }
+  ]
+}

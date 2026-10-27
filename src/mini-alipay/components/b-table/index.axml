@@ -1,0 +1,1 @@
+<view><view class="small">{{title}}</view><scroll-view scroll-x="{{true}}" class="horizontal"><slot/></scroll-view></view>

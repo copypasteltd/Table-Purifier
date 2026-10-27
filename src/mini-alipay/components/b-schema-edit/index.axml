@@ -1,0 +1,1 @@
+<view class="section"><view class="section-title">{{title}}</view><view class="small">{{text}}</view><slot/></view>

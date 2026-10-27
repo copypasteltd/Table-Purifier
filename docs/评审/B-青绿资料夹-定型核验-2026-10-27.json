@@ -1,0 +1,1224 @@
+{
+  "design_id": "P07-DS-B",
+  "design_version": "1.0.0",
+  "checked_at": "2026-10-27T09:21:06.406021+00:00",
+  "result": "PASS",
+  "scope": "Design archive integrity and static contracts only; no product/UI/platform test",
+  "retained_files": 23,
+  "components": 32,
+  "page_specifications": 18,
+  "rendered_reference_pages": 3,
+  "color_pairs": 18,
+  "local_links_checked": 64,
+  "checks_passed": 241,
+  "checks_failed": 0,
+  "product_tests": "NOT_RUN",
+  "errors": [],
+  "checks": [
+    {
+      "check": "selected_direction",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "design_identity",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "manifest_sha256",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "unique_inventory_paths",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "manifest_excludes_itself",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/provenance/B-generation-prompt.txt",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/provenance/B-generation-prompt.txt",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/provenance/B-generation-receipt.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/provenance/B-generation-receipt.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/provenance/B-typography-corrections.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/provenance/B-typography-corrections.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/provenance/crop-map.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/provenance/crop-map.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/provenance/selection-decision.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/provenance/selection-decision.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/reference/B-generated-original.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/reference/B-generated-original.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/reference/MP01-home.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/reference/MP01-home.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/reference/MP06-schema.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/reference/MP06-schema.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/reference/MP10-issue.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/reference/MP10-issue.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/reference.html",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/reference.html",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/specs/components.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/specs/components.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/specs/contrast-report.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/specs/contrast-report.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/specs/pages.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/specs/pages.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/tokens.css",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/tokens.css",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:assets/design/b-jade-folders/v1.0.0/tokens.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/design/b-jade-folders/v1.0.0/tokens.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:docs/设计定型/B-青绿资料夹-v1.0.0/01-视觉规范与设计变量.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/设计定型/B-青绿资料夹-v1.0.0/01-视觉规范与设计变量.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:docs/设计定型/B-青绿资料夹-v1.0.0/02-组件与交互状态.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/设计定型/B-青绿资料夹-v1.0.0/02-组件与交互状态.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:docs/设计定型/B-青绿资料夹-v1.0.0/03-18页面定型规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/设计定型/B-青绿资料夹-v1.0.0/03-18页面定型规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:docs/设计定型/B-青绿资料夹-v1.0.0/04-双平台适配与Web延展.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/设计定型/B-青绿资料夹-v1.0.0/04-双平台适配与Web延展.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:docs/设计定型/B-青绿资料夹-v1.0.0/05-设计验收与开发交接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/设计定型/B-青绿资料夹-v1.0.0/05-设计验收与开发交接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:docs/设计定型/B-青绿资料夹-v1.0.0/06-留存清单与变更记录.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/设计定型/B-青绿资料夹-v1.0.0/06-留存清单与变更记录.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "retained:docs/设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "token_identity",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "fixed_brand",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "touch_minimum",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "light_theme_scope",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:canvas",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:surface",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:surfaceSubtle",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:ink",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:textSecondary",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:textDisabled",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:brand",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:brandPressed",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:brandTint",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:brandBorder",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:onBrand",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:line",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:controlBorder",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:focus",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:folderTab",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:folderRule",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:decorativeGold",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:successText",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:successBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:warningText",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:warningBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:errorText",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:errorBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:infoText",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:infoBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:disabledBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:neutralText",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:neutralBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "css_color:overlay",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "declared_color_pairs",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:ink/surface",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:ink/canvas",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:ink/surfaceSubtle",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:textSecondary/surface",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:textSecondary/canvas",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:brand/surface",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:brand/canvas",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:onBrand/brand",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:onBrand/brandPressed",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:successText/successBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:warningText/warningBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:errorText/errorBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:infoText/infoBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:neutralText/neutralBg",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:controlBorder/surface",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:controlBorder/canvas",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:focus/surface",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "contrast:focus/canvas",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "32_components",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "18_pages",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "four_root_tabs",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "three_rendered_references",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "42_business_requirements",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "38_P0_page_requirements",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_image:MP01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_image:MP06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_image:MP10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page_contract:MP18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "component_contract:B-C32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "selected_board_identity",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "implementation_truth",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "selected_is_exact_retained_copy",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "board_dimensions",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exact_crop:MP01-home.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exact_crop:MP06-schema.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exact_crop:MP10-issue.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "original_board_dimensions",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "reference_image_alt",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:tokens.css",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "anchor:selected",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "anchor:screens",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "anchor:tokens",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "anchor:components",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "anchor:pages",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "anchor:handoff",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/B-generated-original.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:provenance/selection-decision.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/MP01-home.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/MP01-home.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/MP06-schema.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/MP06-schema.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/MP10-issue.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:reference/MP10-issue.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:tokens.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:tokens.css",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:specs/contrast-report.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:../../../../docs/设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:../../active.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:specs/pages.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:reference.html:specs/components.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-视觉规范与设计变量.md:../../../assets/design/b-jade-folders/v1.0.0/tokens.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-视觉规范与设计变量.md:../../../assets/design/b-jade-folders/v1.0.0/specs/contrast-report.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-视觉规范与设计变量.md:04-双平台适配与Web延展.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-组件与交互状态.md:../../../assets/design/b-jade-folders/v1.0.0/specs/components.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-18页面定型规格.md:../../../assets/design/b-jade-folders/v1.0.0/specs/pages.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-18页面定型规格.md:../../小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-18页面定型规格.md:../../../assets/design/b-jade-folders/v1.0.0/reference/MP01-home.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-18页面定型规格.md:../../../assets/design/b-jade-folders/v1.0.0/reference/MP06-schema.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-18页面定型规格.md:../../../assets/design/b-jade-folders/v1.0.0/reference/MP10-issue.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:04-双平台适配与Web延展.md:../../小程序/03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-设计验收与开发交接.md:../../../assets/design/active.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-设计验收与开发交接.md:README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-设计验收与开发交接.md:../../../assets/design/b-jade-folders/v1.0.0/tokens.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-设计验收与开发交接.md:../../../assets/design/b-jade-folders/v1.0.0/specs/components.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-设计验收与开发交接.md:../../小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/provenance/selection-decision.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/reference/B-generated-original.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/reference/MP01-home.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/reference/MP06-schema.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/reference/MP10-issue.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/provenance/B-generation-prompt.txt",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/provenance/B-generation-receipt.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/provenance/B-typography-corrections.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/provenance/crop-map.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/tokens.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/specs/components.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/specs/pages.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../assets/design/b-jade-folders/v1.0.0/manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-留存清单与变更记录.md:../../../output/design/P07-B-jade-folders-design-v1.0.0.zip",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../../assets/design/b-jade-folders/v1.0.0/reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:01-视觉规范与设计变量.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:02-组件与交互状态.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:03-18页面定型规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:04-双平台适配与Web延展.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:05-设计验收与开发交接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:06-留存清单与变更记录.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../../assets/design/active.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../../assets/design/b-jade-folders/v1.0.0/tokens.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../../assets/design/b-jade-folders/v1.0.0/tokens.css",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../../assets/design/b-jade-folders/v1.0.0/reference.html",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../../assets/design/b-jade-folders/v1.0.0/manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    }
+  ]
+}

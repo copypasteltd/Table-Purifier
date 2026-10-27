@@ -1,0 +1,23 @@
+{
+  "product_id": "P07",
+  "business_baseline": "v3.0",
+  "design_id": "P07-DS-B",
+  "design_version": "1.0.0",
+  "selected_style": "B",
+  "selected_style_name": "青绿资料夹",
+  "decision_date": "2026-10-27",
+  "decision_source": "用户明确选择",
+  "user_instruction_excerpt": "选用方案 B",
+  "status": "USER_SELECTED_DESIGN_BASELINE",
+  "model": "gpt-image-2.5",
+  "source_board": "output/imagegen/miniapp-style-selection-2026-10-27/B-jade-folders.png",
+  "selected_reference_sha256": "12da146f6b7a2adc00d1008102d7606e7242efde52f17a0c65b3ef5cd80ba981",
+  "rendered_reference_pages": [
+    "MP01",
+    "MP06",
+    "MP10"
+  ],
+  "other_page_status": "SPECIFIED_BY_DESIGN_SYSTEM_NOT_RENDERED_AS_FINAL_UI",
+  "software_implementation": "NOT_IMPLEMENTED",
+  "change_policy": "后续调整创建新设计版本，保留本版本图稿和清单，不覆写冻结文件；日常实现细节遵循本版本规则，无需重新选型"
+}

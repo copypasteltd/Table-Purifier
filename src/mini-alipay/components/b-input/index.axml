@@ -1,0 +1,1 @@
+<view><text class="label">{{title}}</text><slot/><text a:if="{{text}}" class="small">{{text}}</text></view>

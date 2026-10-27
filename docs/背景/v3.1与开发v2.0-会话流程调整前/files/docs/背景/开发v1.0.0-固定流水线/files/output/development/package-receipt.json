@@ -1,0 +1,19 @@
+{
+  "archive": "output/development/P07-完整开发文档与需求设计参照-v1.0.0.zip",
+  "sha256": "530539ddfa9149c7e85cf60b016ef5c091eef4c4fda1a174a1539d2bfcaa0c33",
+  "bytes": 32706197,
+  "file_count": 164,
+  "status": "DOCUMENT_HANDOFF_ONLY",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "product_tests": "NOT_RUN",
+  "excluded": [
+    "runtime",
+    "dependencies",
+    "customer data",
+    "merchant secrets"
+  ],
+  "verification_report": "docs/评审/P07-开发文档-v1.0.0-核验-2026-10-27.json",
+  "active_document_links_checked": 168,
+  "active_document_links_missing": 0,
+  "crc_check": "PASS"
+}

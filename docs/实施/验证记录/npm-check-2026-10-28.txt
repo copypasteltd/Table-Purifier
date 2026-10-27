@@ -1,0 +1,40 @@
+
+> p07-table-station@0.1.0 check
+> npm run typecheck && npm test && npm run build
+
+
+> p07-table-station@0.1.0 typecheck
+> tsc --noEmit
+
+
+> p07-table-station@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 E:/dev/sandbox/支付宝黑客松/表格修复站
+
+ ✓ tests/integration/database.test.ts (5 tests) 13958ms
+ ✓ tests/integration/task-workflow.test.ts (1 test) 13078ms
+   ✓ enforces the entire unpaid analysis → confirmation → quote → verified payment → queued batch sequence in real PostgreSQL 1478ms
+ ✓ tests/integration/api.test.ts (3 tests) 12062ms
+   ✓ registers the 56 contracts, keeps uploads behind actual READY, validates envelopes/idempotency and isolates owners 541ms
+   ✓ retries an owner-scoped deletion and keeps only the current receipt login after actual file and SQL purging 395ms
+ ✓ tests/unit/miniapp.test.ts (4 tests) 778ms
+ ✓ tests/unit/schema-and-decisions.test.ts (6 tests) 541ms
+ ✓ tests/unit/validation-golden.test.ts (38 tests) 504ms
+ ✓ tests/unit/storage.test.ts (3 tests) 230ms
+ ✓ tests/unit/agent-boundaries.test.ts (2 tests) 162ms
+ ✓ tests/unit/release-evidence.test.ts (3 tests) 42ms
+ ✓ tests/unit/platform-signatures.test.ts (3 tests) 17ms
+ ✓ tests/unit/crypto.test.ts (12 tests) 9ms
+ ✓ tests/unit/lifecycle.test.ts (3 tests) 6ms
+
+ Test Files  12 passed (12)
+      Tests  83 passed (83)
+   Start at  03:59:41
+   Duration  48.05s (tests 90%, import 9%, transform 1%)
+
+
+> p07-table-station@0.1.0 build
+> tsc -p tsconfig.build.json
+

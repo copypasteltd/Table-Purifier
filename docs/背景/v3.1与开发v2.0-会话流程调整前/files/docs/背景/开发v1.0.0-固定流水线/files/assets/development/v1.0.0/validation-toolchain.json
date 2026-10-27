@@ -1,0 +1,97 @@
+{
+  "status": "DOCUMENT_VALIDATION_UTILITIES_ONLY",
+  "python_observed": "3.13.1",
+  "platform": "Windows native CPython 3.13",
+  "local_install": "runtime/tools/document-validation",
+  "scope": "OpenAPI specification, PostgreSQL grammar, JSON Schema; not product runtime dependencies",
+  "packages": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "name": "jsonschema-path",
+      "version": "0.5.0"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "lazy-object-proxy",
+      "version": "1.13.0"
+    },
+    {
+      "name": "openapi-schema-validator",
+      "version": "0.9.0"
+    },
+    {
+      "name": "openapi-spec-validator",
+      "version": "0.9.0"
+    },
+    {
+      "name": "pathable",
+      "version": "0.6.0"
+    },
+    {
+      "name": "pglast",
+      "version": "8.7"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.1"
+    },
+    {
+      "name": "pydantic-settings",
+      "version": "2.16.1"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.1"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0"
+    },
+    {
+      "name": "rfc3339-validator",
+      "version": "0.1.4"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    }
+  ],
+  "existing_design_checker_prerequisite": {
+    "Pillow": "12.1.0"
+  },
+  "reinstall_command": "python -m pip install --only-binary=:all: --target runtime/tools/document-validation --cache-dir runtime/pip-cache -r assets/development/v1.0.0/validation-tools.requirements.txt"
+}

@@ -1,0 +1,601 @@
+{
+  "schema_version": "1.0",
+  "product_id": "P07",
+  "product_baseline": "v3.0",
+  "updated_on": "2026-10-27",
+  "status": "DESIGN_ONLY_NOT_RUNTIME_CONFIGURATION",
+  "documentation_is_not_device_test": true,
+  "sources": [
+    {
+      "id": "S01",
+      "title": "支付宝境内小程序API入口",
+      "url": "https://opendocs.alipay.com/mini/api",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "NEEDS_VERIFICATION",
+      "scope_and_limits": "定位官方入口，但本次未取得可读API正文；具体国内文件/交易API、OS及基础库均待核",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S02",
+      "title": "抖音API总览",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/api/overview",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "列出登录、图像和网络/文件能力；不证明任意办公文件选择器或本项目已接入",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S03",
+      "title": "抖音tt.uploadFile",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/api/network/http/tt-upload-file",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "已有本地路径上传，单次一个文件；HTTPS/域名限制；不证明任意文档选择",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S04",
+      "title": "抖音网络能力说明",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/api/network/network",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "正式环境网络/域名要求；实际请求/上传/下载域名及证书需逐项验证",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S05",
+      "title": "抖音tt.openDocument",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/api/file/tt-open-document",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "接口列出办公文档/PDF格式及iOS/Android预览差异；不代表实际导出到系统文件",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S06",
+      "title": "抖音tt.saveFile",
+      "url": "https://partner.open-douyin.com/docs/resource/zh-CN/mini-app/develop/api/file/tt-save-file",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "ttfile://user应用内存储，文档描述10MB及临时路径变化；不是系统Downloads目录",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S07",
+      "title": "抖音隐私授权接口",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/api/open-interface/privacy/",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "隐私相关授权接口；实际基础库/作用域及宿主支持应按实现锁定",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S08",
+      "title": "抖音隐私授权指引",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/develop/tutorial/security-requirements/privacy-authorize",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "配置隐私并遵守受保护接口授权要求；自写弹窗不替代平台流程",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S09",
+      "title": "抖音交易解决方案",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/open-capacity/solutions/general-solution/trade",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "交易按类目与商户准入/获准能力；文件整理SKU资格仍需确认",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S10",
+      "title": "抖音交易基础接入",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/open-capacity/business-monetization/guaranteed-payment/general/basicapi",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "DOCUMENTED",
+      "scope_and_limits": "订单/履约/退款等接入依据；未证明本项目已获准或费率/结算期",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S11",
+      "title": "抖音iOS虚拟支付限制页",
+      "url": "https://developer.open-douyin.com/docs/resource/zh-CN/mini-app/operation/management/specification/ios-virtual-payment",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "CONFLICT",
+      "scope_and_limits": "限制类说明，与另一官方入口的虚拟支付方式说明并列；具体适用性未消除冲突",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S12",
+      "title": "抖音iOS虚拟支付说明页",
+      "url": "https://partner.open-douyin.com/docs/resource/zh-CN/mini-app/operation/management/specification/ios-virtual-payment",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "CONFLICT",
+      "scope_and_limits": "描述平台虚拟支付方式；不等于本应用/商品已开通，不应引导外部付款",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S13",
+      "title": "支付宝AI付开发入口",
+      "url": "https://aipay.alipay.com/docs/vibe-pay.html",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "NEEDS_VERIFICATION",
+      "scope_and_limits": "后续核对消费者小程序方案与赛事AI付认可，不能以普通流水替代",
+      "device_test_status": "NOT_RUN"
+    },
+    {
+      "id": "S14",
+      "title": "Machine Pay产品入口",
+      "url": "https://aipay.alipay.com/products/machine-pay",
+      "retrieved_on": "2026-10-27",
+      "documentation_status": "NEEDS_VERIFICATION",
+      "scope_and_limits": "P1开放API设计参考；真实异步验付/结算契约与参赛统计口径另核",
+      "device_test_status": "NOT_RUN"
+    }
+  ],
+  "release_units": [
+    {
+      "environment_id": "ENV-ALIPAY-ANDROID",
+      "provider": "alipay",
+      "os": "android",
+      "host_version": null,
+      "base_sdk_version": null,
+      "device": null,
+      "build": null,
+      "test_execution_status": "NOT_RUN",
+      "commercial_release_ready": false,
+      "capabilities": {
+        "platform_login": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "privacy_authorization": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "text_input": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "image_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "office_source_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "standard_file_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_upload": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "structured_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_document_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "actual_file_export": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_checkout": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "refund": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "notification": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_relay": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_binding": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_paid_entitlement": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        }
+      },
+      "unresolved_issue": "目标应用/设备能力与类目/交易均待验证"
+    },
+    {
+      "environment_id": "ENV-ALIPAY-IOS",
+      "provider": "alipay",
+      "os": "ios",
+      "host_version": null,
+      "base_sdk_version": null,
+      "device": null,
+      "build": null,
+      "test_execution_status": "NOT_RUN",
+      "commercial_release_ready": false,
+      "capabilities": {
+        "platform_login": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "privacy_authorization": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "text_input": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "image_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "office_source_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "standard_file_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_upload": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "structured_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_document_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "actual_file_export": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_checkout": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "refund": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "notification": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_relay": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_binding": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_paid_entitlement": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        }
+      },
+      "unresolved_issue": "目标应用/设备能力与类目/交易均待验证"
+    },
+    {
+      "environment_id": "ENV-DOUYIN-ANDROID",
+      "provider": "douyin",
+      "os": "android",
+      "host_version": null,
+      "base_sdk_version": null,
+      "device": null,
+      "build": null,
+      "test_execution_status": "NOT_RUN",
+      "commercial_release_ready": false,
+      "capabilities": {
+        "platform_login": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "privacy_authorization": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "text_input": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "image_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "office_source_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "standard_file_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_upload": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "structured_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_document_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "actual_file_export": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_checkout": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "refund": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "notification": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_relay": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_binding": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_paid_entitlement": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        }
+      },
+      "unresolved_issue": "目标应用/设备能力与类目/交易均待验证"
+    },
+    {
+      "environment_id": "ENV-DOUYIN-IOS",
+      "provider": "douyin",
+      "os": "ios",
+      "host_version": null,
+      "base_sdk_version": null,
+      "device": null,
+      "build": null,
+      "test_execution_status": "NOT_RUN",
+      "commercial_release_ready": false,
+      "capabilities": {
+        "platform_login": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "privacy_authorization": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "text_input": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "image_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "office_source_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "standard_file_selection": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_upload": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "structured_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_document_preview": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "actual_file_export": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "native_checkout": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "refund": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "notification": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "file_relay": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_binding": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        },
+        "cross_platform_paid_entitlement": {
+          "enabled": false,
+          "device_test_status": "NOT_RUN",
+          "evidence_ids": [],
+          "reason": "未实施及未验证；不是实际运行配置"
+        }
+      },
+      "unresolved_issue": "目标应用/商品的iOS交易规则有官方冲突，未确认关闭收费"
+    }
+  ],
+  "release_gate_ids": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09",
+    "G10"
+  ],
+  "backend_trial_budget": {
+    "source_file_count": 10,
+    "single_source_bytes": 20000000,
+    "total_source_bytes": 50000000,
+    "template_bytes": 5000000,
+    "text_character_count": 50000,
+    "processing_units": 50,
+    "target_fields": 50,
+    "candidate_records": 1000
+  },
+  "budget_note": "设计预算按十进制MB换算字节，UI明确单位。不是宿主选择器/缓存能力，较小端侧限制先告知。"
+}

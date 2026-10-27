@@ -1,0 +1,887 @@
+{
+  "baseline": "v3.1",
+  "design_baseline": "P07-DS-B 1.0.0",
+  "status": "PAGE_REQUIREMENTS_NOT_IMPLEMENTED",
+  "pages": [
+    {
+      "page_id": "MP01",
+      "title": "整理首页",
+      "navigation_type": "root",
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F24",
+        "P07-F33",
+        "P07-F34"
+      ],
+      "section_order": [
+        "宿主标题",
+        "短标题/无模板说明",
+        "资料夹资料区",
+        "规范模式",
+        "可选用途",
+        "检查资料",
+        "底部四导航"
+      ],
+      "primary_action": "检查资料",
+      "required_states": [
+        "empty",
+        "draft",
+        "uploading",
+        "ready",
+        "permission-denied",
+        "offline"
+      ],
+      "specification": "优先放资料入口；已接收的合成3文件示例参照留存稿。实际首次进入为空状态，点资料夹进入来源添加。生成规范为正常入口，与我有规范同级。至少一项已收到可读来源才检查；不可读/超限就近提示。",
+      "rendered_reference": "reference/MP01-home.png",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "未登录可看合成演示；真实添加前登录/必要告知",
+      "visible_content": "资料队列、DISCOVER/PROVIDED、用途选填、保存状态",
+      "submit_guard": "至少一份已接收可读源；PROVIDED允许继续选择规范但正式确认前需明确",
+      "exception_behavior": "检查时先校资料/能力；空资料给禁用原因，切模式不删源",
+      "recovery": "回四根入口保留服务端已收草稿，正文不写普通缓存日志",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP02",
+      "title": "资料清单",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C19",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F03",
+        "P07-F25",
+        "P07-F34"
+      ],
+      "section_order": [
+        "资料数量/范围",
+        "逐文件状态",
+        "独立规范角色提示",
+        "添加/移除",
+        "继续检查"
+      ],
+      "primary_action": "继续检查",
+      "required_states": [
+        "queued",
+        "uploading",
+        "received",
+        "failed",
+        "unreadable",
+        "expired"
+      ],
+      "specification": "白底列表，不给每文件再加资料夹页签；已完成项保留，失效临时文件需重选。普通文档入口仅按能力开关显示。移除已冻结来源先说明范围影响；规范文件单列不当事实。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "本人任务草稿或冻结范围只读查看",
+      "visible_content": "文件角色/大小/类型/哈希摘要、逐项状态、排除原因",
+      "submit_guard": "只有草稿可移除/补入，冻结后显示新范围影响",
+      "exception_behavior": "同名不覆盖，不可读不得静默排除；重试只当前失败项",
+      "recovery": "临时路径失效重选，已有接收source_id不重传计量",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP03",
+      "title": "规范输入",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C22",
+        "B-C26",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F06",
+        "P07-F32",
+        "P07-F35",
+        "P07-F39"
+      ],
+      "section_order": [
+        "规范来源切换",
+        "规范版本/一行对象",
+        "字段与示例角色",
+        "必要澄清",
+        "使用规范"
+      ],
+      "primary_action": "使用此规范",
+      "required_states": [
+        "empty",
+        "loaded",
+        "ambiguous",
+        "editing",
+        "invalid",
+        "stale"
+      ],
+      "specification": "我的规范/获准上传/字段编辑三种来源。沿用B字段目录，不强迫逐列来源映射。带样例解释而非事实；未明确粒度/关键约束时澄清，不以付款默认同意。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "PROVIDED且有本人任务",
+      "visible_content": "上传/私有规范/手动字段、主表区域/样例/规则/row_kind",
+      "submit_guard": "表头/必需含义和粒度明确才使用",
+      "exception_behavior": "无模板可切DISCOVER，样例不变源；多目标表需明确当前主表",
+      "recovery": "返回保留已存草稿，键盘收起不当确认",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP04",
+      "title": "预检与报价",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F15",
+        "P07-F16",
+        "P07-F25",
+        "P07-F41"
+      ],
+      "section_order": [
+        "可读性与范围",
+        "排除/超限",
+        "规范模式与局部建议",
+        "报价/单位/预算",
+        "修订退款/交付摘要",
+        "确认开始"
+      ],
+      "primary_action": "确认并开始",
+      "required_states": [
+        "checking",
+        "ready",
+        "partial",
+        "unreadable",
+        "quote-expired",
+        "checkout-pending",
+        "unavailable"
+      ],
+      "specification": "一次只突出当前合法启动动作；获准交易用对应平台收银，免费许可标明免费。报价变更再确认；局部预检标范围；不可收费环境不引导外站付款。费用/保留/修订无需藏在长文本末端。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "预检完成、范围/主表/必要歧义明确",
+      "visible_content": "源/排除/局部建议、模式、原单位价、预算/窗口/交付/退款/数据政策",
+      "submit_guard": "contract版本一致、quote有效、当前SKU有合法支付或免费许可及可用交付",
+      "exception_behavior": "价格变化再确认；不可售不显示假收银；查到未决原单优先核对",
+      "recovery": "支付中断回MP16查原单，不自动再点支付",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP05",
+      "title": "处理进度",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C26",
+        "B-C28"
+      ],
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F29",
+        "P07-F30",
+        "P07-F37"
+      ],
+      "section_order": [
+        "任务名",
+        "实际阶段/范围",
+        "规范或内容待办",
+        "恢复说明",
+        "查看待办/任务列表"
+      ],
+      "primary_action": "查看待办（有待办时）",
+      "required_states": [
+        "queued",
+        "running",
+        "waiting-schema",
+        "failed",
+        "canceled",
+        "completed",
+        "offline"
+      ],
+      "specification": "用阶段列表和文本状态，普通处理中无强制主按钮，可离开。WAITING_SCHEMA指向MP06；需要补值指向MP09。系统错误提供恢复/帮助，不把手机退出当取消。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "本人已许可任务或其子执行",
+      "visible_content": "真实阶段/已读范围、预算、采用/审阅待办、取消与可离开说明",
+      "submit_guard": "仅服务端allowed_actions可点；运行正常无需强塞主按钮",
+      "exception_behavior": "没有可核百分比不用精确进度；取消需显示可能完成/退款待核",
+      "recovery": "后台停轮询；前台重取run/operation，服务端继续",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP06",
+      "title": "推荐规范",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C11",
+        "B-C12",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F29",
+        "P07-F30",
+        "P07-F31",
+        "P07-F35"
+      ],
+      "section_order": [
+        "一行对象/字段数/范围",
+        "字段目录示例",
+        "全部字段/重要未纳入",
+        "记录预览",
+        "调整/采用"
+      ],
+      "primary_action": "采用规范",
+      "required_states": [
+        "partial-draft",
+        "full-draft",
+        "editing",
+        "adopting",
+        "adopted",
+        "stale"
+      ],
+      "specification": "严格参照B三页中间图视觉；三字段只是9列示例，必有看全部入口。全范围草案可采用，局部只能查看/继续分析；显示未映射重要信息。采用前可调，绑定确切版本。",
+      "rendered_reference": "reference/MP06-schema.png",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "全范围草案或带局部标识的预览",
+      "visible_content": "row_kind、分组字段/全部9或更多字段、规则依据、范围/未映射、代表预览",
+      "submit_guard": "FULL且源/目标/提案版本相符才采用",
+      "exception_behavior": "局部采用禁用且解释；调整先预览影响，旧版409保留草稿",
+      "recovery": "离开回来重取proposal，不能以截图缓存代替当前版本",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP07",
+      "title": "字段编辑",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F30",
+        "P07-F35"
+      ],
+      "section_order": [
+        "当前字段分组/搜索",
+        "字段属性",
+        "增删/上移下移",
+        "修改说明与影响",
+        "预览修改"
+      ],
+      "primary_action": "预览修改",
+      "required_states": [
+        "editing",
+        "invalid",
+        "preview",
+        "saving",
+        "version-conflict"
+      ],
+      "specification": "字段多时分组折叠；规则和单位有可见标签。删列、粒度、单位、必填/键变化先看影响后保存；不按拖动唯一操作。不改变本地草稿直到明确保存。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "本人当前规范草稿/提案可编辑",
+      "visible_content": "名称/类型/必填可空/单位/顺序、规则理由、自然语言指令",
+      "submit_guard": "字段名唯一、规则不矛盾，关键变化已看影响才确认",
+      "exception_behavior": "上移/下移可替代拖拽；非法值内联；不默删列放宽验收",
+      "recovery": "未提交提示，冲突允许复制草稿/刷新比较，不覆盖新版",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP08",
+      "title": "结果概览",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C19",
+        "B-C29",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F18",
+        "P07-F23",
+        "P07-F36"
+      ],
+      "section_order": [
+        "执行/内容两种状态",
+        "规范版本/覆盖",
+        "总候选分类",
+        "记录卡/选列预览",
+        "待办/领取"
+      ],
+      "primary_action": "处理问题；无阻断或合同允许时领取结果",
+      "required_states": [
+        "passed",
+        "needs-review",
+        "blocked",
+        "filtered",
+        "empty",
+        "expired"
+      ],
+      "specification": "默认记录卡，3—5关键字段。总候选=通过+待补+移出仅为候选去向，不能当语义全召回。严格待补突出处理问题；允许的当前版本导出注明待补，不伪称已通过。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "存在已发布当前结果或只读历史版",
+      "visible_content": "候选三去向、问题数、质量/范围/规范、记录卡/选列筛选",
+      "submit_guard": "处理问题按当前version；领取需artifact READY且权益允许",
+      "exception_behavior": "执行成功不写全通过；问题数不与待核行数混用",
+      "recovery": "返回保留筛选/位置；版本变化刷新cursor，旧版明显只读",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP09",
+      "title": "问题列表",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C16",
+        "B-C19",
+        "B-C25",
+        "B-C29",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F23",
+        "P07-F27",
+        "P07-F36"
+      ],
+      "section_order": [
+        "问题分类/影响",
+        "筛选与搜索",
+        "问题记录",
+        "明确范围批量操作",
+        "处理下一项"
+      ],
+      "primary_action": "处理下一项（有待办时）",
+      "required_states": [
+        "missing",
+        "conflict",
+        "no-results",
+        "submitting",
+        "stale"
+      ],
+      "specification": "缺项/冲突区分文案。批量只对相同规则/语义，提交前看数量和例外，不能猜定全部冲突。返回MP08保留筛选及位置。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "当前结果存在Issue或明确空状态",
+      "visible_content": "缺项/冲突/不确定/规则问题组、影响行、搜索/筛选",
+      "submit_guard": "按指定问题/冻结同语义范围进入，不默认跨组批量",
+      "exception_behavior": "无问题显示完成当前审核；不同冲突不能猜定全部",
+      "recovery": "游标绑定版本，返列表定位保留，版本变更可理解",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP10",
+      "title": "记录问题详情",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F08",
+        "P07-F09",
+        "P07-F10",
+        "P07-F11",
+        "P07-F13",
+        "P07-F27",
+        "P07-F36"
+      ],
+      "section_order": [
+        "记录/问题摘要",
+        "字段值/状态",
+        "来源摘录",
+        "补值或保留",
+        "提交决定"
+      ],
+      "primary_action": "提交决定",
+      "required_states": [
+        "no-choice",
+        "fill-value",
+        "keep-unresolved",
+        "conflict",
+        "invalid",
+        "submitting",
+        "stale"
+      ],
+      "specification": "严格参照B右页视觉；交互初始不预选补价。补充单价展开数值和单位输入，未有效填写禁止提交；选择保留待补后可明确提交，但状态仍待补。人工值有来源，不能填0代未知。",
+      "rendered_reference": "reference/MP10-issue.png",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "本人当前记录与问题，可显示历史只读",
+      "visible_content": "关键字段/完整字段、raw/value/status、来源候选、无预选决定",
+      "submit_guard": "选依据必须合法；USER_VALUE需值/单位有效；KEEP_UNRESOLVED明确",
+      "exception_behavior": "补值展开输入，未有效禁提交；批量先看影响/例外；过期/旧版不能写",
+      "recovery": "超时查operation，不重复扣轮次；未提交决定留稿提示",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP11",
+      "title": "来源依据",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C17",
+        "B-C26",
+        "B-C30"
+      ],
+      "requirement_ids": [
+        "P07-F05",
+        "P07-F12",
+        "P07-F13",
+        "P07-F20",
+        "P07-F36"
+      ],
+      "section_order": [
+        "文件/页段定位",
+        "必要原文/页图",
+        "字段与转换/人工说明",
+        "返回记录"
+      ],
+      "primary_action": "无强制主CTA，保留返回",
+      "required_states": [
+        "loading",
+        "text",
+        "image",
+        "unreadable",
+        "expired",
+        "forbidden"
+      ],
+      "specification": "原文阅读区白底，局部命中用淡绿背景和边界，不整页染色。来源到期按实际剩余摘录说明；没有保留内容不伪造新原文。返回保持原记录/滚动位置。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "有证据访问权且内容未过期",
+      "visible_content": "文件/页/单元格/片段、原文与转换/人工链、到期",
+      "submit_guard": "按需授权页图/放大，返回记录上下文",
+      "exception_behavior": "原件410与仍有效摘录分开，不生成替代假原文",
+      "recovery": "返回同字段/问题位置；离页释放大图和请求",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP12",
+      "title": "结果领取",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F18",
+        "P07-F32",
+        "P07-F38",
+        "P07-F39"
+      ],
+      "section_order": [
+        "版本/验收与到期",
+        "结果Excel",
+        "空白规范/问题报告",
+        "更多六文件",
+        "另存我的规范"
+      ],
+      "primary_action": "领取结果Excel",
+      "required_states": [
+        "ready",
+        "fetching",
+        "cached",
+        "opened",
+        "export-requested",
+        "confirmed",
+        "failed",
+        "expired"
+      ],
+      "specification": "三个常用文件中仅结果Excel用强主色。次按钮领取空白规范、问题报告；更多固定六项。缓存/打开/实际导出分别写；失败不重跑收费；保存规范主动、去事实引用。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "已采用规范且产物完整READY/可领",
+      "visible_content": "结果Excel主动作、空规范/问题报告次级、其余6项、hash/版本/期限",
+      "submit_guard": "逐文件按权益/宿主能力发起，未确认实际保存不称系统已存",
+      "exception_behavior": "下载/缓存/预览/实际取用观察分开；失败重签不重跑收费",
+      "recovery": "回来保留导出观察但重核权益/TTL，用户确认不变平台回执",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP13",
+      "title": "任务列表",
+      "navigation_type": "root",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C20",
+        "B-C21",
+        "B-C26",
+        "B-C29"
+      ],
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F24",
+        "P07-F37"
+      ],
+      "section_order": [
+        "任务筛选/搜索",
+        "按服务端状态列任务",
+        "到期/待办",
+        "新建入口",
+        "四导航"
+      ],
+      "primary_action": "空列表新建整理；列表项继续任务",
+      "required_states": [
+        "empty",
+        "draft",
+        "pending-payment",
+        "running",
+        "waiting-schema",
+        "ready",
+        "failed",
+        "expired"
+      ],
+      "specification": "重点是继续到准确待办，不铺每任务绿色大按钮。返回前台更新服务端，不信过期本地状态；单任务修订保持同任务。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "登录后本人任务列表",
+      "visible_content": "草稿/未决订单/进行中/待采用/待补/可领/失败，期限与搜索",
+      "submit_guard": "点任务先查当前状态及归属，空列表可新建",
+      "exception_behavior": "不把每修订变新订单；过期内容保留必要订单售后入口",
+      "recovery": "滚动位置/筛选保留；能力或会话变化先刷新",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP14",
+      "title": "我的规范",
+      "navigation_type": "root",
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C12",
+        "B-C20",
+        "B-C22",
+        "B-C25",
+        "B-C26",
+        "B-C29"
+      ],
+      "requirement_ids": [
+        "P07-F32",
+        "P07-F39",
+        "P07-F40"
+      ],
+      "section_order": [
+        "私有规范/搜索",
+        "规范卡与版本",
+        "详情/复制/删除",
+        "复用入口",
+        "四导航"
+      ],
+      "primary_action": "用此规范整理（选中后）",
+      "required_states": [
+        "empty",
+        "saved",
+        "selected",
+        "new-version",
+        "deleted"
+      ],
+      "specification": "列表用资料目录语言，只有当前选择/详情有主动作；默认私有。删除确认范围，新版本不改旧任务。规范源事实已剔除但业务字段仍敏感，不提供默认公开分享。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "本人主动保存的私有规范",
+      "visible_content": "名称/字段数/版本/规则摘要/保存政策、复制/删除",
+      "submit_guard": "新任务引用明确版本；保存/新版本是显式动作",
+      "exception_behavior": "去事实/证据/访问引用；删模板不改旧任务绑定",
+      "recovery": "重进查当前列表，删除幂等，不把失败删除伪装成功",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP15",
+      "title": "我的",
+      "navigation_type": "root",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C20",
+        "B-C24",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F19",
+        "P07-F20",
+        "P07-F40"
+      ],
+      "section_order": [
+        "当前平台身份",
+        "订单/帮助",
+        "隐私与数据",
+        "可用能力说明",
+        "四导航"
+      ],
+      "primary_action": "无需全页主CTA",
+      "required_states": [
+        "anonymous",
+        "signed-in",
+        "session-expired",
+        "restricted"
+      ],
+      "specification": "无强制手机号/头像，导航清晰。未完成双向绑定和权益规则时不显示可用跨端绑定按钮，不按昵称合并。帮助入口在各页相同位置可找到。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "已登录或清楚的登录入口",
+      "visible_content": "当前平台身份、订单/隐私/帮助，绑定仅可用才显示",
+      "submit_guard": "无页面级强主动作；二级入口按权限",
+      "exception_behavior": "不强制手机号头像，不按同名合并；无跨端权益承诺",
+      "recovery": "会话失效验证原身份后回原任务，不串租户",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP16",
+      "title": "订单详情",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F16",
+        "P07-F19",
+        "P07-F40",
+        "P07-F41"
+      ],
+      "section_order": [
+        "原渠道订单/商品",
+        "金额或平台单位",
+        "支付/履约/退款",
+        "交付/服务期限",
+        "查询与售后"
+      ],
+      "primary_action": "未知时查询支付状态；已付按待办继续",
+      "required_states": [
+        "pending",
+        "unknown",
+        "paid",
+        "fulfilling",
+        "refund-processing",
+        "refunded",
+        "failed"
+      ],
+      "specification": "资金状态持久显示，未知不默认新付；退款申请与到账分开。保留原平台/app责任，受限OS不外跳收银；删除源不删除必要售后入口。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "本人原渠道订单及必要售后",
+      "visible_content": "原单位应付/实付、支付/履约/退款独立、通道与工单",
+      "submit_guard": "UNKNOWN先查询；退款按可退状态/原渠道请求",
+      "exception_behavior": "不把申请写到账；晚支付入账/原路退；未付不造退款",
+      "recovery": "重入查原单/退款，不调用新收银；明示查询时间",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP17",
+      "title": "隐私与数据管理",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C25",
+        "B-C26",
+        "B-C27"
+      ],
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F26",
+        "P07-F39",
+        "P07-F41"
+      ],
+      "section_order": [
+        "用途/处理方",
+        "分类保存期",
+        "按需权限",
+        "源/结果/私有规范",
+        "删除/注销"
+      ],
+      "primary_action": "按所选动作明确确认，无一键捆绑同意",
+      "required_states": [
+        "default",
+        "denied",
+        "granted",
+        "revoked",
+        "deletion-pending",
+        "failed"
+      ],
+      "specification": "数据类别和后果说清楚；删除任务不默认删已另存规范，允许另选；账号/账务与正文分离。危险删除用深红，保存/允许不是伪装默认选择。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "当前身份与数据管理权限",
+      "visible_content": "处理方/用途/分期内容、权限/通知、删除范围/注销影响",
+      "submit_guard": "危险动作二次确认准确对象及进行中履约/退款影响",
+      "exception_behavior": "隐私同意不捆支付/采用；撤访问与物理清理进度区分",
+      "recovery": "查看DeletionJob，失败/备份仍保留类别如实说明",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    },
+    {
+      "page_id": "MP18",
+      "title": "帮助与售后",
+      "navigation_type": "detail",
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27"
+      ],
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F20",
+        "P07-F41"
+      ],
+      "section_order": [
+        "常见问题",
+        "订单/任务摘要",
+        "问题说明/可选附件",
+        "内容访问授权",
+        "提交问题"
+      ],
+      "primary_action": "提交问题",
+      "required_states": [
+        "empty",
+        "editing",
+        "invalid",
+        "submitting",
+        "submitted",
+        "failed"
+      ],
+      "specification": "默认只带必要摘要，真实正文由用户主动附，客服内容访问另授权。具体错误和工单号持久可查，不以toast作为唯一成功凭据；平台售后入口按要求保留。",
+      "rendered_reference": null,
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "entry_precondition": "本人一般问题或订单工单",
+      "visible_content": "常见文件/规范/交付问题、最小任务摘要、正文访问可选授权",
+      "submit_guard": "正文/类别符合限制才提交；有订单指原单",
+      "exception_behavior": "不默认附全源；平台强制售后入口独立保留",
+      "recovery": "查同ticket/operation，断网不重复发工单",
+      "business_baseline": "v3.1",
+      "design_baseline": "P07-DS-B 1.0.0"
+    }
+  ]
+}

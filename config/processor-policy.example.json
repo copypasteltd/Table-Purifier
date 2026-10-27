@@ -1,0 +1,13 @@
+{
+  "policy_version": "REPLACE_WITH_REVIEWED_POLICY_VERSION",
+  "model_base_url": "https://api.openai.com/v1",
+  "processors": [
+    {
+      "name": "NOT_CONFIGURED",
+      "purpose": "NOT_CONFIGURED",
+      "region": "NOT_CONFIGURED",
+      "retention": "NOT_CONFIGURED",
+      "deletion_limitations": "NOT_CONFIGURED"
+    }
+  ]
+}

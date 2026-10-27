@@ -1,0 +1,3 @@
+<b-source-preview title="结果保留的来源依据" text="{{evidence.excerpt}}"><view class="small">资料单元：{{evidence.source_unit_id}}</view><view class="small">页或段序号：{{evidence.locator.page_or_ordinal}} · {{evidence.locator.path||'文字位置'}}</view></b-source-preview>
+<b-status title="原始资料已清理" text="本页展示结果包中保留的必要摘录与定位，不能继续打开完整原件。"/>
+<view p:for="{{evidence.limitations}}" p:key="*this" class="small">{{item}}</view>

@@ -1,0 +1,209 @@
+{
+  "baseline": "v3.2",
+  "rules": [
+    {
+      "id": "BR01",
+      "rule": "所有新处理任务先建独立Agent session并完整预载Skill，READY后才收信息；无模板进入DISCOVER",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F24",
+        "P07-F29"
+      ]
+    },
+    {
+      "id": "BR02",
+      "rule": "SOURCE与TARGET_TEMPLATE由角色决定，不按文件名猜；样例不进事实",
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F32"
+      ]
+    },
+    {
+      "id": "BR03",
+      "rule": "一任务一个主要结果表；行粒度明确，异粒度不强合",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F11",
+        "P07-F29"
+      ]
+    },
+    {
+      "id": "BR04",
+      "rule": "用户确认准确源/目标/规范/规则/策略/计划版本后冻结合同，之后才能估费；变更令旧确认与未付报价失效",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F15",
+        "P07-F25"
+      ]
+    },
+    {
+      "id": "BR05",
+      "rule": "付费前Agent完整分析拟处理范围、提出方案与最多5条代表预览；不生成正式批量包，初始化/分析限额由平台承担",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F29"
+      ]
+    },
+    {
+      "id": "BR06",
+      "rule": "PARTIAL草案不能正式采用；FULL说明全确认范围的处理与不可读项",
+      "requirement_ids": [
+        "P07-F30",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR07",
+      "rule": "PROVIDED与DISCOVER均在报价/付款前采用准确规范并确认执行方案；付款不代替确认",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F30"
+      ]
+    },
+    {
+      "id": "BR08",
+      "rule": "稀有重要字段保留或明示未纳入，样本不推出必填/唯一/封闭枚举",
+      "requirement_ids": [
+        "P07-F29",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR09",
+      "rule": "缺失为null+状态；缺价不补0，待议是业务原文而非数字",
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F10"
+      ]
+    },
+    {
+      "id": "BR10",
+      "rule": "默认/派生/人工值显式标记，不冒充提取事实；证据不可转移",
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F13"
+      ]
+    },
+    {
+      "id": "BR11",
+      "rule": "归并用批准稳定键；同名/同电话/重复文件不自动证明同一事件",
+      "requirement_ids": [
+        "P07-F08",
+        "P07-F11"
+      ]
+    },
+    {
+      "id": "BR12",
+      "rule": "每源单元有去向，每候选唯一去向；覆盖不是语义召回100%",
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR13",
+      "rule": "独立校验规则、事实/证据、规范合理性、重要信息覆盖",
+      "requirement_ids": [
+        "P07-F05",
+        "P07-F23",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR14",
+      "rule": "结果版本不可变；任务运行环境产出后销毁；修订新session完整预载、确认、估费、核实实付权益后新child Run",
+      "requirement_ids": [
+        "P07-F13",
+        "P07-F17",
+        "P07-F27"
+      ]
+    },
+    {
+      "id": "BR15",
+      "rule": "初始无问题决定；补值有效才提交；保留待补不等于通过",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F27",
+        "P07-F36"
+      ]
+    },
+    {
+      "id": "BR16",
+      "rule": "相同幂等请求返回原动作，旧版本写409；网络未知先查",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F17",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "BR17",
+      "rule": "Run、schema、quality、artifact、payment、refund、fulfillment、export独立",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F16",
+        "P07-F18"
+      ]
+    },
+    {
+      "id": "BR18",
+      "rule": "客户端success/UNKNOWN不放行生产；只有服务端确认原渠道实付且plan hash匹配才启动批量，正常消费者无FREE绕过",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F40"
+      ]
+    },
+    {
+      "id": "BR19",
+      "rule": "超限不截断、不隐性加费；平台漏读/错误为纠错，不扣用户轮次",
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F25",
+        "P07-F27"
+      ]
+    },
+    {
+      "id": "BR20",
+      "rule": "0候选不收费/已付全退；严格/尽力政策事前选择不事后降级",
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F19"
+      ]
+    },
+    {
+      "id": "BR21",
+      "rule": "九文件独立可靠保存/回读并原子发布后，释放Agent并销毁运行环境；结果不随环境清理，设备缓存不代表导出",
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F38"
+      ]
+    },
+    {
+      "id": "BR22",
+      "rule": "私有规范主动另存去事实/证据/访问引用，独立授权与到期",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F32",
+        "P07-F39"
+      ]
+    },
+    {
+      "id": "BR23",
+      "rule": "未获准平台/SKU/OS能力关闭；不借Web/其他端引导绕收费",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F40",
+        "P07-F41"
+      ]
+    },
+    {
+      "id": "BR24",
+      "rule": "销毁整个流程container包括输入/上下文/代码/中间物/临时/正文日志及受控副本；保留独立结果、私有规范与最小订单/清理凭据",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F19",
+        "P07-F20"
+      ]
+    }
+  ]
+}

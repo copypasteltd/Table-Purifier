@@ -1,0 +1,180 @@
+{
+  "fixture_version": "p07-mixed-sources/2.0",
+  "design_only": true,
+  "synthetic": true,
+  "goal": "按活动报名规范汇总名单，一行一个报名编号；示例行不是报名数据。",
+  "standard_ref": "../templates/standard.example.v2.json",
+  "source_note": "以下为模拟用户资料片段；未创建真实Word或图片，也未运行OCR。",
+  "sources": [
+    {
+      "source_id": "s1",
+      "role": "SOURCE",
+      "kind": "PASTED_TEXT",
+      "units": [
+        {
+          "unit_id": "u1",
+          "location": "第1段",
+          "excerpt": "R-001，林安，青禾工作室，线下，素食。"
+        },
+        {
+          "unit_id": "u2",
+          "location": "第2段",
+          "excerpt": "R-002，周宁，云杉设计，线上参加。"
+        }
+      ]
+    },
+    {
+      "source_id": "s2",
+      "role": "SOURCE",
+      "kind": "DOCX_EXCERPT_DESIGN",
+      "filename": "补充名单.docx（模拟）",
+      "units": [
+        {
+          "unit_id": "u3",
+          "location": "表1第2行",
+          "excerpt": "报名编号：R-002；姓名：周宁；单位：云杉设计；参加形式：线下。"
+        },
+        {
+          "unit_id": "u4",
+          "location": "表1第3行",
+          "excerpt": "报名编号：R-003；姓名：陈禾；参加形式：线上。"
+        }
+      ]
+    },
+    {
+      "source_id": "s3",
+      "role": "SOURCE",
+      "kind": "IMAGE_OCR_EXCERPT_DESIGN",
+      "filename": "饮食补充.png（模拟）",
+      "units": [
+        {
+          "unit_id": "u5",
+          "location": "第1张图正文区域",
+          "excerpt": "R-002 周宁：素食。"
+        }
+      ]
+    }
+  ],
+  "expected": {
+    "quality_status": "NEEDS_REVIEW",
+    "counts": {
+      "candidates": 3,
+      "accepted": 1,
+      "needs_review": 2,
+      "excluded": 0
+    },
+    "rows": [
+      {
+        "entity_id": "e1",
+        "disposition": "ACCEPTED",
+        "values": {
+          "registration_id": "R-001",
+          "name": "林安",
+          "organization": "青禾工作室",
+          "attendance": "线下",
+          "dietary": "素食"
+        },
+        "source_unit_ids": [
+          "u1"
+        ]
+      },
+      {
+        "entity_id": "e2",
+        "disposition": "NEEDS_REVIEW",
+        "values": {
+          "registration_id": "R-002",
+          "name": "周宁",
+          "organization": "云杉设计",
+          "attendance": null,
+          "dietary": "素食"
+        },
+        "source_unit_ids": [
+          "u2",
+          "u3",
+          "u5"
+        ],
+        "issues": [
+          "i1"
+        ]
+      },
+      {
+        "entity_id": "e3",
+        "disposition": "NEEDS_REVIEW",
+        "values": {
+          "registration_id": "R-003",
+          "name": "陈禾",
+          "organization": null,
+          "attendance": "线上",
+          "dietary": null
+        },
+        "source_unit_ids": [
+          "u4"
+        ],
+        "issues": [
+          "i2"
+        ]
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "i1",
+        "entity_id": "e2",
+        "field_id": "attendance",
+        "status": "CONFLICT",
+        "choices": [
+          {
+            "normalized_value": "线上",
+            "source_unit_id": "u2",
+            "raw_value": "线上参加"
+          },
+          {
+            "normalized_value": "线下",
+            "source_unit_id": "u3",
+            "raw_value": "线下"
+          }
+        ],
+        "action": "用户选来源或补充真实信息；不按上传先后默认判断"
+      },
+      {
+        "issue_id": "i2",
+        "entity_id": "e3",
+        "field_id": "organization",
+        "status": "MISSING",
+        "choices": [],
+        "action": "用户补单位或保留待补充；不能从姓名猜单位"
+      }
+    ],
+    "optional_missing": [
+      {
+        "entity_id": "e3",
+        "field_id": "dietary",
+        "status": "MISSING",
+        "blocks_acceptance": false
+      }
+    ],
+    "source_usage": [
+      {
+        "unit_id": "u1",
+        "status": "USED"
+      },
+      {
+        "unit_id": "u2",
+        "status": "USED"
+      },
+      {
+        "unit_id": "u3",
+        "status": "USED"
+      },
+      {
+        "unit_id": "u4",
+        "status": "USED"
+      },
+      {
+        "unit_id": "u5",
+        "status": "USED"
+      }
+    ],
+    "template_example_is_not_a_record": "R-999不得出现在候选或导出行中",
+    "not_a_measured_result": "这些是人工编写的预期行为，不是软件运行、OCR质量或支付验收证据。"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-27T07:44:26.282136+00:00",
+  "provider_route": "sub2-image-gen skill CLI",
+  "model": "gpt-image-2.5",
+  "product_implementation_status": "NOT_IMPLEMENTED",
+  "results": [
+    {
+      "id": "B",
+      "status": "GENERATED",
+      "exit_code": 0,
+      "elapsed_seconds": 84.0,
+      "file": "E:\\dev\\sandbox\\支付宝黑客松\\表格修复站\\output\\imagegen\\miniapp-style-selection-2026-10-27\\B-jade-folders.png",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    }
+  ]
+}

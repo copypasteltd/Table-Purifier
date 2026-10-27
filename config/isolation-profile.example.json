@@ -1,0 +1,14 @@
+{
+  "protocol": "P07-NATIVE-1",
+  "id": "ubuntu-22-04-native-v1",
+  "launcher": "/absolute/project/runtime/bin/p07-isolate",
+  "launcher_sha256": "REPLACE_WITH_ACTUAL_SHA256",
+  "codex": "/absolute/project/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex",
+  "codex_sha256": "REPLACE_WITH_ACTUAL_SHA256",
+  "python": "/absolute/project/runtime/python-tools/bin/python3",
+  "read_only_roots": ["/usr/bin", "/usr/lib", "/etc/ld.so.cache", "/etc/ssl/certs", "/etc/resolv.conf", "/etc/hosts", "/usr/share/tesseract-ocr"],
+  "cgroup_root": "/sys/fs/cgroup/REPLACE_WITH_PREDELEGATED_P07_DIRECTORY",
+  "memory_bytes": 2147483648,
+  "process_limit": 64,
+  "cpu_quota_percent": 100
+}

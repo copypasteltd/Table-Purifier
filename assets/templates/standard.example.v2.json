@@ -1,0 +1,89 @@
+{
+  "schema_version": "p07-standard/2.0",
+  "design_only": true,
+  "standard_id": "demo-registration-v1",
+  "title": "活动报名规范（合成演示）",
+  "record_kind": "一行代表一个报名编号对应的一次报名",
+  "identity_keys": [
+    "registration_id"
+  ],
+  "fields": [
+    {
+      "field_id": "registration_id",
+      "label": "报名编号",
+      "order": 1,
+      "type": "string",
+      "required": true,
+      "nullable": false,
+      "pattern": "^R-[0-9]{3}$",
+      "description": "合成报名编号，作为跨资料归并键"
+    },
+    {
+      "field_id": "name",
+      "label": "姓名",
+      "order": 2,
+      "type": "string",
+      "required": true,
+      "nullable": false
+    },
+    {
+      "field_id": "organization",
+      "label": "单位",
+      "order": 3,
+      "type": "string",
+      "required": true,
+      "nullable": false
+    },
+    {
+      "field_id": "attendance",
+      "label": "参加形式",
+      "order": 4,
+      "type": "string",
+      "required": true,
+      "nullable": false,
+      "enum": [
+        "线上",
+        "线下"
+      ]
+    },
+    {
+      "field_id": "dietary",
+      "label": "饮食偏好",
+      "order": 5,
+      "type": "string",
+      "required": false,
+      "nullable": true,
+      "enum": [
+        "素食",
+        "无特殊要求"
+      ]
+    }
+  ],
+  "normalization_rules": [
+    {
+      "field_id": "attendance",
+      "from": "线上参加",
+      "to": "线上",
+      "approval": "合成示例中假设用户已确认的同义规则"
+    }
+  ],
+  "defaults": {},
+  "sample_rows_role": "SCHEMA_EXAMPLE_ONLY",
+  "sample_rows": [
+    {
+      "registration_id": "R-999",
+      "name": "张例",
+      "organization": "模板示例公司",
+      "attendance": "线下",
+      "dietary": "无特殊要求"
+    }
+  ],
+  "acceptance": {
+    "required_fields_present": true,
+    "enum_values_valid": true,
+    "identity_keys_unique": true,
+    "unresolved_required_conflicts": 0,
+    "source_evidence_or_explicit_user_input": true
+  },
+  "notes": "这是规范编译后的设计示例，不要求用户编写JSON；不代表解析器或验收器已实现。"
+}

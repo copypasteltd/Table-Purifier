@@ -1,0 +1,30 @@
+{
+  "reason": "Original business manifest and root navigation preserved before adding development entry. Business semantic docs and frozen B unchanged.",
+  "date": "2026-10-27",
+  "files": [
+    {
+      "project_path": "README.md",
+      "archive_path": "README.md",
+      "bytes": 8025,
+      "sha256": "48928aaf3ce01c20b15eebdd229ebfefd0cedebea2db502a146b8475afa438f0"
+    },
+    {
+      "project_path": "AGENTS.md",
+      "archive_path": "AGENTS.md",
+      "bytes": 3425,
+      "sha256": "87d94b96aa33718955d349fa18568add4c1e8403ac8f52b47b839c1f0feda154"
+    },
+    {
+      "project_path": "assets/requirements/baseline.v3.1.json",
+      "archive_path": "baseline.v3.1.json",
+      "bytes": 8257,
+      "sha256": "6487e5c73435fa567a861deda4f171f2429880a71184da1f39468c9971555b76"
+    },
+    {
+      "project_path": "assets/requirements/active.json",
+      "archive_path": "active.json",
+      "bytes": 577,
+      "sha256": "839be4f78755460af48dab8b99beac9f3468517de254d5f0603ad7bb1504db6a"
+    }
+  ]
+}

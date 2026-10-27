@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/MP01/index",
+    "pages/MP02/index",
+    "pages/MP03/index",
+    "pages/MP04/index",
+    "pages/MP05/index",
+    "pages/MP06/index",
+    "pages/MP07/index",
+    "pages/MP08/index",
+    "pages/MP09/index",
+    "pages/MP10/index",
+    "pages/MP11/index",
+    "pages/MP12/index",
+    "pages/MP13/index",
+    "pages/MP14/index",
+    "pages/MP15/index",
+    "pages/MP16/index",
+    "pages/MP17/index",
+    "pages/MP18/index"
+  ],
+  "window": {
+    "defaultTitle": "表格修复站",
+    "titleBarColor": "#EAF1EE",
+    "backgroundColor": "#EAF1EE"
+  }
+}

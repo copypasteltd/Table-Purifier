@@ -1,0 +1,5 @@
+<view class="hero">我的资料，<view>有清楚的去向。</view></view>
+<b-status title="当前平台账号" text="按当前支付宝或抖音身份访问自己的资料，不要求头像或手机号。"/>
+<b-heading title="订单与售后"/><b-order p:for="{{orders}}" p:key="order_id" title="资料成表服务" text="{{item.amount.amount_minor}} {{item.amount.amount_unit==='CNY_FEN'?'人民币分':'抖音钻石'}}"><button class="button" data-action="view-order" data-id="{{item.order_id}}" onTap="onAction">查看原订单</button></b-order>
+<button p:if="{{nextCursor}}" class="button" data-action="load-more" onTap="onAction" disabled="{{loading}}">加载下一页订单</button>
+<button class="button" data-action="go-MP17" onTap="onAction">隐私与数据管理</button><button class="button" data-action="go-MP18" onTap="onAction">帮助与售后</button>

@@ -1,0 +1,7 @@
+<b-heading title="提供你的规范"/>
+<view class="muted">规范规定字段、类型、单位和规则。示例数据不会被当作本次事实。</view>
+<button class="button" data-action="add-template" onTap="onAction" disabled="{{loading||!ready||!capability.flags.template_input||!canChooseOffice}}">上传规范文件</button>
+<button class="button" data-action="go-MP14" onTap="onAction">从我的规范选择</button>
+<b-field p:for="{{fields}}" p:key="field_id" title="{{item.label}}" text="{{item.type}}"><view class="small">{{item.required?'必填':'非必填'}} · {{item.nullable?'可空':'不可空'}} · {{item.unit||'无单位'}}</view><view>{{item.description}}</view></b-field>
+<b-feedback p:if="{{!fields.length}}" title="还没有规范" text="可以回到首页选择“帮我生成规范”，先分析实际资料。"/>
+<button class="button" data-action="analyze" onTap="onAction" disabled="{{loading||!ready}}">使用规范并分析资料</button>

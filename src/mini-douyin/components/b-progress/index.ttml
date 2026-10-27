@@ -1,0 +1,1 @@
+<view class="section"><view class="badge">{{title}}</view><view class="spaced">{{text}}</view><slot/></view>

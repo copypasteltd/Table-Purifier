@@ -1,0 +1,16 @@
+test_archive_path_and_expansion_bombs_are_refused (test_read_document.DocumentReaderTests.test_archive_path_and_expansion_bombs_are_refused) ... ok
+test_blank_pdf_is_not_claimed_readable (test_read_document.DocumentReaderTests.test_blank_pdf_is_not_claimed_readable) ... ok
+test_csv_quoted_multiline_leading_zero_and_formula_remain_data (test_read_document.DocumentReaderTests.test_csv_quoted_multiline_leading_zero_and_formula_remain_data) ... ok
+test_docx_reads_body_and_footer_without_running_embedded_instructions (test_read_document.DocumentReaderTests.test_docx_reads_body_and_footer_without_running_embedded_instructions) ... ok
+test_encrypted_pdf_is_rejected (test_read_document.DocumentReaderTests.test_encrypted_pdf_is_rejected) ... ok
+test_excess_units_refused_without_silent_truncation (test_read_document.DocumentReaderTests.test_excess_units_refused_without_silent_truncation) ... ok
+test_image_requires_explicit_ocr (test_read_document.DocumentReaderTests.test_image_requires_explicit_ocr) ... ok
+test_multilingual_text_preserves_codepoints_and_full_scope (test_read_document.DocumentReaderTests.test_multilingual_text_preserves_codepoints_and_full_scope) ... ok
+test_standard_excel_protocol_preserves_complete_rules_and_rejects_tampered_hash (test_read_document.DocumentReaderTests.test_standard_excel_protocol_preserves_complete_rules_and_rejects_tampered_hash) ... ok
+test_xlsx_includes_hidden_sheet_and_formula_cached_text (test_read_document.DocumentReaderTests.test_xlsx_includes_hidden_sheet_and_formula_cached_text) ... ok
+test_xml_external_entities_forbidden (test_read_document.DocumentReaderTests.test_xml_external_entities_forbidden) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.523s
+
+OK

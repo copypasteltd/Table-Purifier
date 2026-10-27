@@ -1,0 +1,121 @@
+{
+  "checked_at": "2026-10-27T22:06:41.969046+00:00",
+  "scope": "Source, native PostgreSQL fixtures, Python tools, documentation and synthetic media; no deployment or live platform/model acceptance.",
+  "checks": {
+    "typescript_tests": {
+      "files": 12,
+      "passed": 83
+    },
+    "python_tools": {
+      "passed": 11
+    },
+    "clean_npm_ci": "PASS, default lifecycle scripts enabled, offline cache, 378 packages installed",
+    "clean_typecheck": "PASS",
+    "clean_build": "PASS",
+    "clean_miniapps": {
+      "alipay_pages": 18,
+      "douyin_pages": 18,
+      "components_per_provider": 32,
+      "status": "SOURCE_BUILT_NOT_DEVICE_VERIFIED"
+    },
+    "clean_static_baseline": {
+      "passed": 2368,
+      "failed": 0,
+      "legacy_design_zip": "Optional historical packaging output; every source-design check retained."
+    },
+    "production_dependency_audit": {
+      "vulnerabilities": 0
+    },
+    "source_package": "PASS; rebuilt and checked again after final documentation updates",
+    "static_baseline": {
+      "passed": 2370,
+      "failed": 0
+    },
+    "repository_documents": {
+      "passed": 560,
+      "failed": 0,
+      "links": 164,
+      "media_files": 43
+    }
+  },
+  "media": {
+    "page_screenshots": 36,
+    "desktop_screenshots": 2,
+    "files": 43,
+    "mp4_seconds": 47.92,
+    "workflow_gif_seconds": 26.4,
+    "evidence_gif_seconds": 7.01
+  },
+  "not_run": [
+    "Live dedicated Codex",
+    "Real platform identity/payment/refund",
+    "Native Alipay/Douyin iOS/Android devices",
+    "Native Ubuntu isolation and cleanup"
+  ],
+  "constraints": {
+    "deployment": false,
+    "docker_wsl_vm": false
+  },
+  "evidence": [
+    {
+      "path": "docs/实施/验证记录/repository-npm-check-2026-10-28.txt",
+      "bytes": 1771,
+      "sha256": "cc332b21f24b5f7e6a3f012d6648e349dae1d44a88e9ad45bffb50a61297666b"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-miniapps-2026-10-28.txt",
+      "bytes": 359,
+      "sha256": "4b5dfa766a68cb80d17314a1c4b40a55344c45c6b099484a780294215e6574e8"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-python-tools-2026-10-28.txt",
+      "bytes": 1783,
+      "sha256": "c6cf0d53d562604376d4bb5c70aa87db0a2d3fe633f583a6b4821eadf2c14aee"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-clean-install-2026-10-28.txt",
+      "bytes": 1441,
+      "sha256": "11eecb49f4b8544fce572dff1bf89566b4bc92a71853c14fc10533dabd84c704"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-clean-build-2026-10-28.txt",
+      "bytes": 483,
+      "sha256": "99d50416f2ee268664defe074ce4619489d299b1ec14cfc7a80e67f0d4d84a57"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-clean-docs-2026-10-28.txt",
+      "bytes": 374,
+      "sha256": "0c268b5dd42a597f7b1b09832bd63adf90a1cfa175b1ef61e29ee60bf1a64cbb"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-clean-baseline-2026-10-28.json",
+      "bytes": 1072,
+      "sha256": "f0af6a7e24d34ba0a9c6289493397f4a4897e4a3c504f92c38a624bb9bc1668b"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-production-audit-2026-10-28.json",
+      "bytes": 388,
+      "sha256": "5e6ebda99e60d16286019141a1498d636a7e6105153e459bb78dadc75c9e448c"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-baseline-2026-10-28.json",
+      "bytes": 1072,
+      "sha256": "4e8188aeb366214750d7f228cce84e1a06d033bbc2b9afcfd9a29b6f05acc58a"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-docs-2026-10-28.json",
+      "bytes": 288,
+      "sha256": "a78800f0219ebc8afb9f5feb1fb468a27462facd1205972fe39442e5d8d12403"
+    },
+    {
+      "path": "docs/实施/验证记录/repository-resources-2026-10-28.json",
+      "bytes": 60,
+      "sha256": "57411810346fed303fa7a9b759c4a8b63803056159f2e550d505f25674db970d"
+    }
+  ],
+  "repository": "git@github.com:copypasteltd/Table-Purifier.git",
+  "status": "PASS",
+  "resources": {
+    "task_owned_browser_database_encoder_processes": 0
+  }
+}

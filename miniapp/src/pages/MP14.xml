@@ -1,0 +1,5 @@
+<b-heading title="我的规范"/>
+<b-filter title="查找私有规范"><input value="{{name}}" data-field="name" onInput="onInput" maxlength="200" placeholder="按规范名称搜索"/><button class="button" data-action="refresh" onTap="onAction">查找规范</button></b-filter>
+<b-feedback p:if="{{!templates.length}}" title="还没有保存的规范" text="整理完成后，可将确认过的字段和规则另存于此。"/>
+<b-template p:for="{{templates}}" p:key="template_id" title="{{item.name}}" text="版本 {{item.version}} · {{item.schema.fields.length}} 个字段"><button class="button" data-action="use-template" data-id="{{item.template_id}}" onTap="onAction">用此规范整理</button><button class="button" data-action="edit-template" data-id="{{item.template_id}}" onTap="onAction">编辑并另存新版本</button><button class="button danger" data-action="delete-template" data-id="{{item.template_id}}" onTap="onAction">停止以后复用此规范</button></b-template>
+<button p:if="{{nextCursor}}" class="button" data-action="load-more" onTap="onAction" disabled="{{loading}}">加载下一页规范</button>

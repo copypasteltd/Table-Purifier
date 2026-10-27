@@ -1,0 +1,1 @@
+<view class="folder"><view class="folder-tab">{{title}}</view><slot/></view>

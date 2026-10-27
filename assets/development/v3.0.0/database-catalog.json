@@ -1,0 +1,6226 @@
+{
+  "development_baseline": "P07-DEV 3.0.0",
+  "postgresql_major": 18,
+  "status": "REFERENCE_NOT_EXECUTED",
+  "rls_status": "REQUIRED_IN_REVIEWED_MIGRATIONS_NOT_INCLUDED",
+  "tables": [
+    {
+      "name": "accounts",
+      "purpose": "隔离账户，不按昵称/手机号跨端合并",
+      "owner_scoped": false,
+      "retention_category": "ACCOUNT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK (status IN ('ACTIVE','DELETION_PENDING','CLOSED'))"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [],
+      "checks": [],
+      "unique": [],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "platform_identities",
+      "purpose": "真实平台身份映射",
+      "owner_scoped": true,
+      "retention_category": "ACCOUNT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL CHECK (provider IN ('ALIPAY','DOUYIN'))"
+        },
+        {
+          "name": "app_alias",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "subject_cipher_ref",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "subject_hash",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "verified_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "provider",
+          "app_alias",
+          "subject_hash"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "sessions",
+      "purpose": "可撤销会话，只存token摘要",
+      "owner_scoped": true,
+      "retention_category": "AUTH",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "identity_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "token_hash",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "revoked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "identity_id"
+          ],
+          "table": "platform_identities",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "token_hash"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "tasks",
+      "purpose": "草稿与当前工作区指针",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "mode",
+          "sql": "text NOT NULL CHECK (mode IN ('PROVIDED','DISCOVER'))"
+        },
+        {
+          "name": "goal",
+          "sql": "text"
+        },
+        {
+          "name": "goal_version",
+          "sql": "bigint NOT NULL DEFAULT 1"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "epoch",
+          "sql": "bigint NOT NULL DEFAULT 1"
+        },
+        {
+          "name": "current_source_set_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "current_run_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "current_result_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "updated_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "deleted_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "agent_session_id",
+          "sql": "uuid NOT NULL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "current_source_set_id"
+          ],
+          "table": "source_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "current_run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "current_result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "agent_session_id"
+          ],
+          "table": "agent_sessions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [
+        "CREATE INDEX tasks_owner_recent ON p07.tasks(owner_id, updated_at DESC, id DESC)"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "source_files",
+      "purpose": "原件与直接文本受控对象",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "role",
+          "sql": "text NOT NULL CHECK (role IN ('SOURCE','TEMPLATE'))"
+        },
+        {
+          "name": "kind",
+          "sql": "text NOT NULL CHECK (kind IN ('FILE','TEXT'))"
+        },
+        {
+          "name": "display_name",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "media_type",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "byte_count",
+          "sql": "bigint NOT NULL CHECK (byte_count >= 0)"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "object_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "duplicate_of",
+          "sql": "uuid"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "deleted_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "duplicate_of"
+          ],
+          "table": "source_files",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "status IN ('RECEIVED', 'VALIDATING', 'READABLE', 'PARTIAL', 'UNREADABLE', 'EXCLUDED', 'EXPIRED', 'DELETED')",
+        "content_sha256 ~ '^[0-9a-f]{64}$'"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "object_key"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "upload_sessions",
+      "purpose": "逐文件一次用途许可及接收状态",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "role",
+          "sql": "text NOT NULL CHECK (role IN ('SOURCE','TEMPLATE'))"
+        },
+        {
+          "name": "expected_bytes",
+          "sql": "bigint NOT NULL CHECK(expected_bytes > 0)"
+        },
+        {
+          "name": "expected_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "expected_mime",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "display_name",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "token_hash",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('ISSUED','RECEIVING','RECEIVED','COMPLETED','FAILED','EXPIRED'))"
+        },
+        {
+          "name": "source_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "received_object_key",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_id"
+          ],
+          "table": "source_files",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "token_hash"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "task_source_links",
+      "purpose": "草稿资料队列，规范角色分开",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "role",
+          "sql": "text NOT NULL CHECK(role IN ('SOURCE','TEMPLATE'))"
+        },
+        {
+          "name": "ordinal",
+          "sql": "integer NOT NULL CHECK(ordinal >= 0)"
+        },
+        {
+          "name": "removed_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_id"
+          ],
+          "table": "source_files",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "task_id",
+          "source_id",
+          "role"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "source_sets",
+      "purpose": "不可变来源集版本",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "unitizer_version",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "scope_summary",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "task_id",
+          "version"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "source_set_items",
+      "purpose": "冻结来源/排除及实测摘要",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_set_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "role",
+          "sql": "text NOT NULL CHECK(role IN ('SOURCE','TEMPLATE'))"
+        },
+        {
+          "name": "ordinal",
+          "sql": "integer NOT NULL"
+        },
+        {
+          "name": "included",
+          "sql": "boolean NOT NULL"
+        },
+        {
+          "name": "exclusion_reason",
+          "sql": "text"
+        },
+        {
+          "name": "source_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "scope",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_set_id"
+          ],
+          "table": "source_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_id"
+          ],
+          "table": "source_files",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "included OR exclusion_reason IS NOT NULL"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "source_set_id",
+          "source_id",
+          "role"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "preflights",
+      "purpose": "付费前全范围Agent分析；旧表名兼容，非最多3单元局部预检",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_set_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "goal_version",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('PENDING','RUNNING','SUCCEEDED','FAILED'))"
+        },
+        {
+          "name": "semantic_units_used",
+          "sql": "integer NOT NULL DEFAULT 0 CHECK(semantic_units_used BETWEEN 0 AND 50)"
+        },
+        {
+          "name": "report",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "agent_session_id",
+          "sql": "uuid NOT NULL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_set_id"
+          ],
+          "table": "source_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "agent_session_id"
+          ],
+          "table": "agent_sessions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "processing_contracts",
+      "purpose": "不可变确认范围/预算/政策",
+      "owner_scoped": true,
+      "retention_category": "CONTRACT_MINIMAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "source_set_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "goal_version",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "mode",
+          "sql": "text NOT NULL CHECK(mode IN ('PROVIDED','DISCOVER'))"
+        },
+        {
+          "name": "schema_binding_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "contract_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "policy_snapshot",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "budget_snapshot",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "confirmed_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "confirmed_plan_id",
+          "sql": "uuid NOT NULL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_set_id"
+          ],
+          "table": "source_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "schema_binding_id"
+          ],
+          "table": "schema_bindings",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "confirmed_plan_id"
+          ],
+          "table": "execution_plans",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "contract_sha256"
+        ],
+        [
+          "task_id",
+          "version"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "quotes",
+      "purpose": "原单位不可变报价",
+      "owner_scoped": true,
+      "retention_category": "FINANCIAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "contract_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "app_alias",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "os",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "sku_id",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "amount_minor",
+          "sql": "bigint NOT NULL CHECK(amount_minor >= 0)"
+        },
+        {
+          "name": "amount_unit",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "capability_version",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "policy_snapshot",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "quote_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "contract_id"
+          ],
+          "table": "processing_contracts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "orders",
+      "purpose": "原渠道订单，三轴分开",
+      "owner_scoped": true,
+      "retention_category": "FINANCIAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "contract_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "quote_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "app_alias",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "sku_id",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "amount_minor",
+          "sql": "bigint NOT NULL CHECK(amount_minor >= 0)"
+        },
+        {
+          "name": "amount_unit",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "payment_status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "refund_status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "fulfillment_status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "refunded_minor",
+          "sql": "bigint NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "refund_reserved_minor",
+          "sql": "bigint NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "updated_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "contract_id"
+          ],
+          "table": "processing_contracts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "quote_id"
+          ],
+          "table": "quotes",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "payment_status IN ('NOT_REQUIRED', 'NOT_CREATED', 'PENDING', 'CONFIRMED', 'FAILED', 'CLOSED', 'UNKNOWN')",
+        "refund_status IN ('NONE', 'REQUESTED', 'PROCESSING', 'SUCCEEDED', 'FAILED', 'UNKNOWN')",
+        "fulfillment_status IN ('NOT_STARTED', 'IN_PROGRESS', 'DELIVERABLE', 'DELIVERED', 'FAILED', 'CANCELED')",
+        "refunded_minor >= 0 AND refund_reserved_minor >= 0 AND refunded_minor + refund_reserved_minor <= amount_minor"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "contract_id"
+        ]
+      ],
+      "indexes": [
+        "CREATE INDEX orders_owner_recent ON p07.orders(owner_id, updated_at DESC, id DESC)"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "payment_attempts",
+      "purpose": "同商户引用查回原单",
+      "owner_scoped": true,
+      "retention_category": "FINANCIAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "order_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "merchant_reference",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "provider_order_ref",
+          "sql": "text"
+        },
+        {
+          "name": "state",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "request_object_ref",
+          "sql": "text"
+        },
+        {
+          "name": "last_checked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "order_id"
+          ],
+          "table": "orders",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "provider",
+          "merchant_reference"
+        ],
+        [
+          "provider",
+          "provider_order_ref"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "platform_events",
+      "purpose": "原始验签交易事件去重",
+      "owner_scoped": true,
+      "retention_category": "FINANCIAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "provider_event_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "order_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "event_kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "raw_object_ref",
+          "sql": "text"
+        },
+        {
+          "name": "verified_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "event_summary",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "processed_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "order_id"
+          ],
+          "table": "orders",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "provider",
+          "provider_event_key"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "payment_ledger",
+      "purpose": "不可变支付/退款事实，原单位",
+      "owner_scoped": true,
+      "retention_category": "FINANCIAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "order_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "provider_fact_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "kind",
+          "sql": "text NOT NULL CHECK(kind IN ('PAYMENT','REFUND','FEE','ADJUSTMENT'))"
+        },
+        {
+          "name": "amount_minor",
+          "sql": "bigint NOT NULL CHECK(amount_minor >= 0)"
+        },
+        {
+          "name": "amount_unit",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "fact_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "event_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "order_id"
+          ],
+          "table": "orders",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "event_id"
+          ],
+          "table": "platform_events",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "provider",
+          "provider_fact_key",
+          "kind"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "refunds",
+      "purpose": "退款预留与原单重查",
+      "owner_scoped": true,
+      "retention_category": "FINANCIAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "order_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "merchant_refund_ref",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "provider_refund_ref",
+          "sql": "text"
+        },
+        {
+          "name": "amount_minor",
+          "sql": "bigint NOT NULL CHECK(amount_minor > 0)"
+        },
+        {
+          "name": "amount_unit",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "reason",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "retry_of",
+          "sql": "uuid"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "last_checked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "order_id"
+          ],
+          "table": "orders",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "retry_of"
+          ],
+          "table": "refunds",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "status IN ('NONE', 'REQUESTED', 'PROCESSING', 'SUCCEEDED', 'FAILED', 'UNKNOWN')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "provider",
+          "merchant_refund_ref"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "entitlement_grants",
+      "purpose": "明确免费/原单已付许可",
+      "owner_scoped": true,
+      "retention_category": "CONTRACT_MINIMAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "contract_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "order_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "kind",
+          "sql": "text NOT NULL CHECK(kind IN ('FREE','PAID'))"
+        },
+        {
+          "name": "policy_snapshot",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "revision_limit",
+          "sql": "integer NOT NULL CHECK(revision_limit >= 0)"
+        },
+        {
+          "name": "revision_consumed",
+          "sql": "integer NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "revision_reserved",
+          "sql": "integer NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "revoked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "contract_id"
+          ],
+          "table": "processing_contracts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "order_id"
+          ],
+          "table": "orders",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "(kind = 'FREE' AND order_id IS NULL) OR (kind = 'PAID' AND order_id IS NOT NULL)",
+        "revision_consumed >= 0 AND revision_reserved >= 0 AND revision_consumed + revision_reserved <= revision_limit"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "contract_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "runs",
+      "purpose": "执行实例，终态保持，修订新建子Run",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "contract_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "grant_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "parent_run_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "parent_result_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "decision_batch_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "execution_status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "schema_status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "quality_status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "epoch",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "schema_binding_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "current_stage",
+          "sql": "text"
+        },
+        {
+          "name": "cancel_requested_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "finished_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "contract_id"
+          ],
+          "table": "processing_contracts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "grant_id"
+          ],
+          "table": "entitlement_grants",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "parent_run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "parent_result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "decision_batch_id"
+          ],
+          "table": "decision_batches",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "schema_binding_id"
+          ],
+          "table": "schema_bindings",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "execution_status IN ('QUEUED', 'RUNNING', 'SUCCEEDED', 'FAILED', 'CANCELED')",
+        "schema_status IN ('NOT_REQUIRED_YET', 'PARTIAL_DRAFT', 'FULL_DRAFT', 'ADOPTED', 'SUPERSEDED')",
+        "quality_status IN ('NOT_EVALUATED', 'PASSED', 'NEEDS_REVIEW', 'BLOCKED')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX runs_one_root_per_contract ON p07.runs(owner_id, contract_id) WHERE parent_run_id IS NULL",
+        "CREATE UNIQUE INDEX runs_one_active_per_task ON p07.runs(owner_id, task_id) WHERE execution_status IN ('QUEUED','RUNNING')"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "run_budget_events",
+      "purpose": "同合同累计预算幂等计量",
+      "owner_scoped": true,
+      "retention_category": "USAGE",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "contract_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "attempt_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "event_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "kind",
+          "sql": "text NOT NULL CHECK(kind IN ('RESERVE','CONSUME','RELEASE','ADJUST'))"
+        },
+        {
+          "name": "compute_ms",
+          "sql": "bigint NOT NULL CHECK(compute_ms >= 0)"
+        },
+        {
+          "name": "usage",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "estimated",
+          "sql": "boolean NOT NULL DEFAULT false"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "contract_id"
+          ],
+          "table": "processing_contracts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "attempt_id"
+          ],
+          "table": "stage_attempts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "contract_id",
+          "event_key"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "stage_attempts",
+      "purpose": "一次阶段租约与检查点",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "job_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "stage",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "attempt_no",
+          "sql": "integer NOT NULL CHECK(attempt_no > 0)"
+        },
+        {
+          "name": "fence",
+          "sql": "bigint NOT NULL CHECK(fence > 0)"
+        },
+        {
+          "name": "input_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('RUNNING','SUCCEEDED','FAILED','LOST'))"
+        },
+        {
+          "name": "provider_request_ref",
+          "sql": "text"
+        },
+        {
+          "name": "checkpoint_key",
+          "sql": "text"
+        },
+        {
+          "name": "versions",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "started_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "finished_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "error_code",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "job_id"
+          ],
+          "table": "jobs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "run_id",
+          "stage",
+          "attempt_no"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "parse_manifests",
+      "purpose": "不可变解析版本与资源计量",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_set_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "attempt_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "parser_version",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "unitizer_version",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "object_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "unit_count",
+          "sql": "integer NOT NULL CHECK(unit_count >= 0)"
+        },
+        {
+          "name": "manifest_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_id"
+          ],
+          "table": "source_files",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_set_id"
+          ],
+          "table": "source_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "attempt_id"
+          ],
+          "table": "stage_attempts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "source_units",
+      "purpose": "稳定页/块/区域定位",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "manifest_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "ordinal",
+          "sql": "integer NOT NULL CHECK(ordinal >= 0)"
+        },
+        {
+          "name": "unit_kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "locator",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "text_object_key",
+          "sql": "text"
+        },
+        {
+          "name": "readability",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "manifest_id"
+          ],
+          "table": "parse_manifests",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_id"
+          ],
+          "table": "source_files",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "manifest_id",
+          "ordinal"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "schema_proposals",
+      "purpose": "局部/全量版本化规范建议",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_set_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "goal_version",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "content",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "coverage",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "unmapped",
+          "sql": "jsonb NOT NULL DEFAULT '[]'::jsonb"
+        },
+        {
+          "name": "preview_object_key",
+          "sql": "text"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_set_id"
+          ],
+          "table": "source_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "status IN ('NOT_REQUIRED_YET', 'PARTIAL_DRAFT', 'FULL_DRAFT', 'ADOPTED', 'SUPERSEDED')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "task_id",
+          "version"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "schema_bindings",
+      "purpose": "不可变采用合同",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_set_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "proposal_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "proposal_version",
+          "sql": "bigint"
+        },
+        {
+          "name": "goal_version",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "content",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "adopted_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_set_id"
+          ],
+          "table": "source_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "proposal_id"
+          ],
+          "table": "schema_proposals",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "task_id",
+          "content_sha256",
+          "source_set_id",
+          "goal_version"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "result_versions",
+      "purpose": "不可变结果版本",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "binding_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "quality_status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "validation_object_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "candidate_count",
+          "sql": "integer NOT NULL CHECK(candidate_count >= 0)"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "binding_id"
+          ],
+          "table": "schema_bindings",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "quality_status IN ('NOT_EVALUATED', 'PASSED', 'NEEDS_REVIEW', 'BLOCKED')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "task_id",
+          "version"
+        ],
+        [
+          "run_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "records",
+      "purpose": "结果候选及唯一去向",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "result_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "stable_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "disposition",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "exclusion_reason",
+          "sql": "text"
+        },
+        {
+          "name": "ordinal",
+          "sql": "integer NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "disposition IN ('ACCEPTED', 'NEEDS_REVIEW', 'EXCLUDED')",
+        "disposition <> 'EXCLUDED' OR exclusion_reason IS NOT NULL"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "result_id",
+          "stable_key"
+        ],
+        [
+          "result_id",
+          "ordinal"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "field_values",
+      "purpose": "原值/精确typed值/事实类别",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "record_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "field_id",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "raw_object_key",
+          "sql": "text"
+        },
+        {
+          "name": "typed_value",
+          "sql": "jsonb"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "unit",
+          "sql": "text"
+        },
+        {
+          "name": "transform_chain",
+          "sql": "jsonb NOT NULL DEFAULT '[]'::jsonb"
+        },
+        {
+          "name": "rule_version",
+          "sql": "text"
+        },
+        {
+          "name": "actor_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "record_id"
+          ],
+          "table": "records",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "status IN ('EXTRACTED', 'NORMALIZED', 'DERIVED', 'DEFAULTED', 'USER_PROVIDED', 'MISSING', 'CONFLICT', 'UNREADABLE')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "record_id",
+          "field_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "evidence",
+      "purpose": "依据定位与对象语义",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_unit_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "locator",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "excerpt_object_key",
+          "sql": "text"
+        },
+        {
+          "name": "excerpt_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "relation_note",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_unit_id"
+          ],
+          "table": "source_units",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "field_evidence",
+      "purpose": "字段与多个依据的关联",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "field_value_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "evidence_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "relation",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "field_value_id"
+          ],
+          "table": "field_values",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "evidence_id"
+          ],
+          "table": "evidence",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "field_value_id",
+          "evidence_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "record_lineage",
+      "purpose": "多源补行/一源多行/合并拆分关系",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "record_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_unit_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "parent_record_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "relation_kind",
+          "sql": "text NOT NULL CHECK(relation_kind IN ('SOURCE_TO_RECORD','MERGED_FROM','SPLIT_FROM'))"
+        },
+        {
+          "name": "reason",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "record_id"
+          ],
+          "table": "records",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_unit_id"
+          ],
+          "table": "source_units",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "parent_record_id"
+          ],
+          "table": "records",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "source_unit_id IS NOT NULL OR parent_record_id IS NOT NULL"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "coverage_entries",
+      "purpose": "每次执行每个确认单元唯一主去向",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "source_unit_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "disposition",
+          "sql": "text NOT NULL CHECK(disposition IN ('READ','UNREADABLE','USER_EXCLUDED'))"
+        },
+        {
+          "name": "reason",
+          "sql": "text"
+        },
+        {
+          "name": "details",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_unit_id"
+          ],
+          "table": "source_units",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "run_id",
+          "source_unit_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "issues",
+      "purpose": "当前结果问题与合法决定",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "result_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "record_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "field_id",
+          "sql": "text"
+        },
+        {
+          "name": "code",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "severity",
+          "sql": "text NOT NULL CHECK(severity IN ('INFO','WARNING','BLOCKER'))"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('OPEN','RESOLVED','KEPT_UNRESOLVED'))"
+        },
+        {
+          "name": "allowed_decisions",
+          "sql": "jsonb NOT NULL DEFAULT '[]'::jsonb"
+        },
+        {
+          "name": "details",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "record_id"
+          ],
+          "table": "records",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "decision_previews",
+      "purpose": "提交前精确范围/影响预览",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "result_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "expected_result_version",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "preview_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "decisions",
+          "sql": "jsonb NOT NULL"
+        },
+        {
+          "name": "scope",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "impact",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "decision_batches",
+      "purpose": "已批准决定批次，可重试不可重复消费",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "preview_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "parent_run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "parent_result_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "preview_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "billing_class",
+          "sql": "text NOT NULL CHECK(billing_class IN ('USER_REVISION','PLATFORM_CORRECTION'))"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "preview_id"
+          ],
+          "table": "decision_previews",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "parent_run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "parent_result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "preview_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "decisions",
+      "purpose": "明确人工动作与原问题关联",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "batch_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "issue_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "action",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "evidence_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "user_value",
+          "sql": "jsonb"
+        },
+        {
+          "name": "note",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "batch_id"
+          ],
+          "table": "decision_batches",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "issue_id"
+          ],
+          "table": "issues",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "evidence_id"
+          ],
+          "table": "evidence",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "action IN ('CHOOSE_EVIDENCE', 'USER_VALUE', 'KEEP_UNRESOLVED')",
+        "action <> 'CHOOSE_EVIDENCE' OR evidence_id IS NOT NULL",
+        "action <> 'USER_VALUE' OR user_value IS NOT NULL"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "batch_id",
+          "issue_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "operations",
+      "purpose": "未知写动作持久查询与重试链",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "decision_batch_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "retry_of",
+          "sql": "uuid"
+        },
+        {
+          "name": "resource_ref",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "error_code",
+          "sql": "text"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "finished_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "decision_batch_id"
+          ],
+          "table": "decision_batches",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "retry_of"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "status IN ('PENDING', 'SUCCEEDED', 'FAILED')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX operations_one_pending_batch ON p07.operations(owner_id, decision_batch_id) WHERE status='PENDING' AND decision_batch_id IS NOT NULL"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "revision_reservations",
+      "purpose": "一次批次一轮预留/消费/释放",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "grant_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "batch_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('RESERVED','CONSUMED','RELEASED','WAIVED'))"
+        },
+        {
+          "name": "rounds",
+          "sql": "integer NOT NULL CHECK(rounds IN (0,1))"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "grant_id"
+          ],
+          "table": "entitlement_grants",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "batch_id"
+          ],
+          "table": "decision_batches",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "operation_id"
+        ]
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX revision_one_live_per_batch ON p07.revision_reservations(owner_id, batch_id) WHERE status IN ('RESERVED','CONSUMED','WAIVED')"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "artifact_sets",
+      "purpose": "独立持久九文件整体状态与manifest；不按运行环境生命周期自动到期",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "result_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "manifest_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz CHECK(expires_at IS NULL)"
+        },
+        {
+          "name": "revoked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "status IN ('NOT_READY', 'BUILDING', 'READY', 'FAILED', 'EXPIRED', 'REVOKED')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "result_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "artifacts",
+      "purpose": "已发布不可变单文件",
+      "owner_scoped": true,
+      "retention_category": "PERSISTENT_RESULT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "artifact_set_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "name",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "object_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "byte_count",
+          "sql": "bigint NOT NULL CHECK(byte_count >= 0)"
+        },
+        {
+          "name": "media_type",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "artifact_set_id"
+          ],
+          "table": "artifact_sets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "name IN ('standard.xlsx', 'standard.json', 'result.xlsx', 'accepted.csv', 'result.json', 'issues.xlsx', 'provenance.jsonl', 'validation.json', 'manifest.json')",
+        "sha256 ~ '^[0-9a-f]{64}$'"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "artifact_set_id",
+          "name"
+        ],
+        [
+          "object_key"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "download_grants",
+      "purpose": "每请求可撤短授权，产物或依据页只读用途",
+      "owner_scoped": true,
+      "retention_category": "AUTH",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "purpose",
+          "sql": "text NOT NULL CHECK(purpose IN ('ARTIFACT','EVIDENCE_PAGE'))"
+        },
+        {
+          "name": "artifact_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "evidence_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "source_unit_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "token_hash",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "revoked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "result_version",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "artifact_id"
+          ],
+          "table": "artifacts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "evidence_id"
+          ],
+          "table": "evidence",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "source_unit_id"
+          ],
+          "table": "source_units",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "(purpose='ARTIFACT' AND artifact_id IS NOT NULL AND evidence_id IS NULL AND source_unit_id IS NULL) OR (purpose='EVIDENCE_PAGE' AND artifact_id IS NULL AND evidence_id IS NOT NULL AND source_unit_id IS NOT NULL)"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "token_hash"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "export_attempts",
+      "purpose": "取用的观察事件，不冒充履约",
+      "owner_scoped": true,
+      "retention_category": "USAGE",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "artifact_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "client_attempt_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "observed_action",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "receipt_source",
+          "sql": "text NOT NULL CHECK(receipt_source IN ('CLIENT','USER','SERVER','VERIFIED_PLATFORM'))"
+        },
+        {
+          "name": "environment",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "observed_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "receipt_ref",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "artifact_id"
+          ],
+          "table": "artifacts",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "observed_action IN ('ARTIFACT_READY', 'FETCHED', 'CACHED', 'OPEN_REQUESTED', 'OPENED', 'EXPORT_REQUESTED', 'USER_CONFIRMED', 'PLATFORM_CONFIRMED', 'FAILED', 'UNKNOWN')"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "client_attempt_id",
+          "observed_action"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "private_templates",
+      "purpose": "本人主动另存规范头",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "name",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "current_template_version_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "deleted_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "updated_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "current_template_version_id"
+          ],
+          "table": "private_template_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "private_template_versions",
+      "purpose": "不可变去事实规范白名单",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "template_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL DEFAULT 1 CHECK (version >= 1)"
+        },
+        {
+          "name": "content",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "sanitizer_version",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "consent_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "template_id"
+          ],
+          "table": "private_templates",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "consent_id"
+          ],
+          "table": "consents",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "template_id",
+          "version"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "privacy_policies",
+      "purpose": "公开告知及供应商/期限版本",
+      "owner_scoped": false,
+      "retention_category": "PUBLIC_POLICY",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "policy_version",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "environment",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "content",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "content_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "effective_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [],
+      "checks": [],
+      "unique": [
+        [
+          "policy_version",
+          "environment"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "consents",
+      "purpose": "必要/可选用途分开及撤回事实",
+      "owner_scoped": true,
+      "retention_category": "CONSENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "policy_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "scope",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "action",
+          "sql": "text NOT NULL CHECK(action IN ('GRANT','WITHDRAW'))"
+        },
+        {
+          "name": "effective_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "policy_id"
+          ],
+          "table": "privacy_policies",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "deletion_requests",
+      "purpose": "删除范围/进度/必要保留类别",
+      "owner_scoped": true,
+      "retention_category": "DELETION_LEDGER",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "scope",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('REQUESTED','ACCESS_REVOKED','PURGING','COMPLETED','PARTIAL_FAILED'))"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "remaining_categories",
+          "sql": "jsonb NOT NULL DEFAULT '[]'::jsonb"
+        },
+        {
+          "name": "progress",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "finished_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "tombstones",
+      "purpose": "先撤权并在恢复后重放的删除事实",
+      "owner_scoped": true,
+      "retention_category": "DELETION_LEDGER",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "deletion_request_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "resource_kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "resource_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "epoch",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "effective_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "purged_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "deletion_request_id"
+          ],
+          "table": "deletion_requests",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "resource_kind",
+          "resource_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "support_tickets",
+      "purpose": "订单售后/无订单帮助的脱敏元数据",
+      "owner_scoped": true,
+      "retention_category": "SUPPORT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "order_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "category",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "note_object_key",
+          "sql": "text"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('OPEN','IN_PROGRESS','RESOLVED','CLOSED'))"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "order_id"
+          ],
+          "table": "orders",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "support_access_grants",
+      "purpose": "客服按任务/目的限时内容授权",
+      "owner_scoped": true,
+      "retention_category": "AUTH",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "ticket_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "operator_subject",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "purpose",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "revoked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "ticket_id"
+          ],
+          "table": "support_tickets",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "capability_releases",
+      "purpose": "四环境/商品/构建证据与有效开关",
+      "owner_scoped": false,
+      "retention_category": "RELEASE",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "app_alias",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "os",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "sku_id",
+          "sql": "text"
+        },
+        {
+          "name": "build_id",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "capability_version",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "flags",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "evidence_index",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "commercial_enabled",
+          "sql": "boolean NOT NULL DEFAULT false"
+        },
+        {
+          "name": "effective_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [],
+      "checks": [],
+      "unique": [],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "idempotency_records",
+      "purpose": "同owner/路由/键与请求摘要找回",
+      "owner_scoped": true,
+      "retention_category": "IDEMPOTENCY",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "route_id",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "key_hash",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "request_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "response_status",
+          "sql": "integer"
+        },
+        {
+          "name": "response_object_ref",
+          "sql": "text"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "route_id",
+          "key_hash"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "jobs",
+      "purpose": "持久队列，全局领取但带owner上下文",
+      "owner_scoped": true,
+      "retention_category": "OPERATIONAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('READY','LEASED','DONE','DEAD'))"
+        },
+        {
+          "name": "dedupe_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "payload",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "priority",
+          "sql": "integer NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "available_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "lease_owner",
+          "sql": "text"
+        },
+        {
+          "name": "lease_until",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "fence",
+          "sql": "bigint NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "attempts",
+          "sql": "integer NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "last_error_code",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "dedupe_key"
+        ]
+      ],
+      "indexes": [
+        "CREATE INDEX jobs_ready ON p07.jobs(priority DESC, available_at, id) WHERE status='READY'",
+        "CREATE INDEX jobs_expired_lease ON p07.jobs(lease_until) WHERE status='LEASED'"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "outbox_events",
+      "purpose": "业务事实和投递原子提交",
+      "owner_scoped": true,
+      "retention_category": "OPERATIONAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "event_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "topic",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "aggregate_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "payload",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "available_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "sent_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "attempts",
+          "sql": "integer NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "lease_until",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "fence",
+          "sql": "bigint NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "event_key"
+        ]
+      ],
+      "indexes": [
+        "CREATE INDEX outbox_unsent ON p07.outbox_events(available_at, id) WHERE sent_at IS NULL"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "audit_events",
+      "purpose": "脱敏审计，不保存正文/密钥",
+      "owner_scoped": true,
+      "retention_category": "AUDIT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "actor_kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "actor_ref",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "action",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "resource_kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "resource_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "request_id",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "reason",
+          "sql": "text"
+        },
+        {
+          "name": "details",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "reconciliation_runs",
+      "purpose": "按原渠道原单位对账批次",
+      "owner_scoped": false,
+      "retention_category": "FINANCIAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "provider",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "business_date",
+          "sql": "date NOT NULL"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('PENDING','RUNNING','SUCCEEDED','FAILED'))"
+        },
+        {
+          "name": "summary",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "report_object_key",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [],
+      "checks": [],
+      "unique": [
+        [
+          "provider",
+          "business_date"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "agent_workspaces",
+      "purpose": "单任务授权文件视图及原生ACL/权限配置，目录不是隔离证明",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "workspace_ref",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "permission_profile_ref",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "input_manifest_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "task_epoch",
+          "sql": "bigint NOT NULL DEFAULT 1"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('PREPARING','READY','REVOKED','DELETED'))"
+        },
+        {
+          "name": "expires_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "revoked_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "workspace_ref"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "agent_sessions",
+      "purpose": "业务任务/Run与Codex thread的受控映射，预检可无Run",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "run_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "operation_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "workspace_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "codex_thread_id",
+          "sql": "text"
+        },
+        {
+          "name": "runtime_profile_id",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "versions",
+          "sql": "jsonb NOT NULL"
+        },
+        {
+          "name": "source_set_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "contract_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "binding_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('INITIALIZING','READY_FOR_INPUT','INPUT_RECEIVED','ANALYZING','WAITING_CONFIRMATION','QUOTABLE','AWAITING_PAYMENT','BATCH_QUEUED','BATCH_RUNNING','PERSISTING_RESULTS','RELEASING_RUNTIME','CLOSED','INITIALIZATION_FAILED','FAILED','CANCELED'))"
+        },
+        {
+          "name": "last_turn_ordinal",
+          "sql": "bigint NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        },
+        {
+          "name": "skill_manifest_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "preload_receipt",
+          "sql": "jsonb"
+        },
+        {
+          "name": "cleanup_status",
+          "sql": "text NOT NULL DEFAULT 'NOT_REQUESTED'"
+        },
+        {
+          "name": "closed_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "result_id",
+          "sql": "uuid"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "run_id"
+          ],
+          "table": "runs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "operation_id"
+          ],
+          "table": "operations",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "workspace_id"
+          ],
+          "table": "agent_workspaces",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "runtime_profile_id",
+          "codex_thread_id"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "agent_turns",
+      "purpose": "每次Codex执行/继续及调用结果；不是业务Run终态",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "session_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "ordinal",
+          "sql": "bigint NOT NULL CHECK(ordinal >= 1)"
+        },
+        {
+          "name": "job_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "attempt_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "fence",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "input_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "completion_ref",
+          "sql": "text"
+        },
+        {
+          "name": "usage",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('QUEUED','RUNNING','COMPLETED','FAILED','INTERRUPTED','UNKNOWN'))"
+        },
+        {
+          "name": "started_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "finished_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "session_id"
+          ],
+          "table": "agent_sessions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "job_id"
+          ],
+          "table": "jobs",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "session_id",
+          "ordinal"
+        ]
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX agent_turns_one_running ON p07.agent_turns(owner_id, session_id) WHERE status='RUNNING'"
+      ],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "agent_events",
+      "purpose": "按序事件脱敏投影，原始工具正文只在受控内容区",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "turn_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "sequence",
+          "sql": "bigint NOT NULL CHECK(sequence >= 0)"
+        },
+        {
+          "name": "kind",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "public_summary_code",
+          "sql": "text"
+        },
+        {
+          "name": "private_event_ref",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "turn_id"
+          ],
+          "table": "agent_turns",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "turn_id",
+          "sequence"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "agent_checkpoints",
+      "purpose": "业务输入与Codex会话/工作区文件的双重恢复检查点",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "session_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "turn_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "input_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "binding_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "manifest_ref",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "manifest_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "budget_snapshot",
+          "sql": "jsonb NOT NULL"
+        },
+        {
+          "name": "task_epoch",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "fence",
+          "sql": "bigint NOT NULL"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "session_id"
+          ],
+          "table": "agent_sessions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "turn_id"
+          ],
+          "table": "agent_turns",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "session_id",
+          "manifest_sha256"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "agent_tool_invocations",
+      "purpose": "工具请求去重/用量/结果引用；命令不等同可重放事务",
+      "owner_scoped": true,
+      "retention_category": "CONTENT",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "turn_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "call_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "tool_name",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "arguments_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "result_ref",
+          "sql": "text"
+        },
+        {
+          "name": "result_sha256",
+          "sql": "text"
+        },
+        {
+          "name": "usage",
+          "sql": "jsonb NOT NULL DEFAULT '{}'::jsonb"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "retry_class",
+          "sql": "text"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "turn_id"
+          ],
+          "table": "agent_turns",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "turn_id",
+          "call_key"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "execution_plans",
+      "purpose": "报价前确认的处理方案；正文随环境清理，hash/关联最小保留",
+      "owner_scoped": true,
+      "retention_category": "OPERATIONAL_MINIMAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "session_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "task_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "binding_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "version",
+          "sql": "bigint NOT NULL CHECK(version>=1)"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('DRAFT','CONFIRMED','SUPERSEDED'))"
+        },
+        {
+          "name": "plan_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "source_set_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "skill_manifest_sha256",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "content_ref",
+          "sql": "text"
+        },
+        {
+          "name": "confirmed_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "session_id"
+          ],
+          "table": "agent_sessions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "task_id"
+          ],
+          "table": "tasks",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "binding_id"
+          ],
+          "table": "schema_bindings",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [
+        "status <> 'CONFIRMED' OR (binding_id IS NOT NULL AND confirmed_at IS NOT NULL)"
+      ],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "session_id",
+          "version"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    },
+    {
+      "name": "runtime_cleanup_jobs",
+      "purpose": "发布后可靠清理outbox；结果与清理状态分开，不存源正文",
+      "owner_scoped": true,
+      "retention_category": "OPERATIONAL_MINIMAL",
+      "columns": [
+        {
+          "name": "id",
+          "sql": "uuid PRIMARY KEY"
+        },
+        {
+          "name": "owner_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "session_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "workspace_id",
+          "sql": "uuid NOT NULL"
+        },
+        {
+          "name": "result_id",
+          "sql": "uuid"
+        },
+        {
+          "name": "status",
+          "sql": "text NOT NULL CHECK(status IN ('NOT_REQUESTED','PENDING','STOPPING','DELETING','SUCCEEDED','FAILED'))"
+        },
+        {
+          "name": "dedupe_key",
+          "sql": "text NOT NULL"
+        },
+        {
+          "name": "attempts",
+          "sql": "integer NOT NULL DEFAULT 0"
+        },
+        {
+          "name": "receipt",
+          "sql": "jsonb"
+        },
+        {
+          "name": "last_error_code",
+          "sql": "text"
+        },
+        {
+          "name": "finished_at",
+          "sql": "timestamptz"
+        },
+        {
+          "name": "created_at",
+          "sql": "timestamptz NOT NULL DEFAULT now()"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "owner_id"
+          ],
+          "table": "accounts",
+          "target_columns": [
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "session_id"
+          ],
+          "table": "agent_sessions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "workspace_id"
+          ],
+          "table": "agent_workspaces",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        },
+        {
+          "columns": [
+            "owner_id",
+            "result_id"
+          ],
+          "table": "result_versions",
+          "target_columns": [
+            "owner_id",
+            "id"
+          ]
+        }
+      ],
+      "checks": [],
+      "unique": [
+        [
+          "owner_id",
+          "id"
+        ],
+        [
+          "owner_id",
+          "dedupe_key"
+        ]
+      ],
+      "indexes": [],
+      "status": "REFERENCE_NOT_EXECUTED"
+    }
+  ],
+  "application_guards": [
+    "owner and same task/result relationship",
+    "immutable contracts/bindings/results",
+    "all state transitions",
+    "paid/free entitlement verification",
+    "refund and revision quota locked transactions",
+    "lease fence and tombstone before publish",
+    "nine artifact readback before READY",
+    "Agent session/workspace/turn composite references must resolve to the same owner/task/run; null run allowed only for preflight operation.",
+    "Do not resume thread by client-supplied ID or --last; exact persisted owner/workspace mapping required.",
+    "Session logs, scripts and checkpoints contain source data; revoke/erase with task and replay deletion tombstones before recovery.",
+    "One active turn/session; lost lease revokes publication and stops process tree before reassignment.",
+    "No customer Task/upload before owner session READY with complete Skill preload receipt.",
+    "New paid Run requires confirmed plan/binding and server-confirmed original payment; no consumer free_grant.",
+    "Commit nine independent result objects plus cleanup outbox before runtime destruction; result must not point into workspace.",
+    "Purge ephemeral DB source/analysis/context bodies and raw traces on cleanup; retain only result projections and minimal receipts.",
+    "CLOSED runtime cannot resume; new rework begins at S1. Source originals no longer available after cleanup."
+  ],
+  "agent_runtime_note": "64 reference tables. Session exists before Task; run absent until payment; results independent of cleanup. RLS and real execution remain unverified.",
+  "cleanup_semantics": "Retention categories select a field-level purge policy, not blind row deletion. Keep minimal task/run/source/session tombstones needed by result/order foreign keys; clear all runtime body/object refs and physical copies. Materialize result evidence in independent storage before purging source runtime; never cascade-delete result tables."
+}

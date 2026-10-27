@@ -1,0 +1,9 @@
+<b-frame><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-folder title="问题确认"><view>{{issue.message}}</view><view class="small">字段：{{issue.field_id}}。请明确选择本次决定，系统不会预先代选。</view></b-folder>
+<b-progress a:if="{{!reworkReady}}" title="先准备新的调整会话" text="{{reworkPhase}}"/>
+<view a:if="{{reworkReady}}">
+<b-evidence a:for="{{excerpts}}" a:key="evidence_id" title="来源摘录" text="{{item.excerpt}}"><button class="button" data-action="evidence" data-id="{{item.evidence_id}}" onTap="onAction">查看来源定位</button><button a:if="{{canEvidence}}" class="button" data-action="CHOOSE_EVIDENCE" data-id="{{item.evidence_id}}" onTap="onChoice">{{selectedEvidence===item.evidence_id?'已选择此依据':'采用此依据'}}</button></b-evidence>
+<b-decision title="你的决定" text="补充值将记为你的主动输入，无法确认可继续保留问题。"><button a:if="{{canUserValue}}" class="choice {{selectedAction==='USER_VALUE'?'selected':''}}" data-action="USER_VALUE" onTap="onChoice">{{selectedAction==='USER_VALUE'?'●':'○'}} 由我补充准确值</button><input a:if="{{selectedAction==='USER_VALUE'}}" value="{{value}}" data-field="value" onInput="onInput" maxlength="50000" placeholder="请按规范填写，金额使用精确小数字符串"/><button a:if="{{canKeep}}" class="choice {{selectedAction==='KEEP_UNRESOLVED'?'selected':''}}" data-action="KEEP_UNRESOLVED" onTap="onChoice">{{selectedAction==='KEEP_UNRESOLVED'?'●':'○'}} 保留待确认，不填猜测值</button></b-decision>
+<button class="button" data-action="decision-preview" onTap="onAction" disabled="{{loading||!selectedAction}}">预览修改影响</button>
+<b-confirmation a:if="{{decisionPreview}}" title="本次影响 {{decisionPreview.affected_records}} 条记录" text="将决定提交到已就绪的新会话，再分析并确认。原结果保留，新增整理按新方案确认费用。"><button class="button primary" data-action="decision-submit" onTap="onAction" disabled="{{loading}}">确认决定，继续新会话整理</button></b-confirmation>
+</view>
+</b-frame>

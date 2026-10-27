@@ -1,0 +1,116 @@
+{
+  "baseline": "v3.0",
+  "archived_on": "2026-10-27",
+  "reason": "v3.1系统需求深化前的原样快照",
+  "note": "保留当时原文和相对链接，历史链接按原项目根目录解释；本快照不作当前实施指令。B设计1.0.0另有独立冻结留存，不覆写。",
+  "files": [
+    {
+      "project_path": "README.md",
+      "archive_path": "README.md",
+      "bytes": 7188,
+      "sha256": "8b43e634ff07848782d8ce78d51cf56e7a3fd0945537c8fd3a3bf13f0faf7cbe"
+    },
+    {
+      "project_path": "AGENTS.md",
+      "archive_path": "AGENTS.md",
+      "bytes": 2580,
+      "sha256": "7b9905d633db53b10f70a8c01e3873129264b90d30d2cfa43f2fc7c2c136d8de"
+    },
+    {
+      "project_path": "docs/01-产品需求PRD.md",
+      "archive_path": "docs/01-产品需求PRD.md",
+      "bytes": 10097,
+      "sha256": "482841ae19aaefa65d17879615f9f81ce66c83c36193598ff4feb48d2b1ede9d"
+    },
+    {
+      "project_path": "docs/02-功能需求与用户流程.md",
+      "archive_path": "docs/02-功能需求与用户流程.md",
+      "bytes": 17516,
+      "sha256": "cffff1ba2fc8987cf61a3fc531420948a99bf54de7b9d51f889004e9b550759d"
+    },
+    {
+      "project_path": "docs/03-架构数据与接口.md",
+      "archive_path": "docs/03-架构数据与接口.md",
+      "bytes": 12085,
+      "sha256": "5052449c57679116365d11d766d2d8c41dfedd20ce5baeb2cb38de1690cfe30a"
+    },
+    {
+      "project_path": "docs/04-计费交易与运营.md",
+      "archive_path": "docs/04-计费交易与运营.md",
+      "bytes": 7766,
+      "sha256": "c0f07d8afef518cafae1ca2a7b736660c1c73307e034a3fea5a4964d878fc2ca"
+    },
+    {
+      "project_path": "docs/05-验收测试与实施计划.md",
+      "archive_path": "docs/05-验收测试与实施计划.md",
+      "bytes": 11165,
+      "sha256": "7962a8388f399e69324104b177728e5d2963ea6187abec91f61fda2a1c6fba95"
+    },
+    {
+      "project_path": "docs/小程序/01-产品形态与功能分层.md",
+      "archive_path": "docs/小程序/01-产品形态与功能分层.md",
+      "bytes": 7681,
+      "sha256": "3405fcf2c791b2374402beeb23156177298f3f797ddfbf78e004271578e1a40c"
+    },
+    {
+      "project_path": "docs/小程序/02-移动端页面与交互规格.md",
+      "archive_path": "docs/小程序/02-移动端页面与交互规格.md",
+      "bytes": 11641,
+      "sha256": "48ed2872657d71a984cac61b265301ad320de6175492fdcad8b3199b3b606bf5"
+    },
+    {
+      "project_path": "docs/小程序/03-双平台能力与文件进出.md",
+      "archive_path": "docs/小程序/03-双平台能力与文件进出.md",
+      "bytes": 9098,
+      "sha256": "fd8804ad92c9abe8ae4d66ae23c205789c8295d698c368c27e7d5896203fdba5"
+    },
+    {
+      "project_path": "docs/小程序/04-账号订单支付与权益.md",
+      "archive_path": "docs/小程序/04-账号订单支付与权益.md",
+      "bytes": 8015,
+      "sha256": "a12f1fa8b5e3f31760fad9e1b2b129ecb6c76f6c78f5704819726a248650508b"
+    },
+    {
+      "project_path": "docs/小程序/05-数据隐私与安全.md",
+      "archive_path": "docs/小程序/05-数据隐私与安全.md",
+      "bytes": 7102,
+      "sha256": "dbdbaf176a5ef0d9cabbb3fc0b8d6ef05424f2779ab890bf27e64f5f099be9f6"
+    },
+    {
+      "project_path": "docs/小程序/06-双端验收与发布清单.md",
+      "archive_path": "docs/小程序/06-双端验收与发布清单.md",
+      "bytes": 7621,
+      "sha256": "d39e623b9966ecf68379ff0ac264c961942c0194fb870378d803e9e4b62ffeec"
+    },
+    {
+      "project_path": "docs/小程序/07-Web进阶版与跨端衔接.md",
+      "archive_path": "docs/小程序/07-Web进阶版与跨端衔接.md",
+      "bytes": 3922,
+      "sha256": "f8f8e53772dcf1946f413f9343f1969b71b25f91074b39614daa3bbb3507c4c0"
+    },
+    {
+      "project_path": "docs/小程序/08-接口载荷与状态合同.md",
+      "archive_path": "docs/小程序/08-接口载荷与状态合同.md",
+      "bytes": 9728,
+      "sha256": "6262525cfe3335df8ddc7de654df154068702d7d69565c22c3a35693af630ce8"
+    },
+    {
+      "project_path": "docs/实施/小程序优先开发任务与里程碑.md",
+      "archive_path": "docs/实施/小程序优先开发任务与里程碑.md",
+      "bytes": 6843,
+      "sha256": "05c2fcb86bd81b14b063ceb2015c801d4c014649f0aebbcab54b4d6b40a8d5e9"
+    },
+    {
+      "project_path": "assets/platform/capabilities.v3.json",
+      "archive_path": "assets/platform/capabilities.v3.json",
+      "bytes": 22719,
+      "sha256": "5acc8fbe254b07c0c746bed65f8c2df504214bf92920d27de28fc69982f23b9c"
+    },
+    {
+      "project_path": "assets/flows/mini-program-flows.v3.json",
+      "archive_path": "assets/flows/mini-program-flows.v3.json",
+      "bytes": 6941,
+      "sha256": "5e8315fe7ad69cc923ae4e4b2acf9b10921db68b19a2ba8ee7976228f52e46e5"
+    }
+  ]
+}

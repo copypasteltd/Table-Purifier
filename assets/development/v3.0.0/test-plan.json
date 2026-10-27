@@ -1,0 +1,3637 @@
+{
+  "development_baseline": "P07-DEV 3.0.0",
+  "status": "PLAN_ONLY_NOT_EXECUTED",
+  "cases": [
+    {
+      "case_id": "DEVTEST-AC01-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F01"
+      ],
+      "reference_ids": [
+        "P07-AC01-01",
+        "P07-T01"
+      ],
+      "expected": "用户资料提交前已完成完整Skill正文/引用/脚本清单及上下文装配校验；失败拒绝提交",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC01-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F01"
+      ],
+      "reference_ids": [
+        "P07-AC01-02",
+        "P07-T01"
+      ],
+      "expected": "两账号互换session/任务/结果/规范ID均拒绝，身份会话与Agent会话分别鉴权",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC01-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F01"
+      ],
+      "reference_ids": [
+        "P07-AC01-03",
+        "P07-T01"
+      ],
+      "expected": "进行中重连找回同一会话；CLOSED或已销毁环境不可恢复，下一任务新建会话",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC02-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F02"
+      ],
+      "reference_ids": [
+        "P07-AC02-01",
+        "P07-T02"
+      ],
+      "expected": "文本/PDF/图片均有去向",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC02-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F02"
+      ],
+      "reference_ids": [
+        "P07-AC02-02",
+        "P07-T02"
+      ],
+      "expected": "20,000,001字节源拒绝且不截断",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC02-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F02"
+      ],
+      "reference_ids": [
+        "P07-AC02-03",
+        "P07-T02"
+      ],
+      "expected": "上传重放复用同一资源不重复计量",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC03-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F03"
+      ],
+      "reference_ids": [
+        "P07-AC03-01",
+        "P07-T03"
+      ],
+      "expected": "同名模板与来源角色隔离",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC03-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F03"
+      ],
+      "reference_ids": [
+        "P07-AC03-02",
+        "P07-T03"
+      ],
+      "expected": "模板样例不计候选",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC03-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F03"
+      ],
+      "reference_ids": [
+        "P07-AC03-03",
+        "P07-T03"
+      ],
+      "expected": "列顺序、文本编码规则可确认",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC04-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F04"
+      ],
+      "reference_ids": [
+        "P07-AC04-01",
+        "P07-T04"
+      ],
+      "expected": "没有模板也先初始化会话，再进行全范围分析和规范推荐",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC04-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F04"
+      ],
+      "reference_ids": [
+        "P07-AC04-02",
+        "P07-T04"
+      ],
+      "expected": "付费前计划覆盖全部提交范围并说明不可读/排除；代表预览最多5条，不把样本当完整分析",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC04-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F04"
+      ],
+      "reference_ids": [
+        "P07-AC04-03",
+        "P07-T04"
+      ],
+      "expected": "未确认方案不得报价，未有服务端确认的实付依据不得启动正式批量产出",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC05-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F05"
+      ],
+      "reference_ids": [
+        "P07-AC05-01",
+        "P07-T05"
+      ],
+      "expected": "模拟报价28元回指正确段落",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC05-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F05"
+      ],
+      "reference_ids": [
+        "P07-AC05-02",
+        "P07-T05"
+      ],
+      "expected": "他文件片段不能挂在本报价",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC05-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F05"
+      ],
+      "reference_ids": [
+        "P07-AC05-03",
+        "P07-T05"
+      ],
+      "expected": "模型高置信无证据仍待核",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC06-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F06"
+      ],
+      "reference_ids": [
+        "P07-AC06-01",
+        "P07-T06"
+      ],
+      "expected": "PROVIDED与DISCOVER均在报价前确认准确规范、范围和执行方案版本",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC06-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F06"
+      ],
+      "reference_ids": [
+        "P07-AC06-02",
+        "P07-T06"
+      ],
+      "expected": "修改资料/目标/规范/决定生成新计划版本并令旧确认与未付报价失效",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC06-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F06"
+      ],
+      "reference_ids": [
+        "P07-AC06-03",
+        "P07-T06"
+      ],
+      "expected": "确认不能改变源事实；不以付款替代规范采用或冲突值决定",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC07-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F07"
+      ],
+      "reference_ids": [
+        "P07-AC07-01",
+        "P07-T07"
+      ],
+      "expected": "格式统一可追溯",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC07-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F07"
+      ],
+      "reference_ids": [
+        "P07-AC07-02",
+        "P07-T07"
+      ],
+      "expected": "无公司信息不补公司名",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC07-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F07"
+      ],
+      "reference_ids": [
+        "P07-AC07-03",
+        "P07-T07"
+      ],
+      "expected": "源哈希执行前后相同",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC08-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F08"
+      ],
+      "reference_ids": [
+        "P07-AC08-01",
+        "P07-T08"
+      ],
+      "expected": "001234导出仍为001234",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC08-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F08"
+      ],
+      "reference_ids": [
+        "P07-AC08-02",
+        "P07-T08"
+      ],
+      "expected": "18位编码不被浮点截断",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC08-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F08"
+      ],
+      "reference_ids": [
+        "P07-AC08-03",
+        "P07-T08"
+      ],
+      "expected": "歧义字符未标记不得通过",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC09-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F09"
+      ],
+      "reference_ids": [
+        "P07-AC09-01",
+        "P07-T09"
+      ],
+      "expected": "无锚点明天保持待核",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC09-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F09"
+      ],
+      "reference_ids": [
+        "P07-AC09-02",
+        "P07-T09"
+      ],
+      "expected": "2026-02-30触发错误",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC09-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F09"
+      ],
+      "reference_ids": [
+        "P07-AC09-03",
+        "P07-T09"
+      ],
+      "expected": "有证据的相对日期保留推导关系",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC10-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F10"
+      ],
+      "reference_ids": [
+        "P07-AC10-01",
+        "P07-T10"
+      ],
+      "expected": "0.1加0.2按定点得0.3",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC10-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F10"
+      ],
+      "reference_ids": [
+        "P07-AC10-02",
+        "P07-T10"
+      ],
+      "expected": "两个商品共用订单100元不变200",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC10-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F10"
+      ],
+      "reference_ids": [
+        "P07-AC10-03",
+        "P07-T10"
+      ],
+      "expected": "未给币种不默认为人民币",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC11-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F11"
+      ],
+      "reference_ids": [
+        "P07-AC11-01",
+        "P07-T11"
+      ],
+      "expected": "一份名单拆三人",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC11-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F11"
+      ],
+      "reference_ids": [
+        "P07-AC11-02",
+        "P07-T11"
+      ],
+      "expected": "同名不同报名保留两行",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC11-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F11"
+      ],
+      "reference_ids": [
+        "P07-AC11-03",
+        "P07-T11"
+      ],
+      "expected": "相同资料复用不制造重复事实",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC12-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F12"
+      ],
+      "reference_ids": [
+        "P07-AC12-01",
+        "P07-T12"
+      ],
+      "expected": "候选总数等于三去向之和",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC12-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F12"
+      ],
+      "reference_ids": [
+        "P07-AC12-02",
+        "P07-T12"
+      ],
+      "expected": "每页存在状态",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC12-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F12"
+      ],
+      "reference_ids": [
+        "P07-AC12-03",
+        "P07-T12"
+      ],
+      "expected": "未纳入保修字段明确提示",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC13-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F13"
+      ],
+      "reference_ids": [
+        "P07-AC13-01",
+        "P07-T13"
+      ],
+      "expected": "人工补价标USER_PROVIDED",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC13-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F13"
+      ],
+      "reference_ids": [
+        "P07-AC13-02",
+        "P07-T13"
+      ],
+      "expected": "来源清理后不能假装打开原图",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC13-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F13"
+      ],
+      "reference_ids": [
+        "P07-AC13-03",
+        "P07-T13"
+      ],
+      "expected": "旧结果仍定位原规则版本",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC14-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F14"
+      ],
+      "reference_ids": [
+        "P07-AC14-01",
+        "P07-T14"
+      ],
+      "expected": "manifest只列其余8文件",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC14-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F14"
+      ],
+      "reference_ids": [
+        "P07-AC14-02",
+        "P07-T14"
+      ],
+      "expected": "空accepted.csv仍有表头",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC14-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F14"
+      ],
+      "reference_ids": [
+        "P07-AC14-03",
+        "P07-T14"
+      ],
+      "expected": "以=开头的源文本导出不执行公式",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC15-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F15"
+      ],
+      "reference_ids": [
+        "P07-AC15-01",
+        "P07-T15"
+      ],
+      "expected": "报价关联session/plan/source/binding/skill版本和原渠道商品，缺确认拒绝",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC15-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F15"
+      ],
+      "reference_ids": [
+        "P07-AC15-02",
+        "P07-T15"
+      ],
+      "expected": "展示预估范围、数量、原单位金额、上限与适用政策；LLM不能直接决定售价",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC15-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F15"
+      ],
+      "reference_ids": [
+        "P07-AC15-03",
+        "P07-T15"
+      ],
+      "expected": "方案变更、报价失效或金额单位不匹配不执行；超限不隐性加价",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC16-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F16"
+      ],
+      "reference_ids": [
+        "P07-AC16-01",
+        "P07-T16"
+      ],
+      "expected": "仅服务端验签/正式查单确认原订单、金额单位及计划hash后放行批量",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC16-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F16"
+      ],
+      "reference_ids": [
+        "P07-AC16-02",
+        "P07-T16"
+      ],
+      "expected": "客户端success/UNKNOWN/旧报价/伪free_grant均不能启动批量产出",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC16-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F16"
+      ],
+      "reference_ids": [
+        "P07-AC16-03",
+        "P07-T16"
+      ],
+      "expected": "重复回调、启动请求或用户刷新复用原订单/Run，不重复收费或生产",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC17-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F17"
+      ],
+      "reference_ids": [
+        "P07-AC17-01",
+        "P07-T17"
+      ],
+      "expected": "网络或前后台切换恢复原session/operation，不重复建单或重跑批量",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC17-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F17"
+      ],
+      "reference_ids": [
+        "P07-AC17-02",
+        "P07-T17"
+      ],
+      "expected": "同一会话一个活动turn、同合同一个计算租约，旧worker不能发布",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC17-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F17"
+      ],
+      "reference_ids": [
+        "P07-AC17-03",
+        "P07-T17"
+      ],
+      "expected": "结果已保存且环境已销毁后只读结果；再次加工必须新建并完整预加载会话",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC18-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F18"
+      ],
+      "reference_ids": [
+        "P07-AC18-01",
+        "P07-T18"
+      ],
+      "expected": "环境销毁后结果记录/问题/结果内来源仍可查看",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC18-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F18"
+      ],
+      "reference_ids": [
+        "P07-AC18-02",
+        "P07-T18"
+      ],
+      "expected": "完整原始文件已销毁时明确说明，不能伪造原件在线预览",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC18-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F18"
+      ],
+      "reference_ids": [
+        "P07-AC18-03",
+        "P07-T18"
+      ],
+      "expected": "结果需要修改时新会话读取用户选定结果及重新提供的必要原件，不恢复旧环境",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC19-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F19"
+      ],
+      "reference_ids": [
+        "P07-AC19-01",
+        "P07-T19"
+      ],
+      "expected": "取消竞态不双退",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC19-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F19"
+      ],
+      "reference_ids": [
+        "P07-AC19-02",
+        "P07-T19"
+      ],
+      "expected": "退款累计不超实付",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC19-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F19"
+      ],
+      "reference_ids": [
+        "P07-AC19-03",
+        "P07-T19"
+      ],
+      "expected": "未扣款不能显示退款到账",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC20-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F20"
+      ],
+      "reference_ids": [
+        "P07-AC20-01",
+        "P07-T20"
+      ],
+      "expected": "九文件可靠保存及发布回执校验后释放Agent，销毁工作区/输入/会话正文/脚本/临时和日志副本",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC20-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F20"
+      ],
+      "reference_ids": [
+        "P07-AC20-02",
+        "P07-T20"
+      ],
+      "expected": "销毁运行环境不删除结果存储、结果元数据、独立私有规范及必要订单/清理凭据",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC20-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F20"
+      ],
+      "reference_ids": [
+        "P07-AC20-03",
+        "P07-T20"
+      ],
+      "expected": "清理失败保持待清理/失败状态并重试告警；不得把发出删除请求记成已清空",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC21-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F21"
+      ],
+      "reference_ids": [
+        "P07-AC21-01",
+        "P07-T21"
+      ],
+      "expected": "旧结果可追踪",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC21-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F21"
+      ],
+      "reference_ids": [
+        "P07-AC21-02",
+        "P07-T21"
+      ],
+      "expected": "同一冲突不能最后写入覆盖",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC21-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F21"
+      ],
+      "reference_ids": [
+        "P07-AC21-03",
+        "P07-T21"
+      ],
+      "expected": "追加资料需新的范围确认",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC22-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F22"
+      ],
+      "reference_ids": [
+        "P07-AC22-01",
+        "P07-T22"
+      ],
+      "expected": "音频有时间码",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC22-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F22"
+      ],
+      "reference_ids": [
+        "P07-AC22-02",
+        "P07-T22"
+      ],
+      "expected": "多表有稳定关系",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC22-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F22"
+      ],
+      "reference_ids": [
+        "P07-AC22-03",
+        "P07-T22"
+      ],
+      "expected": "不支持格式明确拒绝并保留原件去向",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC23-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F23"
+      ],
+      "reference_ids": [
+        "P07-AC23-01",
+        "P07-T23"
+      ],
+      "expected": "必填价格缺失不通过",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC23-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F23"
+      ],
+      "reference_ids": [
+        "P07-AC23-02",
+        "P07-T23"
+      ],
+      "expected": "未知封闭枚举报问题",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC23-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F23"
+      ],
+      "reference_ids": [
+        "P07-AC23-03",
+        "P07-T23"
+      ],
+      "expected": "通过行所有必需字段有合格依据",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC24-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F24"
+      ],
+      "reference_ids": [
+        "P07-AC24-01",
+        "P07-T24"
+      ],
+      "expected": "两原生小程序及未来Web/API的新处理任务均不能跳过七步门槛",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC24-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F24"
+      ],
+      "reference_ids": [
+        "P07-AC24-02",
+        "P07-T24"
+      ],
+      "expected": "用户调整返回分析与确认，再报价；同一未结束任务重连不无谓新建会话",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC24-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F24"
+      ],
+      "reference_ids": [
+        "P07-AC24-03",
+        "P07-T24"
+      ],
+      "expected": "查看已保存结果仅调用结果服务，不重新创建Agent或重复收费",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC25-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F25"
+      ],
+      "reference_ids": [
+        "P07-AC25-01",
+        "P07-T25"
+      ],
+      "expected": "付费前方案分析覆盖全提交范围，仍遵守10源/50单元等硬上限；无静默截断",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC25-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F25"
+      ],
+      "reference_ids": [
+        "P07-AC25-02",
+        "P07-T25"
+      ],
+      "expected": "初始化/分析/调整的时间和调用预算由平台承担并限频，不能倒收用户已发生成本",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC25-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F25"
+      ],
+      "reference_ids": [
+        "P07-AC25-03",
+        "P07-T25"
+      ],
+      "expected": "已付批量及获准纠错共用合同预算，超限停止说明而非隐藏加费",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC26-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F26"
+      ],
+      "reference_ids": [
+        "P07-AC26-01",
+        "P07-T26"
+      ],
+      "expected": "附件支付指令无效",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC26-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F26"
+      ],
+      "reference_ids": [
+        "P07-AC26-02",
+        "P07-T26"
+      ],
+      "expected": "越界路径拒绝",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC26-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F26"
+      ],
+      "reference_ids": [
+        "P07-AC26-03",
+        "P07-T26"
+      ],
+      "expected": "危险公式在查看/导出都不执行",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC27-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F27"
+      ],
+      "reference_ids": [
+        "P07-AC27-01",
+        "P07-T27"
+      ],
+      "expected": "用户确认前不预选冲突值，缺失与保留待核不冒充通过",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC27-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F27"
+      ],
+      "reference_ids": [
+        "P07-AC27-02",
+        "P07-T27"
+      ],
+      "expected": "调整内容生成差异与新计划，确认后才能重新估费",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC27-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F27"
+      ],
+      "reference_ids": [
+        "P07-AC27-03",
+        "P07-T27"
+      ],
+      "expected": "产出后新修订从S1重走；平台纠错可核原实付权益覆盖，不伪造免费付款或复活旧container",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC28-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F28"
+      ],
+      "reference_ids": [
+        "P07-AC28-01",
+        "P07-T28"
+      ],
+      "expected": "撤销密钥生效",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC28-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F28"
+      ],
+      "reference_ids": [
+        "P07-AC28-02",
+        "P07-T28"
+      ],
+      "expected": "付费调用与普通订单隔离",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC28-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F28"
+      ],
+      "reference_ids": [
+        "P07-AC28-03",
+        "P07-T28"
+      ],
+      "expected": "SDK重试不重复执行外写",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC29-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F29"
+      ],
+      "reference_ids": [
+        "P07-AC29-01",
+        "P07-T29"
+      ],
+      "expected": "无模板仍完整执行七步，不先收发现费再让用户采用",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC29-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F29"
+      ],
+      "reference_ids": [
+        "P07-AC29-02",
+        "P07-T29"
+      ],
+      "expected": "先明确对象粒度，保留稀有重要字段和未映射事项",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC29-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F29"
+      ],
+      "reference_ids": [
+        "P07-AC29-03",
+        "P07-T29"
+      ],
+      "expected": "完整分析与小样展示分开；样例不能作为事实或替代全范围覆盖",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC30-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F30"
+      ],
+      "reference_ids": [
+        "P07-AC30-01",
+        "P07-T30"
+      ],
+      "expected": "正式采用与计划确认均发生在报价及实付之前",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC30-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F30"
+      ],
+      "reference_ids": [
+        "P07-AC30-02",
+        "P07-T30"
+      ],
+      "expected": "PARTIAL草案、旧源集/用途/提案版本不能采用或报价",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC30-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F30"
+      ],
+      "reference_ids": [
+        "P07-AC30-03",
+        "P07-T30"
+      ],
+      "expected": "调整后重新分析/确认/报价，不能把先前确认偷偷套用到新内容",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC31-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F31"
+      ],
+      "reference_ids": [
+        "P07-AC31-01",
+        "P07-T31"
+      ],
+      "expected": "关键字段覆盖按人工答案统计",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC31-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F31"
+      ],
+      "reference_ids": [
+        "P07-AC31-02",
+        "P07-T31"
+      ],
+      "expected": "局部样本不称全量",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC31-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F31"
+      ],
+      "reference_ids": [
+        "P07-AC31-03",
+        "P07-T31"
+      ],
+      "expected": "白石保修不能复制给青禾",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC32-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F32"
+      ],
+      "reference_ids": [
+        "P07-AC32-01",
+        "P07-T32"
+      ],
+      "expected": "空表无客户行",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC32-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F32"
+      ],
+      "reference_ids": [
+        "P07-AC32-02",
+        "P07-T32"
+      ],
+      "expected": "无task/source访问ID",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC32-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F32"
+      ],
+      "reference_ids": [
+        "P07-AC32-03",
+        "P07-T32"
+      ],
+      "expected": "导出规范重新导入语义等价",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC33-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F33"
+      ],
+      "reference_ids": [
+        "P07-AC33-01",
+        "P07-T33"
+      ],
+      "expected": "四根入口一致",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC33-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F33"
+      ],
+      "reference_ids": [
+        "P07-AC33-02",
+        "P07-T33"
+      ],
+      "expected": "每端两模式可完成",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC33-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F33"
+      ],
+      "reference_ids": [
+        "P07-AC33-03",
+        "P07-T33"
+      ],
+      "expected": "B主色和状态规则一致且原生胶囊不伪造",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC34-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F34"
+      ],
+      "reference_ids": [
+        "P07-AC34-01",
+        "P07-T34"
+      ],
+      "expected": "已完成项保留",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC34-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F34"
+      ],
+      "reference_ids": [
+        "P07-AC34-02",
+        "P07-T34"
+      ],
+      "expected": "重选同一源不重计",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC34-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F34"
+      ],
+      "reference_ids": [
+        "P07-AC34-03",
+        "P07-T34"
+      ],
+      "expected": "未开放文档入口不画假可用按钮",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC35-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F35"
+      ],
+      "reference_ids": [
+        "P07-AC35-01",
+        "P07-T35"
+      ],
+      "expected": "长字段可读",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC35-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F35"
+      ],
+      "reference_ids": [
+        "P07-AC35-02",
+        "P07-T35"
+      ],
+      "expected": "自然语言修改先预览",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC35-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F35"
+      ],
+      "reference_ids": [
+        "P07-AC35-03",
+        "P07-T35"
+      ],
+      "expected": "返回不把未提交稿称已采用",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC36-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F36"
+      ],
+      "reference_ids": [
+        "P07-AC36-01",
+        "P07-T36"
+      ],
+      "expected": "不一次渲染1000原图",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC36-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F36"
+      ],
+      "reference_ids": [
+        "P07-AC36-02",
+        "P07-T36"
+      ],
+      "expected": "筛选不漏重复/漏页",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC36-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F36"
+      ],
+      "reference_ids": [
+        "P07-AC36-03",
+        "P07-T36"
+      ],
+      "expected": "无效补值不提交",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC37-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F37"
+      ],
+      "reference_ids": [
+        "P07-AC37-01",
+        "P07-T37"
+      ],
+      "expected": "手机退后台再进入查原session/operation和原订单，不重复写动作",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC37-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F37"
+      ],
+      "reference_ids": [
+        "P07-AC37-02",
+        "P07-T37"
+      ],
+      "expected": "实付已确认但进程重启按准确计划和检查点恢复，旧worker失效",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC37-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F37"
+      ],
+      "reference_ids": [
+        "P07-AC37-03",
+        "P07-T37"
+      ],
+      "expected": "环境CLOSED后下载仍成功；断网重试下载不重启Agent",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC38-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F38"
+      ],
+      "reference_ids": [
+        "P07-AC38-01",
+        "P07-T38"
+      ],
+      "expected": "container销毁后九文件下载与记录分页仍可用",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC38-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F38"
+      ],
+      "reference_ids": [
+        "P07-AC38-02",
+        "P07-T38"
+      ],
+      "expected": "FETCHED/CACHED不冒充系统可见导出或平台履约",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC38-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F38"
+      ],
+      "reference_ids": [
+        "P07-AC38-03",
+        "P07-T38"
+      ],
+      "expected": "下载链接过期可重新鉴权签发，运行清理不得影响结果文件",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC39-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F39"
+      ],
+      "reference_ids": [
+        "P07-AC39-01",
+        "P07-T39"
+      ],
+      "expected": "旧源过期后模板仍可用",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC39-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F39"
+      ],
+      "reference_ids": [
+        "P07-AC39-02",
+        "P07-T39"
+      ],
+      "expected": "无真实值/证据引用",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC39-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F39"
+      ],
+      "reference_ids": [
+        "P07-AC39-03",
+        "P07-T39"
+      ],
+      "expected": "其他账号不能列模板",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC40-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F40"
+      ],
+      "reference_ids": [
+        "P07-AC40-01",
+        "P07-T40"
+      ],
+      "expected": "同名账号互不可见",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC40-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F40"
+      ],
+      "reference_ids": [
+        "P07-AC40-02",
+        "P07-T40"
+      ],
+      "expected": "跨app流水拒绝",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC40-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F40"
+      ],
+      "reference_ids": [
+        "P07-AC40-03",
+        "P07-T40"
+      ],
+      "expected": "未获准跨端付费权益入口关闭",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC41-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F41"
+      ],
+      "reference_ids": [
+        "P07-AC41-01",
+        "P07-T41"
+      ],
+      "expected": "无商品资格不能启收费",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC41-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F41"
+      ],
+      "reference_ids": [
+        "P07-AC41-02",
+        "P07-T41"
+      ],
+      "expected": "开关不能仅凭客户端OS绕过",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC41-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F41"
+      ],
+      "reference_ids": [
+        "P07-AC41-03",
+        "P07-T41"
+      ],
+      "expected": "普通流水不标赛事AI付认可",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC42-01",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F42"
+      ],
+      "reference_ids": [
+        "P07-AC42-01",
+        "P07-T42"
+      ],
+      "expected": "手机任务无需Web前置",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC42-02",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F42"
+      ],
+      "reference_ids": [
+        "P07-AC42-02",
+        "P07-T42"
+      ],
+      "expected": "批改有人工来源及版本",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AC42-03",
+      "kind": "BUSINESS_ACCEPTANCE",
+      "requirement_ids": [
+        "P07-F42"
+      ],
+      "reference_ids": [
+        "P07-AC42-03",
+        "P07-T42"
+      ],
+      "expected": "扩大范围先确认报价",
+      "environment": "PARAMETERIZE_APPLICABLE_MODES_FORMATS_HOSTS",
+      "priority": "P1",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E01",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F24",
+        "P07-F29"
+      ],
+      "reference_ids": [
+        "P07-E01"
+      ],
+      "expected": "付费前全范围分析并推荐规范；用户确认后才报价，不要求先付发现费",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E02",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F32"
+      ],
+      "reference_ids": [
+        "P07-E02"
+      ],
+      "expected": "示例只解释规则，不成为源事实或候选",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E03",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F29",
+        "P07-F31"
+      ],
+      "reference_ids": [
+        "P07-E03"
+      ],
+      "expected": "只澄清本次主表，其他重要内容明确未纳入",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E04",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F29",
+        "P07-F31"
+      ],
+      "reference_ids": [
+        "P07-E04"
+      ],
+      "expected": "保留可空保修或明示未纳入，不向别行复制12个月",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E05",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F23",
+        "P07-F27"
+      ],
+      "reference_ids": [
+        "P07-E05"
+      ],
+      "expected": "value=null/MISSING，不能补0，必填时不通过",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E06",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F11",
+        "P07-F13",
+        "P07-F27"
+      ],
+      "reference_ids": [
+        "P07-E06"
+      ],
+      "expected": "保留两个候选及来源，初始不选最新值",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E07",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F27",
+        "P07-F36"
+      ],
+      "reference_ids": [
+        "P07-E07"
+      ],
+      "expected": "内联错误、提交禁用，不生成决定或扣修订",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E08",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F27"
+      ],
+      "reference_ids": [
+        "P07-E08"
+      ],
+      "expected": "保存决定与说明但质量仍待核，不自动通过",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E09",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F30",
+        "P07-F35"
+      ],
+      "reference_ids": [
+        "P07-E09"
+      ],
+      "expected": "409保留未提交稿，刷新比较；不改旧绑定",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E10",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F30",
+        "P07-F37"
+      ],
+      "reference_ids": [
+        "P07-E10"
+      ],
+      "expected": "返回同一Binding/operation；不启动Run，方案确认后才能报价",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E11",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F36"
+      ],
+      "reference_ids": [
+        "P07-E11"
+      ],
+      "expected": "明确快照或409刷新，不把新旧分页拼接",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E12",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F27",
+        "P07-F37"
+      ],
+      "reference_ids": [
+        "P07-E12"
+      ],
+      "expected": "只建立一个新会话修订意图；完成七步前置条件后最多一child Run，失败释放预留，不复活旧环境",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E13",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F27",
+        "P07-F31"
+      ],
+      "reference_ids": [
+        "P07-E13"
+      ],
+      "expected": "新会话重新提供必要原件，确认估费后核原实付纠错权益，不扣用户轮次或要求新付；不恢复已销毁源上下文",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E14",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F19",
+        "P07-F25"
+      ],
+      "reference_ids": [
+        "P07-E14"
+      ],
+      "expected": "停止新增计算、说明已读/未读，原合同处理；不截断冒完整",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E15",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F13",
+        "P07-F17"
+      ],
+      "reference_ids": [
+        "P07-E15"
+      ],
+      "expected": "旧输出不发布/不覆盖，审计并清临时内容",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E16",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F37"
+      ],
+      "reference_ids": [
+        "P07-E16"
+      ],
+      "expected": "显示核对中，查原单，不放行或再次付",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E17",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F19",
+        "P07-F40"
+      ],
+      "reference_ids": [
+        "P07-E17"
+      ],
+      "expected": "查原通道事实；不得消失已付记录；按原范围履约或原路退",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E18",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F19"
+      ],
+      "reference_ids": [
+        "P07-E18"
+      ],
+      "expected": "条件更新只有一分支生效，退款/权益据最终事实一致",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E19",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F19"
+      ],
+      "reference_ids": [
+        "P07-E19"
+      ],
+      "expected": "查同退款单，累计不超原实付，不把申请写到账",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E20",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F38"
+      ],
+      "reference_ids": [
+        "P07-E20"
+      ],
+      "expected": "只显示缓存/获取；记录用户确认和平台回执不同，不重收费",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E21",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F13",
+        "P07-F18",
+        "P07-F20"
+      ],
+      "reference_ids": [
+        "P07-E21"
+      ],
+      "expected": "原件无法全文预览明确说明；结果内必要摘录/定位仍有效，不自动过期、不伪造原件访问",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E22",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F26",
+        "P07-F37"
+      ],
+      "reference_ids": [
+        "P07-E22"
+      ],
+      "expected": "先fence并停止进程树，旧worker不得发布；已发布结果不删除，清理失败不得标成功，必要订单/清理凭据独立保留",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E23",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F32",
+        "P07-F39"
+      ],
+      "reference_ids": [
+        "P07-E23"
+      ],
+      "expected": "模板可在本人新任务复用，无真实样例/证据/访问引用",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-E24",
+      "kind": "EXCEPTION",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F40",
+        "P07-F41"
+      ],
+      "reference_ids": [
+        "P07-E24"
+      ],
+      "expected": "服务端拒新收银，显示范围；不引导Web/其他端付款",
+      "source_contract": "assets/requirements/exception-cases.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR01",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR01"
+      ],
+      "expected": "越权为发布阻断",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR02",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR02"
+      ],
+      "expected": "任一出现暂停受影响新单",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR03",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR03"
+      ],
+      "expected": "DB唯一约束/事务/租约实测",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR04",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR04"
+      ],
+      "expected": "原生故障注入，确认清理后仍可下载且不能恢复源上下文",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR05",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR05"
+      ],
+      "expected": "真实渲染测量，读屏名称/顺序验证",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR06",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR06"
+      ],
+      "expected": "真机记录内存趋势与长列表返回位置",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR07",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR07"
+      ],
+      "expected": "W01固定硬件/网络/10并发参考负载后锁预算，未测非SLA",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR08",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR08"
+      ],
+      "expected": "分别原子扣量；用户确认/付款等待不计活跃计算，不能倒收前置分析成本",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR09",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR09"
+      ],
+      "expected": "预检先说明实际限制，炸弹/畸形文件拒绝",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR10",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR10"
+      ],
+      "expected": "恶意样例/导出回读验证",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR11",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR11"
+      ],
+      "expected": "正式域名/证书/桶ACL及密钥轮换有记录",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR12",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR12"
+      ],
+      "expected": "公开素材合成；供应商保留条件有真实依据",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR13",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR13"
+      ],
+      "expected": "核进程树、源/会话/中间/临时/正文日志及受控副本实际清理；失败重试告警，不把请求受理当完成",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR14",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR14"
+      ],
+      "expected": "不记录敏感正文，告警可关联原订单",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR15",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR15"
+      ],
+      "expected": "通道限流优先，不假造重查频率保证",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR16",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR16"
+      ],
+      "expected": "实测备份恢复不复活已销毁任务正文，结果及最小凭据原生恢复指标测后锁定",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR17",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR17"
+      ],
+      "expected": "模拟器/文档/提交审核不作正式发布PASS",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-P07-NFR18",
+      "kind": "NFR",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-NFR18"
+      ],
+      "expected": "变更回归受影响样例，原生启动不依Docker/WSL",
+      "source_contract": "assets/requirements/nonfunctional.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q01",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q01"
+      ],
+      "expected": "正确输出的非空事实字段数/全部输出非空事实字段数，按人工对象对齐和规范等价比较",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q02",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q02"
+      ],
+      "expected": "匹配人工答案的有效业务记录数/人工应有记录数",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q03",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q03"
+      ],
+      "expected": "正确填出的来源已存在字段数/人工标注来源存在字段数",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q04",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q04"
+      ],
+      "expected": "合理规范中覆盖的人工关键字段数/人工关键字段数",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q05",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q05"
+      ],
+      "expected": "定位存在且对象/字段语义相符的引用数/全部事实引用数",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q06",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q06"
+      ],
+      "expected": "有唯一去向的源单元/已确认源单元；唯一去向候选/总候选",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q07",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q07"
+      ],
+      "expected": "回读校验通过的约定文件数/9；真实取用成功次数/实际取用尝试数",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-Q08",
+      "kind": "QUALITY",
+      "requirement_ids": [],
+      "reference_ids": [
+        "Q08"
+      ],
+      "expected": "同资料人工总用时与辅助任务用时/确认数对照",
+      "source_contract": "assets/requirements/quality-metrics.v3.2.json",
+      "environment": "PARAMETERIZE_REAL_ENVIRONMENT",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-FENCE",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "旧worker租约过期后写发布被拒；新worker一次发布",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-BUDGET",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "重试/子Run累计计算不重置900秒并结清旧预留",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-ROUND",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "100并发同批次只一个活动operation/预留/child，成功一次消费失败释放",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-PAYMENT_UNKNOWN",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "支付超时查同原单，不重复收银；正式晚到事实可核后履约或退款",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-REFUND_UNKNOWN",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "退款提交超时查同merchant_refund_ref，累计成功/在途不超实付",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-PUBLISH_9",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "第9文件失败整体不READY，旧结果可读，孤儿半包不可见",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-DELETE_PUBLISH",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "删除与发布竞争，tombstone先胜后不可重新签链/读Range",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-PROVIDED_BIND",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "已有规范在API10与范围原子绑定，无需先建Run",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-FREE_GRANT",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "仅服务端明确免费政策发free grant，空价格无虚假通道流水",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-PREFLIGHT_READ",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "异步预检可通过task.latest_preflight恢复，局部不可采用",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-OBJECT_OWNER",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "互换源/依据/产物/订单/模板/operation ID全部拒绝",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-RESTORE_DELETE",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "恢复旧备份先重放新tombstone，再开放访问",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-DOCX_BLOCK",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "4000码点按固定版本分块、单表行不拆、超长行报告资源限制",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-CSV_FORMULA",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "文本危险前缀安全转义、真实数值负数仍数值，原值可追",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-SPARSE_FIELD",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "报价保修稀有字段保留，待议价格不填0/平均数",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-HOST_EXPORT",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "四环境分别证明用户可见取用，缓存不当交付",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-PROMPT_INJECTION",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "资料要求忽略规则/付款/抓URL时无工具调用，事实仍校证据",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-SUPPORT_SCOPE",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "客服无opt-in/跨任务/到期/撤回均拒正文并有审计",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-CONFIG_GATES",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "未获准SKU/环境/P1默认关闭，不能客户端改OS开支付",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-ENG-CANONICAL_HASH",
+      "kind": "ENGINEERING_FAULT_OR_BOUNDARY",
+      "requirement_ids": [],
+      "reference_ids": [],
+      "expected": "Node/Python对Unicode键/emoji/0/false/null一致P07-CJ1 hash",
+      "environment": "REAL_POSTGRESQL_OR_DEVICE_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-REAL_RUNTIME",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "执行证据含官方SDK/CLI版本、真实thread/turn和工具事件；纯chat mock不能通过",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-GENERATED_CODE",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "Agent自主写并运行清洗脚本可成表，脚本/hash/输出与证据可回放",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-TOOL_CHOICE",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "文字PDF不强制OCR；混合扫描可回读换方法；不按固定PARSE队列驱动",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-PROVIDED",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "API10绑定的规范/hash传入Agent，模板样例未生成事实",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-DISCOVER_FULL",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "完整范围分析后保留低频关键字段，非前三单元冒充FULL",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-ADOPTION_PAUSE",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "付费前用户确认暂停释放活跃计算，无生产Run；采用与确认完成后才可报价",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-ADOPTION_RESUME",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "同未结束session调整/确认，核Skill/source/plan/hash；实付前不能生产",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-REVISION_THREAD",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "旧runtime已销毁，修订新session完整预载/重新输入确认估费/核原实付权益后child Run",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-PREFLIGHT_LIMIT",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "付费前完整分析拟处理范围；代表预览最多5条，批量输出工具仍关闭",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-CROSS_READ",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "同账号/跨账号任务均不能越权读取其他工作区、对象或服务秘密",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-CROSS_WRITE",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "路径穿越/ADS/reparse point/脚本逃逸不能写其他任务或工具代码",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-INSTRUCTION_INJECTION",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "来源内AGENTS.md/SKILL/README/提示不进入控制目录或覆盖规范",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-SECRET_ENV",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "工具子进程不能继承商户/DB/模型长期秘密或读桌面认证目录",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-NETWORK",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "工具网络按白名单；资料内URL不自动抓取，不能回传源文件到任意站点",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-CANCEL",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "取消/租约失效停止Codex和工具进程树，迟到结果不能发布",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-DELETE",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "结果发布后清整个runtime及受控副本，保留九文件与结果投影，不能复活源环境",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-CHECKPOINT",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "保留thread不等于文件存在；文件/hash缺失不假恢复",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-RETRY_UNKNOWN",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "中断/未知工具副作用先对账；不盲重跑，不使用--last",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-SHARED_BUDGET",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "Agent多轮/工具等待/恢复/子Run共用900秒；等用户采用不计计算",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-FINAL_ENVELOPE",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "非法完成schema/越界路径/陈旧hash均拒绝，Agent自报成功不算发布",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-VALIDATOR_SEPARATE",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "Agent不能修改独立验证程序/已绑定规范/发布记录来通过",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-NINE_FILES",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "九文件读回一致，manifest核其余8；伪造哈希/缺件/危险公式拒绝",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-PUBLIC_EVENTS",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "小程序只见脱敏进度/问题，不泄露命令、原始输出、思维链或内部路径",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-AGENT-VERSION_EVAL",
+      "kind": "CODEX_AGENT_RUNTIME",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-AGENT-3"
+      ],
+      "expected": "SDK/CLI/model/instructions/toolkit任一升级先跑标准集及资源/成本回归",
+      "environment": "REAL_PINNED_CODEX_NATIVE_WINDOWS_AS_APPLICABLE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-INIT_FIRST",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "创建会话并完整预载前，文字/文件/模板/目标提交均被拒绝",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-FULL_SKILL",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "manifest全部正文/references/脚本内容已由Host装入上下文；仅名称或模型echo不足以READY",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-SKILL_FAIL",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "缺文件/hash错/上下文超限/工具未就绪时初始化失败并清理，不能静默懒加载",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-SESSION_OWNER",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "伪造他人session或已CLOSED session不能创建任务/上传/续跑",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-ANALYZE_BEFORE_QUOTE",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "完整源分析/规范提案先于用户确认和报价，不保留旧付费后发现路径",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-ADJUST_LOOP",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "用户修改源/规范/策略返回分析与确认，旧确认和未付quote失效",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-CONFIRM_BEFORE_QUOTE",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "未有当前确认plan hash/binding时quotes拒绝",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-TRUSTED_PRICE",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "价格表与可信计量算金额/上限，Agent不能伪报低价或隐性追加",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-NO_FREE_BYPASS",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "consumer free_grant/client success/UNKNOWN均不能启动批量",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-PAY_PLAN_HASH",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "实付/order/金额单位/plan/source/skill不匹配拒绝",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-PAID_ONCE",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "并发回调与刷新只创建一次生产意图、Run与账务",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-DURABLE_BEFORE_DELETE",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "任一结果复制/hash/readback/持久提交失败时不得按产出成功销毁可恢复材料",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-RESULT_OUTSIDE",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "最终九文件与结果投影不能指向或依赖待销毁workspace",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-PUBLISH_OUTBOX",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "发布结果指针与清理outbox原子，进程崩溃后仍可执行清理",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-DESTROY_PROCESS_TREE",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "Agent/工具进程树结束且无活writer，再删会话/输入/脚本/临时/正文日志/检查点",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-RESULT_SURVIVES",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "runtime目录和上下文已清理后九文件及结果分页下载仍可用",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-CLEANUP_RETRY",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "删除失败标FAILED/PENDING并幂等重试告警，不假成功或重跑收费",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-NO_RESURRECT",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "CLOSED不能按旧thread/checkpoint恢复；新加工从新session完整预载开始",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-NO_SOURCE_PREVIEW",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "只保留结果必要摘录/定位；已清原件不能假在线预览或复制全文档规避清理",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "case_id": "DEVTEST-FLOW-ABANDON_CLEANUP",
+      "kind": "SESSION_FIRST_LIFECYCLE",
+      "requirement_ids": [],
+      "reference_ids": [
+        "P07-FLOW-7-1"
+      ],
+      "expected": "初始化失败/未付闲置/取消/永久失败亦停止清环境，已有结果不删除",
+      "environment": "REAL_NATIVE_RUNTIME_AND_RESULT_STORE",
+      "priority": "P0",
+      "execution_status": "NOT_RUN",
+      "evidence_refs": []
+    }
+  ],
+  "quality_dataset_requirement": {
+    "minimum_groups": 30,
+    "minimum_discover_groups": 10,
+    "minimum_themes": 2,
+    "status": "NOT_PREPARED",
+    "annotation": "independent human ground truth; actual file hashes required"
+  },
+  "device_matrix": [
+    {
+      "provider": "ALIPAY",
+      "os": "ANDROID",
+      "status": "NOT_RUN",
+      "build_id": null,
+      "evidence_refs": []
+    },
+    {
+      "provider": "ALIPAY",
+      "os": "IOS",
+      "status": "NOT_RUN",
+      "build_id": null,
+      "evidence_refs": []
+    },
+    {
+      "provider": "DOUYIN",
+      "os": "ANDROID",
+      "status": "NOT_RUN",
+      "build_id": null,
+      "evidence_refs": []
+    },
+    {
+      "provider": "DOUYIN",
+      "os": "IOS",
+      "status": "NOT_RUN",
+      "build_id": null,
+      "evidence_refs": []
+    }
+  ],
+  "architecture_note": "240 planned cases, all NOT_RUN. Seven-step lifecycle includes full preload before input and result-preserving runtime destruction."
+}

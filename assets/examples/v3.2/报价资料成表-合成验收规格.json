@@ -1,0 +1,140 @@
+{
+  "fixture_id": "P07-FX-QUOTE-01",
+  "baseline": "v3.2",
+  "synthetic": true,
+  "status": "DESIGN_EXPECTATION_NOT_ENGINE_OUTPUT",
+  "mode": "DISCOVER",
+  "goal": "每条商品报价一行，便于对比",
+  "sources": [
+    {
+      "id": "s1",
+      "kind": "PASTED_TEXT",
+      "text": "青禾供应：折叠支架M1，人民币28元/件，起订10件，交期3天。"
+    },
+    {
+      "id": "s2",
+      "kind": "PDF_EXCERPT_DESIGN",
+      "text": "云杉供应：折叠支架M1，人民币26元/件，20件起订，交期5天。"
+    },
+    {
+      "id": "s3",
+      "kind": "IMAGE_OCR_EXCERPT_DESIGN",
+      "text": "白石供应：折叠支架M1，人民币单价待议，按件报价，起订50件，交期7天，保修12个月。"
+    }
+  ],
+  "schema": {
+    "row_kind": "商品报价事件",
+    "fields": [
+      {
+        "field_id": "supplier",
+        "label": "供应商",
+        "type": "TEXT",
+        "required": true,
+        "nullable": false,
+        "unit": null
+      },
+      {
+        "field_id": "product",
+        "label": "商品",
+        "type": "TEXT",
+        "required": true,
+        "nullable": false,
+        "unit": null
+      },
+      {
+        "field_id": "model",
+        "label": "型号",
+        "type": "TEXT",
+        "required": false,
+        "nullable": true,
+        "unit": null
+      },
+      {
+        "field_id": "price",
+        "label": "单价",
+        "type": "DECIMAL",
+        "required": true,
+        "nullable": false,
+        "unit": "元/件"
+      },
+      {
+        "field_id": "currency",
+        "label": "币种",
+        "type": "TEXT",
+        "required": true,
+        "nullable": false,
+        "unit": null
+      },
+      {
+        "field_id": "quote_unit",
+        "label": "计价单位",
+        "type": "TEXT",
+        "required": true,
+        "nullable": false,
+        "unit": null
+      },
+      {
+        "field_id": "moq",
+        "label": "起订量",
+        "type": "INTEGER",
+        "required": false,
+        "nullable": true,
+        "unit": "件"
+      },
+      {
+        "field_id": "lead_days",
+        "label": "交期",
+        "type": "INTEGER",
+        "required": false,
+        "nullable": true,
+        "unit": "天"
+      },
+      {
+        "field_id": "warranty_months",
+        "label": "保修",
+        "type": "INTEGER",
+        "required": false,
+        "nullable": true,
+        "unit": "月"
+      }
+    ]
+  },
+  "expected_records": [
+    {
+      "supplier": "青禾供应",
+      "price": "28.00",
+      "warranty_months": null,
+      "evidence": "s1",
+      "disposition": "ACCEPTED"
+    },
+    {
+      "supplier": "云杉供应",
+      "price": "26.00",
+      "warranty_months": null,
+      "evidence": "s2",
+      "disposition": "ACCEPTED"
+    },
+    {
+      "supplier": "白石供应",
+      "price": null,
+      "raw_price": "单价待议",
+      "warranty_months": 12,
+      "evidence": "s3",
+      "price_status": "MISSING",
+      "disposition": "NEEDS_REVIEW"
+    }
+  ],
+  "expected_counts": {
+    "total": 3,
+    "accepted": 2,
+    "needs_review": 1,
+    "excluded": 0
+  },
+  "expected_rules": [
+    "保修只有白石可填12",
+    "单价待议不补0",
+    "保留待补后白石仍NEEDS_REVIEW",
+    "补价需显式人工来源，不能改原文"
+  ],
+  "note": "只创建合成文字/预期JSON，不存在实际PDF/图片解析成绩；不可冒充黄金集30组已完成。"
+}

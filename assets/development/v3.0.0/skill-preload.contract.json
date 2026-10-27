@@ -1,0 +1,25 @@
+{
+  "version": "P07-PRELOAD-1",
+  "strategy": "EAGER_FULL",
+  "skill_manifest": "skill/manifest.json",
+  "skill_manifest_sha256": "fa8178fd6e4c99e4d3d8371dc1915b05807cd68d3d85ee071cfc66ce1e665811",
+  "before": "ANY_CUSTOMER_TEXT_FILE_TEMPLATE_OR_GOAL",
+  "bootstrap_contains_customer_data": false,
+  "requirements": [
+    "enumerate every release manifest resource",
+    "read and hash all resources including references/tool scripts",
+    "compose full contents into trusted bootstrap context; verify actual model context budget without truncation",
+    "verify tools/permissions/native workspace/auth readiness",
+    "complete Codex bootstrap turn and persist minimal load receipt",
+    "only then set READY_FOR_INPUT and issue task/upload acceptance authority"
+  ],
+  "not_sufficient": [
+    "skill name/description only",
+    "put files on disk without context loading",
+    "model echoing a hash without host-side composition proof"
+  ],
+  "failure": "INITIALIZATION_FAILED; deny uploads/messages; stop and clean allocated environment",
+  "context_after_compaction": "Reattach complete locked skill and current immutable control facts before further customer turn; never accept silent instruction loss.",
+  "sdk_mapping": "Host application policy, not a claimed preloadAllSkills SDK option. Validate actual pinned SDK context/input mechanism.",
+  "status": "DESIGN_NOT_EXECUTED"
+}

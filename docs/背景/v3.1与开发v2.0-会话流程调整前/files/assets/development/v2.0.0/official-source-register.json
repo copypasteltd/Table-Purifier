@@ -1,0 +1,39 @@
+{
+  "checked_on": "2026-10-27",
+  "evidence_type": "OFFICIAL_DOCUMENTATION_AND_LOCAL_READ_ONLY_METADATA",
+  "local_cli_observed": "codex-cli 0.164.0-alpha.11.1",
+  "local_cli_status": "Desktop bundled prerelease, not production pin; only version/help read, no live job run.",
+  "runtime_test_status": "NOT_RUN",
+  "sources": [
+    {
+      "id": "SDK",
+      "url": "https://learn.chatgpt.com/docs/codex-sdk",
+      "verified_summary": "Official TypeScript @openai/codex-sdk supports server-side startThread/run/resumeThread. SDK option mapping must be checked against pinned types."
+    },
+    {
+      "id": "CLI",
+      "url": "https://learn.chatgpt.com/docs/non-interactive-mode",
+      "verified_summary": "codex exec supports noninteractive jobs, JSONL events and output-schema. Resume by exact session ID. Structured output is not content validation."
+    },
+    {
+      "id": "APP_SERVER",
+      "url": "https://learn.chatgpt.com/docs/app-server",
+      "verified_summary": "App Server and transport are experimental; SDK recommended for automated server jobs. App Server is not P0 default."
+    },
+    {
+      "id": "WINDOWS",
+      "url": "https://learn.chatgpt.com/docs/windows/windows-sandbox",
+      "verified_summary": "Native Windows restricted-identity/ACL modes exist. Working directory alone is not tenant read isolation. No local Docker/WSL/VM/MXC in this project."
+    },
+    {
+      "id": "PERMISSIONS",
+      "url": "https://learn.chatgpt.com/docs/permissions",
+      "verified_summary": "Runtime file/network permissions must be pinned and tested separately from business authorization."
+    },
+    {
+      "id": "SKILLS",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "verified_summary": "Repo-scoped .agents/skills provide instructions/resources; customer attachments must never become control skills."
+    }
+  ]
+}

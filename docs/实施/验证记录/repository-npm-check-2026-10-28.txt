@@ -1,0 +1,42 @@
+
+> p07-table-station@0.1.0 check
+> npm run typecheck && npm test && npm run build
+
+
+> p07-table-station@0.1.0 typecheck
+> tsc --noEmit
+
+
+> p07-table-station@0.1.0 test
+> vitest run
+
+
+ RUN  v5.0.5 E:/dev/sandbox/支付宝黑客松/表格修复站
+
+ ✓ tests/integration/database.test.ts (5 tests) 16613ms
+ ✓ tests/integration/task-workflow.test.ts (1 test) 12282ms
+   ✓ enforces the entire unpaid analysis → confirmation → quote → verified payment → queued batch sequence in real PostgreSQL 1369ms
+ ✓ tests/integration/api.test.ts (3 tests) 13216ms
+   ✓ registers the 56 contracts, keeps uploads behind actual READY, validates envelopes/idempotency and isolates owners 586ms
+   ✓ retries an owner-scoped deletion and keeps only the current receipt login after actual file and SQL purging 348ms
+ ✓ tests/unit/miniapp.test.ts (4 tests) 1894ms
+   ✓ ALIPAY initializes without customer data, keeps inputs closed until READY and stops polling on hide 306ms
+   ✓ ships both native targets with 18 page controllers and 32 distinct registered components, with no webview 1042ms
+ ✓ tests/unit/schema-and-decisions.test.ts (6 tests) 454ms
+ ✓ tests/unit/validation-golden.test.ts (38 tests) 590ms
+ ✓ tests/unit/storage.test.ts (3 tests) 381ms
+ ✓ tests/unit/agent-boundaries.test.ts (2 tests) 180ms
+ ✓ tests/unit/release-evidence.test.ts (3 tests) 44ms
+ ✓ tests/unit/platform-signatures.test.ts (3 tests) 16ms
+ ✓ tests/unit/crypto.test.ts (12 tests) 7ms
+ ✓ tests/unit/lifecycle.test.ts (3 tests) 5ms
+
+ Test Files  12 passed (12)
+      Tests  83 passed (83)
+   Start at  05:35:15
+   Duration  88.97s (tests 53%, import 46%, transform 1%)
+
+
+> p07-table-station@0.1.0 build
+> tsc -p tsconfig.build.json
+

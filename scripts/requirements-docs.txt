@@ -1,0 +1,4 @@
+# Current repository-level static validation tools, installed inside runtime only.
+jsonschema==4.26.0
+openapi-spec-validator==0.9.0
+pglast==8.7

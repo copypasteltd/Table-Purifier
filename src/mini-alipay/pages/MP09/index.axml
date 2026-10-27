@@ -1,0 +1,6 @@
+<b-frame><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-filter title="问题与确认范围"><view class="muted">问题条数与影响记录数分别计算。一次决定只作用于明确选中的记录与字段。</view><view class="split"><view><button class="button" data-action="filter-all" onTap="onAction">全部问题</button></view><view><button class="button" data-action="filter-blocker" onTap="onAction">只看需要确认</button></view></view></b-filter>
+<b-feedback a:if="{{!issues.length}}" title="当前没有待处理问题" text="可以返回结果概览，继续查看和领取文件。"/>
+<view class="source-row" a:for="{{issues}}" a:key="issue_id"><view class="badge">{{item.severity==='BLOCKER'?'需要确认':item.severity==='WARNING'?'提醒':'说明'}}</view><view>{{item.message}}</view><view class="small">字段：{{item.field_id||'整条记录'}}</view><button a:if="{{item.record_id&&item.field_id}}" class="button" data-action="issue" data-id="{{item.issue_id}}" onTap="onAction">处理此项问题</button></view>
+<button a:if="{{nextCursor}}" class="button" data-action="load-more" onTap="onAction" disabled="{{loading}}">加载下一页问题</button>
+<button class="button" data-action="go-MP08" onTap="onAction">返回结果概览</button>
+</b-frame>

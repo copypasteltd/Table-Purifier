@@ -1,0 +1,208 @@
+{
+  "development_baseline": "P07-DEV 2.0.0",
+  "status": "NO_INTEGRATION_EVIDENCE_YET",
+  "items": [
+    {
+      "id": "INT-01",
+      "subject": "Windows原生工具/依赖锁",
+      "work_package": "W01",
+      "blocks": "开发环境",
+      "closure_criteria": "Node24/Fastify5/Python3.13/PostgreSQL18与两端TS构建精确patch、许可证、原生wheel和哈希",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-02",
+      "subject": "支付宝四项文件入口/规范/取用",
+      "work_package": "W01",
+      "blocks": "支付宝Android/iOS输入与交付",
+      "closure_criteria": "正式app_alias/SDK/OS实测逐入口选择上传、Excel打开与用户可见取用，非仅缓存",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-03",
+      "subject": "抖音四项文件入口/规范/取用",
+      "work_package": "W01",
+      "blocks": "抖音Android/iOS输入与交付",
+      "closure_criteria": "同上，独立抖音宿主证据；不能套支付宝结果",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-04",
+      "subject": "双端原生SDK/生命周期/隐私权限",
+      "work_package": "W01",
+      "blocks": "双端原生构建",
+      "closure_criteria": "精确开发工具/基础库最低版本、登录/后台弱网/键盘/通知与隐私授权错误返回样本",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-05",
+      "subject": "各平台主体/类目/SKU/OS支付资格",
+      "work_package": "W01",
+      "blocks": "收费",
+      "closure_criteria": "适用主体、目标商品/单位/OS批准、商户、政策及实际文件交付路径证据；未核商业开关关闭",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-06",
+      "subject": "支付验签/查单/退款/履约契约",
+      "work_package": "W10",
+      "blocks": "收费与售后",
+      "closure_criteria": "官方签名原字节/证书轮换、超时/幂等/限流/ack、正式查单及实际原路退款回执",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-07",
+      "subject": "24h/2轮/7day候选政策",
+      "work_package": "W01",
+      "blocks": "对应SKU销售",
+      "closure_criteria": "获准商品与实际服务/隐私期限匹配，生效policy_snapshot，已售不追溯收紧",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-08",
+      "subject": "OCR供应商",
+      "work_package": "W03",
+      "blocks": "扫描PDF/图片自动解析",
+      "closure_criteria": "真实合同的地域/训练/保留/删除、定位/精度/成本/限流、幂等查询与测试",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-09",
+      "subject": "语义模型供应商",
+      "work_package": "W04",
+      "blocks": "发现与抽取",
+      "closure_criteria": "同类隐私/费用证据、受限JSON输出、上下文/重试/未知调用、独立质量集达标",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-10",
+      "subject": "PDFRenderer与原生资源封装",
+      "work_package": "W03",
+      "blocks": "PDF页图与安全解析",
+      "closure_criteria": "Windows轮子/许可证、crop/rotation坐标、JobObject进程树/内存/超时反例实测",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-11",
+      "subject": "数据库权限/RLS/并发租约",
+      "work_package": "W02",
+      "blocks": "安全和可靠执行",
+      "closure_criteria": "真实PostgreSQL新库/升级/RLS角色/复合FK/并发/fence/轮次测试，不用SQLite或容器",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-12",
+      "subject": "正式HTTPS/域名/服务wrapper",
+      "work_package": "W12",
+      "blocks": "真机/正式环境",
+      "closure_criteria": "有效域名白名单/证书、原生服务精确版本/ACL/进程归属/续期/回退证据",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-13",
+      "subject": "质量/资源/性能/费用预算",
+      "work_package": "W11",
+      "blocks": "发布",
+      "closure_criteria": "30组/10DISCOVER/两主题、关键错误阻断、明确硬件负载和Q/NFR实际报告",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-14",
+      "subject": "备份/恢复/删除与供应商副本",
+      "work_package": "W12",
+      "blocks": "隐私和运维",
+      "closure_criteria": "真实RPO/RTO、tombstone重放、在线/外部/备份期限/删除回执；不得预填达标",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-15",
+      "subject": "平台提审/灰度/售后能力",
+      "work_package": "W12",
+      "blocks": "各环境公开发布",
+      "closure_criteria": "适用build/app/OS/SKU的审核事实，停新单保留原售后演练及告警响应",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": []
+    },
+    {
+      "id": "INT-AGENT-SDK",
+      "name": "Official TypeScript Codex SDK/CLI pinned integration",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": [],
+      "production_enabled": false,
+      "required_evidence": [
+        "Pinned version/config",
+        "Actual recorded tests"
+      ],
+      "note": "Official documentation verified; application integration is not yet executed."
+    },
+    {
+      "id": "INT-AGENT-AUTH",
+      "name": "Service authentication, billing and source-data processing terms",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": [],
+      "production_enabled": false,
+      "required_evidence": [
+        "Pinned version/config",
+        "Actual recorded tests"
+      ],
+      "note": "Official documentation verified; application integration is not yet executed."
+    },
+    {
+      "id": "INT-AGENT-NATIVE",
+      "name": "Native Windows ACL/restricted identity, no virtualization, credential inheritance",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": [],
+      "production_enabled": false,
+      "required_evidence": [
+        "Pinned version/config",
+        "Actual recorded tests"
+      ],
+      "note": "Official documentation verified; application integration is not yet executed."
+    },
+    {
+      "id": "INT-AGENT-QUALITY",
+      "name": "Real Agent instructions/toolkit quality, latency and cost evaluation",
+      "status": "UNVERIFIED",
+      "test_status": "NOT_RUN",
+      "evidence_refs": [],
+      "production_enabled": false,
+      "required_evidence": [
+        "Pinned version/config",
+        "Actual recorded tests"
+      ],
+      "note": "Official documentation verified; application integration is not yet executed."
+    }
+  ]
+}

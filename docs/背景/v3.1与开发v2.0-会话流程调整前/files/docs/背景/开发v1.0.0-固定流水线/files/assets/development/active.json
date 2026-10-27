@@ -1,0 +1,13 @@
+{
+  "product_id": "P07",
+  "development_baseline": "P07-DEV 1.0.0",
+  "business_baseline": "v3.1",
+  "design_baseline": "P07-DS-B 1.0.0",
+  "manifest": "v1.0.0/manifest.json",
+  "manifest_sha256": "74bd15201477a05adf06819fe23ebc529c7ffde46c54723c720b1e8b6f1f4c60",
+  "documents": "../../docs/开发/README.md",
+  "requirements_pointer": "../requirements/active.json",
+  "design_pointer": "../design/active.json",
+  "status": "DOCUMENTS_READY_PRODUCT_NOT_IMPLEMENTED",
+  "updated_on": "2026-10-27"
+}

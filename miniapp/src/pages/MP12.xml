@@ -1,0 +1,6 @@
+<b-heading title="完整九文件"/><view class="muted">结果版本 {{resultVersion}}。文件持续保留，短期领取链接到期后可以重新领取。</view>
+<b-file p:for="{{files}}" p:key="artifact_id" title="{{item.name}}" text="{{item.bytes}} 字节 · 完整性摘要可核验"><button class="button {{item.name==='result.xlsx'?'primary':''}}" data-action="download" data-id="{{item.artifact_id}}" onTap="onAction" disabled="{{loading||!capability.flags.export}}">{{item.name==='result.xlsx'?'领取结果 Excel':'领取此文件'}}</button><button class="button" data-action="copy-file-link" data-id="{{item.artifact_id}}" onTap="onAction" disabled="{{loading||!capability.flags.export}}">复制五分钟领取链接</button></b-file>
+<b-capability p:if="{{!capability.flags.export}}" title="此构建暂未开放领取能力" text="结果继续保留，宿主验证通过后可回到此任务领取。"/>
+<button class="button" data-action="saved-confirmed" onTap="onAction">我已自行保存到需要的位置</button>
+<b-input title="另存为我的规范" text="只保留字段与规则，保存前请检查并去除本次具体事实。"><input value="{{name}}" data-field="name" onInput="onInput" maxlength="200" placeholder="给这份私有规范起个名字"/></b-input>
+<button class="button" data-action="save-template" onTap="onAction" disabled="{{loading||!name}}">保存私有规范</button>

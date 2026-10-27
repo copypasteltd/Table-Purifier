@@ -1,0 +1,1 @@
+<view class="record"><view class="row"><text>{{title}}</text><text class="badge">{{text}}</text></view><slot/></view>

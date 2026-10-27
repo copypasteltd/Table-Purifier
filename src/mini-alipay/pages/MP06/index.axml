@@ -1,0 +1,8 @@
+<b-frame><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-folder title="推荐规范"><b-schema title="{{proposal.schema.row_kind}}" text="完整资料分析 · {{fields.length}} 个字段 · 当前为待确认草案"/>
+<view class="small">已读 {{proposal.coverage.read_units}} / {{proposal.coverage.confirmed_units}} 个确认单元</view></b-folder>
+<b-field a:for="{{fields}}" a:key="field_id" title="{{item.label}}" text="{{item.type}}"><view>{{item.description}}</view><view class="small">{{item.required?'必填':'选填'}} · {{item.nullable?'可空':'不可空'}} · {{item.unit||'无单位'}}</view></b-field>
+<view a:for="{{proposal.unmapped_important}}" a:key="*this" class="warning">重要未纳入：{{item}}</view>
+<b-heading title="记录小样"/><view class="small">仅为展示样例，正式批量产出在付款核验后进行。</view>
+<b-table title="按当前规范展示的小样"><view a:for="{{records}}" a:key="record_id"><view a:for="{{item.values}}" a:for-item="value" a:key="id" class="table-cell"><view class="small">{{value.label}}</view>{{value.value}}</view></view></b-table>
+<b-actions><button class="button primary" data-action="adopt" onTap="onAction" disabled="{{loading||!proposal}}">采用规范，继续确认方案</button><button class="button" data-action="go-MP07" onTap="onAction">调整字段与规则</button></b-actions>
+</b-frame>

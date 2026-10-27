@@ -1,0 +1,14 @@
+
+> p07-table-station@0.1.0 typecheck
+> tsc --noEmit
+
+
+> p07-table-station@0.1.0 build
+> tsc -p tsconfig.build.json
+
+
+> p07-table-station@0.1.0 build:miniapps
+> tsx scripts/build-miniapps.ts
+
+{"provider":"ALIPAY","directory":"src\\mini-alipay","pages":18,"components":32,"bytes":406527,"status":"SOURCE_BUILT_NOT_DEVICE_VERIFIED"}
+{"provider":"DOUYIN","directory":"src\\mini-douyin","pages":18,"components":32,"bytes":411593,"status":"SOURCE_BUILT_NOT_DEVICE_VERIFIED"}

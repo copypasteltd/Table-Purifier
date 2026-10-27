@@ -1,0 +1,7 @@
+<b-folder title="推荐规范"><b-schema title="{{proposal.schema.row_kind}}" text="完整资料分析 · {{fields.length}} 个字段 · 当前为待确认草案"/>
+<view class="small">已读 {{proposal.coverage.read_units}} / {{proposal.coverage.confirmed_units}} 个确认单元</view></b-folder>
+<b-field p:for="{{fields}}" p:key="field_id" title="{{item.label}}" text="{{item.type}}"><view>{{item.description}}</view><view class="small">{{item.required?'必填':'选填'}} · {{item.nullable?'可空':'不可空'}} · {{item.unit||'无单位'}}</view></b-field>
+<view p:for="{{proposal.unmapped_important}}" p:key="*this" class="warning">重要未纳入：{{item}}</view>
+<b-heading title="记录小样"/><view class="small">仅为展示样例，正式批量产出在付款核验后进行。</view>
+<b-table title="按当前规范展示的小样"><view p:for="{{records}}" p:key="record_id"><view p:for="{{item.values}}" p:for-item="value" p:key="id" class="table-cell"><view class="small">{{value.label}}</view>{{value.value}}</view></view></b-table>
+<b-actions><button class="button primary" data-action="adopt" onTap="onAction" disabled="{{loading||!proposal}}">采用规范，继续确认方案</button><button class="button" data-action="go-MP07" onTap="onAction">调整字段与规则</button></b-actions>

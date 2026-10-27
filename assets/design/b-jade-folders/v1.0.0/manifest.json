@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "product_id": "P07",
+  "business_baseline": "v3.0",
+  "design_id": "P07-DS-B",
+  "design_version": "1.0.0",
+  "selected_style": "B",
+  "selected_style_name": "青绿资料夹",
+  "frozen_on": "2026-10-27",
+  "status": "DESIGN_BASELINE_NOT_IMPLEMENTED",
+  "scope": {
+    "frozen_documents": 7,
+    "specified_components": 32,
+    "specified_pages": 18,
+    "rendered_reference_pages": [
+      "MP01",
+      "MP06",
+      "MP10"
+    ]
+  },
+  "path_base": "project_root",
+  "retention_policy": "本版本文件留存不覆写；后续改动创建新版本。manifest自身哈希记录于assets/design/active.json；报告和ZIP不包含在清单以避免自哈希循环。",
+  "files": [
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/provenance/B-generation-prompt.txt",
+      "role": "selection_and_generation_provenance",
+      "bytes": 5674,
+      "sha256": "a63248a467f3b41fc3f83153f22f87d213861ed5a378f9c61d5d2aa107702749",
+      "media_type": "text/plain"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/provenance/B-generation-receipt.json",
+      "role": "selection_and_generation_provenance",
+      "bytes": 538,
+      "sha256": "2eb27f5c7f6a1f2eb5581e390517979cba247b135926ecac3ed0ceb8d80069e9",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/provenance/B-typography-corrections.json",
+      "role": "selection_and_generation_provenance",
+      "bytes": 668,
+      "sha256": "bbcbe340a63704be247a798bdaeb4ae9dc4cbc0b366211aa7935671bb730f74a",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/provenance/crop-map.json",
+      "role": "selection_and_generation_provenance",
+      "bytes": 594,
+      "sha256": "3937f2352e183b5290b12fcba4f110116a8e3ce15ad7841d18b914c2d5bd7c21",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/provenance/selection-decision.json",
+      "role": "selection_and_generation_provenance",
+      "bytes": 966,
+      "sha256": "d359454563b9bec3bade9d8ef95408533b313a787405a0d23fac95f6407d8a6e",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/reference/B-generated-original.png",
+      "role": "selected_or_original_raster_reference",
+      "bytes": 1482103,
+      "sha256": "2442db874ef62ce80c0cdae2e6257dfd51f32db082e5baca7ede59b27505d5f0",
+      "media_type": "image/png"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/reference/B-selected-board.png",
+      "role": "selected_or_original_raster_reference",
+      "bytes": 1273888,
+      "sha256": "12da146f6b7a2adc00d1008102d7606e7242efde52f17a0c65b3ef5cd80ba981",
+      "media_type": "image/png"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/reference/MP01-home.png",
+      "role": "selected_or_original_raster_reference",
+      "bytes": 367382,
+      "sha256": "0fc53d3c9ef51289bae7d98101e6cb6822638809989266e8f5f07327778ec638",
+      "media_type": "image/png"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/reference/MP06-schema.png",
+      "role": "selected_or_original_raster_reference",
+      "bytes": 337403,
+      "sha256": "d64f4c59d737240f6465ac828110731e5c582b156476080b369a4ab026c2d164",
+      "media_type": "image/png"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/reference/MP10-issue.png",
+      "role": "selected_or_original_raster_reference",
+      "bytes": 322111,
+      "sha256": "b0ec0b7c23c4fa23e2201bb3ba89997514dcb842a334b5408bd440914a03806f",
+      "media_type": "image/png"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/reference.html",
+      "role": "offline_reference_handbook",
+      "bytes": 30488,
+      "sha256": "09d5d3fd64c5248b79cfc13d5afa70451f3a72779e48f35537444fc127bed138",
+      "media_type": "text/html"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/specs/components.json",
+      "role": "static_design_contract_or_calculation",
+      "bytes": 17705,
+      "sha256": "b22737d75aa28b83552820115f7344d81a0c0e9a1680b88e9e8ca3783fd35cae",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/specs/contrast-report.json",
+      "role": "static_design_contract_or_calculation",
+      "bytes": 4444,
+      "sha256": "15fc1777cd077f55bfc58690a4c165fd396c2c4949ba4bd231de43dcf2b12f85",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/specs/pages.json",
+      "role": "static_design_contract_or_calculation",
+      "bytes": 21184,
+      "sha256": "616e29fff701eec60013feb5f26697e675a0c83d5361fbb90732b98677b6b91c",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/tokens.css",
+      "role": "design_tokens",
+      "bytes": 2678,
+      "sha256": "ddeff300ff1c9fae0e6f27b61f56283d97d29797cb97df243f244cd0c725862d",
+      "media_type": "text/css"
+    },
+    {
+      "project_path": "assets/design/b-jade-folders/v1.0.0/tokens.json",
+      "role": "design_tokens",
+      "bytes": 4438,
+      "sha256": "323bc1f62e58dea6a7df14f83d5809595119ebae47e161265e0b01f83da6a4b2",
+      "media_type": "application/json"
+    },
+    {
+      "project_path": "docs/设计定型/B-青绿资料夹-v1.0.0/01-视觉规范与设计变量.md",
+      "role": "frozen_design_document",
+      "bytes": 6015,
+      "sha256": "87ee1d5de30db36a13c135ada141c683f8971f681f247b784d5c7d8c1c8e7c82",
+      "media_type": "text/markdown"
+    },
+    {
+      "project_path": "docs/设计定型/B-青绿资料夹-v1.0.0/02-组件与交互状态.md",
+      "role": "frozen_design_document",
+      "bytes": 11800,
+      "sha256": "7c87192b2c9f253be76b077fddca208bf50ecf99d5ac2710513ab959229706c6",
+      "media_type": "text/markdown"
+    },
+    {
+      "project_path": "docs/设计定型/B-青绿资料夹-v1.0.0/03-18页面定型规格.md",
+      "role": "frozen_design_document",
+      "bytes": 15319,
+      "sha256": "1a16229decfe0e85f989f488000d2b4629002cda68aa5b7addfa90ba484cc7e4",
+      "media_type": "text/markdown"
+    },
+    {
+      "project_path": "docs/设计定型/B-青绿资料夹-v1.0.0/04-双平台适配与Web延展.md",
+      "role": "frozen_design_document",
+      "bytes": 4695,
+      "sha256": "59a1cb0598f2840db0ea59ffec9ff8c0c93dcd40ef7dc639c3276ca2234d10ba",
+      "media_type": "text/markdown"
+    },
+    {
+      "project_path": "docs/设计定型/B-青绿资料夹-v1.0.0/05-设计验收与开发交接.md",
+      "role": "frozen_design_document",
+      "bytes": 4662,
+      "sha256": "efedf9ffd91bce59c34ff781303cd5ba2bfbedd5f728b7555fc3de78787fda5f",
+      "media_type": "text/markdown"
+    },
+    {
+      "project_path": "docs/设计定型/B-青绿资料夹-v1.0.0/06-留存清单与变更记录.md",
+      "role": "frozen_design_document",
+      "bytes": 5523,
+      "sha256": "b50557c4fd79b152e1a24ef7b060869f5533ae4dcd20bea5c1789e67798a3235",
+      "media_type": "text/markdown"
+    },
+    {
+      "project_path": "docs/设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "role": "frozen_design_document",
+      "bytes": 5339,
+      "sha256": "3d7506ab3f547a07df35f7f69f5646768297e1409379bc1dd6a7c55611d81b56",
+      "media_type": "text/markdown"
+    }
+  ]
+}

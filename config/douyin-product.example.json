@@ -1,0 +1,8 @@
+{
+  "skuId": "填写已审核的商品标识",
+  "title": "资料成表服务",
+  "image": "https://example.invalid/replace-with-reviewed-image.png",
+  "type": 0,
+  "tagGroupId": "填写获准类目",
+  "keyVersion": "填写原平台应用公钥版本"
+}

@@ -1,0 +1,229 @@
+{
+  "status": "SYNTHETIC_CONTRACT_EXAMPLES_ONLY",
+  "examples": [
+    {
+      "name": "discover-input",
+      "schema": "agent-input.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-2",
+        "task_id": "00000000-0000-4000-8000-000000000001",
+        "run_id": "00000000-0000-4000-8000-000000000002",
+        "operation_id": "00000000-0000-4000-8000-000000000003",
+        "attempt_id": "00000000-0000-4000-8000-000000000004",
+        "fence": 1,
+        "task_epoch": 1,
+        "phase": "EXECUTE",
+        "mode": "DISCOVER",
+        "goal": "将多份合成报价整理为可比较的标准表",
+        "goal_version": 1,
+        "source_set_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "workspace_id": "00000000-0000-4000-8000-000000000005",
+        "inputs": [
+          {
+            "source_id": "00000000-0000-4000-8000-000000000006",
+            "role": "SOURCE",
+            "path": "inputs/sources/source-01.txt",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "read_scope": "FULL_CONFIRMED_SOURCE"
+          }
+        ],
+        "scope_manifest_path": "control/scope.json",
+        "binding": null,
+        "adoption_receipt_path": null,
+        "parent_result_path": null,
+        "decision_batch_path": null,
+        "budget": {
+          "remaining_compute_ms": 900000,
+          "semantic_units_max": 50,
+          "fields_max": 50,
+          "records_max": 1000,
+          "output_bytes_max": 50000000
+        },
+        "versions": {
+          "sdk": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "cli": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "model": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "instructions": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "toolkit": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "unitizer": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "validator": "UNPINNED-SYNTHETIC-EXAMPLE"
+        },
+        "expected_output_schema": "control/completion.schema.json"
+      }
+    },
+    {
+      "name": "full-proposal-completion",
+      "schema": "agent-completion.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-2",
+        "attempt_id": "00000000-0000-4000-8000-000000000004",
+        "input_manifest_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "source_set_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "binding_sha256": null,
+        "outcome": "PROPOSAL_READY",
+        "analysis_scope": "FULL",
+        "schema_status": "FULL_DRAFT",
+        "candidate_files": [],
+        "coverage_ledger_path": "work/coverage.jsonl",
+        "proposal_path": "proposal/standard.json",
+        "preview_path": "proposal/preview.json",
+        "issues_path": null,
+        "user_summary": "合成示例：规范建议按一条供应商报价一行，保留低频保修字段，请用户采用。",
+        "limitations": [],
+        "error_code": null
+      }
+    }
+  ],
+  "invalid_examples": [
+    {
+      "name": "provided-execute-missing-binding",
+      "schema": "agent-input.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-2",
+        "task_id": "00000000-0000-4000-8000-000000000001",
+        "run_id": "00000000-0000-4000-8000-000000000002",
+        "operation_id": "00000000-0000-4000-8000-000000000003",
+        "attempt_id": "00000000-0000-4000-8000-000000000004",
+        "fence": 1,
+        "task_epoch": 1,
+        "phase": "EXECUTE",
+        "mode": "PROVIDED",
+        "goal": "将多份合成报价整理为可比较的标准表",
+        "goal_version": 1,
+        "source_set_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "workspace_id": "00000000-0000-4000-8000-000000000005",
+        "inputs": [
+          {
+            "source_id": "00000000-0000-4000-8000-000000000006",
+            "role": "SOURCE",
+            "path": "inputs/sources/source-01.txt",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "read_scope": "FULL_CONFIRMED_SOURCE"
+          }
+        ],
+        "scope_manifest_path": "control/scope.json",
+        "binding": null,
+        "adoption_receipt_path": null,
+        "parent_result_path": null,
+        "decision_batch_path": null,
+        "budget": {
+          "remaining_compute_ms": 900000,
+          "semantic_units_max": 50,
+          "fields_max": 50,
+          "records_max": 1000,
+          "output_bytes_max": 50000000
+        },
+        "versions": {
+          "sdk": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "cli": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "model": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "instructions": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "toolkit": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "unitizer": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "validator": "UNPINNED-SYNTHETIC-EXAMPLE"
+        },
+        "expected_output_schema": "control/completion.schema.json"
+      }
+    },
+    {
+      "name": "partial-proposal-cannot-freeze",
+      "schema": "agent-completion.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-2",
+        "attempt_id": "00000000-0000-4000-8000-000000000004",
+        "input_manifest_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "source_set_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "binding_sha256": null,
+        "outcome": "PROPOSAL_READY",
+        "analysis_scope": "PARTIAL",
+        "schema_status": "FULL_DRAFT",
+        "candidate_files": [],
+        "coverage_ledger_path": "work/coverage.jsonl",
+        "proposal_path": "proposal/standard.json",
+        "preview_path": "proposal/preview.json",
+        "issues_path": null,
+        "user_summary": "合成示例：规范建议按一条供应商报价一行，保留低频保修字段，请用户采用。",
+        "limitations": [],
+        "error_code": null
+      }
+    },
+    {
+      "name": "path-traversal",
+      "schema": "agent-input.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-2",
+        "task_id": "00000000-0000-4000-8000-000000000001",
+        "run_id": "00000000-0000-4000-8000-000000000002",
+        "operation_id": "00000000-0000-4000-8000-000000000003",
+        "attempt_id": "00000000-0000-4000-8000-000000000004",
+        "fence": 1,
+        "task_epoch": 1,
+        "phase": "EXECUTE",
+        "mode": "DISCOVER",
+        "goal": "将多份合成报价整理为可比较的标准表",
+        "goal_version": 1,
+        "source_set_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "workspace_id": "00000000-0000-4000-8000-000000000005",
+        "inputs": [
+          {
+            "source_id": "00000000-0000-4000-8000-000000000006",
+            "role": "SOURCE",
+            "path": "../other-account/source.xlsx",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "read_scope": "FULL_CONFIRMED_SOURCE"
+          }
+        ],
+        "scope_manifest_path": "control/scope.json",
+        "binding": null,
+        "adoption_receipt_path": null,
+        "parent_result_path": null,
+        "decision_batch_path": null,
+        "budget": {
+          "remaining_compute_ms": 900000,
+          "semantic_units_max": 50,
+          "fields_max": 50,
+          "records_max": 1000,
+          "output_bytes_max": 50000000
+        },
+        "versions": {
+          "sdk": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "cli": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "model": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "instructions": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "toolkit": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "unitizer": "UNPINNED-SYNTHETIC-EXAMPLE",
+          "validator": "UNPINNED-SYNTHETIC-EXAMPLE"
+        },
+        "expected_output_schema": "control/completion.schema.json"
+      }
+    },
+    {
+      "name": "result-without-binding-and-files",
+      "schema": "agent-completion.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-2",
+        "attempt_id": "00000000-0000-4000-8000-000000000004",
+        "input_manifest_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "source_set_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "binding_sha256": null,
+        "outcome": "RESULT_READY",
+        "analysis_scope": "FULL",
+        "schema_status": "FULL_DRAFT",
+        "candidate_files": [],
+        "coverage_ledger_path": "work/coverage.jsonl",
+        "proposal_path": "proposal/standard.json",
+        "preview_path": "proposal/preview.json",
+        "issues_path": null,
+        "user_summary": "合成示例：规范建议按一条供应商报价一行，保留低频保修字段，请用户采用。",
+        "limitations": [],
+        "error_code": null
+      }
+    }
+  ]
+}

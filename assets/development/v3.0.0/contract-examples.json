@@ -1,0 +1,53 @@
+{
+  "status": "SYNTHETIC_SCHEMA_EXAMPLES_ONLY",
+  "examples": [
+    {
+      "name": "session-first-create",
+      "schema": "Request54",
+      "payload": {
+        "client_request_id": "00000000-0000-4000-8000-000000000001",
+        "skill_release_id": "P07-SKILL-3"
+      }
+    },
+    {
+      "name": "paid-batch-input",
+      "schema": "Request16",
+      "payload": {
+        "session_id": "00000000-0000-4000-8000-000000000001",
+        "contract_id": "00000000-0000-4000-8000-000000000001",
+        "order_id": "00000000-0000-4000-8000-000000000001",
+        "confirmed_plan_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    }
+  ],
+  "invalid_examples": [
+    {
+      "name": "submit-before-ready-session",
+      "schema": "Request03",
+      "payload": {
+        "mode": "DISCOVER",
+        "client_request_id": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "name": "bootstrap-cannot-carry-user-data",
+      "schema": "Request54",
+      "payload": {
+        "client_request_id": "00000000-0000-4000-8000-000000000001",
+        "skill_release_id": "P07-SKILL-3",
+        "files": [
+          "user.xlsx"
+        ]
+      }
+    },
+    {
+      "name": "free-cannot-start-batch",
+      "schema": "Request16",
+      "payload": {
+        "session_id": "00000000-0000-4000-8000-000000000001",
+        "contract_id": "00000000-0000-4000-8000-000000000001",
+        "free_grant": "00000000-0000-4000-8000-000000000001"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2592 @@
+{
+  "development_baseline": "P07-DEV 1.0.0",
+  "business_baseline": "v3.1",
+  "status": "PLANNED_NOT_STARTED",
+  "estimate_note": "85—118人日/10—14周沿用旧估算，未按v3.1重估；外部审批另列",
+  "tasks": [
+    {
+      "id": "DEV-F01",
+      "title": "身份、任务空间与资料隔离",
+      "priority": "P0",
+      "work_package": "W02",
+      "requirement_ids": [
+        "P07-F01"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API02",
+        "P07-API03",
+        "P07-API44",
+        "P07-API45"
+      ],
+      "page_ids": [
+        "MP15"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C20",
+        "B-C24",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC01-01",
+        "P07-AC01-02",
+        "P07-AC01-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "两账号互换任务/证据/规范ID均拒绝",
+        "会话撤销后下一次访问拒绝",
+        "退出重登恢复原归属"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F02",
+      "title": "多种文本与文件输入",
+      "priority": "P0",
+      "work_package": "W03",
+      "requirement_ids": [
+        "P07-F02"
+      ],
+      "api_ids": [
+        "P07-API04",
+        "P07-API05",
+        "P07-API06",
+        "P07-API46"
+      ],
+      "page_ids": [
+        "MP01",
+        "MP02"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC02-01",
+        "P07-AC02-02",
+        "P07-AC02-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "文本/PDF/图片均有去向",
+        "20,000,001字节源拒绝且不截断",
+        "上传重放复用同一资源不重复计量"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F03",
+      "title": "规范表导入与角色区分",
+      "priority": "P0",
+      "work_package": "W03",
+      "requirement_ids": [
+        "P07-F03"
+      ],
+      "api_ids": [
+        "P07-API07",
+        "P07-API08"
+      ],
+      "page_ids": [
+        "MP02",
+        "MP03"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C22",
+        "B-C26",
+        "B-C31",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC03-01",
+        "P07-AC03-02",
+        "P07-AC03-03"
+      ],
+      "exception_case_ids": [
+        "P07-E02"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "同名模板与来源角色隔离",
+        "模板样例不计候选",
+        "列顺序、文本编码规则可确认"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F04",
+      "title": "免费预检与可执行范围",
+      "priority": "P0",
+      "work_package": "W03",
+      "requirement_ids": [
+        "P07-F04"
+      ],
+      "api_ids": [
+        "P07-API09"
+      ],
+      "page_ids": [
+        "MP04"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC04-01",
+        "P07-AC04-02",
+        "P07-AC04-03"
+      ],
+      "exception_case_ids": [
+        "P07-E01"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "无模板预检不报SCHEMA_REQUIRED",
+        "第四单元不免费无限分析",
+        "无文档导出路径不报价出售文件服务"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F05",
+      "title": "按规范提取与来源证据",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F05"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "page_ids": [
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C17",
+        "B-C26",
+        "B-C30"
+      ],
+      "acceptance_ids": [
+        "P07-AC05-01",
+        "P07-AC05-02",
+        "P07-AC05-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "模拟报价28元回指正确段落",
+        "他文件片段不能挂在本报价",
+        "模型高置信无证据仍待核"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F06",
+      "title": "目标理解、关键澄清与冻结",
+      "priority": "P0",
+      "work_package": "W02",
+      "requirement_ids": [
+        "P07-F06"
+      ],
+      "api_ids": [
+        "P07-API10",
+        "P07-API18",
+        "P07-API20"
+      ],
+      "page_ids": [
+        "MP03",
+        "MP07"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C22",
+        "B-C25",
+        "B-C26",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC06-01",
+        "P07-AC06-02",
+        "P07-AC06-03"
+      ],
+      "exception_case_ids": [
+        "P07-E03"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "付款不等于采用未知规范",
+        "同一人两次报名不误合",
+        "冻结后变更有影响预览"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F07",
+      "title": "自动清理、分类与字段填充",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F07"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC07-01",
+        "P07-AC07-02",
+        "P07-AC07-03"
+      ],
+      "exception_case_ids": [
+        "P07-E05"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "格式统一可追溯",
+        "无公司信息不补公司名",
+        "源哈希执行前后相同"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F08",
+      "title": "标识与文本精度保护",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F08"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC08-01",
+        "P07-AC08-02",
+        "P07-AC08-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "001234导出仍为001234",
+        "18位编码不被浮点截断",
+        "歧义字符未标记不得通过"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F09",
+      "title": "日期、相对时间与时区",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F09"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC09-01",
+        "P07-AC09-02",
+        "P07-AC09-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "无锚点明天保持待核",
+        "2026-02-30触发错误",
+        "有证据的相对日期保留推导关系"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F10",
+      "title": "数值、币种、单位与粒度",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F10"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC10-01",
+        "P07-AC10-02",
+        "P07-AC10-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "0.1加0.2按定点得0.3",
+        "两个商品共用订单100元不变200",
+        "未给币种不默认为人民币"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F11",
+      "title": "跨资料归并与拆分",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F11"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC11-01",
+        "P07-AC11-02",
+        "P07-AC11-03"
+      ],
+      "exception_case_ids": [
+        "P07-E06"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "一份名单拆三人",
+        "同名不同报名保留两行",
+        "相同资料复用不制造重复事实"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F12",
+      "title": "来源覆盖与候选去向",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F12"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21",
+        "P07-API22"
+      ],
+      "page_ids": [
+        "MP08",
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C26",
+        "B-C29",
+        "B-C30",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC12-01",
+        "P07-AC12-02",
+        "P07-AC12-03"
+      ],
+      "exception_case_ids": [
+        "P07-E14"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "候选总数等于三去向之和",
+        "每页存在状态",
+        "未纳入保修字段明确提示"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F13",
+      "title": "字段来源、转换与决策审计",
+      "priority": "P0",
+      "work_package": "W05",
+      "requirement_ids": [
+        "P07-F13"
+      ],
+      "api_ids": [
+        "P07-API21",
+        "P07-API23"
+      ],
+      "page_ids": [
+        "MP10",
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C26",
+        "B-C30",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC13-01",
+        "P07-AC13-02",
+        "P07-AC13-03"
+      ],
+      "exception_case_ids": [
+        "P07-E06",
+        "P07-E15",
+        "P07-E21"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "人工补价标USER_PROVIDED",
+        "来源清理后不能假装打开原图",
+        "旧结果仍定位原规则版本"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F14",
+      "title": "固定结果包与安全导出",
+      "priority": "P0",
+      "work_package": "W06",
+      "requirement_ids": [
+        "P07-F14"
+      ],
+      "api_ids": [
+        "P07-API28",
+        "P07-API29"
+      ],
+      "page_ids": [
+        "MP12"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC14-01",
+        "P07-AC14-02",
+        "P07-AC14-03"
+      ],
+      "exception_case_ids": [
+        "P07-E20"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "manifest只列其余8文件",
+        "空accepted.csv仍有表头",
+        "以=开头的源文本导出不执行公式"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F15",
+      "title": "固定范围报价与费用上限",
+      "priority": "P0",
+      "work_package": "W10",
+      "requirement_ids": [
+        "P07-F15"
+      ],
+      "api_ids": [
+        "P07-API11",
+        "P07-API12",
+        "P07-API51"
+      ],
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC15-01",
+        "P07-AC15-02",
+        "P07-AC15-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "客户端改价无效",
+        "DISCOVER不另收首次采用费",
+        "查询下载和网络重试不重收"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F16",
+      "title": "双端获准支付与结果权益",
+      "priority": "P0",
+      "work_package": "W10",
+      "requirement_ids": [
+        "P07-F16"
+      ],
+      "api_ids": [
+        "P07-API12",
+        "P07-API13",
+        "P07-API14",
+        "P07-API15",
+        "P07-API51",
+        "P07-API53"
+      ],
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC16-01",
+        "P07-AC16-02",
+        "P07-AC16-03"
+      ],
+      "exception_case_ids": [
+        "P07-E16",
+        "P07-E17",
+        "P07-E19",
+        "P07-E24"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "客户端success不能记实付",
+        "重复回调仅一次放行",
+        "另一平台流水不能兑换本单"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F17",
+      "title": "持久阶段、重试与恢复",
+      "priority": "P0",
+      "work_package": "W02",
+      "requirement_ids": [
+        "P07-F17"
+      ],
+      "api_ids": [
+        "P07-API16",
+        "P07-API17",
+        "P07-API30"
+      ],
+      "page_ids": [
+        "MP05",
+        "MP13"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C21",
+        "B-C24",
+        "B-C26",
+        "B-C28",
+        "B-C29"
+      ],
+      "acceptance_ids": [
+        "P07-AC17-01",
+        "P07-AC17-02",
+        "P07-AC17-03"
+      ],
+      "exception_case_ids": [
+        "P07-E10",
+        "P07-E12",
+        "P07-E15",
+        "P07-E18"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "终止worker可从检查点恢复",
+        "旧attempt不能覆盖新结果",
+        "计算超15分钟停止新增计算"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F18",
+      "title": "手机结果审阅与问题定位",
+      "priority": "P0",
+      "work_package": "W08",
+      "requirement_ids": [
+        "P07-F18"
+      ],
+      "api_ids": [
+        "P07-API21",
+        "P07-API22",
+        "P07-API23",
+        "P07-API28",
+        "P07-API44",
+        "P07-API45",
+        "P07-API52"
+      ],
+      "page_ids": [
+        "MP08",
+        "MP12"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C29",
+        "B-C31",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC18-01",
+        "P07-AC18-02",
+        "P07-AC18-03"
+      ],
+      "exception_case_ids": [
+        "P07-E08",
+        "P07-E11",
+        "P07-E21"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "NEEDS_REVIEW不写全通过",
+        "筛选回退保留位置",
+        "下载失败不重新处理收费"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F19",
+      "title": "取消、失败、来源不足与退款",
+      "priority": "P0",
+      "work_package": "W10",
+      "requirement_ids": [
+        "P07-F19"
+      ],
+      "api_ids": [
+        "P07-API14",
+        "P07-API15",
+        "P07-API30",
+        "P07-API31",
+        "P07-API53"
+      ],
+      "page_ids": [
+        "MP15",
+        "MP16",
+        "MP18"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC19-01",
+        "P07-AC19-02",
+        "P07-AC19-03"
+      ],
+      "exception_case_ids": [
+        "P07-E13",
+        "P07-E14",
+        "P07-E17",
+        "P07-E18",
+        "P07-E19"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "取消竞态不双退",
+        "退款累计不超实付",
+        "未扣款不能显示退款到账"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F20",
+      "title": "资料用途、清理与运营",
+      "priority": "P0",
+      "work_package": "W09",
+      "requirement_ids": [
+        "P07-F20"
+      ],
+      "api_ids": [
+        "P07-API35",
+        "P07-API36",
+        "P07-API37",
+        "P07-API49",
+        "P07-API50",
+        "P07-API52"
+      ],
+      "page_ids": [
+        "MP11",
+        "MP15",
+        "MP17",
+        "MP18"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C20",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C30",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC20-01",
+        "P07-AC20-02",
+        "P07-AC20-03"
+      ],
+      "exception_case_ids": [
+        "P07-E21",
+        "P07-E22",
+        "P07-E23"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "日志不含正文/签链",
+        "原件与摘录不同到期可见",
+        "删任务不默认删独立私有规范"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F21",
+      "title": "持续追加与多人协作",
+      "priority": "P1",
+      "work_package": "P1-F21",
+      "requirement_ids": [
+        "P07-F21"
+      ],
+      "api_ids": [
+        "P07-API40"
+      ],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [
+        "P07-AC21-01",
+        "P07-AC21-02",
+        "P07-AC21-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "旧结果可追踪",
+        "同一冲突不能最后写入覆盖",
+        "追加资料需新的范围确认"
+      ],
+      "status": "PARKED_P1",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F22",
+      "title": "更多格式与复杂规范",
+      "priority": "P1",
+      "work_package": "P1-F22",
+      "requirement_ids": [
+        "P07-F22"
+      ],
+      "api_ids": [
+        "P07-API41"
+      ],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [
+        "P07-AC22-01",
+        "P07-AC22-02",
+        "P07-AC22-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "音频有时间码",
+        "多表有稳定关系",
+        "不支持格式明确拒绝并保留原件去向"
+      ],
+      "status": "PARKED_P1",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F23",
+      "title": "按规范执行验收",
+      "priority": "P0",
+      "work_package": "W06",
+      "requirement_ids": [
+        "P07-F23"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API27"
+      ],
+      "page_ids": [
+        "MP08",
+        "MP09"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C19",
+        "B-C25",
+        "B-C29",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC23-01",
+        "P07-AC23-02",
+        "P07-AC23-03"
+      ],
+      "exception_case_ids": [
+        "P07-E05"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "必填价格缺失不通过",
+        "未知封闭枚举报问题",
+        "通过行所有必需字段有合格依据"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F24",
+      "title": "手机任务流程与渐进式交互",
+      "priority": "P0",
+      "work_package": "W07",
+      "requirement_ids": [
+        "P07-F24"
+      ],
+      "api_ids": [
+        "P07-API03",
+        "P07-API09",
+        "P07-API17",
+        "P07-API44"
+      ],
+      "page_ids": [
+        "MP01",
+        "MP13"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C21",
+        "B-C26",
+        "B-C29",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC24-01",
+        "P07-AC24-02",
+        "P07-AC24-03"
+      ],
+      "exception_case_ids": [
+        "P07-E01"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "两模式不依赖Web",
+        "正常字段不逐格确认",
+        "没有资料时检查按钮有禁用原因"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F25",
+      "title": "处理预算、超限与完整范围",
+      "priority": "P0",
+      "work_package": "W03",
+      "requirement_ids": [
+        "P07-F25"
+      ],
+      "api_ids": [
+        "P07-API06",
+        "P07-API09",
+        "P07-API11",
+        "P07-API46"
+      ],
+      "page_ids": [
+        "MP02",
+        "MP04"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC25-01",
+        "P07-AC25-02",
+        "P07-AC25-03"
+      ],
+      "exception_case_ids": [
+        "P07-E14"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "边界值可测",
+        "模板5MB独立校验",
+        "重复OCR区域不重复计页"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F26",
+      "title": "资料安全与指令权限",
+      "priority": "P0",
+      "work_package": "W03",
+      "requirement_ids": [
+        "P07-F26"
+      ],
+      "api_ids": [
+        "P07-API05",
+        "P07-API06",
+        "P07-API07",
+        "P07-API50"
+      ],
+      "page_ids": [
+        "MP17"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C25",
+        "B-C26",
+        "B-C27"
+      ],
+      "acceptance_ids": [
+        "P07-AC26-01",
+        "P07-AC26-02",
+        "P07-AC26-03"
+      ],
+      "exception_case_ids": [
+        "P07-E22"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "附件支付指令无效",
+        "越界路径拒绝",
+        "危险公式在查看/导出都不执行"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F27",
+      "title": "缺项、冲突与两轮补确认",
+      "priority": "P0",
+      "work_package": "W06",
+      "requirement_ids": [
+        "P07-F27"
+      ],
+      "api_ids": [
+        "P07-API24",
+        "P07-API25",
+        "P07-API26",
+        "P07-API27"
+      ],
+      "page_ids": [
+        "MP09",
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C29",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC27-01",
+        "P07-AC27-02",
+        "P07-AC27-03"
+      ],
+      "exception_case_ids": [
+        "P07-E05",
+        "P07-E06",
+        "P07-E07",
+        "P07-E08",
+        "P07-E12",
+        "P07-E13"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "无决定不能提交",
+        "补28.50后标人工来源",
+        "重复提交不重复扣轮次"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F28",
+      "title": "连接器、SDK与Machine Pay开放API",
+      "priority": "P1",
+      "work_package": "P1-F28",
+      "requirement_ids": [
+        "P07-F28"
+      ],
+      "api_ids": [
+        "P07-API42"
+      ],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [
+        "P07-AC28-01",
+        "P07-AC28-02",
+        "P07-AC28-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "撤销密钥生效",
+        "付费调用与普通订单隔离",
+        "SDK重试不重复执行外写"
+      ],
+      "status": "PARKED_P1",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F29",
+      "title": "无模板资料分析与规范推荐",
+      "priority": "P0",
+      "work_package": "W04",
+      "requirement_ids": [
+        "P07-F29"
+      ],
+      "api_ids": [
+        "P07-API18"
+      ],
+      "page_ids": [
+        "MP05",
+        "MP06"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C11",
+        "B-C12",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C24",
+        "B-C26",
+        "B-C28",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC29-01",
+        "P07-AC29-02",
+        "P07-AC29-03"
+      ],
+      "exception_case_ids": [
+        "P07-E01",
+        "P07-E03",
+        "P07-E04"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "无模板报价不拦截",
+        "保修仅一处仍纳入可选字段",
+        "同名报价不混成联系人行"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F30",
+      "title": "推荐规范预览、调整与采用",
+      "priority": "P0",
+      "work_package": "W04",
+      "requirement_ids": [
+        "P07-F30"
+      ],
+      "api_ids": [
+        "P07-API18",
+        "P07-API19",
+        "P07-API20"
+      ],
+      "page_ids": [
+        "MP05",
+        "MP06",
+        "MP07"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C10",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C28",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC30-01",
+        "P07-AC30-02",
+        "P07-AC30-03"
+      ],
+      "exception_case_ids": [
+        "P07-E09",
+        "P07-E10"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "点击采用绑定准确版本",
+        "重复采用同键返回原绑定",
+        "采用前调整不扣数据修订轮次"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F31",
+      "title": "推荐规范合理性与信息覆盖审查",
+      "priority": "P0",
+      "work_package": "W04",
+      "requirement_ids": [
+        "P07-F31"
+      ],
+      "api_ids": [
+        "P07-API18",
+        "P07-API19",
+        "P07-API27"
+      ],
+      "page_ids": [
+        "MP06"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C11",
+        "B-C12",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC31-01",
+        "P07-AC31-02",
+        "P07-AC31-03"
+      ],
+      "exception_case_ids": [
+        "P07-E03",
+        "P07-E04",
+        "P07-E13"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "关键字段覆盖按人工答案统计",
+        "局部样本不称全量",
+        "白石保修不能复制给青禾"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F32",
+      "title": "规范模板交付与复用",
+      "priority": "P0",
+      "work_package": "W06",
+      "requirement_ids": [
+        "P07-F32"
+      ],
+      "api_ids": [
+        "P07-API28",
+        "P07-API32",
+        "P07-API47",
+        "P07-API48"
+      ],
+      "page_ids": [
+        "MP03",
+        "MP12",
+        "MP14"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C22",
+        "B-C23",
+        "B-C25",
+        "B-C26",
+        "B-C29",
+        "B-C31",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC32-01",
+        "P07-AC32-02",
+        "P07-AC32-03"
+      ],
+      "exception_case_ids": [
+        "P07-E02",
+        "P07-E23"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "空表无客户行",
+        "无task/source访问ID",
+        "导出规范重新导入语义等价"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F33",
+      "title": "双小程序主载体与原生适配",
+      "priority": "P0",
+      "work_package": "W07",
+      "requirement_ids": [
+        "P07-F33"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API17"
+      ],
+      "page_ids": [
+        "MP01"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC33-01",
+        "P07-AC33-02",
+        "P07-AC33-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "四根入口一致",
+        "每端两模式可完成",
+        "B主色和状态规则一致且原生胶囊不伪造"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F34",
+      "title": "手机资料与模板导入",
+      "priority": "P0",
+      "work_package": "W08",
+      "requirement_ids": [
+        "P07-F34"
+      ],
+      "api_ids": [
+        "P07-API04",
+        "P07-API05",
+        "P07-API06",
+        "P07-API46"
+      ],
+      "page_ids": [
+        "MP01",
+        "MP02"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC34-01",
+        "P07-AC34-02",
+        "P07-AC34-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "已完成项保留",
+        "重选同一源不重计",
+        "未开放文档入口不画假可用按钮"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F35",
+      "title": "手机推荐规范与字段编辑",
+      "priority": "P0",
+      "work_package": "W07",
+      "requirement_ids": [
+        "P07-F35"
+      ],
+      "api_ids": [
+        "P07-API19",
+        "P07-API20"
+      ],
+      "page_ids": [
+        "MP03",
+        "MP06",
+        "MP07"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C22",
+        "B-C25",
+        "B-C26",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC35-01",
+        "P07-AC35-02",
+        "P07-AC35-03"
+      ],
+      "exception_case_ids": [
+        "P07-E09"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "长字段可读",
+        "自然语言修改先预览",
+        "返回不把未提交稿称已采用"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F36",
+      "title": "移动记录与问题审核",
+      "priority": "P0",
+      "work_package": "W07",
+      "requirement_ids": [
+        "P07-F36"
+      ],
+      "api_ids": [
+        "P07-API21",
+        "P07-API22",
+        "P07-API24",
+        "P07-API25"
+      ],
+      "page_ids": [
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C26",
+        "B-C29",
+        "B-C30",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC36-01",
+        "P07-AC36-02",
+        "P07-AC36-03"
+      ],
+      "exception_case_ids": [
+        "P07-E07",
+        "P07-E11"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "不一次渲染1000原图",
+        "筛选不漏重复/漏页",
+        "无效补值不提交"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F37",
+      "title": "生命周期、弱网与任务恢复",
+      "priority": "P0",
+      "work_package": "W08",
+      "requirement_ids": [
+        "P07-F37"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API14",
+        "P07-API17",
+        "P07-API26",
+        "P07-API44",
+        "P07-API45"
+      ],
+      "page_ids": [
+        "MP05",
+        "MP13"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C21",
+        "B-C24",
+        "B-C26",
+        "B-C28",
+        "B-C29"
+      ],
+      "acceptance_ids": [
+        "P07-AC37-01",
+        "P07-AC37-02",
+        "P07-AC37-03"
+      ],
+      "exception_case_ids": [
+        "P07-E10",
+        "P07-E12",
+        "P07-E16",
+        "P07-E22"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "付款/采用/修订中断均不重做",
+        "服务端不依赖手机常驻",
+        "临时源丢失可重选"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F38",
+      "title": "手机结果领取与实际导出",
+      "priority": "P0",
+      "work_package": "W08",
+      "requirement_ids": [
+        "P07-F38"
+      ],
+      "api_ids": [
+        "P07-API28",
+        "P07-API29",
+        "P07-API33",
+        "P07-API52"
+      ],
+      "page_ids": [
+        "MP12"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC38-01",
+        "P07-AC38-02",
+        "P07-AC38-03"
+      ],
+      "exception_case_ids": [
+        "P07-E20"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "实际Excel可在目标位置取用",
+        "用户确认与平台回执区分",
+        "manifest缺项不称完整"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F39",
+      "title": "我的私有规范",
+      "priority": "P0",
+      "work_package": "W09",
+      "requirement_ids": [
+        "P07-F39"
+      ],
+      "api_ids": [
+        "P07-API32",
+        "P07-API34",
+        "P07-API47",
+        "P07-API48",
+        "P07-API49"
+      ],
+      "page_ids": [
+        "MP03",
+        "MP12",
+        "MP14",
+        "MP17"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C22",
+        "B-C23",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C29",
+        "B-C31",
+        "B-C32"
+      ],
+      "acceptance_ids": [
+        "P07-AC39-01",
+        "P07-AC39-02",
+        "P07-AC39-03"
+      ],
+      "exception_case_ids": [
+        "P07-E23"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "旧源过期后模板仍可用",
+        "无真实值/证据引用",
+        "其他账号不能列模板"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F40",
+      "title": "平台身份、绑定与权益边界",
+      "priority": "P0",
+      "work_package": "W09",
+      "requirement_ids": [
+        "P07-F40"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API38",
+        "P07-API51"
+      ],
+      "page_ids": [
+        "MP14",
+        "MP15",
+        "MP16"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C12",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C22",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C29",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC40-01",
+        "P07-AC40-02",
+        "P07-AC40-03"
+      ],
+      "exception_case_ids": [
+        "P07-E17",
+        "P07-E24"
+      ],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "同名账号互不可见",
+        "跨app流水拒绝",
+        "未获准跨端付费权益入口关闭"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F41",
+      "title": "平台能力开关与发布审查",
+      "priority": "P0",
+      "work_package": "W01",
+      "requirement_ids": [
+        "P07-F41"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API39",
+        "P07-API53"
+      ],
+      "page_ids": [
+        "MP04",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "acceptance_ids": [
+        "P07-AC41-01",
+        "P07-AC41-02",
+        "P07-AC41-03"
+      ],
+      "exception_case_ids": [
+        "P07-E24"
+      ],
+      "dependencies": [],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "无商品资格不能启收费",
+        "开关不能仅凭客户端OS绕过",
+        "普通流水不标赛事AI付认可"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-F42",
+      "title": "Web进阶工作台",
+      "priority": "P1",
+      "work_package": "P1-F42",
+      "requirement_ids": [
+        "P07-F42"
+      ],
+      "api_ids": [
+        "P07-API43"
+      ],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [
+        "P07-AC42-01",
+        "P07-AC42-02",
+        "P07-AC42-03"
+      ],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "对应领域service/adapter及必要migration",
+        "共享合同与适用双端页面",
+        "真实相关测试与脱敏证据"
+      ],
+      "done_when": [
+        "手机任务无需Web前置",
+        "批改有人工来源及版本",
+        "扩大范围先确认报价"
+      ],
+      "status": "PARKED_P1",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X01",
+      "title": "原生环境与平台/供应商可行性",
+      "priority": "P0",
+      "work_package": "W01",
+      "requirement_ids": [
+        "P07-F41"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [],
+      "deliverables": [
+        "项目局部工具/依赖锁",
+        "四环境输入/规范导入/真实取用证据",
+        "SKU/政策/供应商register"
+      ],
+      "done_when": [
+        "无Docker/WSL/VM",
+        "精确SDK/依赖版本记录",
+        "未证明能力保持关闭"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X02",
+      "title": "数据库迁移/角色/隔离",
+      "priority": "P0",
+      "work_package": "W02",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F06",
+        "P07-F17"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01"
+      ],
+      "deliverables": [
+        "正式编号迁移",
+        "RLS/GRANT与复合FK",
+        "真PostgreSQL并发/越权测试"
+      ],
+      "done_when": [
+        "新库与升级成功",
+        "应用无超级用户/DDL",
+        "甲乙资源互换全部拒绝"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X03",
+      "title": "队列/fence/outbox与预算恢复",
+      "priority": "P0",
+      "work_package": "W02",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F06",
+        "P07-F17"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X02"
+      ],
+      "deliverables": [
+        "原生worker/scheduler",
+        "检查点/累计预算",
+        "故障注入报告"
+      ],
+      "done_when": [
+        "旧fence拒绝写",
+        "崩溃不漏已付任务",
+        "重试/子Run不重置预算"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X04",
+      "title": "受限解析与恶意文件防护",
+      "priority": "P0",
+      "work_package": "W03",
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F03",
+        "P07-F04",
+        "P07-F25",
+        "P07-F26"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X02"
+      ],
+      "deliverables": [
+        "引擎协议/原生进程限制",
+        "格式fixtures/攻击样例",
+        "资源计量版本"
+      ],
+      "done_when": [
+        "进程树回收",
+        "不执行脚本/宏/外链",
+        "全范围账本和稳定定位"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X05",
+      "title": "B32组件与18页双端实现",
+      "priority": "P0",
+      "work_package": "W07",
+      "requirement_ids": [
+        "P07-F24",
+        "P07-F33",
+        "P07-F35",
+        "P07-F36"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01",
+        "DEV-X02"
+      ],
+      "deliverables": [
+        "共享tokens/viewmodel",
+        "两套原生页面/组件",
+        "B三锚点和真机无障碍"
+      ],
+      "done_when": [
+        "18页全部状态可达",
+        "普通手机流程不依赖Web",
+        "双端构建无秘密"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X06",
+      "title": "未知写动作和四环境文件恢复",
+      "priority": "P0",
+      "work_package": "W08",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F34",
+        "P07-F37",
+        "P07-F38"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X03",
+        "DEV-X05"
+      ],
+      "deliverables": [
+        "operation恢复store",
+        "HostAdapter",
+        "真实导出/弱网证据"
+      ],
+      "done_when": [
+        "后台停止轮询",
+        "前台查原动作",
+        "缓存不冒充可见导出"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X07",
+      "title": "删除/日志脱敏/客服限时授权",
+      "priority": "P0",
+      "work_package": "W09",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F39",
+        "P07-F40"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X02",
+        "DEV-X03"
+      ],
+      "deliverables": [
+        "tombstone和独立ledger",
+        "内容清理/撤权",
+        "安全反例"
+      ],
+      "done_when": [
+        "删除发布竞争安全",
+        "恢复先重放撤权",
+        "日志不含正文/token"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X08",
+      "title": "原渠道资金事实与补偿",
+      "priority": "P0",
+      "work_package": "W10",
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F16",
+        "P07-F19"
+      ],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X01",
+        "DEV-X02",
+        "DEV-X03"
+      ],
+      "deliverables": [
+        "正式支付/退款adapter",
+        "ledger/对账/运营未决列表",
+        "真实原路退款证据"
+      ],
+      "done_when": [
+        "重复/晚到/未知不漏款不重收退",
+        "错金额单位不发许可",
+        "开关与SKU资格匹配"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X09",
+      "title": "30组质量集与126AC/24异常回归",
+      "priority": "P0",
+      "work_package": "W11",
+      "requirement_ids": [],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X04",
+        "DEV-X05",
+        "DEV-X06",
+        "DEV-X07",
+        "DEV-X08"
+      ],
+      "deliverables": [
+        "独立人工答案",
+        "Q01—08分层报告",
+        "四环境/性能/资金回归"
+      ],
+      "done_when": [
+        "至少10组无模板/两主题",
+        "无未标记关键严重错误",
+        "不以mock充真机/支付PASS"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "id": "DEV-X10",
+      "title": "Windows原生发布/监控/备份恢复",
+      "priority": "P0",
+      "work_package": "W12",
+      "requirement_ids": [],
+      "api_ids": [],
+      "page_ids": [],
+      "component_ids": [],
+      "acceptance_ids": [],
+      "exception_case_ids": [],
+      "dependencies": [
+        "DEV-X09"
+      ],
+      "deliverables": [
+        "服务启动停止/CLI",
+        "release manifest",
+        "恢复/回退/停新单保售后演练"
+      ],
+      "done_when": [
+        "不误停其他进程",
+        "恢复不复活已删内容",
+        "发布证据适用build/app/OS/SKU"
+      ],
+      "status": "NOT_STARTED",
+      "test_status": "NOT_RUN"
+    }
+  ]
+}

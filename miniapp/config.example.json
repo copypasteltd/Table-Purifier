@@ -1,0 +1,6 @@
+{
+  "apiBaseUrl": "",
+  "buildId": "source-0.1.0",
+  "ALIPAY": { "appId": "", "appAlias": "alipay-main", "approvedOfficePicker": "", "officePickerEvidence": "" },
+  "DOUYIN": { "appId": "", "appAlias": "douyin-main", "approvedOfficePicker": "", "officePickerEvidence": "" }
+}

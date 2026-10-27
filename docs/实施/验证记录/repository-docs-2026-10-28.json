@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks_passed": 560,
+  "checks_failed": 0,
+  "links_checked": 164,
+  "captured_pages": 36,
+  "media_files": 43,
+  "errors": [],
+  "scope": "Local documentation links, bilingual contracts, source hashes and media integrity only; no live integrations."
+}

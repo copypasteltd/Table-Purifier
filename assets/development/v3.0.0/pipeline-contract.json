@@ -1,0 +1,53 @@
+{
+  "development_baseline": "P07-DEV 3.0.0",
+  "control_model": "CODEX_AGENT_LOOP_WITH_SEVEN_BUSINESS_GATES",
+  "execution_owner": "CODEX_AGENT",
+  "mandatory_processing_stages": [],
+  "workflow_ref": "workflow.contract.json",
+  "budget": {
+    "source_files": 10,
+    "source_single_bytes": 20000000,
+    "source_total_bytes": 50000000,
+    "template_bytes": 5000000,
+    "text_codepoints": 50000,
+    "processing_units": 50,
+    "target_fields": 50,
+    "candidate_records": 1000,
+    "compute_seconds_max": 900,
+    "stage_auto_retries_max": 1
+  },
+  "session_states": [
+    "INITIALIZING",
+    "READY_FOR_INPUT",
+    "INPUT_RECEIVED",
+    "ANALYZING",
+    "WAITING_CONFIRMATION",
+    "QUOTABLE",
+    "AWAITING_PAYMENT",
+    "BATCH_QUEUED",
+    "BATCH_RUNNING",
+    "PERSISTING_RESULTS",
+    "RELEASING_RUNTIME",
+    "CLOSED",
+    "INITIALIZATION_FAILED",
+    "FAILED",
+    "CANCELED"
+  ],
+  "execution_status_enum": [
+    "QUEUED",
+    "RUNNING",
+    "SUCCEEDED",
+    "FAILED",
+    "CANCELED"
+  ],
+  "analysis_budget": "Platform-owned finite initialization/analysis/adjustment limits; configure and verify before enabling.",
+  "paid_batch_budget": "900 active seconds including retries/covered corrections per confirmed contract; user/payment wait excluded.",
+  "business_gates": [
+    "COMPLETE_SKILL_BEFORE_INPUT",
+    "INPUT_BEFORE_ANALYSIS",
+    "FULL_PLAN_BEFORE_CONFIRMATION",
+    "CONFIRMATION_BEFORE_QUOTE",
+    "PAYMENT_BEFORE_BATCH",
+    "DURABLE_RESULTS_BEFORE_RUNTIME_DESTRUCTION"
+  ]
+}

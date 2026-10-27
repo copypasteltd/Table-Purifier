@@ -1,0 +1,17 @@
+{
+  "reason": "Preserve historical receipts without shipping generated output directories or ZIP files.",
+  "files": [
+    {
+      "original_path": "output/development/package-receipt.json",
+      "archive_path": "package-receipt.json",
+      "bytes": 635,
+      "sha256": "a1d0193bd92d5f7c77a3ca2cd9101886bfbd571517917213c697f1f3face0b68"
+    },
+    {
+      "original_path": "output/development/package-receipt.v2.0.0.json",
+      "archive_path": "package-receipt.v2.0.0.json",
+      "bytes": 750,
+      "sha256": "178e2faf7643de80875df4816baf218fa30d4838759c1c58765deae4e72eed0b"
+    }
+  ]
+}

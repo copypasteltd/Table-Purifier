@@ -1,0 +1,116 @@
+{
+  "config_version": "1.0.0",
+  "app": {
+    "id": "P07",
+    "version": "0.0.0-unimplemented",
+    "environment": "development",
+    "business_baseline": "v3.1",
+    "design_baseline": "P07-DS-B 1.0.0"
+  },
+  "paths": {
+    "runtime_root": "runtime",
+    "object_root": "runtime/objects",
+    "scratch_root": "runtime/scratch",
+    "log_root": "runtime/logs"
+  },
+  "http": {
+    "host": "127.0.0.1",
+    "port": 7307,
+    "public_origin": "http://127.0.0.1:7307",
+    "trusted_proxy": []
+  },
+  "database": {
+    "connection_secret_ref": "runtime/secrets/database-connection.txt",
+    "pool_max": 10,
+    "statement_timeout_ms": 5000
+  },
+  "worker": {
+    "lease_seconds": 60,
+    "heartbeat_seconds": 15,
+    "poll_ms": 2000
+  },
+  "budgets": {
+    "source_files": 10,
+    "source_single_bytes": 20000000,
+    "source_total_bytes": 50000000,
+    "template_bytes": 5000000,
+    "text_codepoints": 50000,
+    "processing_units": 50,
+    "target_fields": 50,
+    "candidate_records": 1000,
+    "compute_seconds_max": 900,
+    "stage_auto_retries_max": 1
+  },
+  "preflight": {
+    "semantic_units_max": 3,
+    "new_tasks_per_day": 5
+  },
+  "export": {
+    "download_ttl_seconds": 300,
+    "page_size": 20,
+    "page_size_max": 100
+  },
+  "providers": {
+    "ocr": {
+      "mode": "disabled"
+    },
+    "model": {
+      "mode": "disabled"
+    },
+    "payment": {
+      "mode": "disabled"
+    }
+  },
+  "commerce": {
+    "enabled": false,
+    "approved_sku_ids": [],
+    "policy_snapshot_id": null
+  },
+  "policy_candidates": {
+    "review_hours": 24,
+    "revision_rounds": 2,
+    "retention_days": 7,
+    "enabled_as_entitlement": false
+  },
+  "features": {
+    "release_units": {
+      "alipay_android": {
+        "file_input": false,
+        "template_input": false,
+        "preview": false,
+        "export": false,
+        "payment": false
+      },
+      "alipay_ios": {
+        "file_input": false,
+        "template_input": false,
+        "preview": false,
+        "export": false,
+        "payment": false
+      },
+      "douyin_android": {
+        "file_input": false,
+        "template_input": false,
+        "preview": false,
+        "export": false,
+        "payment": false
+      },
+      "douyin_ios": {
+        "file_input": false,
+        "template_input": false,
+        "preview": false,
+        "export": false,
+        "payment": false
+      }
+    },
+    "web": false,
+    "open_api": false,
+    "source_increments": false,
+    "account_binding": false
+  },
+  "observability": {
+    "log_level": "info",
+    "redaction": true,
+    "enabled_metrics": true
+  }
+}

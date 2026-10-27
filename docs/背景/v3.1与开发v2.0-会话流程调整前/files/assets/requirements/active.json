@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "product_id": "P07",
+  "business_baseline": "v3.1",
+  "status": "CURRENT_REQUIREMENTS_NOT_IMPLEMENTED",
+  "manifest": "baseline.v3.1.json",
+  "manifest_sha256": "d7c0c6c968985c8cc18a91132377662355fc1dfaeab880c16d53ae26b5d1dbdd",
+  "requirements": "requirements.v3.1.json",
+  "traceability": "traceability.v3.1.json",
+  "documents": "../../docs/需求深化/README.md",
+  "design_pointer": "../design/active.json",
+  "design_compatibility": "../../docs/需求深化/06-需求追踪与变更管理.md",
+  "updated_on": "2026-10-27"
+}

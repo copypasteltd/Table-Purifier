@@ -1,0 +1,238 @@
+{
+  "schema_version": "2.0",
+  "product_id": "P07",
+  "business_baseline": "v3.2",
+  "selected_design": "P07-DS-B 1.0.0",
+  "date": "2026-10-27",
+  "status": "SPECIFIED_NOT_IMPLEMENTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "product_test_status": "NOT_RUN",
+  "workflow_contract": "P07-FLOW-7-1",
+  "counts": {
+    "functional_requirements": 42,
+    "P0": 38,
+    "P1": 4,
+    "acceptance_criteria": 126,
+    "business_rules": 24,
+    "page_contracts": 18,
+    "design_components": 32,
+    "rendered_design_reference_pages": 3,
+    "API_contracts": 56,
+    "nonfunctional_requirements": 18,
+    "quality_metrics": 8,
+    "exception_scenarios": 24
+  },
+  "authorized_change": {
+    "business_contract_change": true,
+    "reason": "User mandates session/full Skill before input, analyze/confirm before pricing, paid batch, then persistent results and whole runtime destruction.",
+    "clarification": "结果文件不删除。但是删除整个流程的container。",
+    "supersedes": "v3.1",
+    "old_manifest_sha256": "d7c0c6c968985c8cc18a91132377662355fc1dfaeab880c16d53ae26b5d1dbdd",
+    "snapshot": "docs/背景/v3.1与开发v2.0-会话流程调整前/snapshot-manifest.json"
+  },
+  "design_compatibility": "B visual archive stays byte-exact; current session/payment/cleanup behavior is defined by v3.2.",
+  "design_pointer_sha256": "21ff4a569709cd7b483c235d4336ed5e1ea08ad54838b942d03f3e169349099b",
+  "files": [
+    {
+      "project_path": "AGENTS.md",
+      "bytes": 3536,
+      "sha256": "cd0b47bd9eb6d92bb5f24c67680fd15a92c1958e490d36163110006815a6153c"
+    },
+    {
+      "project_path": "README.md",
+      "bytes": 1991,
+      "sha256": "6f2ceec681aef18ab297a9d876a8bce58e8c228bbe6394cd6970deb40267ed06"
+    },
+    {
+      "project_path": "assets/contracts/api-catalog.v3.2.json",
+      "bytes": 34475,
+      "sha256": "d51bc385cdb89b9afc71bbd7b5af603c1038bee017ed089bf389bcf9661ac382"
+    },
+    {
+      "project_path": "assets/contracts/domain-contract.v3.2.json",
+      "bytes": 18464,
+      "sha256": "a3cbf04d78181e03e5c17c26ea82f1a240a1d15c7bd867bb2ce52b7ac17f8528"
+    },
+    {
+      "project_path": "assets/contracts/payload-examples.v3.2.json",
+      "bytes": 2922,
+      "sha256": "e777522387f93ac279eeb8682058ae45a88581a29d52438e68a9ff3ae3acffb8"
+    },
+    {
+      "project_path": "assets/examples/v3.2/报价资料成表-合成验收规格.json",
+      "bytes": 3551,
+      "sha256": "124556f0a3569438bafcf4e7149c83162c76edeadc59f02f092b5232fe80901b"
+    },
+    {
+      "project_path": "assets/flows/mini-program-flows.v3.2.json",
+      "bytes": 8675,
+      "sha256": "313c56f5c80136afe7bdd25e96ee00ae5c02200464ec2f180d78cc192c794c5d"
+    },
+    {
+      "project_path": "assets/platform/capabilities.v3.2.json",
+      "bytes": 24987,
+      "sha256": "03793ccb6ce1833fc9ce37962941ca1544f30c8719b7127f3d598c5d60691584"
+    },
+    {
+      "project_path": "assets/requirements/business-rules.v3.2.json",
+      "bytes": 5773,
+      "sha256": "b6ddd16534401672e23f252bffb6a9a5f4b58996970b26989a041b68cb556a64"
+    },
+    {
+      "project_path": "assets/requirements/exception-cases.v3.2.json",
+      "bytes": 12813,
+      "sha256": "8cbdce21e958f0f6316195bde942b90d85baf24b0055ef1c33a7f8c847ab807f"
+    },
+    {
+      "project_path": "assets/requirements/nonfunctional.v3.2.json",
+      "bytes": 5628,
+      "sha256": "5cca62d4924aca35d004c37b0300320cd338eb9894c62d7334eb904347ce2dc7"
+    },
+    {
+      "project_path": "assets/requirements/pages.v3.2.json",
+      "bytes": 31456,
+      "sha256": "a7d66a32f9560e32f0ac66dc742b58fcaa112a587d28a7d20d35c71449165c78"
+    },
+    {
+      "project_path": "assets/requirements/quality-metrics.v3.2.json",
+      "bytes": 2750,
+      "sha256": "07e0d3308f66713e8345c1f4a0e5cd4b4009a0f57f922234bd65250b6999a7ad"
+    },
+    {
+      "project_path": "assets/requirements/requirements.v3.2.json",
+      "bytes": 86070,
+      "sha256": "cea93147c3985b23bd4526a3e0858c88fa408ec927d8f4cf64de873deae1c362"
+    },
+    {
+      "project_path": "assets/requirements/traceability.v3.2.json",
+      "bytes": 38125,
+      "sha256": "d8a98e72a6d05161c4f168f350d80eb24ca39605ec59741530513a3acb2e41ae"
+    },
+    {
+      "project_path": "docs/01-产品需求PRD.md",
+      "bytes": 2670,
+      "sha256": "f4a7c234b15d93ca6bc66e2d553a47ac1b1d3099ca3e0cbe95da197fbecc5114"
+    },
+    {
+      "project_path": "docs/02-功能需求与用户流程.md",
+      "bytes": 40197,
+      "sha256": "f07c9e5ccf63d86511159a1059a945358da2caedca47f6eb68aabd6f53661d4f"
+    },
+    {
+      "project_path": "docs/03-架构数据与接口.md",
+      "bytes": 2265,
+      "sha256": "5ddf66dc40f4b784b6fc61547bc34f957813c8eca4fdd03b009534868c3d2ef2"
+    },
+    {
+      "project_path": "docs/04-计费交易与运营.md",
+      "bytes": 3610,
+      "sha256": "a77139ca6431f94f894175099c1eb9107af74c021a93a15ae9bcb4e2329a84e1"
+    },
+    {
+      "project_path": "docs/05-验收测试与实施计划.md",
+      "bytes": 5740,
+      "sha256": "3fb54dd471f2e42cedb54594db7997f8a0feaac4f85811ca9baf3e6dcaec305f"
+    },
+    {
+      "project_path": "docs/实施/小程序优先开发任务与里程碑.md",
+      "bytes": 1821,
+      "sha256": "97cdab910fdc878378c5e8b7ab6cbff365fd7b18ae59220ae74c935f8382115b"
+    },
+    {
+      "project_path": "docs/小程序/01-产品形态与功能分层.md",
+      "bytes": 1393,
+      "sha256": "9cee0fbfec5599b4989dbd28904dd5833efb800f111ee444674631bf3f0601f3"
+    },
+    {
+      "project_path": "docs/小程序/02-移动端页面与交互规格.md",
+      "bytes": 5935,
+      "sha256": "d936c36e8aca00ee012ee706f9f5ffb4eee53756c0c56a3b4e0e75a303aedecf"
+    },
+    {
+      "project_path": "docs/小程序/03-双平台能力与文件进出.md",
+      "bytes": 1523,
+      "sha256": "1eaf9698bed4d2f01969b6c4e1a7524a7c29390d6ace7d503c92d6172912eb28"
+    },
+    {
+      "project_path": "docs/小程序/04-账号订单支付与权益.md",
+      "bytes": 3378,
+      "sha256": "0756a5896c916eb0d8e9b6798cc9cc795d3c8104fa1a572eb1e2ce32c2d5cd49"
+    },
+    {
+      "project_path": "docs/小程序/05-数据隐私与安全.md",
+      "bytes": 1635,
+      "sha256": "f38e91985356248d41d90681a330f1bf6fe9a483dee3d3bf04edabeb3305f0ab"
+    },
+    {
+      "project_path": "docs/小程序/06-双端验收与发布清单.md",
+      "bytes": 1479,
+      "sha256": "47eb9c502bb829b325e34b9ec72d29e06cf2d6d48885511cd751534dfc830a39"
+    },
+    {
+      "project_path": "docs/小程序/07-Web进阶版与跨端衔接.md",
+      "bytes": 557,
+      "sha256": "53fbc351dd2194ab2f74af294f30bfc8c73b35381aaeb27c3935841c180d88df"
+    },
+    {
+      "project_path": "docs/小程序/08-接口载荷与状态合同.md",
+      "bytes": 7239,
+      "sha256": "09df953e3e471d057d3337cecba43e8148bc800cb3f8f7bb90fa0789da22712d"
+    },
+    {
+      "project_path": "docs/需求深化/01-用户故事与业务规则.md",
+      "bytes": 3854,
+      "sha256": "dc60cf29367fc58078755845647bd8a31fd18d5b781fa6d1cbb8052d996cd876"
+    },
+    {
+      "project_path": "docs/需求深化/02-数据字典与状态迁移.md",
+      "bytes": 3888,
+      "sha256": "25c52ada07bb5ad64770045ae4f527f3c63a52f37504a6b0bd106aeddd422526"
+    },
+    {
+      "project_path": "docs/需求深化/03-整理引擎与规范验收规格.md",
+      "bytes": 8909,
+      "sha256": "864666534953107cb82c5f41ef22b20eb695b5e778d4a4a10459304d9604f834"
+    },
+    {
+      "project_path": "docs/需求深化/04-非功能安全与运营需求.md",
+      "bytes": 4255,
+      "sha256": "cf4bacd2d138db4d8a9f01b9816c8b9fb994faae9ed1d666946e73f0e69471e1"
+    },
+    {
+      "project_path": "docs/需求深化/05-异常恢复与验收场景.md",
+      "bytes": 6275,
+      "sha256": "2242ddc402536b09c70e6e6b453e956501c0ccc89fdce52059c9d54f01f71251"
+    },
+    {
+      "project_path": "docs/需求深化/06-需求追踪与变更管理.md",
+      "bytes": 5824,
+      "sha256": "229c47baf0d75ace12b0b2ec1ff10a7fe1373ad005707b4b8d9d9bf1b2d281f7"
+    },
+    {
+      "project_path": "docs/需求深化/07-统一七步流程与Session生命周期.md",
+      "bytes": 9086,
+      "sha256": "85287d135f68ea2b737a50a9c6a7edfd5bbc56f7184f6f2aeca14cb4b77f627a"
+    },
+    {
+      "project_path": "docs/需求深化/README.md",
+      "bytes": 3352,
+      "sha256": "0b6b6b1f6e9ef76ce8aea7ea881d1ee4e6015b726ddd6a5c9ff4d896f9f0ecf1"
+    },
+    {
+      "project_path": "scripts/verify_requirements_baseline.py",
+      "bytes": 13698,
+      "sha256": "62b6a6f5551a66104ed9a28a841de4671bdade0faa46c80b8eaecde976b772a9"
+    },
+    {
+      "project_path": "scripts/verify_session_first_baseline.py",
+      "bytes": 19022,
+      "sha256": "c8cbf51e4b529e0b712101f4e4f024f6e52e7e63299dfd6271d446458bbf0cbd"
+    }
+  ],
+  "excluded": [
+    "self/active pointers",
+    "reports",
+    "runtime",
+    "output"
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "status": "SYNTHETIC_CONTRACT_EXAMPLES_NOT_PRODUCT_TESTS",
+  "examples": [
+    {
+      "name": "create-discover",
+      "schema": "Request03",
+      "payload": {
+        "mode": "DISCOVER",
+        "optional_goal": "比较三家供应商报价，保留价格和保修",
+        "client_request_id": "00000000-0000-4000-8000-000000000001"
+      }
+    },
+    {
+      "name": "confirm-discover",
+      "schema": "Request10",
+      "payload": {
+        "mode": "DISCOVER",
+        "expected_versions": {
+          "task_version": 3,
+          "source_set_version": 1,
+          "goal_version": 1
+        },
+        "exclusions": [],
+        "policy_consent_id": "00000000-0000-4000-8000-000000000002"
+      }
+    },
+    {
+      "name": "free-access",
+      "schema": "Response11",
+      "payload": {
+        "request_id": "req_synthetic_free",
+        "data": {
+          "access_mode": "FREE",
+          "quote_id": null,
+          "free_grant_id": "00000000-0000-4000-8000-000000000003",
+          "amount": null,
+          "expires_at": "2026-10-27T01:00:00Z",
+          "contract_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "policy": {
+            "policy_id": "synthetic-free-policy",
+            "retention_policy_id": "synthetic-retention",
+            "review_window_seconds": 0,
+            "revision_rounds": 0,
+            "content_retention_seconds": 3600,
+            "delivery_summary": "合成合同示例，不代表正式权益",
+            "refund_summary": "免费示例无通道流水",
+            "approved_sku_id": null,
+            "effective_at": "2026-10-27T00:00:00Z"
+          },
+          "commercial_enabled": false,
+          "reason_codes": []
+        }
+      }
+    },
+    {
+      "name": "start-free",
+      "schema": "Request16",
+      "payload": {
+        "contract_id": "00000000-0000-4000-8000-000000000004",
+        "free_grant": "00000000-0000-4000-8000-000000000003"
+      }
+    },
+    {
+      "name": "adopt-full",
+      "schema": "Request20",
+      "payload": {
+        "expected_proposal_version": 2,
+        "expected_source_set_version": 1,
+        "expected_goal_version": 1
+      }
+    },
+    {
+      "name": "choose-user-value",
+      "schema": "Request24",
+      "payload": {
+        "expected_result_version": 1,
+        "decisions": [
+          {
+            "issue_id": "00000000-0000-4000-8000-000000000005",
+            "record_id": "00000000-0000-4000-8000-000000000006",
+            "field_id": "price",
+            "action": "USER_VALUE",
+            "user_value": "30.00",
+            "note": "用户补充价格，不能记自动提取正确"
+          }
+        ],
+        "scope": {
+          "target_record_ids": [
+            "00000000-0000-4000-8000-000000000006"
+          ]
+        }
+      }
+    },
+    {
+      "name": "commit-preview",
+      "schema": "Request25",
+      "payload": {
+        "preview_id": "00000000-0000-4000-8000-000000000007",
+        "preview_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "expected_result_version": 1
+      }
+    }
+  ],
+  "invalid_examples": [
+    {
+      "name": "discover-cannot-bind-provided-draft",
+      "schema": "Request10",
+      "payload": {
+        "mode": "DISCOVER",
+        "expected_versions": {
+          "task_version": 3,
+          "source_set_version": 1,
+          "goal_version": 1
+        },
+        "exclusions": [],
+        "policy_consent_id": "00000000-0000-4000-8000-000000000002",
+        "provided_standard_draft_id": "00000000-0000-4000-8000-000000000009"
+      }
+    },
+    {
+      "name": "free-cannot-claim-price",
+      "schema": "Response11",
+      "payload": {
+        "request_id": "req_synthetic_invalid",
+        "data": {
+          "access_mode": "FREE",
+          "quote_id": null,
+          "free_grant_id": "00000000-0000-4000-8000-000000000003",
+          "amount": {
+            "amount_minor": 100,
+            "amount_unit": "CNY_CENT",
+            "provider": "ALIPAY",
+            "sku_id": "unapproved-example"
+          },
+          "expires_at": null,
+          "contract_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "policy": {
+            "policy_id": "synthetic-free-policy",
+            "retention_policy_id": "synthetic-retention",
+            "review_window_seconds": 0,
+            "revision_rounds": 0,
+            "content_retention_seconds": 3600,
+            "delivery_summary": "合成合同示例，不代表正式权益",
+            "refund_summary": "免费示例无通道流水",
+            "approved_sku_id": null,
+            "effective_at": "2026-10-27T00:00:00Z"
+          },
+          "commercial_enabled": false,
+          "reason_codes": []
+        }
+      }
+    }
+  ]
+}

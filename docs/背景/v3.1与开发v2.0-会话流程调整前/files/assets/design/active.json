@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "product_id": "P07",
+  "business_baseline": "v3.0",
+  "design_id": "P07-DS-B",
+  "design_version": "1.0.0",
+  "selected_style": "B",
+  "selected_style_name": "青绿资料夹",
+  "selection_date": "2026-10-27",
+  "status": "USER_SELECTED_DESIGN_NOT_IMPLEMENTED",
+  "path_base": "assets/design",
+  "manifest": "b-jade-folders/v1.0.0/manifest.json",
+  "manifest_sha256": "cb9dda9864476b2ed0d644fa2b03ab48c55c26ea3ab16a9f2d11c3c689f27a2e",
+  "reference": "b-jade-folders/v1.0.0/reference.html",
+  "selected_board": "b-jade-folders/v1.0.0/reference/B-selected-board.png",
+  "documents": "../../docs/设计定型/B-青绿资料夹-v1.0.0/README.md",
+  "policy": "以后新增设计版本并更新指针；保留旧稿和哈希，不以选型前A建议覆盖用户B选择"
+}

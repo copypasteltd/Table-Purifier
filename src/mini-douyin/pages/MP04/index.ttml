@@ -1,0 +1,15 @@
+<b-frame><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-heading title="确认范围与执行方案"/>
+<b-status title="{{plan.status==='CONFIRMED'?'已确认方案':'待确认方案'}}" text="{{plan.strategy_summary}}"/>
+<view class="section"><view>完整已提交范围 · {{task.latest_preflight.processing_units}} 个读取单元</view><view>预计记录：{{plan.estimated_records===null?'待实际整理确认':plan.estimated_records}}</view><view tt:for="{{plan.limitations}}" tt:key="*this" class="warning">{{item}}</view></view>
+<b-quote title="本次费用" text="{{quote.amount?quote.amount.amount_minor:'待确认方案后估费'}}"><view tt:if="{{quote.amount}}">原单位：{{quote.amount.amount_unit==='CNY_FEN'?'人民币分':'抖音钻石'}}。固定范围，按此原单位金额封顶。</view><view tt:if="{{quote.expires_at}}" class="small">报价到期：{{quote.expires_at}}</view></b-quote>
+<b-privacy title="交付与清理" text="付费后批量产出完整九文件。最终文件持续保留；产出后停止并销毁本次任务环境。"/>
+<b-confirmation tt:if="{{!quote&&!order}}" title="先核对方案，再查看费用" text="确认后仍需核对报价并在原平台付款。"><button class="button primary" data-action="confirm-plan" bindtap="onAction" disabled="{{loading||!bindingId}}">确认方案并预估费用</button></b-confirmation>
+<button tt:if="{{quote&&!order}}" class="button" data-action="confirm-plan" bindtap="onAction" disabled="{{loading}}">重新预估当前方案费用</button>
+<b-capability tt:if="{{quote&&quote.access_mode!=='PAID'&&!correction.is_correction}}" title="当前环境尚未开放收银" text="资料不会自动进入批量产出，可返回继续调整方案。"/>
+<button tt:if="{{quote.access_mode==='PAID'&&!correction.is_correction&&(!order||order.payment_status!=='CONFIRMED')}}" class="button primary" data-action="checkout" bindtap="onAction" disabled="{{loading}}">按所示原单位金额去付款</button>
+<b-confirmation tt:if="{{correction.is_correction}}" title="原订单纠错" text="本次仍展示整理估费。经售后核实后由原实付权益覆盖，无需再次付款。"><view>审核状态：{{correction.authorization.status==='APPROVED'?'已批准原单纠错':correction.authorization.status==='USED'?'已进入生产':'待售后核对'}}</view><button class="button" data-action="go-MP18" bindtap="onAction">提交说明与限时资料授权</button><button tt:if="{{correction.authorization.status==='APPROVED'}}" class="button primary" data-action="start-correction" bindtap="onAction" disabled="{{loading||!quote.quote_id}}">核验原实付权益并开始纠错</button></b-confirmation>
+<button tt:if="{{order}}" class="button" data-action="view-order" data-id="{{order.order_id}}" bindtap="onAction">查询原订单与付款状态</button>
+<button tt:if="{{order.payment_status==='CONFIRMED'}}" class="button primary" data-action="start-run" bindtap="onAction" disabled="{{loading}}">付款已核实，开始批量整理</button>
+<button class="button" data-action="go-MP07" bindtap="onAction">返回调整规范与方案</button>
+<view class="small">本次临时会话保留至 {{session.idle_expires_at}}，到期会停止并清理环境。</view><button class="button danger" data-action="close-session" bindtap="onAction" disabled="{{loading}}">结束本次会话</button>
+</b-frame>

@@ -1,0 +1,20 @@
+{
+  "archive": "output/development/P07-Codex-Agent完整开发文档与需求设计参照-v2.0.0.zip",
+  "sha256": "99035724ab0b6cc2264f8426c1d9ca0d88a32b56cb317c35b769f70819cc93ff",
+  "bytes": 33041132,
+  "file_count": 233,
+  "development_baseline": "P07-DEV 2.0.0",
+  "status": "DOCUMENT_HANDOFF_ONLY",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "agent_runtime_tests": "NOT_RUN",
+  "product_tests": "NOT_RUN",
+  "verification_report": "docs/评审/P07-Codex-Agent开发文档-v2.0.0-核验-2026-10-27.json",
+  "development_manifest_sha256": "099cb2b21dd166339d15c6fb54ef63fcc2abfae8d6964c405d7d148d9bb049fa",
+  "excluded": [
+    "runtime",
+    "dependencies",
+    "customer data",
+    "secrets",
+    "nested old ZIP"
+  ]
+}

@@ -1,0 +1,4 @@
+<b-frame><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-source-preview title="结果保留的来源依据" text="{{evidence.excerpt}}"><view class="small">资料单元：{{evidence.source_unit_id}}</view><view class="small">页或段序号：{{evidence.locator.page_or_ordinal}} · {{evidence.locator.path||'文字位置'}}</view></b-source-preview>
+<b-status title="原始资料已清理" text="本页展示结果包中保留的必要摘录与定位，不能继续打开完整原件。"/>
+<view tt:for="{{evidence.limitations}}" tt:key="*this" class="small">{{item}}</view>
+</b-frame>

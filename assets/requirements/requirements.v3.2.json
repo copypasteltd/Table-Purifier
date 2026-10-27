@@ -1,0 +1,2330 @@
+{
+  "product_id": "P07",
+  "business_baseline": "v3.2",
+  "status": "REQUIREMENTS_NOT_IMPLEMENTED",
+  "selected_design": "P07-DS-B 1.0.0",
+  "requirements": [
+    {
+      "id": "P07-F01",
+      "title": "身份、先建会话与完整技能加载",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为资料所有者，我要在当前平台找回自己的任务，且别人无法用ID访问",
+      "existing_scope": "新任务先初始化隔离Agent session，预先加载完整业务Skill；READY前不接收文字、文件或规范。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "新任务先初始化隔离Agent session，预先加载完整业务Skill；READY前不接收文字、文件或规范。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC01-01",
+          "criterion": "用户资料提交前已完成完整Skill正文/引用/脚本清单及上下文装配校验；失败拒绝提交",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC01-02",
+          "criterion": "两账号互换session/任务/结果/规范ID均拒绝，身份会话与Agent会话分别鉴权",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC01-03",
+          "criterion": "进行中重连找回同一会话；CLOSED或已销毁环境不可恢复，下一任务新建会话",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T01",
+      "page_ids": [
+        "MP01",
+        "MP15"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C20",
+        "B-C24",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API02",
+        "P07-API03",
+        "P07-API44",
+        "P07-API45",
+        "P07-API54",
+        "P07-API55"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F02",
+      "title": "多种文本与文件输入",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为经办人，我要一次提交混合材料并知道每份是否纳入",
+      "existing_scope": "服务端接收文本、TXT/Markdown、CSV/XLSX、DOCX、PDF、JPG/PNG；小程序入口分别核验，解析支持不等于手机可任选文件。每份有状态，坏文件不静默跳过，转换或明确排除后执行。",
+      "inputs_and_preconditions": "SOURCE角色文本/支持文件、原名、真实类型、字节数、摘要",
+      "normal_flow": "逐项接收校验，保存源ID和失败原因，预检前显示可读/待读/排除 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "坏文件与密码文件可重选；同名不覆盖；未读项不静默跳过",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC02-01",
+          "criterion": "文本/PDF/图片均有去向",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC02-02",
+          "criterion": "20,000,001字节源拒绝且不截断",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC02-03",
+          "criterion": "上传重放复用同一资源不重复计量",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T02",
+      "page_ids": [
+        "MP01",
+        "MP02"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API04",
+        "P07-API05",
+        "P07-API06",
+        "P07-API46"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F03",
+      "title": "规范表导入与角色区分",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为有公司模板的用户，我要明确表头和规则，不把样例填成事实",
+      "existing_scope": "规范区支持获准路径的XLSX/CSV空/示例表、私有规范或手机字段编辑器，识别列序/区域/基础格式；示例不是事实，SOURCE和TARGET_TEMPLATE角色独立于文件名。",
+      "inputs_and_preconditions": "TARGET_TEMPLATE、表头区域/工作表、字段、规则、示例区域",
+      "normal_flow": "识别单一主表和基础类型，展示行粒度及待确认歧义，再冻结规范版本 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "多级表头/多张目标表不自动猜；空列名/重复字段名定位处理",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC03-01",
+          "criterion": "同名模板与来源角色隔离",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC03-02",
+          "criterion": "模板样例不计候选",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC03-03",
+          "criterion": "列顺序、文本编码规则可确认",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T03",
+      "page_ids": [
+        "MP02",
+        "MP03"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C22",
+        "B-C26",
+        "B-C31",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API07",
+        "P07-API08"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F04",
+      "title": "付费前Agent分析与方案预览",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要付款前知道哪些资料会处理和实际交付条件",
+      "existing_scope": "Agent在付费前读取全部拟处理范围，理解或推荐规范、评估难点并输出有上限的代表预览；不生成正式批量结果。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "Agent在付费前读取全部拟处理范围，理解或推荐规范、评估难点并输出有上限的代表预览；不生成正式批量结果。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC04-01",
+          "criterion": "没有模板也先初始化会话，再进行全范围分析和规范推荐",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC04-02",
+          "criterion": "付费前计划覆盖全部提交范围并说明不可读/排除；代表预览最多5条，不把样本当完整分析",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC04-03",
+          "criterion": "未确认方案不得报价，未有服务端确认的实付依据不得启动正式批量产出",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T04",
+      "page_ids": [
+        "MP04"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API09"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F05",
+      "title": "按规范提取与来源证据",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要系统自动找出事实并能追溯",
+      "existing_scope": "系统按目标自动阅读必要正文、表格、图片/OCR，抽取实体和字段，保留页码/段落/单元格/区域引用。外部模型只处理本任务必要内容，范围先披露，不再只做列名映射。",
+      "inputs_and_preconditions": "已冻结源、明确规范或发现计划、授权OCR/模型、处理版本",
+      "normal_flow": "按单元读取、提取字段及最小证据，校验引用存在及内容相符 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "解析失败/引用越界/无证据输出不进入通过集；阶段可恢复",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC05-01",
+          "criterion": "模拟报价28元回指正确段落",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC05-02",
+          "criterion": "他文件片段不能挂在本报价",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC05-03",
+          "criterion": "模型高置信无证据仍待核",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T05",
+      "page_ids": [
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C17",
+        "B-C26",
+        "B-C30"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F06",
+      "title": "用户确认调整与执行方案冻结",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要一行是什么被讲清楚后才按它整理",
+      "existing_scope": "有无模板均先由用户确认字段、粒度、规则、源范围及缺失/冲突策略，再冻结执行方案供报价。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "有无模板均先由用户确认字段、粒度、规则、源范围及缺失/冲突策略，再冻结执行方案供报价。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC06-01",
+          "criterion": "PROVIDED与DISCOVER均在报价前确认准确规范、范围和执行方案版本",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC06-02",
+          "criterion": "修改资料/目标/规范/决定生成新计划版本并令旧确认与未付报价失效",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC06-03",
+          "criterion": "确认不能改变源事实；不以付款替代规范采用或冲突值决定",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T06",
+      "page_ids": [
+        "MP03",
+        "MP07"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C22",
+        "B-C25",
+        "B-C26",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API10",
+        "P07-API18",
+        "P07-API20"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F07",
+      "title": "自动清理、分类与字段填充",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要自动清理而不自己逐格搬运",
+      "existing_scope": "自动将有依据的信息归入规范字段，按批准规则统一格式/枚举/同义词。缺事实标缺失；默认或派生值需明确规则和标注，源文件只读。",
+      "inputs_and_preconditions": "字段原值、批准的枚举/同义/格式/默认/派生规则",
+      "normal_flow": "自动按规则填列，保留raw与normalized、原因及依赖 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "未知事实保持null；不得自行搜索外部资料补缺；源文件只读",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC07-01",
+          "criterion": "格式统一可追溯",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC07-02",
+          "criterion": "无公司信息不补公司名",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC07-03",
+          "criterion": "源哈希执行前后相同",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T07",
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F08",
+      "title": "标识与文本精度保护",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为经办人，我要长编号和前导零保持原样",
+      "existing_scope": "手机号/业务编码等按规范作为文本保留完整字符和前导零，OCR易混字符存候选和证据；科学计数先检查存储值，确丢数字不恢复。",
+      "inputs_and_preconditions": "TEXT标识、原存储值/显示值、OCR候选",
+      "normal_flow": "以字符串处理标识，科学计数先核底层存储，导出设文本类型 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "确已丢失数字不可恢复；0/O混淆标问题",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC08-01",
+          "criterion": "001234导出仍为001234",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC08-02",
+          "criterion": "18位编码不被浮点截断",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC08-03",
+          "criterion": "歧义字符未标记不得通过",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T08",
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F09",
+      "title": "日期、相对时间与时区",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要日期转换有可信的锚点",
+      "existing_scope": "按规范处理明确日期，歧义格式、无锚点“明天”、时区缺失需确认；引用资料日期作锚点必须有证据，不能静默用执行日。",
+      "inputs_and_preconditions": "DATE/DATETIME、源日期、时区和批准格式",
+      "normal_flow": "明确日期按规范格式化，记录相对日期锚点和时区，不使用任务执行日猜测 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "03/04或无日期的明天提出歧义；非法日期拒绝",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC09-01",
+          "criterion": "无锚点明天保持待核",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC09-02",
+          "criterion": "2026-02-30触发错误",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC09-03",
+          "criterion": "有证据的相对日期保留推导关系",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T09",
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F10",
+      "title": "数值、币种、单位与粒度",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要金额、计量和明细不被错误相加",
+      "existing_scope": "使用十进制定点，保留单位、币种和业务含义；换算、舍入、汇总、分摊需明确规则。对象粒度不明时禁止业务汇总，不直接跨币种相加。",
+      "inputs_and_preconditions": "十进制字符串、币种、单位、精度、行粒度和舍入规则",
+      "normal_flow": "按已批准规则换算与派生，金额和数量分列表达，不重复汇总父级金额 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "跨币种/含税未知/单位未知先保留问题；不自动换汇",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC10-01",
+          "criterion": "0.1加0.2按定点得0.3",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC10-02",
+          "criterion": "两个商品共用订单100元不变200",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC10-03",
+          "criterion": "未给币种不默认为人民币",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T10",
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F11",
+      "title": "跨资料归并与拆分",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要互补资料合并且不同实体不混淆",
+      "existing_scope": "一份资料可产生多对象，多份可补同一对象；按确认的稳定键归并，相似姓名只作候选。拆合保存关系和原因，不因同名/重复附件直接删业务记录。",
+      "inputs_and_preconditions": "稳定业务键、候选实体、来源关系和重复资料声明",
+      "normal_flow": "按确认键合并互补字段，冲突并存；一源多实体拆行并记录关系 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "同名/同手机号不单独作为普适去重键；重复文件不等于重复业务事件",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC11-01",
+          "criterion": "一份名单拆三人",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC11-02",
+          "criterion": "同名不同报名保留两行",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC11-03",
+          "criterion": "相同资料复用不制造重复事实",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T11",
+      "page_ids": [
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F12",
+      "title": "来源覆盖与候选去向",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要知道哪些内容没进入表",
+      "existing_scope": "每个解析单元记已采用、部分采用、未采用、无法读取之一及关系/理由；候选行恰属通过、待补充、明确移出之一。取消旧输入行守恒假设。",
+      "inputs_and_preconditions": "全部源单元、候选记录、排除理由和关联",
+      "normal_flow": "列已用/部分用/未用/不可读，每候选恰属通过/待核/移出，汇总数量 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "无法读取/多主题未纳入可见；只计解析覆盖不自称零漏抽",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC12-01",
+          "criterion": "候选总数等于三去向之和",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC12-02",
+          "criterion": "每页存在状态",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC12-03",
+          "criterion": "未纳入保修字段明确提示",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T12",
+      "page_ids": [
+        "MP08",
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C26",
+        "B-C29",
+        "B-C30",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21",
+        "P07-API22"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F13",
+      "title": "字段来源、转换与决策审计",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为审阅人，我要看到原值、转换和人工决定",
+      "existing_scope": "字段保存原值/规范值/来源、提取转换归并规则版本；人工补充记操作者/说明，派生值记表达式/依赖；结果版本不覆盖。",
+      "inputs_and_preconditions": "证据ID、源坐标、规则/模型版本、操作者和父结果",
+      "normal_flow": "字段→证据→原件逐级返回；追加审计和不可变结果，不覆盖原证据 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "原件到期显示到期；不存在的页码不自动生成补图",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC13-01",
+          "criterion": "人工补价标USER_PROVIDED",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC13-02",
+          "criterion": "来源清理后不能假装打开原图",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC13-03",
+          "criterion": "旧结果仍定位原规则版本",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T13",
+      "page_ids": [
+        "MP10",
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C26",
+        "B-C30",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API21",
+        "P07-API23"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F14",
+      "title": "固定结果包与安全导出",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要取到完整且安全的结果包",
+      "existing_scope": "同时生成standard.xlsx、standard.json、result.xlsx、accepted.csv、result.json、issues.xlsx、provenance.jsonl、validation.json、manifest.json，共9项。目标主表不擅加状态列，状态/问题/来源用附表；危险文本不执行公式。",
+      "inputs_and_preconditions": "已绑定规范、结果版本、9项文件合同和到期",
+      "normal_flow": "先生成临时产物，逐项回读核schema/哈希，再原子发布manifest 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "任一文件缺失/危险公式未转义不宣布完整；0候选不造行",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC14-01",
+          "criterion": "manifest只列其余8文件",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC14-02",
+          "criterion": "空accepted.csv仍有表头",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC14-03",
+          "criterion": "以=开头的源文本导出不执行公式",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T14",
+      "page_ids": [
+        "MP12"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API28",
+        "P07-API29"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F15",
+      "title": "确认方案后的预估计费与封顶",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为付费用户，我要确认总价后不发生隐藏加费",
+      "existing_scope": "只对已确认执行方案报价，可信计量与版本化价格表计算，用户支付前知道范围、金额及上限。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "只对已确认执行方案报价，可信计量与版本化价格表计算，用户支付前知道范围、金额及上限。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC15-01",
+          "criterion": "报价关联session/plan/source/binding/skill版本和原渠道商品，缺确认拒绝",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC15-02",
+          "criterion": "展示预估范围、数量、原单位金额、上限与适用政策；LLM不能直接决定售价",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC15-03",
+          "criterion": "方案变更、报价失效或金额单位不匹配不执行；超限不隐性加价",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T15",
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API11",
+        "P07-API12",
+        "P07-API51"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F16",
+      "title": "实付确认后批量执行",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要平台付款被准确核实后只开始一次履约",
+      "existing_scope": "正常消费者任务必须经原平台实付确认才发生产许可；无可售通道不绕过为免费生产。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "正常消费者任务必须经原平台实付确认才发生产许可；无可售通道不绕过为免费生产。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC16-01",
+          "criterion": "仅服务端验签/正式查单确认原订单、金额单位及计划hash后放行批量",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC16-02",
+          "criterion": "客户端success/UNKNOWN/旧报价/伪free_grant均不能启动批量产出",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC16-03",
+          "criterion": "重复回调、启动请求或用户刷新复用原订单/Run，不重复收费或生产",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T16",
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API12",
+        "P07-API13",
+        "P07-API14",
+        "P07-API15",
+        "P07-API51",
+        "P07-API53"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F17",
+      "title": "进行中会话恢复与终态隔离",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要离开手机也能继续且失败可恢复",
+      "existing_scope": "确认/支付等待不消耗Agent活跃计算；未销毁的同会话按版本恢复，已结束环境不复活。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "确认/支付等待不消耗Agent活跃计算；未销毁的同会话按版本恢复，已结束环境不复活。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC17-01",
+          "criterion": "网络或前后台切换恢复原session/operation，不重复建单或重跑批量",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC17-02",
+          "criterion": "同一会话一个活动turn、同合同一个计算租约，旧worker不能发布",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC17-03",
+          "criterion": "结果已保存且环境已销毁后只读结果；再次加工必须新建并完整预加载会话",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T17",
+      "page_ids": [
+        "MP05",
+        "MP13"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C21",
+        "B-C24",
+        "B-C26",
+        "B-C28",
+        "B-C29"
+      ],
+      "api_ids": [
+        "P07-API16",
+        "P07-API17",
+        "P07-API30",
+        "P07-API55"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F18",
+      "title": "持久结果审阅与来源说明",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要集中审阅异常并准确理解状态",
+      "existing_scope": "用户从独立结果服务查看记录/问题与结果内来源定位、必要摘录；原始输入随环境销毁。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "用户从独立结果服务查看记录/问题与结果内来源定位、必要摘录；原始输入随环境销毁。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC18-01",
+          "criterion": "环境销毁后结果记录/问题/结果内来源仍可查看",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC18-02",
+          "criterion": "完整原始文件已销毁时明确说明，不能伪造原件在线预览",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC18-03",
+          "criterion": "结果需要修改时新会话读取用户选定结果及重新提供的必要原件，不恢复旧环境",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T18",
+      "page_ids": [
+        "MP08",
+        "MP12"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C29",
+        "B-C31",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API21",
+        "P07-API22",
+        "P07-API23",
+        "P07-API28",
+        "P07-API44",
+        "P07-API45",
+        "P07-API52"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F19",
+      "title": "取消、失败、来源不足与退款",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要失败、取消和退款有可解释结果",
+      "existing_scope": "未执行可取消，执行中查最终状态；漏读、错误提取、坏报告、不能履约属平台失败，缺事实属来源不足。0候选不收费/已收全退；全未通过按购买前政策处理。",
+      "inputs_and_preconditions": "订单/执行终态、失败分类、政策与原通道事实",
+      "normal_flow": "区分源不足与平台错误，0候选全退；取消与完成用条件更新确定唯一分支 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "支付晚到/退款未知进对账；已下载文件无法撤回不影响后续退款处理",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC19-01",
+          "criterion": "取消竞态不双退",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC19-02",
+          "criterion": "退款累计不超实付",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC19-03",
+          "criterion": "未扣款不能显示退款到账",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T19",
+      "page_ids": [
+        "MP15",
+        "MP16",
+        "MP18"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API14",
+        "P07-API15",
+        "P07-API30",
+        "P07-API31",
+        "P07-API53",
+        "P07-API56"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F20",
+      "title": "运行环境销毁与结果独立保留",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为资料所有者，我要处理前了解去向并能管理删除",
+      "existing_scope": "结果可靠保存并原子发布后立即释放Agent并销毁整个任务container；结果文件保留。container指隔离原生运行环境，本地不启动虚拟化。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "结果可靠保存并原子发布后立即释放Agent并销毁整个任务container；结果文件保留。container指隔离原生运行环境，本地不启动虚拟化。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC20-01",
+          "criterion": "九文件可靠保存及发布回执校验后释放Agent，销毁工作区/输入/会话正文/脚本/临时和日志副本",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC20-02",
+          "criterion": "销毁运行环境不删除结果存储、结果元数据、独立私有规范及必要订单/清理凭据",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC20-03",
+          "criterion": "清理失败保持待清理/失败状态并重试告警；不得把发出删除请求记成已清空",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T20",
+      "page_ids": [
+        "MP11",
+        "MP15",
+        "MP17",
+        "MP18"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C20",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C30",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API35",
+        "P07-API36",
+        "P07-API37",
+        "P07-API49",
+        "P07-API50",
+        "P07-API52",
+        "P07-API55",
+        "P07-API56"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F21",
+      "title": "持续追加与多人协作",
+      "priority": "P1",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为团队用户，我后续希望增量资料和协作不覆盖旧结论",
+      "existing_scope": "持续项目中追加资料、更新结果和多人审核，形成新源集/规范/结果版本与计费范围，并发审核不能覆盖。",
+      "inputs_and_preconditions": "P1项目、成员权限、源/规范/结果版本和新范围",
+      "normal_flow": "先创建增量源集及影响预览，再报价/执行，审核决定带成员和版本 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "多人并发旧版拒绝；撤权后停止访问；P0不伪装多人协作",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC21-01",
+          "criterion": "旧结果可追踪",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC21-02",
+          "criterion": "同一冲突不能最后写入覆盖",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC21-03",
+          "criterion": "追加资料需新的范围确认",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T21",
+      "page_ids": [],
+      "component_ids": [],
+      "api_ids": [
+        "P07-API40"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": "后续独立细化、估算和验收；不进入当前38项P0完成声明",
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F22",
+      "title": "更多格式与复杂规范",
+      "priority": "P1",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为进阶用户，我后续需要更多格式和多表结构",
+      "existing_scope": "扩展音视频、更多办公格式、多结果表、复杂版式/公式，每种能力定义解析范围、价格和定位证据，不以文件名代替读取正文。",
+      "inputs_and_preconditions": "P1格式能力、定位证据、标准集、价格及关系规范",
+      "normal_flow": "每个新增格式先明确支持/不支持项，独立上线能力和结果表合同 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "音视频/复杂公式/多表未核实不出售；不按扩展名假读正文",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC22-01",
+          "criterion": "音频有时间码",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC22-02",
+          "criterion": "多表有稳定关系",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC22-03",
+          "criterion": "不支持格式明确拒绝并保留原件去向",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T22",
+      "page_ids": [],
+      "component_ids": [],
+      "api_ids": [
+        "P07-API41"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": "后续独立细化、估算和验收；不进入当前38项P0完成声明",
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F23",
+      "title": "按规范执行验收",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要按已确认规则验收且事实也有据",
+      "existing_scope": "把用户提供或已采用的系统推荐规范编译为字段/顺序、类型、必填、枚举、正则、精度、单位、对象键和批准跨字段约束；未知约束需确认，结构和事实证据分别判定，不用模型一句合格代替。",
+      "inputs_and_preconditions": "SchemaBinding、结构/类型/必填/枚举/跨字段约束、证据",
+      "normal_flow": "编译受限规则逐项运行，分别输出schema适合性、信息覆盖、数据符合及来源核对 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "模型一句合格无效；不为通过改列/放宽必填；任意正则受资源限额",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC23-01",
+          "criterion": "必填价格缺失不通过",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC23-02",
+          "criterion": "未知封闭枚举报问题",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC23-03",
+          "criterion": "通过行所有必需字段有合格依据",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T23",
+      "page_ids": [
+        "MP08",
+        "MP09"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C19",
+        "B-C25",
+        "B-C29",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API27"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F24",
+      "title": "统一七步手机任务流程",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为手机用户，我要少量清楚的动作完成任务",
+      "existing_scope": "所有资料处理入口均执行S1会话完整预载→S2提交→S3分析→S4确认调整→S5估费→S6实付批量→S7保存结果销毁环境。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "所有资料处理入口均执行S1会话完整预载→S2提交→S3分析→S4确认调整→S5估费→S6实付批量→S7保存结果销毁环境。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC24-01",
+          "criterion": "两原生小程序及未来Web/API的新处理任务均不能跳过七步门槛",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC24-02",
+          "criterion": "用户调整返回分析与确认，再报价；同一未结束任务重连不无谓新建会话",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC24-03",
+          "criterion": "查看已保存结果仅调用结果服务，不重新创建Agent或重复收费",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T24",
+      "page_ids": [
+        "MP01",
+        "MP13"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C21",
+        "B-C26",
+        "B-C29",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API03",
+        "P07-API09",
+        "P07-API17",
+        "P07-API44",
+        "P07-API54"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F25",
+      "title": "分析与批量分离预算及完整范围",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要超限前知道范围不会悄悄漏资料",
+      "existing_scope": "数量/字节/格式上限继续执行；付费前分析预算与付费后生产预算分离，旧前三单元局部预检方案退出当前流程。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "数量/字节/格式上限继续执行；付费前分析预算与付费后生产预算分离，旧前三单元局部预检方案退出当前流程。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC25-01",
+          "criterion": "付费前方案分析覆盖全提交范围，仍遵守10源/50单元等硬上限；无静默截断",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC25-02",
+          "criterion": "初始化/分析/调整的时间和调用预算由平台承担并限频，不能倒收用户已发生成本",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC25-03",
+          "criterion": "已付批量及获准纠错共用合同预算，超限停止说明而非隐藏加费",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T25",
+      "page_ids": [
+        "MP02",
+        "MP04"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API06",
+        "P07-API09",
+        "P07-API11",
+        "P07-API46"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F26",
+      "title": "资料安全与指令权限",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为资料所有者，我要附件无法操纵系统或别人的数据",
+      "existing_scope": "文件仅作证据，禁执行宏/脚本/任意代码、外链和越权指令，解析/模型输出经过schema和权限检查；限制资源/目录，防路径穿越/炸弹/任意URL抓取。",
+      "inputs_and_preconditions": "不可信文件、模型输出、类型/资源/schema/权限约束",
+      "normal_flow": "文件仅作证据，解析限资源；模型输出通过schema、证据和权限检查 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "宏/脚本/外链/路径穿越/压缩炸弹拒绝，不调本地虚拟化执行附件",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC26-01",
+          "criterion": "附件支付指令无效",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC26-02",
+          "criterion": "越界路径拒绝",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC26-03",
+          "criterion": "危险公式在查看/导出都不执行",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T26",
+      "page_ids": [
+        "MP17"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C25",
+        "B-C26",
+        "B-C27"
+      ],
+      "api_ids": [
+        "P07-API05",
+        "P07-API06",
+        "P07-API07",
+        "P07-API50",
+        "P07-API54",
+        "P07-API56"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F27",
+      "title": "缺项冲突与确认调整",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要缺项和冲突能合并提交并看复验影响",
+      "existing_scope": "付款前确认关键策略与可见差异；产出后修改在新会话中提出，原结果不覆盖。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "付款前确认关键策略与可见差异；产出后修改在新会话中提出，原结果不覆盖。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC27-01",
+          "criterion": "用户确认前不预选冲突值，缺失与保留待核不冒充通过",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC27-02",
+          "criterion": "调整内容生成差异与新计划，确认后才能重新估费",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC27-03",
+          "criterion": "产出后新修订从S1重走；平台纠错可核原实付权益覆盖，不伪造免费付款或复活旧container",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T27",
+      "page_ids": [
+        "MP09",
+        "MP10"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C29",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API24",
+        "P07-API25",
+        "P07-API26",
+        "P07-API27"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F28",
+      "title": "连接器、SDK与Machine Pay开放API",
+      "priority": "P1",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为开发者，我后续要通过获准API调用同一服务",
+      "existing_scope": "后续同合同提供SDK/MCP、获准Machine Pay付费API与外部写入，独立验证异步/验付/结算、预算/权限/幂等，不跨用消费者凭证。",
+      "inputs_and_preconditions": "P1密钥/范围、Machine Pay适配、预算/幂等/回写授权",
+      "normal_flow": "单独验证授权、异步履约、结算与退款，沿用规范/证据合同 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "不跨用消费者付款凭证；外写超时查原动作不重复写",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC28-01",
+          "criterion": "撤销密钥生效",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC28-02",
+          "criterion": "付费调用与普通订单隔离",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC28-03",
+          "criterion": "SDK重试不重复执行外写",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T28",
+      "page_ids": [],
+      "component_ids": [],
+      "api_ids": [
+        "P07-API42"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": "后续独立细化、估算和验收；不进入当前38项P0完成声明",
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F29",
+      "title": "付费前无模板完整分析与规范推荐",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为没有模板的用户，我只交材料也能得到合理表头",
+      "existing_scope": "会话已完整载入业务Skill后，Agent在报价前全范围分析资料并提出完整规范与可解释依据。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "会话已完整载入业务Skill后，Agent在报价前全范围分析资料并提出完整规范与可解释依据。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC29-01",
+          "criterion": "无模板仍完整执行七步，不先收发现费再让用户采用",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC29-02",
+          "criterion": "先明确对象粒度，保留稀有重要字段和未映射事项",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC29-03",
+          "criterion": "完整分析与小样展示分开；样例不能作为事实或替代全范围覆盖",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T29",
+      "page_ids": [
+        "MP05",
+        "MP06"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C11",
+        "B-C12",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C24",
+        "B-C26",
+        "B-C28",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API18"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F30",
+      "title": "付费前预览调整与采用规范",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要看清并采用确切推荐版本",
+      "existing_scope": "用户在预估计费前预览、自然语言调整并明确采用准确规范及执行方案版本。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "用户在预估计费前预览、自然语言调整并明确采用准确规范及执行方案版本。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC30-01",
+          "criterion": "正式采用与计划确认均发生在报价及实付之前",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC30-02",
+          "criterion": "PARTIAL草案、旧源集/用途/提案版本不能采用或报价",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC30-03",
+          "criterion": "调整后重新分析/确认/报价，不能把先前确认偷偷套用到新内容",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T30",
+      "page_ids": [
+        "MP05",
+        "MP06",
+        "MP07"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C10",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C28",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API18",
+        "P07-API19",
+        "P07-API20"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F31",
+      "title": "推荐规范合理性与信息覆盖审查",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要规范设计的遗漏独立被发现",
+      "existing_scope": "字段/主题发现及未映射重要信息与规范符合率分别报告；每项字段建议有来源和覆盖分母，局部样本不冒充全量。不能删字段、减少对象或放宽必填来追求通过；冻结后新发现的重要结构形成变更建议及影响，平台漏识别纠错不算新增需求。",
+      "inputs_and_preconditions": "字段建议证据、相关记录分母、未映射信息和人工答案",
+      "normal_flow": "分别审查规范合理性/信息覆盖与数据符合率；新重要结构产生变更建议 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "不能删难填字段/对象抬高通过；平台漏识别作为纠错",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC31-01",
+          "criterion": "关键字段覆盖按人工答案统计",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC31-02",
+          "criterion": "局部样本不称全量",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC31-03",
+          "criterion": "白石保修不能复制给青禾",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T31",
+      "page_ids": [
+        "MP06"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C11",
+        "B-C12",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API18",
+        "P07-API19",
+        "P07-API27"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F32",
+      "title": "规范模板交付与复用",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要空规范可复用且不泄露本次事实",
+      "existing_scope": "两模式交付standard.xlsx空主表/规则与standard.json合同，和已填result.xlsx分开，可下载或主动另存私有库；不含真实源值/证据/访问引用。",
+      "inputs_and_preconditions": "已采用SchemaVersion、白名单规则、无事实样例",
+      "normal_flow": "交付standard.xlsx/json，结构/规则一致，导出前做去事实检查 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "草案显DRAFT不得冒充已采用；敏感规则枚举仍私有",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC32-01",
+          "criterion": "空表无客户行",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC32-02",
+          "criterion": "无task/source访问ID",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC32-03",
+          "criterion": "导出规范重新导入语义等价",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T32",
+      "page_ids": [
+        "MP03",
+        "MP12",
+        "MP14"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C22",
+        "B-C23",
+        "B-C25",
+        "B-C26",
+        "B-C29",
+        "B-C31",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API28",
+        "P07-API32",
+        "P07-API47",
+        "P07-API48"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F33",
+      "title": "双小程序主载体与原生适配",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要在支付宝或抖音手机内完成核心流程",
+      "existing_scope": "支付宝/抖音均提供整理/任务/规范/我的与完整核心流程；共享模型，登录/授权/文件/支付/导航分别适配。普通任务不依赖Web进阶版，平台缺口如实标记。",
+      "inputs_and_preconditions": "四环境能力、18逻辑页、B组件/状态、原生宿主区域",
+      "normal_flow": "共享业务模型，各端独立实现导航/授权/文件/收银与生命周期 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "仅一端运行/套web-view不算双端；未测页面不算完成",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC33-01",
+          "criterion": "四根入口一致",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC33-02",
+          "criterion": "每端两模式可完成",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC33-03",
+          "criterion": "B主色和状态规则一致且原生胶囊不伪造",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T33",
+      "page_ids": [
+        "MP01"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API17"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F34",
+      "title": "手机资料与模板导入",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为手机用户，我要主动添加资料并恢复失败上传",
+      "existing_scope": "主动粘贴、拍照/选图、已证明普通文档/模板路径及逐文件队列；不自动读聊天/剪贴板/相册/任意URL。获准接力页仅辅助进指定任务，不绕支付。",
+      "inputs_and_preconditions": "用户选择、本地临时描述符、upload_id、源摘要",
+      "normal_flow": "按已验证入口逐文件上传，服务端确认后才标已接收，可单项重试 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "拒权/取消/路径失效提示重选；不读聊天或启动剪贴板",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC34-01",
+          "criterion": "已完成项保留",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC34-02",
+          "criterion": "重选同一源不重计",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC34-03",
+          "criterion": "未开放文档入口不画假可用按钮",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T34",
+      "page_ids": [
+        "MP01",
+        "MP02"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API04",
+        "P07-API05",
+        "P07-API06",
+        "P07-API46"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F35",
+      "title": "手机推荐规范与字段编辑",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为手机用户，我要不用宽表也能调整50字段",
+      "existing_scope": "规范摘要/字段卡分组展示粒度、规则和依据；一键采用、文字调整、增删改/顺序编辑，关键变更看影响，不强制拖细小图标或填写长规则表。",
+      "inputs_and_preconditions": "字段卡/搜索/分组、文字指令、变更预览及版本",
+      "normal_flow": "单字段编辑、上移/下移，必要时查看影响后确认；未提交可撤回 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "键盘不遮输入；冲突保留用户草稿；禁止默改行粒度",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC35-01",
+          "criterion": "长字段可读",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC35-02",
+          "criterion": "自然语言修改先预览",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC35-03",
+          "criterion": "返回不把未提交稿称已采用",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T35",
+      "page_ids": [
+        "MP03",
+        "MP06",
+        "MP07"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C22",
+        "B-C25",
+        "B-C26",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API19",
+        "P07-API20"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F36",
+      "title": "移动记录与问题审核",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为经办人，我要在手机上处理1000条候选里的必要问题",
+      "existing_scope": "默认记录卡/问题列表及字段来源；筛选/搜索/选列表格预览，批量决定限明确同语义范围，提交前显示影响数量。",
+      "inputs_and_preconditions": "分页游标、快照版本、筛选范围和问题详情",
+      "normal_flow": "20条分页，默认关键字段，按需证据，同语义批量先看数量/例外 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "结果版本变化游标失效刷新；不同冲突不一键猜定",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC36-01",
+          "criterion": "不一次渲染1000原图",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC36-02",
+          "criterion": "筛选不漏重复/漏页",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC36-03",
+          "criterion": "无效补值不提交",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T36",
+      "page_ids": [
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C26",
+        "B-C29",
+        "B-C30",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API21",
+        "P07-API22",
+        "P07-API24",
+        "P07-API25"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F37",
+      "title": "生命周期恢复与环境销毁后访问",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要切网或杀进程后继续原动作",
+      "existing_scope": "处理中恢复同会话；处理结束后结果继续可取用，但已销毁环境不保留原始会话资料。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "处理中恢复同会话；处理结束后结果继续可取用，但已销毁环境不保留原始会话资料。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC37-01",
+          "criterion": "手机退后台再进入查原session/operation和原订单，不重复写动作",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC37-02",
+          "criterion": "实付已确认但进程重启按准确计划和检查点恢复，旧worker失效",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC37-03",
+          "criterion": "环境CLOSED后下载仍成功；断网重试下载不重启Agent",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T37",
+      "page_ids": [
+        "MP05",
+        "MP13"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C21",
+        "B-C24",
+        "B-C26",
+        "B-C28",
+        "B-C29"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API14",
+        "P07-API17",
+        "P07-API26",
+        "P07-API44",
+        "P07-API45",
+        "P07-API55"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F38",
+      "title": "独立结果领取与实际导出",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要实际拿到文件并知道保存在哪里",
+      "existing_scope": "结果文件与任务container解耦保存，用户可稍后领取；短链到期可以重签但不删除文件。",
+      "inputs_and_preconditions": "符合统一七步流程的当前session/方案/权限与版本；批量必须有真实原渠道实付依据。",
+      "normal_flow": "结果文件与任务container解耦保存，用户可稍后领取；短链到期可以重签但不删除文件。 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "前置阶段未完成、跨用户、旧版本、清理后的session或支付未知均拒绝越级；结果保留与环境销毁分开。",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC38-01",
+          "criterion": "container销毁后九文件下载与记录分页仍可用",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC38-02",
+          "criterion": "FETCHED/CACHED不冒充系统可见导出或平台履约",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC38-03",
+          "criterion": "下载链接过期可重新鉴权签发，运行清理不得影响结果文件",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T38",
+      "page_ids": [
+        "MP12"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API28",
+        "P07-API29",
+        "P07-API33",
+        "P07-API52"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F39",
+      "title": "我的私有规范",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为重复整理用户，我要保存自己的规范并独立删除",
+      "existing_scope": "用户主动保存无真实源值/证据/访问引用的私有模板，可命名/版本查看/复用/复制/删除；保存政策单独告知，不默认公开。",
+      "inputs_and_preconditions": "显式另存动作、模板名、Schema白名单、owner/version",
+      "normal_flow": "另存去事实快照，列表/复用/复制/新版本/删除；不修改旧任务绑定 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "保存请求失败可幂等重试；删除版本不删除旧任务快照",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC39-01",
+          "criterion": "旧源过期后模板仍可用",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC39-02",
+          "criterion": "无真实值/证据引用",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC39-03",
+          "criterion": "其他账号不能列模板",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T39",
+      "page_ids": [
+        "MP03",
+        "MP12",
+        "MP14",
+        "MP17"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C22",
+        "B-C23",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C29",
+        "B-C31",
+        "B-C32"
+      ],
+      "api_ids": [
+        "P07-API32",
+        "P07-API34",
+        "P07-API47",
+        "P07-API48",
+        "P07-API49"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F40",
+      "title": "平台身份、绑定与权益边界",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为用户，我要两平台身份不会被误合或挪用权益",
+      "existing_scope": "provider/app_id/subject映射，两端独立用，不按昵称/手机号自动合并；绑定验证双方，订单/退款原渠道，不默认付费权益通用。",
+      "inputs_and_preconditions": "provider/app/subject、绑定挑战和原渠道合同",
+      "normal_flow": "两端独立使用；绑定能力未具备关闭；开放时双方重新认证与影响确认 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "昵称/相同电话不足以合并；解绑不删账；不绕iOS收银",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC40-01",
+          "criterion": "同名账号互不可见",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC40-02",
+          "criterion": "跨app流水拒绝",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC40-03",
+          "criterion": "未获准跨端付费权益入口关闭",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T40",
+      "page_ids": [
+        "MP14",
+        "MP15",
+        "MP16"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C12",
+        "B-C16",
+        "B-C19",
+        "B-C20",
+        "B-C22",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C29",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API38",
+        "P07-API51"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F41",
+      "title": "平台能力开关与发布审查",
+      "priority": "P0",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为运营者，我要能力与发布证据一致",
+      "existing_scope": "按平台/OS/宿主/基础库记录文件/隐私/支付/导出/通知证据和开关；类目/域名/隐私/交易/iOS/赛事认可各核验，缺证不收费。",
+      "inputs_and_preconditions": "env/app/build/SDK、文档/真机/准入/审核证据及开关",
+      "normal_flow": "按四单元控制输入/导出/交易，严重故障暂停新单保留查询售后 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "官方文档可读不等于本应用开通；规则更新须重核受影响能力",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC41-01",
+          "criterion": "无商品资格不能启收费",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC41-02",
+          "criterion": "开关不能仅凭客户端OS绕过",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC41-03",
+          "criterion": "普通流水不标赛事AI付认可",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T41",
+      "page_ids": [
+        "MP04",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API39",
+        "P07-API53"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": null,
+      "workflow_contract": "P07-FLOW-7-1"
+    },
+    {
+      "id": "P07-F42",
+      "title": "Web进阶工作台",
+      "priority": "P1",
+      "business_baseline": "v3.2",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "user_story": "作为高频用户，我后续要大屏并排核对和批量操作",
+      "existing_scope": "大屏表格/来源并排、批量规则、多任务管理、复杂字段配置及获准跨端续作；同版本/来源/预算，协作/多表/更大规模另定范围，首版普通任务不依赖Web。",
+      "inputs_and_preconditions": "P1工作区、同源/规范/结果版本、账号/权益与B体系",
+      "normal_flow": "表格/来源/问题并排、批改先预览再复验，继承手机同一领域合同 处理任务统一遵守S1—S7；P1实现时同样适用。",
+      "exceptions_and_boundaries": "版本冲突先比较；不能把Web当受限小程序支付跳板",
+      "acceptance_criteria": [
+        {
+          "id": "P07-AC42-01",
+          "criterion": "手机任务无需Web前置",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC42-02",
+          "criterion": "批改有人工来源及版本",
+          "execution_status": "NOT_RUN"
+        },
+        {
+          "id": "P07-AC42-03",
+          "criterion": "扩大范围先确认报价",
+          "execution_status": "NOT_RUN"
+        }
+      ],
+      "primary_test_id": "P07-T42",
+      "page_ids": [],
+      "component_ids": [],
+      "api_ids": [
+        "P07-API43"
+      ],
+      "design_baseline": "P07-DS-B 1.0.0",
+      "p1_note": "后续独立细化、估算和验收；不进入当前38项P0完成声明",
+      "workflow_contract": "P07-FLOW-7-1"
+    }
+  ]
+}

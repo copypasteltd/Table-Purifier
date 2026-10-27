@@ -1,0 +1,227 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "P07 controlled transport and health contract",
+    "version": "2.0.0",
+    "description": "Infrastructure endpoints supporting existing business APIs; NOT_IMPLEMENTED."
+  },
+  "paths": {
+    "/transport/v1/uploads/{upload_id}": {
+      "post": {
+        "operationId": "P07-TRANSPORT-UPLOAD",
+        "parameters": [
+          {
+            "name": "upload_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "security": [
+          {
+            "UploadGrant": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Staged bytes received; business API05 still required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "upload_id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "observed_bytes": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "observed_sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "upload_id",
+                    "observed_bytes",
+                    "observed_sha256"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Expired/revoked/wrong-purpose upload grant"
+          },
+          "413": {
+            "description": "Stream limit exceeded"
+          }
+        }
+      }
+    },
+    "/transport/v1/downloads/{grant_id}": {
+      "get": {
+        "operationId": "P07-TRANSPORT-DOWNLOAD",
+        "parameters": [
+          {
+            "name": "grant_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "name": "Range",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^bytes=[0-9]+-[0-9]*$"
+            }
+          }
+        ],
+        "security": [],
+        "x-auth-mode": "DOWNLOAD_GRANT_TOKEN_REQUIRED",
+        "description": "Every GET/Range checks token hash, owner binding, expiry, result version and tombstone/revocation. Never log query. In-flight/already downloaded bytes cannot be recalled.",
+        "responses": {
+          "200": {
+            "description": "Authorized immutable file",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": "Authorized single byte range",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid or revoked grant"
+          },
+          "410": {
+            "description": "Content expired"
+          },
+          "416": {
+            "description": "Invalid range"
+          }
+        }
+      }
+    },
+    "/health/live": {
+      "get": {
+        "operationId": "P07-HEALTH-LIVE",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Process alive; no internal details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "const": "alive"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "operationId": "P07-HEALTH-READY",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "DB migration, object store and required config ready",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "status": {
+                      "const": "ready"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Not ready; safe summary only"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "UploadGrant": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Single-purpose upload token from API04; not consumer session."
+      }
+    }
+  },
+  "x-agent-runtime": "Official Codex SDK; business guards and public operations remain v3.1."
+}

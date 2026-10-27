@@ -1,0 +1,1 @@
+<view class="mode {{selected?'mode-selected':''}}" onTap="act"><view>{{selected?'●':'○'}} {{title}}</view><view class="small">{{text}}</view></view>

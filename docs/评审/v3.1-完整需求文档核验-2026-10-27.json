@@ -1,0 +1,3777 @@
+{
+  "product_id": "P07",
+  "business_baseline": "v3.1",
+  "checked_at": "2026-10-27T10:22:36.135035+00:00",
+  "result": "PASS",
+  "scope": "Static documents, hashes and relationships only",
+  "requirements": 42,
+  "P0": 38,
+  "P1": 4,
+  "acceptance_criteria": 126,
+  "pages": 18,
+  "components": 32,
+  "api_contracts": 53,
+  "business_rules": 24,
+  "NFRs": 18,
+  "metrics": 8,
+  "exception_scenarios": 24,
+  "inventory_files": 38,
+  "local_links_checked": 141,
+  "checks_passed": 750,
+  "checks_failed": 0,
+  "implementation_status": "NOT_IMPLEMENTED",
+  "product_tests": "NOT_RUN",
+  "errors": [],
+  "checks": [
+    {
+      "check": "current_baseline",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "status_is_requirements_only",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "unique_inventory",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:AGENTS.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:AGENTS.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/03-架构数据与接口.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/03-架构数据与接口.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/01-产品形态与功能分层.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/01-产品形态与功能分层.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/04-账号订单支付与权益.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/04-账号订单支付与权益.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/05-数据隐私与安全.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/05-数据隐私与安全.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/07-Web进阶版与跨端衔接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/07-Web进阶版与跨端衔接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/小程序/08-接口载荷与状态合同.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/小程序/08-接口载荷与状态合同.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/需求深化/01-用户故事与业务规则.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/需求深化/01-用户故事与业务规则.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/需求深化/02-数据字典与状态迁移.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/需求深化/02-数据字典与状态迁移.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/需求深化/03-整理引擎与规范验收规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/需求深化/03-整理引擎与规范验收规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/需求深化/04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/需求深化/04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/需求深化/05-异常恢复与验收场景.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/需求深化/05-异常恢复与验收场景.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/需求深化/06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/需求深化/06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/需求深化/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/需求深化/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/实施/小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/实施/小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:docs/资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:docs/资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/requirements/business-rules.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/requirements/business-rules.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/requirements/exception-cases.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/requirements/exception-cases.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/requirements/nonfunctional.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/requirements/nonfunctional.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/requirements/pages.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/requirements/pages.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/requirements/quality-metrics.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/requirements/quality-metrics.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/requirements/requirements.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/requirements/requirements.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/requirements/traceability.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/requirements/traceability.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/contracts/api-catalog.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/contracts/api-catalog.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/contracts/domain-contract.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/contracts/domain-contract.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/contracts/payload-examples.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/contracts/payload-examples.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/platform/capabilities.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/platform/capabilities.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/flows/mini-program-flows.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/flows/mini-program-flows.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:assets/examples/v3.1/报价资料成表-合成验收规格.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:assets/examples/v3.1/报价资料成表-合成验收规格.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "exists:scripts/verify_requirements_baseline.py",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "hash:scripts/verify_requirements_baseline.py",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "42_stable_requirements",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "38_P0_4_P1",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "126_unique_acceptance_criteria",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_not_executed",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "requirements_not_implemented",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "18_page_contracts",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "four_root_tabs",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "B32_components_retained",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "three_visual_references",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "P0_page_coverage",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "page:MP18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "53_API_contracts",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "unique_method_route",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API33",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API34",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API35",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API36",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API37",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API38",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API39",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API40",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API41",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API43",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API44",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API45",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API46",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API47",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API48",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API49",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API50",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API51",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API52",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "api:P07-API53",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "42_trace_rows",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F33",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F33",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F33",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F33",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F33",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F34",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F34",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F34",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F34",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F34",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F35",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F35",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F35",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F35",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F35",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F36",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F36",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F36",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F36",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F36",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F37",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F37",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F37",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F37",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F37",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F38",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F38",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F38",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F38",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F38",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F39",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F39",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F39",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F39",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F39",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F40",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F40",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F40",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F40",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F40",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F41",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F41",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F41",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F41",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F41",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace:P07-F42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_API:P07-F42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "inverse_page:P07-F42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "trace_status:P07-F42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "release_mapping:P07-F42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "24_business_rules",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "24_exception_scenarios",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "18_NFRs",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "8_metrics",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "additional_scenarios_not_run",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:BR24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "references:P07-E24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "scenario_pages:P07-E24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "independent_status_axes",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "not_evaluated_not_passed",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_terminal_run_restart",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition_states_known",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "seven_other_axis_policies",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:schema:NOT_REQUIRED_YET:PARTIAL_DRAFT",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:schema:NOT_REQUIRED_YET:FULL_DRAFT",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:schema:PARTIAL_DRAFT:FULL_DRAFT",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:schema:FULL_DRAFT:ADOPTED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:schema:ADOPTED:SUPERSEDED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:quality:NOT_EVALUATED:PASSED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:quality:NOT_EVALUATED:NEEDS_REVIEW",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:quality:NOT_EVALUATED:BLOCKED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:quality:NEEDS_REVIEW:PASSED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:quality:PASSED:NEEDS_REVIEW",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:quality:BLOCKED:NEEDS_REVIEW",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:artifact:NOT_READY:BUILDING",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:artifact:BUILDING:READY",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:artifact:BUILDING:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:artifact:FAILED:BUILDING",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:artifact:READY:EXPIRED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:artifact:READY:REVOKED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:artifact:BUILDING:REVOKED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:NOT_CREATED:PENDING",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:NOT_CREATED:NOT_REQUIRED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:PENDING:CONFIRMED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:PENDING:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:PENDING:CLOSED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:PENDING:UNKNOWN",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:UNKNOWN:CONFIRMED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:UNKNOWN:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:UNKNOWN:CLOSED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:CLOSED:CONFIRMED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:payment:FAILED:CONFIRMED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:NONE:REQUESTED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:REQUESTED:PROCESSING",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:REQUESTED:UNKNOWN",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:PROCESSING:SUCCEEDED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:PROCESSING:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:PROCESSING:UNKNOWN",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:UNKNOWN:SUCCEEDED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:UNKNOWN:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:refund:FAILED:REQUESTED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:fulfillment:NOT_STARTED:IN_PROGRESS",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:fulfillment:IN_PROGRESS:DELIVERABLE",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:fulfillment:DELIVERABLE:DELIVERED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:fulfillment:NOT_STARTED:CANCELED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:fulfillment:IN_PROGRESS:CANCELED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:fulfillment:IN_PROGRESS:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:fulfillment:DELIVERABLE:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:operation:PENDING:SUCCEEDED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "transition:operation:PENDING:FAILED",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "operation_terminal_immutable",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "free_not_fabricated_payment",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "budget_exact_bytes",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_state:execution",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_state:schema",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_state:quality",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_state:artifact",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_state:payment",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_state:refund",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "example_state:fulfillment",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "missing_price_stays_null",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "synthetic_not_execution",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "warranty_not_copied",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "candidate_counts",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "four_unreleased_environments",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "no_untested_capabilities_enabled",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "iOS_old_conflict_resolved_in_documentation",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "flow_current_baseline",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "functional_headings_42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "main_tests_42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F01",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F02",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F03",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F04",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F05",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F06",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F07",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F08",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F09",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F10",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F11",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F12",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F13",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F14",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F16",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F17",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F18",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F19",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F20",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F21",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F22",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F23",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F24",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F25",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F26",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F27",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F28",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F29",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F30",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F31",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F32",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F33",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F34",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F35",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F36",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F37",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F38",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F39",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F40",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F41",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "AC_document:P07-F42",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/需求深化/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/requirements/active.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/背景/v3.0-小程序需求基线/历史说明.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/01-产品形态与功能分层.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/03-架构数据与接口.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/01-产品形态与功能分层.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/04-账号订单支付与权益.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/05-数据隐私与安全.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/07-Web进阶版与跨端衔接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/小程序/08-接口载荷与状态合同.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/实施/小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/platform/capabilities.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/flows/mini-program-flows.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/设计/多源资料与规范表成表-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/设计/无模板分析与规范生成-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/templates/standard.example.v2.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/templates/discovered-standard.example.v2.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/背景/v2.1-网页优先/01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/背景/v1.0-订单表整理/01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/评审/需求解读与检查-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../需求文档/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/评审/v3.1-完整需求文档核验-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/design/b-jade-folders/v1.0.0/reference.html",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/design/b-jade-folders/v1.0.0/reference/B-selected-board.png",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/design/active.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:assets/design/b-jade-folders/v1.0.0/manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/设计/五种视觉方向与选型评估-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:output/imagegen/miniapp-style-selection-2026-10-27/index.html",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:docs/评审/B-青绿资料夹-定型核验-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:AGENTS.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:需求深化/03-整理引擎与规范验收规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:需求深化/06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:需求深化/04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:需求深化/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:03-架构数据与接口.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品需求PRD.md:需求深化/06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-功能需求与用户流程.md:../assets/requirements/requirements.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-功能需求与用户流程.md:需求深化/06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-功能需求与用户流程.md:需求深化/01-用户故事与业务规则.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-功能需求与用户流程.md:需求深化/02-数据字典与状态迁移.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-功能需求与用户流程.md:05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:03-架构数据与接口.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-架构数据与接口.md:需求深化/02-数据字典与状态迁移.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-架构数据与接口.md:../assets/platform/capabilities.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-架构数据与接口.md:小程序/08-接口载荷与状态合同.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-架构数据与接口.md:../assets/contracts/api-catalog.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-架构数据与接口.md:需求深化/04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:04-计费交易与运营.md:需求深化/01-用户故事与业务规则.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:04-计费交易与运营.md:资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:04-计费交易与运营.md:小程序/05-数据隐私与安全.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-验收测试与实施计划.md:小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-验收测试与实施计划.md:实施/小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-验收测试与实施计划.md:02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-验收测试与实施计划.md:../assets/requirements/requirements.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-验收测试与实施计划.md:需求深化/04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:05-验收测试与实施计划.md:../assets/examples/v3.1/报价资料成表-合成验收规格.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:01-产品形态与功能分层.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品形态与功能分层.md:../01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品形态与功能分层.md:02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品形态与功能分层.md:03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品形态与功能分层.md:04-账号订单支付与权益.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:01-产品形态与功能分层.md:02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-移动端页面与交互规格.md:../设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-移动端页面与交互规格.md:../设计定型/B-青绿资料夹-v1.0.0/03-18页面定型规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-移动端页面与交互规格.md:../../assets/requirements/pages.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-双平台能力与文件进出.md:../资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-双平台能力与文件进出.md:06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-双平台能力与文件进出.md:../需求深化/03-整理引擎与规范验收规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-双平台能力与文件进出.md:../资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:04-账号订单支付与权益.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:04-账号订单支付与权益.md:../04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:04-账号订单支付与权益.md:../资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:04-账号订单支付与权益.md:../04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:05-数据隐私与安全.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-双端验收与发布清单.md:../../assets/platform/capabilities.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-双端验收与发布清单.md:../需求深化/05-异常恢复与验收场景.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-双端验收与发布清单.md:../需求深化/04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:07-Web进阶版与跨端衔接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:07-Web进阶版与跨端衔接.md:../实施/小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:08-接口载荷与状态合同.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:08-接口载荷与状态合同.md:../../assets/contracts/api-catalog.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:08-接口载荷与状态合同.md:../../assets/contracts/payload-examples.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:01-用户故事与业务规则.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:02-数据字典与状态迁移.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-数据字典与状态迁移.md:../../assets/contracts/domain-contract.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:02-数据字典与状态迁移.md:../04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:03-整理引擎与规范验收规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:03-整理引擎与规范验收规格.md:04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:05-异常恢复与验收场景.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-需求追踪与变更管理.md:../../assets/requirements/traceability.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-需求追踪与变更管理.md:../背景/v3.0-小程序需求基线/历史说明.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:06-需求追踪与变更管理.md:../设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../03-架构数据与接口.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:01-用户故事与业务规则.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:02-数据字典与状态迁移.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:03-整理引擎与规范验收规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:04-非功能安全与运营需求.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:05-异常恢复与验收场景.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/01-产品形态与功能分层.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/04-账号订单支付与权益.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/05-数据隐私与安全.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/07-Web进阶版与跨端衔接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../小程序/08-接口载荷与状态合同.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../实施/小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../设计定型/B-青绿资料夹-v1.0.0/README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/design/b-jade-folders/v1.0.0/reference.html",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/active.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/requirements.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/traceability.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/pages.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/business-rules.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/nonfunctional.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/quality-metrics.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/requirements/exception-cases.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/contracts/domain-contract.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/contracts/api-catalog.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/contracts/payload-examples.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/platform/capabilities.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/flows/mini-program-flows.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../../assets/examples/v3.1/报价资料成表-合成验收规格.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../背景/v3.0-小程序需求基线/历史说明.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:README.md:../评审/v3.1-完整需求文档核验-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:小程序优先开发任务与里程碑.md:../05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:小程序优先开发任务与里程碑.md:../小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:小程序优先开发任务与里程碑.md:../需求深化/06-需求追踪与变更管理.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "active_document_baseline:双小程序官方能力复核-v3.1-2026-10-27.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "local_link:双小程序官方能力复核-v3.1-2026-10-27.md:../../assets/platform/capabilities.v3.1.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "B_frozen_baseline_unchanged",
+      "result": "PASS",
+      "detail": "Selected B archive verified by its own integrity checker"
+    },
+    {
+      "check": "18_original_v3_0_files",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:README.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:AGENTS.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/01-产品需求PRD.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/02-功能需求与用户流程.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/03-架构数据与接口.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/04-计费交易与运营.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/05-验收测试与实施计划.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/01-产品形态与功能分层.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/02-移动端页面与交互规格.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/03-双平台能力与文件进出.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/04-账号订单支付与权益.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/05-数据隐私与安全.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/06-双端验收与发布清单.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/07-Web进阶版与跨端衔接.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/小程序/08-接口载荷与状态合同.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:docs/实施/小程序优先开发任务与里程碑.md",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:assets/platform/capabilities.v3.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "v3_0_snapshot:assets/flows/mini-program-flows.v3.json",
+      "result": "PASS",
+      "detail": ""
+    }
+  ]
+}

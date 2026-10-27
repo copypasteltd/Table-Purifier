@@ -1,0 +1,676 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "config_version",
+    "app",
+    "paths",
+    "http",
+    "database",
+    "worker",
+    "budgets",
+    "preflight",
+    "export",
+    "providers",
+    "commerce",
+    "policy_candidates",
+    "features",
+    "observability"
+  ],
+  "properties": {
+    "config_version": {
+      "const": "1.0.0"
+    },
+    "app": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "environment",
+        "business_baseline",
+        "design_baseline"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "environment": {
+          "enum": [
+            "development",
+            "test",
+            "staging",
+            "production"
+          ]
+        },
+        "business_baseline": {
+          "type": "string",
+          "minLength": 1
+        },
+        "design_baseline": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "paths": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runtime_root",
+        "object_root",
+        "scratch_root",
+        "log_root"
+      ],
+      "properties": {
+        "runtime_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "object_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scratch_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "log_root": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "http": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host",
+        "port",
+        "public_origin",
+        "trusted_proxy"
+      ],
+      "properties": {
+        "host": {
+          "type": "string",
+          "minLength": 1
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "public_origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trusted_proxy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "database": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connection_secret_ref",
+        "pool_max",
+        "statement_timeout_ms"
+      ],
+      "properties": {
+        "connection_secret_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pool_max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "statement_timeout_ms": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "worker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lease_seconds",
+        "heartbeat_seconds",
+        "poll_ms"
+      ],
+      "properties": {
+        "lease_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "heartbeat_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "poll_ms": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_files",
+        "source_single_bytes",
+        "source_total_bytes",
+        "template_bytes",
+        "text_codepoints",
+        "processing_units",
+        "target_fields",
+        "candidate_records",
+        "compute_seconds_max",
+        "stage_auto_retries_max"
+      ],
+      "properties": {
+        "source_files": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "source_single_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20000000
+        },
+        "source_total_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50000000
+        },
+        "template_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5000000
+        },
+        "text_codepoints": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50000
+        },
+        "processing_units": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        },
+        "target_fields": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        },
+        "candidate_records": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "compute_seconds_max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 900
+        },
+        "stage_auto_retries_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "preflight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semantic_units_max",
+        "new_tasks_per_day"
+      ],
+      "properties": {
+        "semantic_units_max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "new_tasks_per_day": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "export": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "download_ttl_seconds",
+        "page_size",
+        "page_size_max"
+      ],
+      "properties": {
+        "download_ttl_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "page_size": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "page_size_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "providers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ocr",
+        "model",
+        "payment"
+      ],
+      "properties": {
+        "ocr": {
+          "type": "object",
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "enum": [
+                "disabled",
+                "fixture",
+                "approved"
+              ]
+            },
+            "adapter_id": {
+              "type": "string"
+            },
+            "secret_ref": {
+              "type": "string"
+            },
+            "evidence_ref": {
+              "type": "string"
+            }
+          },
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "approved"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "adapter_id",
+              "secret_ref",
+              "evidence_ref"
+            ]
+          }
+        },
+        "model": {
+          "type": "object",
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "enum": [
+                "disabled",
+                "fixture",
+                "approved"
+              ]
+            },
+            "adapter_id": {
+              "type": "string"
+            },
+            "secret_ref": {
+              "type": "string"
+            },
+            "evidence_ref": {
+              "type": "string"
+            }
+          },
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "approved"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "adapter_id",
+              "secret_ref",
+              "evidence_ref"
+            ]
+          }
+        },
+        "payment": {
+          "type": "object",
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "enum": [
+                "disabled",
+                "fixture",
+                "approved"
+              ]
+            },
+            "adapter_id": {
+              "type": "string"
+            },
+            "secret_ref": {
+              "type": "string"
+            },
+            "evidence_ref": {
+              "type": "string"
+            }
+          },
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "approved"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "adapter_id",
+              "secret_ref",
+              "evidence_ref"
+            ]
+          }
+        }
+      }
+    },
+    "commerce": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "approved_sku_ids",
+        "policy_snapshot_id"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "approved_sku_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "policy_snapshot_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "policy_candidates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_hours",
+        "revision_rounds",
+        "retention_days",
+        "enabled_as_entitlement"
+      ],
+      "properties": {
+        "review_hours": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "revision_rounds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "retention_days": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "enabled_as_entitlement": {
+          "const": false
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "release_units",
+        "web",
+        "open_api",
+        "source_increments",
+        "account_binding"
+      ],
+      "properties": {
+        "release_units": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "alipay_android",
+            "alipay_ios",
+            "douyin_android",
+            "douyin_ios"
+          ],
+          "properties": {
+            "alipay_android": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "file_input",
+                "template_input",
+                "preview",
+                "export",
+                "payment"
+              ],
+              "properties": {
+                "file_input": {
+                  "type": "boolean"
+                },
+                "template_input": {
+                  "type": "boolean"
+                },
+                "preview": {
+                  "type": "boolean"
+                },
+                "export": {
+                  "type": "boolean"
+                },
+                "payment": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "alipay_ios": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "file_input",
+                "template_input",
+                "preview",
+                "export",
+                "payment"
+              ],
+              "properties": {
+                "file_input": {
+                  "type": "boolean"
+                },
+                "template_input": {
+                  "type": "boolean"
+                },
+                "preview": {
+                  "type": "boolean"
+                },
+                "export": {
+                  "type": "boolean"
+                },
+                "payment": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "douyin_android": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "file_input",
+                "template_input",
+                "preview",
+                "export",
+                "payment"
+              ],
+              "properties": {
+                "file_input": {
+                  "type": "boolean"
+                },
+                "template_input": {
+                  "type": "boolean"
+                },
+                "preview": {
+                  "type": "boolean"
+                },
+                "export": {
+                  "type": "boolean"
+                },
+                "payment": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "douyin_ios": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "file_input",
+                "template_input",
+                "preview",
+                "export",
+                "payment"
+              ],
+              "properties": {
+                "file_input": {
+                  "type": "boolean"
+                },
+                "template_input": {
+                  "type": "boolean"
+                },
+                "preview": {
+                  "type": "boolean"
+                },
+                "export": {
+                  "type": "boolean"
+                },
+                "payment": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "web": {
+          "type": "boolean"
+        },
+        "open_api": {
+          "type": "boolean"
+        },
+        "source_increments": {
+          "type": "boolean"
+        },
+        "account_binding": {
+          "type": "boolean"
+        }
+      }
+    },
+    "observability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "log_level",
+        "redaction",
+        "enabled_metrics"
+      ],
+      "properties": {
+        "log_level": {
+          "type": "string",
+          "minLength": 1
+        },
+        "redaction": {
+          "const": true
+        },
+        "enabled_metrics": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:p07:config:1.0.0",
+  "title": "P07 development configuration contract",
+  "description": "Structure only; runtime cross-field/path/approved-evidence guards mandatory.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "commerce": {
+            "properties": {
+              "enabled": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "commerce": {
+            "properties": {
+              "approved_sku_ids": {
+                "minItems": 1
+              },
+              "policy_snapshot_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "providers": {
+            "properties": {
+              "payment": {
+                "properties": {
+                  "mode": {
+                    "const": "approved"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

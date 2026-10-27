@@ -1,0 +1,172 @@
+{
+  "design_id": "P07-DS-B",
+  "version": "1.0.0",
+  "method": "sRGB relative luminance, (Lighter+0.05)/(Darker+0.05)",
+  "scope": "仅声明的静态颜色对；不代表实装控件、朗读、触控、焦点或整个产品无障碍测试通过",
+  "excluded": "禁用态、纯装饰线/页签/金色、透明遮罩不作正文/有意义控件对比宣称",
+  "pairs": [
+    {
+      "foreground": "ink",
+      "background": "surface",
+      "foreground_hex": "#203C32",
+      "background_hex": "#FFFFFF",
+      "ratio": 11.9739,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "ink",
+      "background": "canvas",
+      "foreground_hex": "#203C32",
+      "background_hex": "#EAF1EE",
+      "ratio": 10.4431,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "ink",
+      "background": "surfaceSubtle",
+      "foreground_hex": "#203C32",
+      "background_hex": "#F6F9F7",
+      "ratio": 11.2965,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "textSecondary",
+      "background": "surface",
+      "foreground_hex": "#5E7167",
+      "background_hex": "#FFFFFF",
+      "ratio": 5.206,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "textSecondary",
+      "background": "canvas",
+      "foreground_hex": "#5E7167",
+      "background_hex": "#EAF1EE",
+      "ratio": 4.5404,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "brand",
+      "background": "surface",
+      "foreground_hex": "#17745E",
+      "background_hex": "#FFFFFF",
+      "ratio": 5.6815,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "brand",
+      "background": "canvas",
+      "foreground_hex": "#17745E",
+      "background_hex": "#EAF1EE",
+      "ratio": 4.9551,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "onBrand",
+      "background": "brand",
+      "foreground_hex": "#FFFFFF",
+      "background_hex": "#17745E",
+      "ratio": 5.6815,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "onBrand",
+      "background": "brandPressed",
+      "foreground_hex": "#FFFFFF",
+      "background_hex": "#105F4D",
+      "ratio": 7.592,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "successText",
+      "background": "successBg",
+      "foreground_hex": "#17745E",
+      "background_hex": "#E8F3ED",
+      "ratio": 4.9982,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "warningText",
+      "background": "warningBg",
+      "foreground_hex": "#875A18",
+      "background_hex": "#FFF3DB",
+      "ratio": 5.4467,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "errorText",
+      "background": "errorBg",
+      "foreground_hex": "#B33E32",
+      "background_hex": "#FDF0ED",
+      "ratio": 5.1655,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "infoText",
+      "background": "infoBg",
+      "foreground_hex": "#306071",
+      "background_hex": "#EDF4F6",
+      "ratio": 6.2134,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "neutralText",
+      "background": "neutralBg",
+      "foreground_hex": "#5E7167",
+      "background_hex": "#F0F4F1",
+      "ratio": 4.6892,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "controlBorder",
+      "background": "surface",
+      "foreground_hex": "#6F897C",
+      "background_hex": "#FFFFFF",
+      "ratio": 3.7871,
+      "minimum": 3,
+      "result": "PASS"
+    },
+    {
+      "foreground": "controlBorder",
+      "background": "canvas",
+      "foreground_hex": "#6F897C",
+      "background_hex": "#EAF1EE",
+      "ratio": 3.3029,
+      "minimum": 3,
+      "result": "PASS"
+    },
+    {
+      "foreground": "focus",
+      "background": "surface",
+      "foreground_hex": "#17745E",
+      "background_hex": "#FFFFFF",
+      "ratio": 5.6815,
+      "minimum": 3,
+      "result": "PASS"
+    },
+    {
+      "foreground": "focus",
+      "background": "canvas",
+      "foreground_hex": "#17745E",
+      "background_hex": "#EAF1EE",
+      "ratio": 4.9551,
+      "minimum": 3,
+      "result": "PASS"
+    }
+  ],
+  "result": "ALL_DECLARED_PAIRS_PASS"
+}

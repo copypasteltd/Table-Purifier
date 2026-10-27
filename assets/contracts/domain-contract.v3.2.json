@@ -1,0 +1,635 @@
+{
+  "product_id": "P07",
+  "baseline": "v3.2",
+  "status": "DESIGNED_NOT_IMPLEMENTED",
+  "axes": {
+    "execution": [
+      "QUEUED",
+      "RUNNING",
+      "SUCCEEDED",
+      "FAILED",
+      "CANCELED"
+    ],
+    "schema": [
+      "NOT_REQUIRED_YET",
+      "PARTIAL_DRAFT",
+      "FULL_DRAFT",
+      "ADOPTED",
+      "SUPERSEDED"
+    ],
+    "quality": [
+      "NOT_EVALUATED",
+      "PASSED",
+      "NEEDS_REVIEW",
+      "BLOCKED"
+    ],
+    "artifact": [
+      "NOT_READY",
+      "BUILDING",
+      "READY",
+      "FAILED",
+      "EXPIRED",
+      "REVOKED"
+    ],
+    "payment": [
+      "NOT_CREATED",
+      "PENDING",
+      "CONFIRMED",
+      "FAILED",
+      "CLOSED",
+      "UNKNOWN"
+    ],
+    "refund": [
+      "NONE",
+      "REQUESTED",
+      "PROCESSING",
+      "SUCCEEDED",
+      "FAILED",
+      "UNKNOWN"
+    ],
+    "fulfillment": [
+      "NOT_STARTED",
+      "IN_PROGRESS",
+      "DELIVERABLE",
+      "DELIVERED",
+      "FAILED",
+      "CANCELED"
+    ],
+    "operation": [
+      "PENDING",
+      "SUCCEEDED",
+      "FAILED"
+    ],
+    "export_observation": [
+      "ARTIFACT_READY",
+      "FETCHED",
+      "CACHED",
+      "OPEN_REQUESTED",
+      "OPENED",
+      "EXPORT_REQUESTED",
+      "USER_CONFIRMED",
+      "PLATFORM_CONFIRMED",
+      "FAILED",
+      "UNKNOWN"
+    ],
+    "session": [
+      "INITIALIZING",
+      "READY_FOR_INPUT",
+      "INPUT_RECEIVED",
+      "ANALYZING",
+      "WAITING_CONFIRMATION",
+      "QUOTABLE",
+      "AWAITING_PAYMENT",
+      "BATCH_QUEUED",
+      "BATCH_RUNNING",
+      "PERSISTING_RESULTS",
+      "RELEASING_RUNTIME",
+      "CLOSED",
+      "INITIALIZATION_FAILED",
+      "FAILED",
+      "CANCELED"
+    ],
+    "cleanup": [
+      "NOT_REQUESTED",
+      "PENDING",
+      "STOPPING",
+      "DELETING",
+      "SUCCEEDED",
+      "FAILED"
+    ]
+  },
+  "execution_transitions": [
+    {
+      "from": "QUEUED",
+      "to": "RUNNING",
+      "guard": "已确认方案、原渠道实付、范围/规范/Skill hash、生产预算、worker租约均成立"
+    },
+    {
+      "from": "QUEUED",
+      "to": "CANCELED",
+      "guard": "取消条件更新成功"
+    },
+    {
+      "from": "QUEUED",
+      "to": "FAILED",
+      "guard": "启动前预算/依赖不可恢复失败"
+    },
+    {
+      "from": "RUNNING",
+      "to": "SUCCEEDED",
+      "guard": "当前结果和9文件完整校验后原子发布"
+    },
+    {
+      "from": "RUNNING",
+      "to": "FAILED",
+      "guard": "预算或依赖/质量结构导致执行不能完成"
+    },
+    {
+      "from": "RUNNING",
+      "to": "CANCELED",
+      "guard": "取消与发布条件竞争由取消获胜"
+    }
+  ],
+  "execution_terminal_states": [
+    "SUCCEEDED",
+    "FAILED",
+    "CANCELED"
+  ],
+  "revision_policy": "新修订先新session完整预载，用户选父结果/必要原件作为新输入，重新确认估费；核实新实付或原实付纠错覆盖后创建child Run，原结果不覆盖。",
+  "source_status": [
+    "RECEIVED",
+    "VALIDATING",
+    "READABLE",
+    "PARTIAL",
+    "UNREADABLE",
+    "EXCLUDED",
+    "EXPIRED",
+    "DELETED"
+  ],
+  "candidate_disposition": [
+    "ACCEPTED",
+    "NEEDS_REVIEW",
+    "EXCLUDED"
+  ],
+  "field_status": [
+    "EXTRACTED",
+    "NORMALIZED",
+    "DERIVED",
+    "DEFAULTED",
+    "USER_PROVIDED",
+    "MISSING",
+    "CONFLICT",
+    "UNREADABLE"
+  ],
+  "decision_actions": [
+    "CHOOSE_EVIDENCE",
+    "USER_VALUE",
+    "KEEP_UNRESOLVED"
+  ],
+  "budget": {
+    "source_files": 10,
+    "source_single_bytes": 20000000,
+    "source_total_bytes": 50000000,
+    "template_bytes": 5000000,
+    "text_codepoints": 50000,
+    "processing_units": 50,
+    "target_fields": 50,
+    "candidate_records": 1000,
+    "compute_seconds_max": 900,
+    "stage_auto_retries_max": 1
+  },
+  "policy_defaults": {
+    "quote_ttl_seconds": 900,
+    "download_link_ttl_seconds": 300,
+    "preflight_new_tasks_per_day": 5,
+    "record_page_default": 20,
+    "record_page_max": 100,
+    "review_window_candidate_hours": 24,
+    "user_revision_candidate_rounds": 2,
+    "analysis_preview_records_max": 5,
+    "result_auto_delete": false
+  },
+  "policy_note": "运行环境在独立结果可靠发布后销毁，结果不自动删除；原7天在线内容候选退出当前流程。短链TTL仅影响链接。正常生产必须实付；平台纠错核原实付权益。分析/空闲预算需实测锁定，不从用户付款倒收前置成本。",
+  "other_axis_transitions": {
+    "schema": [
+      {
+        "from": "NOT_REQUIRED_YET",
+        "to": "PARTIAL_DRAFT",
+        "guard": "预检有限分析产出，仅草案，不授权采用"
+      },
+      {
+        "from": "NOT_REQUIRED_YET",
+        "to": "FULL_DRAFT",
+        "guard": "已确认全范围分析结束并说明未读/排除"
+      },
+      {
+        "from": "PARTIAL_DRAFT",
+        "to": "FULL_DRAFT",
+        "guard": "创建新的全范围提案版本，保留旧局部版本"
+      },
+      {
+        "from": "FULL_DRAFT",
+        "to": "ADOPTED",
+        "guard": "用户采用当前源/用途/提案版本的事务成功"
+      },
+      {
+        "from": "ADOPTED",
+        "to": "SUPERSEDED",
+        "guard": "仅当前工作区新规范已采用的投影；旧Binding及历史结果仍指原规范"
+      }
+    ],
+    "quality": [
+      {
+        "from": "NOT_EVALUATED",
+        "to": "PASSED",
+        "guard": "有效Binding、结果及规则/证据/重要信息校验均满足"
+      },
+      {
+        "from": "NOT_EVALUATED",
+        "to": "NEEDS_REVIEW",
+        "guard": "有有效结构和可处理缺项/冲突"
+      },
+      {
+        "from": "NOT_EVALUATED",
+        "to": "BLOCKED",
+        "guard": "缺有效绑定或严重范围/结构/事实问题"
+      },
+      {
+        "from": "NEEDS_REVIEW",
+        "to": "PASSED",
+        "guard": "新结果版本复验满足，旧结果质量不覆盖"
+      },
+      {
+        "from": "PASSED",
+        "to": "NEEDS_REVIEW",
+        "guard": "仅新结果版本因新决定/规范/纠错复验；旧版结论保留"
+      },
+      {
+        "from": "BLOCKED",
+        "to": "NEEDS_REVIEW",
+        "guard": "新结果版本修复阻断但尚有待核"
+      }
+    ],
+    "artifact": [
+      {
+        "from": "NOT_READY",
+        "to": "BUILDING",
+        "guard": "已绑定规范和可发布结果，取得当前执行租约"
+      },
+      {
+        "from": "BUILDING",
+        "to": "READY",
+        "guard": "9文件回读/哈希/版本一致且取消删除守卫未触发，原子发布"
+      },
+      {
+        "from": "BUILDING",
+        "to": "FAILED",
+        "guard": "任一文件生成/检查失败，隔离半套内容"
+      },
+      {
+        "from": "FAILED",
+        "to": "BUILDING",
+        "guard": "同Run获准阶段新Attempt，原半包未公开"
+      },
+      {
+        "from": "READY",
+        "to": "EXPIRED",
+        "guard": "明确内容期限到达，停止签链"
+      },
+      {
+        "from": "READY",
+        "to": "REVOKED",
+        "guard": "删除/撤权/原合同退款策略触发"
+      },
+      {
+        "from": "BUILDING",
+        "to": "REVOKED",
+        "guard": "删除或取消先胜，旧worker不得公开"
+      }
+    ],
+    "payment": [
+      {
+        "from": "NOT_CREATED",
+        "to": "PENDING",
+        "guard": "正式原渠道订单创建及用户主动收银"
+      },
+      {
+        "from": "PENDING",
+        "to": "CONFIRMED",
+        "guard": "服务端验签或正式查单核商户/app/单/金额单位"
+      },
+      {
+        "from": "PENDING",
+        "to": "FAILED",
+        "guard": "原通道明确失败，非客户端超时"
+      },
+      {
+        "from": "PENDING",
+        "to": "CLOSED",
+        "guard": "原通道明确关单且无已付事实"
+      },
+      {
+        "from": "PENDING",
+        "to": "UNKNOWN",
+        "guard": "等待超时尚未取得确定事实"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "CONFIRMED",
+        "guard": "查原单获得有效付款事实"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "FAILED",
+        "guard": "查原单确定失败"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "CLOSED",
+        "guard": "查原单确定关单"
+      },
+      {
+        "from": "CLOSED",
+        "to": "CONFIRMED",
+        "guard": "仅正式晚到已付事实，记录异常并确定履约或原路退"
+      },
+      {
+        "from": "FAILED",
+        "to": "CONFIRMED",
+        "guard": "仅通道纠正/晚到可验证付款事实，保留原状态事件，不漏记实付"
+      }
+    ],
+    "refund": [
+      {
+        "from": "NONE",
+        "to": "REQUESTED",
+        "guard": "有可退原实付及明确退款原因，幂等登记申请"
+      },
+      {
+        "from": "REQUESTED",
+        "to": "PROCESSING",
+        "guard": "原通道已接收处理"
+      },
+      {
+        "from": "REQUESTED",
+        "to": "UNKNOWN",
+        "guard": "提交超时，查同一退款单"
+      },
+      {
+        "from": "PROCESSING",
+        "to": "SUCCEEDED",
+        "guard": "通道确认原单位退款事实，累计不超可退"
+      },
+      {
+        "from": "PROCESSING",
+        "to": "FAILED",
+        "guard": "通道明确失败，进入售后重处置"
+      },
+      {
+        "from": "PROCESSING",
+        "to": "UNKNOWN",
+        "guard": "结果暂不可确认，不新发第二笔"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "SUCCEEDED",
+        "guard": "同退款单查单确认"
+      },
+      {
+        "from": "UNKNOWN",
+        "to": "FAILED",
+        "guard": "同退款单查单确定失败"
+      },
+      {
+        "from": "FAILED",
+        "to": "REQUESTED",
+        "guard": "新退款尝试需原失败已确定、额度重新校验及retry_of，不能重放未知款"
+      }
+    ],
+    "fulfillment": [
+      {
+        "from": "NOT_STARTED",
+        "to": "IN_PROGRESS",
+        "guard": "原合同已付款/明确免费许可并取得执行"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "DELIVERABLE",
+        "guard": "符合获准商品交付要求的文件/服务已可取用，仍不等于设备导出"
+      },
+      {
+        "from": "DELIVERABLE",
+        "to": "DELIVERED",
+        "guard": "按适用平台合同有真实交付/履约证据，不直接用缓存回调"
+      },
+      {
+        "from": "NOT_STARTED",
+        "to": "CANCELED",
+        "guard": "许可/取消最终事实确定"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "CANCELED",
+        "guard": "取消竞态获胜且原合同权益/退款同步"
+      },
+      {
+        "from": "IN_PROGRESS",
+        "to": "FAILED",
+        "guard": "不能履约并确认失败/售后"
+      },
+      {
+        "from": "DELIVERABLE",
+        "to": "FAILED",
+        "guard": "证实原交付损坏或无法取得，按平台纠错/退款处理并保留事件"
+      }
+    ],
+    "operation": [
+      {
+        "from": "PENDING",
+        "to": "SUCCEEDED",
+        "guard": "目标事务/子执行最终成功且引用资源持久"
+      },
+      {
+        "from": "PENDING",
+        "to": "FAILED",
+        "guard": "确认永久失败及轮次预留释放，保存错误"
+      }
+    ],
+    "session": [
+      {
+        "from": "INITIALIZING",
+        "to": "READY_FOR_INPUT",
+        "guard": "完整Skill包内容/清单/hash实际装入上下文且工具/权限自检通过"
+      },
+      {
+        "from": "INITIALIZING",
+        "to": "INITIALIZATION_FAILED",
+        "guard": "任一资源缺失/超上下文/认证或权限失败；不接受客户资料"
+      },
+      {
+        "from": "READY_FOR_INPUT",
+        "to": "INPUT_RECEIVED",
+        "guard": "用户主动提交获授权文字/文件，创建关联任务"
+      },
+      {
+        "from": "INPUT_RECEIVED",
+        "to": "ANALYZING",
+        "guard": "在独立分析预算内开始读取资料"
+      },
+      {
+        "from": "ANALYZING",
+        "to": "WAITING_CONFIRMATION",
+        "guard": "全部拟处理范围账本与规范/计划/代表预览已齐"
+      },
+      {
+        "from": "WAITING_CONFIRMATION",
+        "to": "ANALYZING",
+        "guard": "用户调整内容，递增计划/输入版本，旧确认与未付报价失效"
+      },
+      {
+        "from": "WAITING_CONFIRMATION",
+        "to": "QUOTABLE",
+        "guard": "规范已采用，用户明确确认准确执行方案"
+      },
+      {
+        "from": "QUOTABLE",
+        "to": "AWAITING_PAYMENT",
+        "guard": "可信计量与获准价格表生成绑定版本的报价/原订单"
+      },
+      {
+        "from": "AWAITING_PAYMENT",
+        "to": "ANALYZING",
+        "guard": "用户调整且原订单未付已确定关闭；UNKNOWN先查原单"
+      },
+      {
+        "from": "AWAITING_PAYMENT",
+        "to": "BATCH_QUEUED",
+        "guard": "服务端核实原实付和计划hash；仅创建一次生产意图"
+      },
+      {
+        "from": "BATCH_QUEUED",
+        "to": "BATCH_RUNNING",
+        "guard": "领取有效租约并再次核实实付/计划/权限"
+      },
+      {
+        "from": "BATCH_RUNNING",
+        "to": "PERSISTING_RESULTS",
+        "guard": "Agent九文件候选与独立验证完成"
+      },
+      {
+        "from": "PERSISTING_RESULTS",
+        "to": "RELEASING_RUNTIME",
+        "guard": "九文件复制独立结果区、hash/readback/持久提交及outbox原子成功"
+      },
+      {
+        "from": "RELEASING_RUNTIME",
+        "to": "CLOSED",
+        "guard": "Agent进程树结束、受控正文/工作区/会话/副本清理证据齐，结果继续保留"
+      }
+    ],
+    "cleanup": [
+      {
+        "from": "NOT_REQUESTED",
+        "to": "PENDING",
+        "guard": "结果持久发布或已确定取消/失败/闲置到期触发"
+      },
+      {
+        "from": "PENDING",
+        "to": "STOPPING",
+        "guard": "撤销运行和发布权，停止进程树"
+      },
+      {
+        "from": "STOPPING",
+        "to": "DELETING",
+        "guard": "确认无活动writer，撤销挂载/凭据"
+      },
+      {
+        "from": "DELETING",
+        "to": "SUCCEEDED",
+        "guard": "工作区/会话/源/中间物及受控副本已核实清除，独立结果完整"
+      },
+      {
+        "from": "STOPPING",
+        "to": "FAILED",
+        "guard": "停止失败需重试告警"
+      },
+      {
+        "from": "DELETING",
+        "to": "FAILED",
+        "guard": "文件占用/副本清理失败，不谎称已清空"
+      },
+      {
+        "from": "FAILED",
+        "to": "PENDING",
+        "guard": "幂等重新清理，不重跑Agent或删除结果"
+      }
+    ]
+  },
+  "transition_notes": [
+    "规范/质量变化中的新版本不覆盖旧对象",
+    "CONFIRMED付款历史不可通过退款抹除，退款另轴",
+    "操作FAILED终态保持；获准重试创建retry_of新Operation，复用决定批次避免双扣",
+    "设备取用为观察事件，不强行映成单调状态机",
+    "NOT_REQUIRED免费不可原地转成CONFIRMED收费"
+  ],
+  "text_budget_scope": "50,000码点用于用户直接粘贴/提交文本总量；TXT/Markdown文件按原字节及解析资源限制；其他格式抽取文字不以该限额静默截断",
+  "session_transitions": [
+    {
+      "from": "INITIALIZING",
+      "to": "READY_FOR_INPUT",
+      "guard": "完整Skill包内容/清单/hash实际装入上下文且工具/权限自检通过"
+    },
+    {
+      "from": "INITIALIZING",
+      "to": "INITIALIZATION_FAILED",
+      "guard": "任一资源缺失/超上下文/认证或权限失败；不接受客户资料"
+    },
+    {
+      "from": "READY_FOR_INPUT",
+      "to": "INPUT_RECEIVED",
+      "guard": "用户主动提交获授权文字/文件，创建关联任务"
+    },
+    {
+      "from": "INPUT_RECEIVED",
+      "to": "ANALYZING",
+      "guard": "在独立分析预算内开始读取资料"
+    },
+    {
+      "from": "ANALYZING",
+      "to": "WAITING_CONFIRMATION",
+      "guard": "全部拟处理范围账本与规范/计划/代表预览已齐"
+    },
+    {
+      "from": "WAITING_CONFIRMATION",
+      "to": "ANALYZING",
+      "guard": "用户调整内容，递增计划/输入版本，旧确认与未付报价失效"
+    },
+    {
+      "from": "WAITING_CONFIRMATION",
+      "to": "QUOTABLE",
+      "guard": "规范已采用，用户明确确认准确执行方案"
+    },
+    {
+      "from": "QUOTABLE",
+      "to": "AWAITING_PAYMENT",
+      "guard": "可信计量与获准价格表生成绑定版本的报价/原订单"
+    },
+    {
+      "from": "AWAITING_PAYMENT",
+      "to": "ANALYZING",
+      "guard": "用户调整且原订单未付已确定关闭；UNKNOWN先查原单"
+    },
+    {
+      "from": "AWAITING_PAYMENT",
+      "to": "BATCH_QUEUED",
+      "guard": "服务端核实原实付和计划hash；仅创建一次生产意图"
+    },
+    {
+      "from": "BATCH_QUEUED",
+      "to": "BATCH_RUNNING",
+      "guard": "领取有效租约并再次核实实付/计划/权限"
+    },
+    {
+      "from": "BATCH_RUNNING",
+      "to": "PERSISTING_RESULTS",
+      "guard": "Agent九文件候选与独立验证完成"
+    },
+    {
+      "from": "PERSISTING_RESULTS",
+      "to": "RELEASING_RUNTIME",
+      "guard": "九文件复制独立结果区、hash/readback/持久提交及outbox原子成功"
+    },
+    {
+      "from": "RELEASING_RUNTIME",
+      "to": "CLOSED",
+      "guard": "Agent进程树结束、受控正文/工作区/会话/副本清理证据齐，结果继续保留"
+    }
+  ],
+  "data_retention": {
+    "task_runtime": "DESTROY_AFTER_DURABLE_RESULT_PUBLISH",
+    "result_files": "PERSIST_INDEPENDENTLY_NO_AUTOMATIC_DELETE",
+    "original_uploads": "EPHEMERAL_INPUT_ONLY_DELETE_WITH_RUNTIME",
+    "minimal_order_and_cleanup_receipts": "SEPARATE_NO_SOURCE_OR_CONTEXT",
+    "provider_copies": "Use verified provider retention/deletion contract; never claim physical zero retention without evidence."
+  }
+}

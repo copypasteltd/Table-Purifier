@@ -1,0 +1,70 @@
+{
+  "baseline": "v3.2",
+  "status": "TARGETS_NOT_MEASURED",
+  "metrics": [
+    {
+      "id": "Q01",
+      "name": "字段值准确率",
+      "definition": "正确输出的非空事实字段数/全部输出非空事实字段数，按人工对象对齐和规范等价比较",
+      "target": "≥98%",
+      "notes": "人工值、批准派生/默认单列，不混入模型提取成绩",
+      "measurement_status": "NOT_RUN"
+    },
+    {
+      "id": "Q02",
+      "name": "记录召回",
+      "definition": "匹配人工答案的有效业务记录数/人工应有记录数",
+      "target": "≥95%",
+      "notes": "同名误合、漏事件都计错；移出难行不能缩分母",
+      "measurement_status": "NOT_RUN"
+    },
+    {
+      "id": "Q03",
+      "name": "已有事实字段召回",
+      "definition": "正确填出的来源已存在字段数/人工标注来源存在字段数",
+      "target": "候选目标≥95%，W01冻结",
+      "notes": "防止大量填null抬高准确率；缺失原本无值不入分母",
+      "measurement_status": "NOT_RUN"
+    },
+    {
+      "id": "Q04",
+      "name": "无模板关键字段覆盖",
+      "definition": "合理规范中覆盖的人工关键字段数/人工关键字段数",
+      "target": "≥95%",
+      "notes": "等价同义可匹配，删稀有重要字段计漏",
+      "measurement_status": "NOT_RUN"
+    },
+    {
+      "id": "Q05",
+      "name": "证据有效性",
+      "definition": "定位存在且对象/字段语义相符的引用数/全部事实引用数",
+      "target": "关键字段无未标记严重错误",
+      "notes": "合法坐标不代表语义一定对应；抽样/全查范围说明",
+      "measurement_status": "NOT_RUN"
+    },
+    {
+      "id": "Q06",
+      "name": "范围账本完整",
+      "definition": "有唯一去向的源单元/已确认源单元；唯一去向候选/总候选",
+      "target": "均100%账本覆盖",
+      "notes": "只证明账本完整，不证明语义零漏抽",
+      "measurement_status": "NOT_RUN"
+    },
+    {
+      "id": "Q07",
+      "name": "交付完整性",
+      "definition": "回读校验通过的约定文件数/9；真实取用成功次数/实际取用尝试数",
+      "target": "9/9；取用目标W01锁定",
+      "notes": "缓存/取消/网络错误分别统计，不虚称全部系统导出",
+      "measurement_status": "NOT_RUN"
+    },
+    {
+      "id": "Q08",
+      "name": "用户效率",
+      "definition": "同资料人工总用时与辅助任务用时/确认数对照",
+      "target": "试用后确定改善目标",
+      "notes": "不在没有试用时写效率提升百分比",
+      "measurement_status": "NOT_RUN"
+    }
+  ]
+}

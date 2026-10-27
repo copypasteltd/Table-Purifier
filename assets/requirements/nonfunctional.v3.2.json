@@ -1,0 +1,132 @@
+{
+  "baseline": "v3.2",
+  "status": "SPECIFIED_NOT_TESTED",
+  "requirements": [
+    {
+      "id": "P07-NFR01",
+      "name": "授权与隔离",
+      "requirement": "全部资源及每次签链/决定核owner/tenant；互换ID/下载链接均拒绝",
+      "verification": "越权为发布阻断",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR02",
+      "name": "事实与资金一致性",
+      "requirement": "无未标记严重捏造/错金额/错标识/错粒度、重复收退",
+      "verification": "任一出现暂停受影响新单",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR03",
+      "name": "并发与幂等",
+      "requirement": "并发重复请求只创建一个业务动作；旧expected_version不覆盖新结果",
+      "verification": "DB唯一约束/事务/租约实测",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR04",
+      "name": "持久恢复",
+      "requirement": "仅未销毁会话可按受控检查点恢复；CLOSED不能复活，结果独立保留",
+      "verification": "原生故障注入，确认清理后仍可下载且不能恢复源上下文",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR05",
+      "name": "移动可达性",
+      "requirement": "B指定字阶/色对/48触控参考；320/375/390/430宽、大字号和键盘可用",
+      "verification": "真实渲染测量，读屏名称/顺序验证",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR06",
+      "name": "列表资源",
+      "requirement": "默认20/最大100条；1000候选不全量渲染原图，离页/后台清轮询",
+      "verification": "真机记录内存趋势与长列表返回位置",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR07",
+      "name": "API交互性能",
+      "requirement": "候选：自有轻量GET/已接收操作p95≤1.5秒，外部模型/上传/支付另计",
+      "verification": "W01固定硬件/网络/10并发参考负载后锁预算，未测非SLA",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR08",
+      "name": "后台预算",
+      "requirement": "付费批量含获准重试/纠错累计900秒；初始化/全范围分析/调整使用独立平台限额",
+      "verification": "分别原子扣量；用户确认/付款等待不计活跃计算，不能倒收前置分析成本",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR09",
+      "name": "解析资源",
+      "requirement": "候选展开上限200MB/10,000条目/压缩比100，单进程内存/阶段超时试验后锁定",
+      "verification": "预检先说明实际限制，炸弹/畸形文件拒绝",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR10",
+      "name": "安全输出",
+      "requirement": "不执行宏/公式/脚本/外链；任意URL/路径不可触发抓内网或越权",
+      "verification": "恶意样例/导出回读验证",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR11",
+      "name": "传输与存储",
+      "requirement": "生产HTTPS、服务端密钥、受控对象/数据库、下载短链及撤权机制",
+      "verification": "正式域名/证书/桶ACL及密钥轮换有记录",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR12",
+      "name": "隐私最小化",
+      "requirement": "日志不含正文/完整标识/密钥/签链，客服内容限时授权审计",
+      "verification": "公开素材合成；供应商保留条件有真实依据",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR13",
+      "name": "删除与到期",
+      "requirement": "九文件可靠发布后立即触发整个任务运行环境销毁；结果不自动删除",
+      "verification": "核进程树、源/会话/中间/临时/正文日志及受控副本实际清理；失败重试告警，不把请求受理当完成",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR14",
+      "name": "可观测性",
+      "requirement": "request/operation/task/run/stage/attempt贯通，记录计量/成本/错误分类",
+      "verification": "不记录敏感正文，告警可关联原订单",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR15",
+      "name": "对账与运营",
+      "requirement": "付款/退款未知自动重查并每日对账，候选10分钟未决进入运营列表",
+      "verification": "通道限流优先，不假造重查频率保证",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR16",
+      "name": "备份与恢复",
+      "requirement": "独立结果及最小业务凭据按批准备份策略保护；临时任务正文不进长期备份",
+      "verification": "实测备份恢复不复活已销毁任务正文，结果及最小凭据原生恢复指标测后锁定",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR17",
+      "name": "发布可控",
+      "requirement": "四环境/SKU/构建开关；关闭新单仍保留查询/售后与清理",
+      "verification": "模拟器/文档/提交审核不作正式发布PASS",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P07-NFR18",
+      "name": "版本与可维护性",
+      "requirement": "parser/OCR/model/prompt/rule/policy/SDK版本可追，B留存不可覆盖",
+      "verification": "变更回归受影响样例，原生启动不依Docker/WSL",
+      "execution_status": "NOT_RUN"
+    }
+  ]
+}

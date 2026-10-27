@@ -1,0 +1,2007 @@
+{
+  "development_baseline": "P07-DEV 3.0.0",
+  "design_baseline": "P07-DS-B 1.0.0",
+  "business_baseline": "v3.2",
+  "pages": [
+    {
+      "page_id": "MP01",
+      "title": "整理首页",
+      "routes": {
+        "ALIPAY": "pages/mp01/index",
+        "DOUYIN": "pages/mp01/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C06",
+        "B-C07",
+        "B-C08",
+        "B-C19",
+        "B-C20",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F24",
+        "P07-F33",
+        "P07-F34",
+        "P07-F01"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API02",
+        "P07-API03",
+        "P07-API04",
+        "P07-API05",
+        "P07-API06",
+        "P07-API09",
+        "P07-API17",
+        "P07-API44",
+        "P07-API45",
+        "P07-API46",
+        "P07-API54",
+        "P07-API55"
+      ],
+      "states": [
+        "empty",
+        "draft",
+        "uploading",
+        "ready",
+        "permission-denied",
+        "offline"
+      ],
+      "entry_guard": "认证与必要能力/告知成立后自动先建会话；完整Skill预载成功才接收信息",
+      "submit_guard": "会话READY_FOR_INPUT及当前能力/隐私成立后才允许提交",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": "reference/MP01-home.png",
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP02",
+      "title": "资料清单",
+      "routes": {
+        "ALIPAY": "pages/mp02/index",
+        "DOUYIN": "pages/mp02/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C05",
+        "B-C06",
+        "B-C19",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F03",
+        "P07-F25",
+        "P07-F34"
+      ],
+      "api_ids": [
+        "P07-API04",
+        "P07-API05",
+        "P07-API06",
+        "P07-API07",
+        "P07-API08",
+        "P07-API09",
+        "P07-API11",
+        "P07-API46"
+      ],
+      "states": [
+        "queued",
+        "uploading",
+        "received",
+        "failed",
+        "unreadable",
+        "expired"
+      ],
+      "entry_guard": "本人任务草稿或冻结范围只读查看",
+      "submit_guard": "只有草稿可移除/补入，冻结后显示新范围影响",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP03",
+      "title": "规范输入",
+      "routes": {
+        "ALIPAY": "pages/mp03/index",
+        "DOUYIN": "pages/mp03/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C11",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C22",
+        "B-C26",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F06",
+        "P07-F32",
+        "P07-F35",
+        "P07-F39"
+      ],
+      "api_ids": [
+        "P07-API07",
+        "P07-API08",
+        "P07-API10",
+        "P07-API18",
+        "P07-API19",
+        "P07-API20",
+        "P07-API28",
+        "P07-API32",
+        "P07-API34",
+        "P07-API47",
+        "P07-API48",
+        "P07-API49"
+      ],
+      "states": [
+        "empty",
+        "loaded",
+        "ambiguous",
+        "editing",
+        "invalid",
+        "stale"
+      ],
+      "entry_guard": "PROVIDED且有本人任务",
+      "submit_guard": "表头/必需含义和粒度明确才使用",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP04",
+      "title": "确认方案与预估计费",
+      "routes": {
+        "ALIPAY": "pages/mp04/index",
+        "DOUYIN": "pages/mp04/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F15",
+        "P07-F16",
+        "P07-F25",
+        "P07-F41"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API06",
+        "P07-API09",
+        "P07-API11",
+        "P07-API12",
+        "P07-API13",
+        "P07-API14",
+        "P07-API15",
+        "P07-API39",
+        "P07-API46",
+        "P07-API51",
+        "P07-API53"
+      ],
+      "states": [
+        "checking",
+        "ready",
+        "partial",
+        "unreadable",
+        "quote-expired",
+        "checkout-pending",
+        "unavailable"
+      ],
+      "entry_guard": "预检完成、范围/主表/必要歧义明确",
+      "submit_guard": "plan/source/binding/skill版本一致且已确认才能报价；原渠道实付才生产",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP05",
+      "title": "分析与批量进度",
+      "routes": {
+        "ALIPAY": "pages/mp05/index",
+        "DOUYIN": "pages/mp05/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C10",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C26",
+        "B-C28"
+      ],
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F29",
+        "P07-F30",
+        "P07-F37"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API14",
+        "P07-API16",
+        "P07-API17",
+        "P07-API18",
+        "P07-API19",
+        "P07-API20",
+        "P07-API26",
+        "P07-API30",
+        "P07-API44",
+        "P07-API45",
+        "P07-API55"
+      ],
+      "states": [
+        "queued",
+        "running",
+        "waiting-schema",
+        "failed",
+        "canceled",
+        "completed",
+        "offline"
+      ],
+      "entry_guard": "本人已许可任务或其子执行",
+      "submit_guard": "批量阶段必须匹配服务端CONFIRMED实付",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP06",
+      "title": "规范方案与确认",
+      "routes": {
+        "ALIPAY": "pages/mp06/index",
+        "DOUYIN": "pages/mp06/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C11",
+        "B-C12",
+        "B-C15",
+        "B-C16",
+        "B-C17",
+        "B-C19",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F29",
+        "P07-F30",
+        "P07-F31",
+        "P07-F35"
+      ],
+      "api_ids": [
+        "P07-API18",
+        "P07-API19",
+        "P07-API20",
+        "P07-API27"
+      ],
+      "states": [
+        "partial-draft",
+        "full-draft",
+        "editing",
+        "adopting",
+        "adopted",
+        "stale"
+      ],
+      "entry_guard": "全范围草案或带局部标识的预览",
+      "submit_guard": "只采用FULL当前规范，再确认执行方案",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": "reference/MP06-schema.png",
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP07",
+      "title": "字段编辑",
+      "routes": {
+        "ALIPAY": "pages/mp07/index",
+        "DOUYIN": "pages/mp07/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C12",
+        "B-C13",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F30",
+        "P07-F35"
+      ],
+      "api_ids": [
+        "P07-API10",
+        "P07-API18",
+        "P07-API19",
+        "P07-API20"
+      ],
+      "states": [
+        "editing",
+        "invalid",
+        "preview",
+        "saving",
+        "version-conflict"
+      ],
+      "entry_guard": "本人当前规范草稿/提案可编辑",
+      "submit_guard": "字段名唯一、规则不矛盾，关键变化已看影响才确认",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP08",
+      "title": "已保存结果概览",
+      "routes": {
+        "ALIPAY": "pages/mp08/index",
+        "DOUYIN": "pages/mp08/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C15",
+        "B-C16",
+        "B-C19",
+        "B-C29",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F18",
+        "P07-F23",
+        "P07-F36"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21",
+        "P07-API22",
+        "P07-API23",
+        "P07-API24",
+        "P07-API25",
+        "P07-API27",
+        "P07-API28",
+        "P07-API44",
+        "P07-API45",
+        "P07-API52"
+      ],
+      "states": [
+        "passed",
+        "needs-review",
+        "blocked",
+        "filtered",
+        "empty",
+        "expired"
+      ],
+      "entry_guard": "存在已发布当前结果或只读历史版",
+      "submit_guard": "只从结果服务读取；不能复活CLOSED Agent",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP09",
+      "title": "问题列表",
+      "routes": {
+        "ALIPAY": "pages/mp09/index",
+        "DOUYIN": "pages/mp09/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C14",
+        "B-C16",
+        "B-C19",
+        "B-C25",
+        "B-C29",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F23",
+        "P07-F27",
+        "P07-F36"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21",
+        "P07-API22",
+        "P07-API24",
+        "P07-API25",
+        "P07-API26",
+        "P07-API27"
+      ],
+      "states": [
+        "missing",
+        "conflict",
+        "no-results",
+        "submitting",
+        "stale"
+      ],
+      "entry_guard": "当前结果存在Issue或明确空状态",
+      "submit_guard": "按指定问题/冻结同语义范围进入，不默认跨组批量",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP10",
+      "title": "记录问题详情",
+      "routes": {
+        "ALIPAY": "pages/mp10/index",
+        "DOUYIN": "pages/mp10/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C14",
+        "B-C16",
+        "B-C17",
+        "B-C18",
+        "B-C19",
+        "B-C25",
+        "B-C32"
+      ],
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F08",
+        "P07-F09",
+        "P07-F10",
+        "P07-F11",
+        "P07-F13",
+        "P07-F27",
+        "P07-F36"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21",
+        "P07-API22",
+        "P07-API23",
+        "P07-API24",
+        "P07-API25",
+        "P07-API26",
+        "P07-API27"
+      ],
+      "states": [
+        "no-choice",
+        "fill-value",
+        "keep-unresolved",
+        "conflict",
+        "invalid",
+        "submitting",
+        "stale"
+      ],
+      "entry_guard": "本人当前记录与问题，可显示历史只读",
+      "submit_guard": "选依据必须合法；USER_VALUE需值/单位有效；KEEP_UNRESOLVED明确",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": "reference/MP10-issue.png",
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP11",
+      "title": "结果来源说明",
+      "routes": {
+        "ALIPAY": "pages/mp11/index",
+        "DOUYIN": "pages/mp11/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C17",
+        "B-C26",
+        "B-C30"
+      ],
+      "requirement_ids": [
+        "P07-F05",
+        "P07-F12",
+        "P07-F13",
+        "P07-F20",
+        "P07-F36"
+      ],
+      "api_ids": [
+        "P07-API17",
+        "P07-API21",
+        "P07-API22",
+        "P07-API23",
+        "P07-API24",
+        "P07-API25",
+        "P07-API35",
+        "P07-API36",
+        "P07-API37",
+        "P07-API49",
+        "P07-API50",
+        "P07-API52",
+        "P07-API55",
+        "P07-API56"
+      ],
+      "states": [
+        "loading",
+        "text",
+        "image",
+        "unreadable",
+        "expired",
+        "forbidden"
+      ],
+      "entry_guard": "有证据访问权且内容未过期",
+      "submit_guard": "不得返回已经清理的原件或假签链",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP12",
+      "title": "结果领取",
+      "routes": {
+        "ALIPAY": "pages/mp12/index",
+        "DOUYIN": "pages/mp12/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C19",
+        "B-C22",
+        "B-C23",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F18",
+        "P07-F32",
+        "P07-F38",
+        "P07-F39"
+      ],
+      "api_ids": [
+        "P07-API21",
+        "P07-API22",
+        "P07-API23",
+        "P07-API28",
+        "P07-API29",
+        "P07-API32",
+        "P07-API33",
+        "P07-API34",
+        "P07-API44",
+        "P07-API45",
+        "P07-API47",
+        "P07-API48",
+        "P07-API49",
+        "P07-API52"
+      ],
+      "states": [
+        "ready",
+        "fetching",
+        "cached",
+        "opened",
+        "export-requested",
+        "confirmed",
+        "failed",
+        "expired"
+      ],
+      "entry_guard": "已采用规范且产物完整READY/可领",
+      "submit_guard": "仅需结果归属与下载权限，不要求活跃session",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP13",
+      "title": "任务与结果列表",
+      "routes": {
+        "ALIPAY": "pages/mp13/index",
+        "DOUYIN": "pages/mp13/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C20",
+        "B-C21",
+        "B-C26",
+        "B-C29"
+      ],
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F24",
+        "P07-F37"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API03",
+        "P07-API09",
+        "P07-API14",
+        "P07-API16",
+        "P07-API17",
+        "P07-API26",
+        "P07-API30",
+        "P07-API44",
+        "P07-API45",
+        "P07-API54",
+        "P07-API55"
+      ],
+      "states": [
+        "empty",
+        "draft",
+        "pending-payment",
+        "running",
+        "waiting-schema",
+        "ready",
+        "failed",
+        "expired"
+      ],
+      "entry_guard": "登录后本人任务列表",
+      "submit_guard": "新处理必须新会话完整预载；查看结果不建Agent",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP14",
+      "title": "我的规范",
+      "routes": {
+        "ALIPAY": "pages/mp14/index",
+        "DOUYIN": "pages/mp14/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C02",
+        "B-C03",
+        "B-C04",
+        "B-C12",
+        "B-C20",
+        "B-C22",
+        "B-C25",
+        "B-C26",
+        "B-C29"
+      ],
+      "requirement_ids": [
+        "P07-F32",
+        "P07-F39",
+        "P07-F40"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API28",
+        "P07-API32",
+        "P07-API34",
+        "P07-API38",
+        "P07-API47",
+        "P07-API48",
+        "P07-API49",
+        "P07-API51"
+      ],
+      "states": [
+        "empty",
+        "saved",
+        "selected",
+        "new-version",
+        "deleted"
+      ],
+      "entry_guard": "本人主动保存的私有规范",
+      "submit_guard": "新任务引用明确版本；保存/新版本是显式动作",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP15",
+      "title": "我的",
+      "routes": {
+        "ALIPAY": "pages/mp15/index",
+        "DOUYIN": "pages/mp15/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C20",
+        "B-C24",
+        "B-C26",
+        "B-C27",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F19",
+        "P07-F20",
+        "P07-F40"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API02",
+        "P07-API03",
+        "P07-API14",
+        "P07-API15",
+        "P07-API30",
+        "P07-API31",
+        "P07-API35",
+        "P07-API36",
+        "P07-API37",
+        "P07-API38",
+        "P07-API44",
+        "P07-API45",
+        "P07-API49",
+        "P07-API50",
+        "P07-API51",
+        "P07-API52",
+        "P07-API53",
+        "P07-API54",
+        "P07-API55",
+        "P07-API56"
+      ],
+      "states": [
+        "anonymous",
+        "signed-in",
+        "session-expired",
+        "restricted"
+      ],
+      "entry_guard": "已登录或清楚的登录入口",
+      "submit_guard": "无页面级强主动作；二级入口按权限",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP16",
+      "title": "订单详情",
+      "routes": {
+        "ALIPAY": "pages/mp16/index",
+        "DOUYIN": "pages/mp16/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C09",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C31"
+      ],
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F16",
+        "P07-F19",
+        "P07-F40",
+        "P07-F41"
+      ],
+      "api_ids": [
+        "P07-API01",
+        "P07-API02",
+        "P07-API11",
+        "P07-API12",
+        "P07-API13",
+        "P07-API14",
+        "P07-API15",
+        "P07-API30",
+        "P07-API31",
+        "P07-API38",
+        "P07-API39",
+        "P07-API51",
+        "P07-API53",
+        "P07-API56"
+      ],
+      "states": [
+        "pending",
+        "unknown",
+        "paid",
+        "fulfilling",
+        "refund-processing",
+        "refunded",
+        "failed"
+      ],
+      "entry_guard": "本人原渠道订单及必要售后",
+      "submit_guard": "UNKNOWN先查询；退款按可退状态/原渠道请求",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP17",
+      "title": "隐私与运行环境清理",
+      "routes": {
+        "ALIPAY": "pages/mp17/index",
+        "DOUYIN": "pages/mp17/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C16",
+        "B-C25",
+        "B-C26",
+        "B-C27"
+      ],
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F26",
+        "P07-F39",
+        "P07-F41"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API05",
+        "P07-API06",
+        "P07-API07",
+        "P07-API32",
+        "P07-API34",
+        "P07-API35",
+        "P07-API36",
+        "P07-API37",
+        "P07-API39",
+        "P07-API47",
+        "P07-API48",
+        "P07-API49",
+        "P07-API50",
+        "P07-API52",
+        "P07-API53",
+        "P07-API54",
+        "P07-API55",
+        "P07-API56"
+      ],
+      "states": [
+        "default",
+        "denied",
+        "granted",
+        "revoked",
+        "deletion-pending",
+        "failed"
+      ],
+      "entry_guard": "当前身份与数据管理权限",
+      "submit_guard": "清理回执需实际删除/进程结束证据，不能只写标记",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    },
+    {
+      "page_id": "MP18",
+      "title": "帮助与售后",
+      "routes": {
+        "ALIPAY": "pages/mp18/index",
+        "DOUYIN": "pages/mp18/index"
+      },
+      "component_ids": [
+        "B-C01",
+        "B-C03",
+        "B-C04",
+        "B-C08",
+        "B-C16",
+        "B-C19",
+        "B-C24",
+        "B-C25",
+        "B-C26",
+        "B-C27"
+      ],
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F20",
+        "P07-F41"
+      ],
+      "api_ids": [
+        "P07-API02",
+        "P07-API14",
+        "P07-API15",
+        "P07-API30",
+        "P07-API31",
+        "P07-API35",
+        "P07-API36",
+        "P07-API37",
+        "P07-API39",
+        "P07-API49",
+        "P07-API50",
+        "P07-API52",
+        "P07-API53",
+        "P07-API55",
+        "P07-API56"
+      ],
+      "states": [
+        "empty",
+        "editing",
+        "invalid",
+        "submitting",
+        "submitted",
+        "failed"
+      ],
+      "entry_guard": "本人一般问题或订单工单",
+      "submit_guard": "正文/类别符合限制才提交；有订单指原单",
+      "recovery": "未关闭会话按owner/version恢复；已销毁环境不可复活。已保存结果继续从独立结果服务读取。",
+      "rendered_reference": null,
+      "accessibility_checks": [
+        "screenreader label/order",
+        "large font/keyboard/safe area",
+        "48 touch reference and 320/375/390/430 widths",
+        "state not conveyed by color alone"
+      ],
+      "status": "NOT_IMPLEMENTED",
+      "test_status": "NOT_RUN"
+    }
+  ],
+  "components": [
+    {
+      "component_id": "B-C01",
+      "name": "宿主标题栏与页面骨架",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "states": [
+        "default",
+        "loading",
+        "offline"
+      ],
+      "rules": "系统区域由宿主保留；页面内容不侵入胶囊；详情页有返回，回到原列表位置。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C02",
+      "name": "资料夹分区",
+      "page_ids": [
+        "MP01",
+        "MP06",
+        "MP10",
+        "MP14"
+      ],
+      "states": [
+        "default",
+        "expanded",
+        "collapsed"
+      ],
+      "rules": "白底、青绿页签和顶线；每页最多一个重点资料夹，其余分区用普通行，不将每张卡拟物化。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C03",
+      "name": "索引分区标题",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "states": [
+        "default",
+        "with-count"
+      ],
+      "rules": "左侧青绿短线配文字标题；索引线不参与点击，不表示数据通过。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C04",
+      "name": "主次与危险按钮",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "states": [
+        "default",
+        "pressed",
+        "loading",
+        "disabled",
+        "error"
+      ],
+      "rules": "主按钮纯青绿白字，次按钮白底青绿字，危险按钮深红；每一视图最多一个主动作，忙碌不重发。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C05",
+      "name": "图标动作",
+      "page_ids": [
+        "MP02"
+      ],
+      "states": [
+        "default",
+        "pressed",
+        "disabled"
+      ],
+      "rules": "图标20/24，实际触控至少48设计单位；删除和清空有明确范围/后果，不只露一个难点叉号。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C06",
+      "name": "资料行与上传队列",
+      "page_ids": [
+        "MP01",
+        "MP02"
+      ],
+      "states": [
+        "selected",
+        "queued",
+        "uploading",
+        "received",
+        "unreadable",
+        "failed",
+        "expired"
+      ],
+      "rules": "文件名最多两行且可看全名；大小/来源状态文字明确，RECEIVED不写已解析；同名不覆盖。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C07",
+      "name": "规范模式选择",
+      "page_ids": [
+        "MP01"
+      ],
+      "states": [
+        "unselected",
+        "selected",
+        "disabled"
+      ],
+      "rules": "两项同级互斥，左/上为帮我生成规范；窄屏纵排，不挤小字；用选中圆点、边框和文字共同表态。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C08",
+      "name": "用途与文本输入",
+      "page_ids": [
+        "MP01",
+        "MP03",
+        "MP07",
+        "MP10",
+        "MP18"
+      ],
+      "states": [
+        "empty",
+        "focused",
+        "filled",
+        "invalid",
+        "disabled"
+      ],
+      "rules": "标签常驻，失焦/提交校验；清空可恢复未提交草稿；默认系统粘贴，不启动读剪贴板。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C09",
+      "name": "预检与报价摘要",
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ],
+      "states": [
+        "checking",
+        "ready",
+        "unreadable",
+        "limited",
+        "expired",
+        "unavailable"
+      ],
+      "rules": "费用单位明确，范围变化重新确认；局部预检不冒充全量，未开通通道不显示可成功收银。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C10",
+      "name": "阶段进度",
+      "page_ids": [
+        "MP05"
+      ],
+      "states": [
+        "queued",
+        "running",
+        "waiting-schema",
+        "failed",
+        "canceled",
+        "completed"
+      ],
+      "rules": "阶段名与已核实范围，不画虚构精确百分比；离开可恢复，关闭通知仍能查询。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C11",
+      "name": "推荐规范摘要",
+      "page_ids": [
+        "MP03",
+        "MP06"
+      ],
+      "states": [
+        "partial-draft",
+        "full-draft",
+        "adopted",
+        "superseded"
+      ],
+      "rules": "重点资料夹显示行粒度；采用前标草案；部分草案不能当全范围正式规范。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C12",
+      "name": "字段目录行",
+      "page_ids": [
+        "MP03",
+        "MP06",
+        "MP07",
+        "MP14"
+      ],
+      "states": [
+        "default",
+        "expanded",
+        "modified",
+        "missing",
+        "conflict"
+      ],
+      "rules": "名称、类型/单位、必填/可空和理由可读；仅出现一次的字段不删；图标不是唯一字段含义。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C13",
+      "name": "字段编辑与影响摘要",
+      "page_ids": [
+        "MP03",
+        "MP07"
+      ],
+      "states": [
+        "editing",
+        "preview",
+        "invalid",
+        "version-conflict"
+      ],
+      "rules": "增删/重排可操作，顺序有上移下移替代；关键变化先看影响，不自动放宽验收。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C14",
+      "name": "结果记录卡",
+      "page_ids": [
+        "MP08",
+        "MP09",
+        "MP10"
+      ],
+      "states": [
+        "accepted",
+        "needs-review",
+        "excluded",
+        "unreadable"
+      ],
+      "rules": "显示3—5关键字段、明确状态/来源入口；同名不同人不借样式暗示已合并。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C15",
+      "name": "选列表格预览",
+      "page_ids": [
+        "MP06",
+        "MP08"
+      ],
+      "states": [
+        "sample",
+        "paged",
+        "empty",
+        "filtered"
+      ],
+      "rules": "手机默认卡片，预览少量列，必要局部横向滚动；表外页面不横溢；空值—不等于0。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C16",
+      "name": "问题状态条与标签",
+      "page_ids": [
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "states": [
+        "missing",
+        "conflict",
+        "unknown",
+        "failed",
+        "expired",
+        "passed"
+      ],
+      "rules": "文字+图形+色彩；待补用琥珀色，失败深红，内容通过写明已通过，不以绿边框替代。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C17",
+      "name": "来源摘录卡",
+      "page_ids": [
+        "MP06",
+        "MP10",
+        "MP11"
+      ],
+      "states": [
+        "available",
+        "loading",
+        "unreadable",
+        "expired",
+        "forbidden"
+      ],
+      "rules": "文字引文/文件页码、查看来源；链接按青绿token，不能补造来源或把模型重写当原文。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C18",
+      "name": "问题决策与金额输入",
+      "page_ids": [
+        "MP10"
+      ],
+      "states": [
+        "no-choice",
+        "fill-value",
+        "keep-unresolved",
+        "choose-evidence",
+        "invalid",
+        "submitting"
+      ],
+      "rules": "初始不替用户决定；补价须输入有效数和明确单位后能提交，保留待补明确提交后仍待补。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C19",
+      "name": "固定操作区",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP12",
+        "MP16",
+        "MP18"
+      ],
+      "states": [
+        "default",
+        "keyboard-visible",
+        "loading",
+        "disabled"
+      ],
+      "rules": "为正文预留高度和底部安全区；键盘弹出可看到输入/错误/按钮，不叠在宿主导航上。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C20",
+      "name": "四项底部导航",
+      "page_ids": [
+        "MP01",
+        "MP13",
+        "MP14",
+        "MP15"
+      ],
+      "states": [
+        "unselected",
+        "selected",
+        "badge"
+      ],
+      "rules": "仅四根页面出现；相同线性图标、当前项青绿+文字；详情不用重复全局导航。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C21",
+      "name": "任务行",
+      "page_ids": [
+        "MP13"
+      ],
+      "states": [
+        "draft",
+        "pending-payment",
+        "running",
+        "waiting-schema",
+        "needs-review",
+        "ready",
+        "failed",
+        "expired"
+      ],
+      "rules": "同一任务修订不分成新订单；显示下一待办与期限，点击取服务端新版本。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C22",
+      "name": "私有规范卡",
+      "page_ids": [
+        "MP03",
+        "MP12",
+        "MP14"
+      ],
+      "states": [
+        "saved",
+        "selected",
+        "new-version",
+        "deleted"
+      ],
+      "rules": "名称/字段数/版本；私有非公开；删除不改旧任务快照，去事实/证据/访问引用再保存。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C23",
+      "name": "交付文件卡",
+      "page_ids": [
+        "MP12"
+      ],
+      "states": [
+        "ready",
+        "fetching",
+        "cached",
+        "open-requested",
+        "export-requested",
+        "confirmed",
+        "expired",
+        "failed"
+      ],
+      "rules": "结果Excel唯一强主色，空白规范/问题报告次按钮；获取/缓存/打开/实际导出措辞分开。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C24",
+      "name": "订单和退款状态块",
+      "page_ids": [
+        "MP04",
+        "MP05",
+        "MP15",
+        "MP16",
+        "MP18"
+      ],
+      "states": [
+        "pending",
+        "unknown",
+        "paid",
+        "fulfilling",
+        "refund-processing",
+        "refunded",
+        "failed"
+      ],
+      "rules": "金额/平台单位准确；客户端success非实付，退款处理中不写已到账；不跨平台外跳。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C25",
+      "name": "确认对话框与底部面板",
+      "page_ids": [
+        "MP04",
+        "MP07",
+        "MP09",
+        "MP10",
+        "MP14",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "states": [
+        "open",
+        "submitting",
+        "error"
+      ],
+      "rules": "有取消/返回、可见标题和动作对象；长编辑用整页，关闭不等于保存，后果不能只写“确定”。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C26",
+      "name": "空/加载/失败反馈",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ],
+      "states": [
+        "empty",
+        "loading",
+        "offline",
+        "failed",
+        "permission-denied",
+        "expired"
+      ],
+      "rules": "说明发生什么和下一步；慢任务可离开；失败就近保留重试，不能只闪toast。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C27",
+      "name": "隐私/权限与数据管理",
+      "page_ids": [
+        "MP04",
+        "MP15",
+        "MP17",
+        "MP18"
+      ],
+      "states": [
+        "required",
+        "optional",
+        "denied",
+        "granted",
+        "revoked"
+      ],
+      "rules": "处理前必要告知，权限按需；不强制头像手机号；删除/模板/结果/账务分开说明。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C28",
+      "name": "短反馈消息",
+      "page_ids": [
+        "MP05"
+      ],
+      "states": [
+        "success",
+        "info",
+        "warning"
+      ],
+      "rules": "仅用于已保存等可恢复动作；支付/采用/删除等结果在页面持久显示，不以短消息充当唯一证据。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C29",
+      "name": "搜索筛选与分页",
+      "page_ids": [
+        "MP08",
+        "MP09",
+        "MP13",
+        "MP14"
+      ],
+      "states": [
+        "default",
+        "active",
+        "no-results",
+        "loading-more",
+        "end"
+      ],
+      "rules": "游标默认20，区分总候选与筛选结果；返回恢复筛选/位置，不一次渲染1000条及原图。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C30",
+      "name": "来源原文/页图预览",
+      "page_ids": [
+        "MP11"
+      ],
+      "states": [
+        "text",
+        "image",
+        "zoom",
+        "loading",
+        "expired",
+        "forbidden"
+      ],
+      "rules": "按需加载、有页/段定位和返回；图可放大；真机能力未证不依赖宿主XLSX/PDF查看器。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C31",
+      "name": "平台能力说明",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP04",
+        "MP12",
+        "MP15",
+        "MP16"
+      ],
+      "states": [
+        "available",
+        "restricted",
+        "not-approved",
+        "version-limited"
+      ],
+      "rules": "说明具体限制及获准替代方式；未证办公文件入口关闭，不用蓝绿成功标识掩盖受限。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "component_id": "B-C32",
+      "name": "版本冲突与修订摘要",
+      "page_ids": [
+        "MP03",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10"
+      ],
+      "states": [
+        "diff",
+        "stale",
+        "conflict",
+        "resolved"
+      ],
+      "rules": "保留本地草稿，展示新旧版本/影响再操作；旧请求不覆盖新结果，不重复扣轮次。",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "deliverables": [
+        "props/events contract",
+        "native view/style on both hosts",
+        "state fixtures/accessibility/device evidence"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    }
+  ]
+}

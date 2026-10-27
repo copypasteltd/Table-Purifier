@@ -1,0 +1,65 @@
+{
+  "development_baseline": "P07-DEV 2.0.0",
+  "status": "DESIGNED_NOT_IMPLEMENTED",
+  "control_model": "CODEX_AGENT_LOOP",
+  "execution_owner": "CODEX_AGENT",
+  "mandatory_processing_stages": [],
+  "agent_responsibilities": [
+    "inspect",
+    "read",
+    "analyze",
+    "propose_schema",
+    "write_and_run_cleaning_scripts",
+    "normalize",
+    "reconcile",
+    "build_candidate_files",
+    "inspect_and_repair"
+  ],
+  "business_gates": [
+    {
+      "id": "SCOPE",
+      "owner": "BUSINESS_API",
+      "condition": "API10 freezes confirmed sources/goal/budget; PROVIDED binds confirmed standard."
+    },
+    {
+      "id": "ADOPTION",
+      "owner": "USER_AND_BUSINESS_API",
+      "condition": "DISCOVER full-scope proposal+preview; API20 adopts immutable binding before final table."
+    },
+    {
+      "id": "REVISION",
+      "owner": "USER_AND_BUSINESS_API",
+      "condition": "Decision batch expected versions + reservation; new child Run and new Codex thread."
+    },
+    {
+      "id": "PUBLICATION",
+      "owner": "INDEPENDENT_VALIDATOR_AND_PUBLISHER",
+      "condition": "Independent readback, all nine files, current fence/epoch/authorization; atomic publication."
+    }
+  ],
+  "budget": {
+    "source_files": 10,
+    "source_single_bytes": 20000000,
+    "source_total_bytes": 50000000,
+    "template_bytes": 5000000,
+    "text_codepoints": 50000,
+    "processing_units": 50,
+    "target_fields": 50,
+    "candidate_records": 1000,
+    "compute_seconds_max": 900,
+    "stage_auto_retries_max": 1
+  },
+  "clock": "Cumulative active compute per contract including Codex/model/tool waits, retries and child runs; queue/user wait excluded.",
+  "retry_interpretation": "Legacy stage_auto_retries_max means at most one automatic recovery of a failed execution; normal bounded Agent inspect/fix tool iterations are not stage jobs.",
+  "progress_semantics": "Observations only. Agent can revisit tools in any order within bound scope, budget and business gates. No fabricated percent.",
+  "execution_status_enum": [
+    "QUEUED",
+    "RUNNING",
+    "WAITING_SCHEMA",
+    "SUCCEEDED",
+    "FAILED",
+    "CANCELED"
+  ],
+  "waiting_schema": "End current turn; persist checked FULL proposal + checkpoint; release compute and lease. Resume only after server verifies API20 binding.",
+  "missing_data": "Output Issue/NEEDS_REVIEW; no invented WAITING_INPUT state and no indefinitely occupied worker."
+}

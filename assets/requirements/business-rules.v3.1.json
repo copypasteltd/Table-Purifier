@@ -1,0 +1,209 @@
+{
+  "baseline": "v3.1",
+  "rules": [
+    {
+      "id": "BR01",
+      "rule": "只交资料即可进入DISCOVER；用途选填，模板非前置",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F24",
+        "P07-F29"
+      ]
+    },
+    {
+      "id": "BR02",
+      "rule": "SOURCE与TARGET_TEMPLATE由角色决定，不按文件名猜；样例不进事实",
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F32"
+      ]
+    },
+    {
+      "id": "BR03",
+      "rule": "一任务一个主要结果表；行粒度明确，异粒度不强合",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F11",
+        "P07-F29"
+      ]
+    },
+    {
+      "id": "BR04",
+      "rule": "范围含全部已确认源/排除/用途/模式/预算/合同版本，确认后不可变",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F15",
+        "P07-F25"
+      ]
+    },
+    {
+      "id": "BR05",
+      "rule": "预检语义建议最多3单元且标局部，全量结构发现另按正式许可",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F29"
+      ]
+    },
+    {
+      "id": "BR06",
+      "rule": "PARTIAL草案不能正式采用；FULL说明全确认范围的处理与不可读项",
+      "requirement_ids": [
+        "P07-F30",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR07",
+      "rule": "用户明确采用准确proposal/source/goal版本，付款不代替采用",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F30"
+      ]
+    },
+    {
+      "id": "BR08",
+      "rule": "稀有重要字段保留或明示未纳入，样本不推出必填/唯一/封闭枚举",
+      "requirement_ids": [
+        "P07-F29",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR09",
+      "rule": "缺失为null+状态；缺价不补0，待议是业务原文而非数字",
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F10"
+      ]
+    },
+    {
+      "id": "BR10",
+      "rule": "默认/派生/人工值显式标记，不冒充提取事实；证据不可转移",
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F13"
+      ]
+    },
+    {
+      "id": "BR11",
+      "rule": "归并用批准稳定键；同名/同电话/重复文件不自动证明同一事件",
+      "requirement_ids": [
+        "P07-F08",
+        "P07-F11"
+      ]
+    },
+    {
+      "id": "BR12",
+      "rule": "每源单元有去向，每候选唯一去向；覆盖不是语义召回100%",
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR13",
+      "rule": "独立校验规则、事实/证据、规范合理性、重要信息覆盖",
+      "requirement_ids": [
+        "P07-F05",
+        "P07-F23",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "BR14",
+      "rule": "规范/结果版本不可变；修订建子执行，旧attempt不得覆盖",
+      "requirement_ids": [
+        "P07-F13",
+        "P07-F17",
+        "P07-F27"
+      ]
+    },
+    {
+      "id": "BR15",
+      "rule": "初始无问题决定；补值有效才提交；保留待补不等于通过",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F27",
+        "P07-F36"
+      ]
+    },
+    {
+      "id": "BR16",
+      "rule": "相同幂等请求返回原动作，旧版本写409；网络未知先查",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F17",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "BR17",
+      "rule": "Run、schema、quality、artifact、payment、refund、fulfillment、export独立",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F16",
+        "P07-F18"
+      ]
+    },
+    {
+      "id": "BR18",
+      "rule": "客户端success不记账，原渠道验签/查单核金额与归属后放行",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F40"
+      ]
+    },
+    {
+      "id": "BR19",
+      "rule": "超限不截断、不隐性加费；平台漏读/错误为纠错，不扣用户轮次",
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F25",
+        "P07-F27"
+      ]
+    },
+    {
+      "id": "BR20",
+      "rule": "0候选不收费/已付全退；严格/尽力政策事前选择不事后降级",
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F19"
+      ]
+    },
+    {
+      "id": "BR21",
+      "rule": "九文件原子发布，manifest核其余8项；设备缓存不是实际导出",
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F38"
+      ]
+    },
+    {
+      "id": "BR22",
+      "rule": "私有规范主动另存去事实/证据/访问引用，独立授权与到期",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F32",
+        "P07-F39"
+      ]
+    },
+    {
+      "id": "BR23",
+      "rule": "未获准平台/SKU/OS能力关闭；不借Web/其他端引导绕收费",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F40",
+        "P07-F41"
+      ]
+    },
+    {
+      "id": "BR24",
+      "rule": "删除/过期/退款/撤权不抹除必要账务及售后，副本按类别如实说明",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F19",
+        "P07-F20"
+      ]
+    }
+  ]
+}

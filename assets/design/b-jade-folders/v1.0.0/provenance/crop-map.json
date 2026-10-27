@@ -1,0 +1,33 @@
+{
+  "source": "../reference/B-selected-board.png",
+  "coordinates": "原始1536×1024图像像素；裁片不是可直接换算的布局尺寸",
+  "crops": [
+    {
+      "file": "../reference/MP01-home.png",
+      "box": [
+        51,
+        78,
+        516,
+        1000
+      ]
+    },
+    {
+      "file": "../reference/MP06-schema.png",
+      "box": [
+        544,
+        78,
+        1000,
+        1000
+      ]
+    },
+    {
+      "file": "../reference/MP10-issue.png",
+      "box": [
+        1025,
+        78,
+        1485,
+        1000
+      ]
+    }
+  ]
+}

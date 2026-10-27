@@ -1,0 +1,256 @@
+{
+  "fixture_version": "p07-discovery/2.1",
+  "design_only": true,
+  "synthetic": true,
+  "schema_mode": "DISCOVER",
+  "provided_standard": null,
+  "user_goal": "帮我把这些供应商报价整理成可对比的表",
+  "source_note": "以下是人工编写的模拟原文片段；未创建真实PDF/图片，也未执行解析、OCR或模型。",
+  "sources": [
+    {
+      "source_id": "sq1",
+      "role": "SOURCE",
+      "kind": "PASTED_TEXT",
+      "units": [
+        {
+          "unit_id": "q1",
+          "location": "第1段",
+          "excerpt": "青禾供应：折叠支架，M1，人民币28元/件，起订10件，交期3天。"
+        }
+      ]
+    },
+    {
+      "source_id": "sq2",
+      "role": "SOURCE",
+      "kind": "PDF_EXCERPT_DESIGN",
+      "filename": "云杉报价.pdf（模拟）",
+      "units": [
+        {
+          "unit_id": "q2",
+          "location": "第1页",
+          "excerpt": "云杉供应：折叠支架M1，人民币26元/件，20件起订，交期5天。"
+        }
+      ]
+    },
+    {
+      "source_id": "sq3",
+      "role": "SOURCE",
+      "kind": "IMAGE_OCR_EXCERPT_DESIGN",
+      "filename": "白石报价.png（模拟）",
+      "units": [
+        {
+          "unit_id": "q3",
+          "location": "第1张图",
+          "excerpt": "白石供应，折叠支架M1，人民币单价待议、按件报价，起订50件，交期7天，保修12个月。"
+        }
+      ]
+    }
+  ],
+  "proposal": {
+    "proposal_version": 1,
+    "status": "FULL_DRAFT",
+    "recommended_standard_ref": "../templates/discovered-standard.example.v2.1.json",
+    "analyzed_source_ids": [
+      "sq1",
+      "sq2",
+      "sq3"
+    ],
+    "field_profile": [
+      {
+        "field_id": "supplier",
+        "source_unit_ids": [
+          "q1",
+          "q2",
+          "q3"
+        ],
+        "observed_records": 3,
+        "relevant_records": 3,
+        "reason": "资料存在对应信息，适合报价比较"
+      },
+      {
+        "field_id": "product",
+        "source_unit_ids": [
+          "q1",
+          "q2",
+          "q3"
+        ],
+        "observed_records": 3,
+        "relevant_records": 3,
+        "reason": "资料存在对应信息，适合报价比较"
+      },
+      {
+        "field_id": "model",
+        "source_unit_ids": [
+          "q1",
+          "q2",
+          "q3"
+        ],
+        "observed_records": 3,
+        "relevant_records": 3,
+        "reason": "资料存在对应信息，适合报价比较"
+      },
+      {
+        "field_id": "unit_price",
+        "source_unit_ids": [
+          "q1",
+          "q2"
+        ],
+        "observed_records": 2,
+        "relevant_records": 3,
+        "reason": "比较报价的重要字段；一份待议仍须保留并提示缺值，不能删除以提升通过率"
+      },
+      {
+        "field_id": "currency",
+        "source_unit_ids": [
+          "q1",
+          "q2",
+          "q3"
+        ],
+        "observed_records": 3,
+        "relevant_records": 3,
+        "reason": "资料存在对应信息，适合报价比较"
+      },
+      {
+        "field_id": "price_unit",
+        "source_unit_ids": [
+          "q1",
+          "q2",
+          "q3"
+        ],
+        "observed_records": 3,
+        "relevant_records": 3,
+        "reason": "资料存在对应信息，适合报价比较"
+      },
+      {
+        "field_id": "min_order_qty",
+        "source_unit_ids": [
+          "q1",
+          "q2",
+          "q3"
+        ],
+        "observed_records": 3,
+        "relevant_records": 3,
+        "reason": "资料存在对应信息，适合报价比较"
+      },
+      {
+        "field_id": "lead_time_days",
+        "source_unit_ids": [
+          "q1",
+          "q2",
+          "q3"
+        ],
+        "observed_records": 3,
+        "relevant_records": 3,
+        "reason": "资料存在对应信息，适合报价比较"
+      },
+      {
+        "field_id": "warranty_months",
+        "source_unit_ids": [
+          "q3"
+        ],
+        "observed_records": 1,
+        "relevant_records": 3,
+        "reason": "低频但与比较相关，保留可空，不能给其他供应商默认12个月"
+      }
+    ],
+    "business_rules_require_adoption": true,
+    "unmapped_important_fields": [],
+    "no_stable_business_key": "不以供应商名称直接合并不同产品/版本的报价；无可靠键时保留记录"
+  },
+  "before_adoption": {
+    "run_state": "WAITING_SCHEMA",
+    "quality_status": "BLOCKED",
+    "preview_is_formal_delivery": false
+  },
+  "synthetic_adoption": {
+    "proposal_version": 1,
+    "action": "一键采用推荐方案",
+    "not_actual_user_action": true
+  },
+  "after_adoption_expected": {
+    "quality_status": "NEEDS_REVIEW",
+    "counts": {
+      "candidates": 3,
+      "accepted": 2,
+      "needs_review": 1,
+      "excluded": 0
+    },
+    "rows": [
+      {
+        "entity_id": "qe1",
+        "disposition": "ACCEPTED",
+        "values": {
+          "supplier": "青禾供应",
+          "product": "折叠支架",
+          "model": "M1",
+          "unit_price": "28.00",
+          "currency": "CNY",
+          "price_unit": "件",
+          "min_order_qty": 10,
+          "lead_time_days": 3,
+          "warranty_months": null
+        },
+        "source_unit_ids": [
+          "q1"
+        ]
+      },
+      {
+        "entity_id": "qe2",
+        "disposition": "ACCEPTED",
+        "values": {
+          "supplier": "云杉供应",
+          "product": "折叠支架",
+          "model": "M1",
+          "unit_price": "26.00",
+          "currency": "CNY",
+          "price_unit": "件",
+          "min_order_qty": 20,
+          "lead_time_days": 5,
+          "warranty_months": null
+        },
+        "source_unit_ids": [
+          "q2"
+        ]
+      },
+      {
+        "entity_id": "qe3",
+        "disposition": "NEEDS_REVIEW",
+        "values": {
+          "supplier": "白石供应",
+          "product": "折叠支架",
+          "model": "M1",
+          "unit_price": null,
+          "currency": "CNY",
+          "price_unit": "件",
+          "min_order_qty": 50,
+          "lead_time_days": 7,
+          "warranty_months": 12
+        },
+        "source_unit_ids": [
+          "q3"
+        ],
+        "issues": [
+          "qi1"
+        ]
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "qi1",
+        "entity_id": "qe3",
+        "field_id": "unit_price",
+        "status": "MISSING",
+        "raw_value": "单价待议",
+        "source_unit_ids": [
+          "q3"
+        ],
+        "action": "补充明确单价或保留待补；不填0、不删除单价列、不擅自放宽要求"
+      }
+    ],
+    "reusable_deliverables": [
+      "standard.xlsx",
+      "standard.json"
+    ],
+    "not_measured": "这是预期行为设计，不是运行、推理质量或用户采用率证据。"
+  }
+}

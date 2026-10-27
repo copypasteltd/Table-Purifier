@@ -1,0 +1,678 @@
+{
+  "design_id": "P07-DS-B",
+  "version": "1.0.0",
+  "components": [
+    {
+      "id": "B-C01",
+      "name": "宿主标题栏与页面骨架",
+      "purpose": "页面名称/返回/宿主胶囊边界",
+      "states": [
+        "default",
+        "loading",
+        "offline"
+      ],
+      "rules": "系统区域由宿主保留；页面内容不侵入胶囊；详情页有返回，回到原列表位置。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C02",
+      "name": "资料夹分区",
+      "purpose": "核心资料/规范/记录容器",
+      "states": [
+        "default",
+        "expanded",
+        "collapsed"
+      ],
+      "rules": "白底、青绿页签和顶线；每页最多一个重点资料夹，其余分区用普通行，不将每张卡拟物化。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP06",
+        "MP10",
+        "MP14"
+      ]
+    },
+    {
+      "id": "B-C03",
+      "name": "索引分区标题",
+      "purpose": "标记同层内容分组",
+      "states": [
+        "default",
+        "with-count"
+      ],
+      "rules": "左侧青绿短线配文字标题；索引线不参与点击，不表示数据通过。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C04",
+      "name": "主次与危险按钮",
+      "purpose": "推进或确认动作",
+      "states": [
+        "default",
+        "pressed",
+        "loading",
+        "disabled",
+        "error"
+      ],
+      "rules": "主按钮纯青绿白字，次按钮白底青绿字，危险按钮深红；每一视图最多一个主动作，忙碌不重发。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C05",
+      "name": "图标动作",
+      "purpose": "返回/更多/移除等操作",
+      "states": [
+        "default",
+        "pressed",
+        "disabled"
+      ],
+      "rules": "图标20/24，实际触控至少48设计单位；删除和清空有明确范围/后果，不只露一个难点叉号。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP02"
+      ]
+    },
+    {
+      "id": "B-C06",
+      "name": "资料行与上传队列",
+      "purpose": "显示来源角色/接收/解析状态",
+      "states": [
+        "selected",
+        "queued",
+        "uploading",
+        "received",
+        "unreadable",
+        "failed",
+        "expired"
+      ],
+      "rules": "文件名最多两行且可看全名；大小/来源状态文字明确，RECEIVED不写已解析；同名不覆盖。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP02"
+      ]
+    },
+    {
+      "id": "B-C07",
+      "name": "规范模式选择",
+      "purpose": "有规范与生成规范入口",
+      "states": [
+        "unselected",
+        "selected",
+        "disabled"
+      ],
+      "rules": "两项同级互斥，左/上为帮我生成规范；窄屏纵排，不挤小字；用选中圆点、边框和文字共同表态。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01"
+      ]
+    },
+    {
+      "id": "B-C08",
+      "name": "用途与文本输入",
+      "purpose": "文字材料、可选用途、命名",
+      "states": [
+        "empty",
+        "focused",
+        "filled",
+        "invalid",
+        "disabled"
+      ],
+      "rules": "标签常驻，失焦/提交校验；清空可恢复未提交草稿；默认系统粘贴，不启动读剪贴板。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP03",
+        "MP07",
+        "MP10",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C09",
+      "name": "预检与报价摘要",
+      "purpose": "范围/单位/排除/服务合同",
+      "states": [
+        "checking",
+        "ready",
+        "unreadable",
+        "limited",
+        "expired",
+        "unavailable"
+      ],
+      "rules": "费用单位明确，范围变化重新确认；局部预检不冒充全量，未开通通道不显示可成功收银。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP04",
+        "MP16"
+      ]
+    },
+    {
+      "id": "B-C10",
+      "name": "阶段进度",
+      "purpose": "服务端任务和待办提示",
+      "states": [
+        "queued",
+        "running",
+        "waiting-schema",
+        "failed",
+        "canceled",
+        "completed"
+      ],
+      "rules": "阶段名与已核实范围，不画虚构精确百分比；离开可恢复，关闭通知仍能查询。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP05"
+      ]
+    },
+    {
+      "id": "B-C11",
+      "name": "推荐规范摘要",
+      "purpose": "一行对象、字段数、规范状态",
+      "states": [
+        "partial-draft",
+        "full-draft",
+        "adopted",
+        "superseded"
+      ],
+      "rules": "重点资料夹显示行粒度；采用前标草案；部分草案不能当全范围正式规范。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP03",
+        "MP06"
+      ]
+    },
+    {
+      "id": "B-C12",
+      "name": "字段目录行",
+      "purpose": "字段名/规则/依据",
+      "states": [
+        "default",
+        "expanded",
+        "modified",
+        "missing",
+        "conflict"
+      ],
+      "rules": "名称、类型/单位、必填/可空和理由可读；仅出现一次的字段不删；图标不是唯一字段含义。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP03",
+        "MP06",
+        "MP07",
+        "MP14"
+      ]
+    },
+    {
+      "id": "B-C13",
+      "name": "字段编辑与影响摘要",
+      "purpose": "修改类型/规则/列序",
+      "states": [
+        "editing",
+        "preview",
+        "invalid",
+        "version-conflict"
+      ],
+      "rules": "增删/重排可操作，顺序有上移下移替代；关键变化先看影响，不自动放宽验收。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP03",
+        "MP07"
+      ]
+    },
+    {
+      "id": "B-C14",
+      "name": "结果记录卡",
+      "purpose": "一条候选的摘要与去向",
+      "states": [
+        "accepted",
+        "needs-review",
+        "excluded",
+        "unreadable"
+      ],
+      "rules": "显示3—5关键字段、明确状态/来源入口；同名不同人不借样式暗示已合并。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP08",
+        "MP09",
+        "MP10"
+      ]
+    },
+    {
+      "id": "B-C15",
+      "name": "选列表格预览",
+      "purpose": "少量列的代表预览",
+      "states": [
+        "sample",
+        "paged",
+        "empty",
+        "filtered"
+      ],
+      "rules": "手机默认卡片，预览少量列，必要局部横向滚动；表外页面不横溢；空值—不等于0。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP06",
+        "MP08"
+      ]
+    },
+    {
+      "id": "B-C16",
+      "name": "问题状态条与标签",
+      "purpose": "缺项/冲突/风险/未知提示",
+      "states": [
+        "missing",
+        "conflict",
+        "unknown",
+        "failed",
+        "expired",
+        "passed"
+      ],
+      "rules": "文字+图形+色彩；待补用琥珀色，失败深红，内容通过写明已通过，不以绿边框替代。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP16",
+        "MP17",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C17",
+      "name": "来源摘录卡",
+      "purpose": "原文证据和定位",
+      "states": [
+        "available",
+        "loading",
+        "unreadable",
+        "expired",
+        "forbidden"
+      ],
+      "rules": "文字引文/文件页码、查看来源；链接按青绿token，不能补造来源或把模型重写当原文。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP06",
+        "MP10",
+        "MP11"
+      ]
+    },
+    {
+      "id": "B-C18",
+      "name": "问题决策与金额输入",
+      "purpose": "补缺、选依据、保留待补",
+      "states": [
+        "no-choice",
+        "fill-value",
+        "keep-unresolved",
+        "choose-evidence",
+        "invalid",
+        "submitting"
+      ],
+      "rules": "初始不替用户决定；补价须输入有效数和明确单位后能提交，保留待补明确提交后仍待补。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP10"
+      ]
+    },
+    {
+      "id": "B-C19",
+      "name": "固定操作区",
+      "purpose": "页面末端核心推进",
+      "states": [
+        "default",
+        "keyboard-visible",
+        "loading",
+        "disabled"
+      ],
+      "rules": "为正文预留高度和底部安全区；键盘弹出可看到输入/错误/按钮，不叠在宿主导航上。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10",
+        "MP12",
+        "MP16",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C20",
+      "name": "四项底部导航",
+      "purpose": "整理/任务/规范/我的",
+      "states": [
+        "unselected",
+        "selected",
+        "badge"
+      ],
+      "rules": "仅四根页面出现；相同线性图标、当前项青绿+文字；详情不用重复全局导航。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP13",
+        "MP14",
+        "MP15"
+      ]
+    },
+    {
+      "id": "B-C21",
+      "name": "任务行",
+      "purpose": "任务搜索/状态/恢复",
+      "states": [
+        "draft",
+        "pending-payment",
+        "running",
+        "waiting-schema",
+        "needs-review",
+        "ready",
+        "failed",
+        "expired"
+      ],
+      "rules": "同一任务修订不分成新订单；显示下一待办与期限，点击取服务端新版本。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP13"
+      ]
+    },
+    {
+      "id": "B-C22",
+      "name": "私有规范卡",
+      "purpose": "主动保存与复用模板",
+      "states": [
+        "saved",
+        "selected",
+        "new-version",
+        "deleted"
+      ],
+      "rules": "名称/字段数/版本；私有非公开；删除不改旧任务快照，去事实/证据/访问引用再保存。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP03",
+        "MP12",
+        "MP14"
+      ]
+    },
+    {
+      "id": "B-C23",
+      "name": "交付文件卡",
+      "purpose": "手机领取三常用文件",
+      "states": [
+        "ready",
+        "fetching",
+        "cached",
+        "open-requested",
+        "export-requested",
+        "confirmed",
+        "expired",
+        "failed"
+      ],
+      "rules": "结果Excel唯一强主色，空白规范/问题报告次按钮；获取/缓存/打开/实际导出措辞分开。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP12"
+      ]
+    },
+    {
+      "id": "B-C24",
+      "name": "订单和退款状态块",
+      "purpose": "原渠道付款/履约/售后",
+      "states": [
+        "pending",
+        "unknown",
+        "paid",
+        "fulfilling",
+        "refund-processing",
+        "refunded",
+        "failed"
+      ],
+      "rules": "金额/平台单位准确；客户端success非实付，退款处理中不写已到账；不跨平台外跳。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP04",
+        "MP05",
+        "MP15",
+        "MP16",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C25",
+      "name": "确认对话框与底部面板",
+      "purpose": "明确有后果动作/有限选项",
+      "states": [
+        "open",
+        "submitting",
+        "error"
+      ],
+      "rules": "有取消/返回、可见标题和动作对象；长编辑用整页，关闭不等于保存，后果不能只写“确定”。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP04",
+        "MP07",
+        "MP09",
+        "MP10",
+        "MP14",
+        "MP16",
+        "MP17",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C26",
+      "name": "空/加载/失败反馈",
+      "purpose": "帮助用户继续任务",
+      "states": [
+        "empty",
+        "loading",
+        "offline",
+        "failed",
+        "permission-denied",
+        "expired"
+      ],
+      "rules": "说明发生什么和下一步；慢任务可离开；失败就近保留重试，不能只闪toast。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP03",
+        "MP04",
+        "MP05",
+        "MP11",
+        "MP12",
+        "MP13",
+        "MP14",
+        "MP15",
+        "MP16",
+        "MP17",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C27",
+      "name": "隐私/权限与数据管理",
+      "purpose": "按需同意及范围删除",
+      "states": [
+        "required",
+        "optional",
+        "denied",
+        "granted",
+        "revoked"
+      ],
+      "rules": "处理前必要告知，权限按需；不强制头像手机号；删除/模板/结果/账务分开说明。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP04",
+        "MP15",
+        "MP17",
+        "MP18"
+      ]
+    },
+    {
+      "id": "B-C28",
+      "name": "短反馈消息",
+      "purpose": "低风险动作确认",
+      "states": [
+        "success",
+        "info",
+        "warning"
+      ],
+      "rules": "仅用于已保存等可恢复动作；支付/采用/删除等结果在页面持久显示，不以短消息充当唯一证据。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP05"
+      ]
+    },
+    {
+      "id": "B-C29",
+      "name": "搜索筛选与分页",
+      "purpose": "定位记录和待办",
+      "states": [
+        "default",
+        "active",
+        "no-results",
+        "loading-more",
+        "end"
+      ],
+      "rules": "游标默认20，区分总候选与筛选结果；返回恢复筛选/位置，不一次渲染1000条及原图。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP08",
+        "MP09",
+        "MP13",
+        "MP14"
+      ]
+    },
+    {
+      "id": "B-C30",
+      "name": "来源原文/页图预览",
+      "purpose": "查看原资料证据",
+      "states": [
+        "text",
+        "image",
+        "zoom",
+        "loading",
+        "expired",
+        "forbidden"
+      ],
+      "rules": "按需加载、有页/段定位和返回；图可放大；真机能力未证不依赖宿主XLSX/PDF查看器。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP11"
+      ]
+    },
+    {
+      "id": "B-C31",
+      "name": "平台能力说明",
+      "purpose": "输入/交易/导出可用性",
+      "states": [
+        "available",
+        "restricted",
+        "not-approved",
+        "version-limited"
+      ],
+      "rules": "说明具体限制及获准替代方式；未证办公文件入口关闭，不用蓝绿成功标识掩盖受限。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP01",
+        "MP02",
+        "MP04",
+        "MP12",
+        "MP15",
+        "MP16"
+      ]
+    },
+    {
+      "id": "B-C32",
+      "name": "版本冲突与修订摘要",
+      "purpose": "采用/编辑/复验前核版本",
+      "states": [
+        "diff",
+        "stale",
+        "conflict",
+        "resolved"
+      ],
+      "rules": "保留本地草稿，展示新旧版本/影响再操作；旧请求不覆盖新结果，不重复扣轮次。",
+      "status": "SPECIFIED_NOT_IMPLEMENTED",
+      "page_ids": [
+        "MP03",
+        "MP06",
+        "MP07",
+        "MP08",
+        "MP09",
+        "MP10"
+      ]
+    }
+  ]
+}

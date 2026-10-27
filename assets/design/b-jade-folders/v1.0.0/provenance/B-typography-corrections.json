@@ -1,0 +1,23 @@
+{
+  "purpose": "保留Sub2生成视觉，仅校正样例事实和范围文案；不额外生成图像",
+  "renderer": "Pillow + system Microsoft YaHei",
+  "changes": [
+    {
+      "file": "B-jade-folders.png",
+      "original_file": "raw/B-jade-folders.png",
+      "original_sha256": "2442db874ef62ce80c0cdae2e6257dfd51f32db082e5baca7ede59b27505d5f0",
+      "final_sha256": "12da146f6b7a2adc00d1008102d7606e7242efde52f17a0c65b3ef5cd80ba981",
+      "local_typography_corrections": [
+        {
+          "box": [
+            894,
+            729,
+            975,
+            775
+          ],
+          "text": "—"
+        }
+      ]
+    }
+  ]
+}

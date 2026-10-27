@@ -1,0 +1,34 @@
+{
+  "product_id": "P07",
+  "business_baseline": "v3.2",
+  "development_baseline": "P07-DEV 3.0.0",
+  "checked_at": "2026-10-27T22:00:08.500378+00:00",
+  "result": "PASS",
+  "scope": "STATIC_DOCUMENT_CONTRACT_AND_ARCHIVE_ONLY",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "agent_runtime_tests": "NOT_RUN",
+  "product_tests": "NOT_RUN",
+  "sql_database_execution": "NOT_RUN",
+  "payment_device_cleanup_tests": "NOT_RUN",
+  "development_manifest_sha256": "7fd7af155ab556f3a21bb56e0983f095ef9f3eebb0575d155e22215ed103bdf0",
+  "business_manifest_sha256": "7042f20a0ef1ca830ffe4a1303f2fc779094de119dfd7e55ebbc6f427d0a8250",
+  "counts": {
+    "requirements": 42,
+    "acceptance_criteria": 126,
+    "API": 56,
+    "tables": 64,
+    "development_documents": 19,
+    "tasks": 66,
+    "planned_cases": 240,
+    "local_links": 139,
+    "development_inventory_files": 263
+  },
+  "tools": {
+    "jsonschema": "4.26.0",
+    "openapi-spec-validator": "0.9.0",
+    "pglast": "8.7"
+  },
+  "checks_passed": 2368,
+  "checks_failed": 0,
+  "errors": []
+}

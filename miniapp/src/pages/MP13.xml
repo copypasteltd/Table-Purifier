@@ -1,0 +1,5 @@
+<b-heading title="我的整理任务"/>
+<b-feedback p:if="{{!tasks.length}}" title="还没有整理任务" text="新建会话，提交零散资料，从推荐规范开始。"/>
+<b-task p:for="{{tasks}}" p:key="task_id" title="{{item.goal||'资料成表任务'}}" text="{{item.current_result_version?'已有结果，可查看和再次领取':'点击读取最新任务状态'}}"><button class="button" data-action="view-task" data-id="{{item.task_id}}" onTap="onAction">继续此任务</button></b-task>
+<button p:if="{{nextCursor}}" class="button" data-action="load-more" onTap="onAction" disabled="{{loading}}">加载下一页任务</button>
+<button class="button primary" data-action="go-MP01" onTap="onAction">新建整理</button>

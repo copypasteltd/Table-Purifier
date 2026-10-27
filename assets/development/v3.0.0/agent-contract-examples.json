@@ -1,0 +1,83 @@
+{
+  "status": "SYNTHETIC_SCHEMA_EXAMPLES_ONLY",
+  "examples": [
+    {
+      "name": "bootstrap-before-data",
+      "schema": "agent-input.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-3",
+        "session_id": "00000000-0000-4000-8000-000000000001",
+        "task_id": null,
+        "run_id": null,
+        "attempt_id": "00000000-0000-4000-8000-000000000002",
+        "fence": 1,
+        "phase": "BOOTSTRAP",
+        "skill_manifest_sha256": "fa8178fd6e4c99e4d3d8371dc1915b05807cd68d3d85ee071cfc66ce1e665811",
+        "skill_preload_receipt_sha256": null,
+        "input_manifest_path": null,
+        "source_set_sha256": null,
+        "confirmed_plan_sha256": null,
+        "binding_sha256": null,
+        "server_payment_receipt_sha256": null,
+        "remaining_compute_ms": 1000,
+        "candidate_output_allowed": false
+      }
+    },
+    {
+      "name": "plan-before-payment",
+      "schema": "agent-completion.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-3",
+        "session_id": "00000000-0000-4000-8000-000000000001",
+        "outcome": "PLAN_READY",
+        "skill_manifest_sha256": "fa8178fd6e4c99e4d3d8371dc1915b05807cd68d3d85ee071cfc66ce1e665811",
+        "analysis_scope": "FULL",
+        "plan_path": "work/plan.json",
+        "preview_record_count": 5,
+        "candidate_files": [],
+        "limitations": [],
+        "user_summary": "合成方案待用户确认，尚未报价或生产"
+      }
+    }
+  ],
+  "invalid_examples": [
+    {
+      "name": "batch-without-payment-plan",
+      "schema": "agent-input.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-3",
+        "session_id": "00000000-0000-4000-8000-000000000001",
+        "task_id": null,
+        "run_id": null,
+        "attempt_id": "00000000-0000-4000-8000-000000000002",
+        "fence": 1,
+        "phase": "BATCH",
+        "skill_manifest_sha256": "fa8178fd6e4c99e4d3d8371dc1915b05807cd68d3d85ee071cfc66ce1e665811",
+        "skill_preload_receipt_sha256": null,
+        "input_manifest_path": null,
+        "source_set_sha256": null,
+        "confirmed_plan_sha256": null,
+        "binding_sha256": null,
+        "server_payment_receipt_sha256": null,
+        "remaining_compute_ms": 1000,
+        "candidate_output_allowed": true
+      }
+    },
+    {
+      "name": "preview-limit",
+      "schema": "agent-completion.schema.json",
+      "payload": {
+        "protocol_version": "P07-AGENT-3",
+        "session_id": "00000000-0000-4000-8000-000000000001",
+        "outcome": "PLAN_READY",
+        "skill_manifest_sha256": "fa8178fd6e4c99e4d3d8371dc1915b05807cd68d3d85ee071cfc66ce1e665811",
+        "analysis_scope": "FULL",
+        "plan_path": "work/plan.json",
+        "preview_record_count": 6,
+        "candidate_files": [],
+        "limitations": [],
+        "user_summary": "合成方案待用户确认，尚未报价或生产"
+      }
+    }
+  ]
+}

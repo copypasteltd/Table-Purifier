@@ -1,0 +1,59 @@
+{
+  "protocol": "P07-SOURCE-VERIFICATION-1",
+  "recorded_at": "2026-10-27T20:08:38.729041+00:00",
+  "scope": "LOCAL_SOURCE_BUILD_AND_EXPLICIT_SYNTHETIC_INTEGRATION_FIXTURES",
+  "typescript_tests": {
+    "files": 12,
+    "passed": 83
+  },
+  "python_tools_tests": {
+    "passed": 11
+  },
+  "frozen_static_checks": {
+    "passed": 2339,
+    "scope": "DOCUMENT_ONLY"
+  },
+  "miniapps": {
+    "ALIPAY": {
+      "pages": 18,
+      "components": 32,
+      "build_bytes": 406527,
+      "device": "NOT_RUN"
+    },
+    "DOUYIN": {
+      "pages": 18,
+      "components": 32,
+      "build_bytes": 411593,
+      "device": "NOT_RUN"
+    }
+  },
+  "backend_build": "PASS",
+  "clean_archive_install": {
+    "mode": "offline_ignore_scripts",
+    "packages": 376,
+    "typecheck": "PASS",
+    "backend_build": "PASS",
+    "miniapps_build": "PASS"
+  },
+  "npm_production_audit_vulnerabilities": 0,
+  "native_c": {
+    "compile": "PASS",
+    "targets": [
+      "x86_64-linux-musl",
+      "aarch64-linux-musl"
+    ],
+    "compiler": "Zig 0.15.2",
+    "runtime": "NOT_RUN"
+  },
+  "real_codex": "NOT_RUN",
+  "real_payment": "NOT_RUN",
+  "deployment": "NOT_PERFORMED",
+  "virtualization": "NOT_INVOKED",
+  "source_hashes": {
+    "package-lock.json": "2d200e9cc460233e035bb911b2252aac8b1441157db9c3c4aca9b1fa92c25916",
+    "agent/skill/manifest.json": "b33505da50136bef8c423b2f8609f7172db6edfe6a9787f839e6ba6c085b2918",
+    "native/p07-isolate.c": "dd190d53b7cb9b25077a32d5e706c257bb8e640f7dc0fbcba523e897d8deda93",
+    "assets/development/v3.0.0/manifest.json": "7fd7af155ab556f3a21bb56e0983f095ef9f3eebb0575d155e22215ed103bdf0",
+    "assets/design/b-jade-folders/v1.0.0/manifest.json": "cb9dda9864476b2ed0d644fa2b03ab48c55c26ea3ab16a9f2d11c3c689f27a2e"
+  }
+}

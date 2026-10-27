@@ -1,0 +1,52 @@
+{
+  "skill_id": "p07-data-to-table",
+  "version": "P07-SKILL-3",
+  "status": "DESIGN_RESOURCE_NOT_INSTALLED_OR_EXECUTED",
+  "loading_strategy": "EAGER_FULL",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 1611,
+      "sha256": "6e7c0e54addd0ce8caf4934b756bd265894e68ab9faef2aba72e0a38dc566a6b",
+      "load_mode": "FULL_CONTENT_BEFORE_INPUT"
+    },
+    {
+      "path": "references/01-seven-step-flow.md",
+      "bytes": 483,
+      "sha256": "88219b9a91a02920ca2381d357eaab83c0afa4e0608b19f89ffc3aa661407778",
+      "load_mode": "FULL_CONTENT_BEFORE_INPUT"
+    },
+    {
+      "path": "references/02-standard-and-facts.md",
+      "bytes": 510,
+      "sha256": "ddeb10a89cecf499d2a0b7eb6f538f0119e625d31d0aecedb598d9c5e839e593",
+      "load_mode": "FULL_CONTENT_BEFORE_INPUT"
+    },
+    {
+      "path": "references/03-files-tools-and-evidence.md",
+      "bytes": 544,
+      "sha256": "74c68d5fcc688a5c4423e460fac711abc21759742d94f282b35a910ce6eb84c1",
+      "load_mode": "FULL_CONTENT_BEFORE_INPUT"
+    },
+    {
+      "path": "references/04-plan-pricing-payment.md",
+      "bytes": 553,
+      "sha256": "7069998bee179640c8baa56deae823684dec6cefe207cf0b8ae35714bf96254d",
+      "load_mode": "FULL_CONTENT_BEFORE_INPUT"
+    },
+    {
+      "path": "references/05-results-and-lifecycle.md",
+      "bytes": 695,
+      "sha256": "43d6efe323cd3978cf12d5903783300e4446c7e21a9fd20a7975cbac5a187351",
+      "load_mode": "FULL_CONTENT_BEFORE_INPUT"
+    },
+    {
+      "path": "scripts/tool-contract.md",
+      "bytes": 705,
+      "sha256": "6f990f09d3b5602ca17aa5da607766e92164319b9b4ddfefa4fe00e7ddc323f3",
+      "load_mode": "FULL_CONTENT_BEFORE_INPUT"
+    }
+  ],
+  "dependencies_are_not_prompt_resources": true,
+  "oversize_policy": "FAIL_INITIALIZATION_NO_TRUNCATION_OR_LAZY_FALLBACK"
+}

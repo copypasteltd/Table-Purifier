@@ -1,0 +1,95 @@
+{
+  "schema_version": "p07-standard/2.1",
+  "design_only": true,
+  "origin": "DISCOVERED",
+  "status": "ADOPTED_IN_SYNTHETIC_SCENARIO",
+  "title": "供应商报价比较规范（合成设计）",
+  "record_kind": "一行代表一条供应商对某产品型号的报价记录",
+  "identity_keys": [],
+  "fields": [
+    {
+      "field_id": "supplier",
+      "label": "供应商",
+      "order": 1,
+      "type": "string",
+      "required": true,
+      "nullable": false
+    },
+    {
+      "field_id": "product",
+      "label": "品名",
+      "order": 2,
+      "type": "string",
+      "required": true,
+      "nullable": false
+    },
+    {
+      "field_id": "model",
+      "label": "型号",
+      "order": 3,
+      "type": "string",
+      "required": true,
+      "nullable": false
+    },
+    {
+      "field_id": "unit_price",
+      "label": "单价",
+      "order": 4,
+      "type": "decimal",
+      "precision": 2,
+      "required": true,
+      "nullable": false,
+      "description": "精确十进制字符串；人民币/件，待议不当0元"
+    },
+    {
+      "field_id": "currency",
+      "label": "币种",
+      "order": 5,
+      "type": "string",
+      "required": true,
+      "nullable": false,
+      "description": "保持实际币种；未授权不换汇，不因样本只出现人民币而封闭枚举"
+    },
+    {
+      "field_id": "price_unit",
+      "label": "计价单位",
+      "order": 6,
+      "type": "string",
+      "required": true,
+      "nullable": false
+    },
+    {
+      "field_id": "min_order_qty",
+      "label": "起订量",
+      "order": 7,
+      "type": "integer",
+      "unit": "件",
+      "required": false,
+      "nullable": true
+    },
+    {
+      "field_id": "lead_time_days",
+      "label": "交期（天）",
+      "order": 8,
+      "type": "integer",
+      "unit": "天",
+      "required": false,
+      "nullable": true,
+      "description": "明确天数；无日期锚点不推算到货日期"
+    },
+    {
+      "field_id": "warranty_months",
+      "label": "保修期（月）",
+      "order": 9,
+      "type": "integer",
+      "unit": "月",
+      "required": false,
+      "nullable": true,
+      "description": "虽只在一份资料出现，仍保留，不向其他供应商默认填同值"
+    }
+  ],
+  "defaults": {},
+  "sample_rows": [],
+  "constraint_origin": "这些业务必填项是推荐理由经合成场景中的用户一键采用后的约束；不是样本出现率自动证明的外部标准。",
+  "notes": "可复用规范不包含真实来源值、证据摘录、任务访问凭据或原任务内部引用；未生成真实XLSX。"
+}

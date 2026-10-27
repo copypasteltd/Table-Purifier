@@ -1,0 +1,101 @@
+{
+  "baseline": "v3.1",
+  "synthetic": true,
+  "status": "CONTRACT_EXAMPLES_NOT_RUNTIME_RESULTS",
+  "workspace_response": {
+    "task_id": "task_demo",
+    "workspace_version": 8,
+    "run_id": "run_demo_2",
+    "parent_run_id": "run_demo_1",
+    "execution_status": "SUCCEEDED",
+    "schema_status": "ADOPTED",
+    "quality_status": "NEEDS_REVIEW",
+    "artifact_status": "READY",
+    "payment_status": "NOT_REQUIRED",
+    "refund_status": "NONE",
+    "fulfillment_status": "DELIVERABLE",
+    "result_version": 2,
+    "schema_version": 1,
+    "source_set_version": 1,
+    "allowed_actions": [
+      "VIEW_RECORDS",
+      "SUBMIT_DECISION",
+      "REQUEST_DOWNLOAD"
+    ],
+    "budget": {
+      "compute_seconds_used": 83,
+      "compute_seconds_limit": 900
+    },
+    "policy_id": "pilot_free_example_not_a_sale_contract",
+    "review_expires_at": null,
+    "note": "免费合成演示；不造真实交易/期限。商业版以获准SKU的policy时间为准"
+  },
+  "missing_field_value": {
+    "field_id": "price",
+    "type": "DECIMAL",
+    "raw_text": "单价待议",
+    "value": null,
+    "status": "MISSING",
+    "unit": "元/件",
+    "evidence_ids": [
+      "ev_s3_price"
+    ],
+    "transform_chain": [],
+    "rule_version": "rule_example_1",
+    "issue_ids": [
+      "issue_price_missing"
+    ]
+  },
+  "decision_preview_request": {
+    "expected_result_version": 2,
+    "decisions": [
+      {
+        "issue_id": "issue_price_missing",
+        "record_id": "record_baishi",
+        "field_id": "price",
+        "action": "USER_VALUE",
+        "value": "28.50",
+        "unit": "元/件",
+        "note": "由资料所有者补充，非原件提取"
+      }
+    ],
+    "scope": {
+      "record_ids": [
+        "record_baishi"
+      ]
+    }
+  },
+  "decision_commit_request": {
+    "preview_id": "preview_demo",
+    "preview_hash": "sha256_demo_for_document_only",
+    "expected_result_version": 2
+  },
+  "pending_operation": {
+    "operation_id": "op_demo",
+    "status": "PENDING",
+    "resource_type": "REVISION_RUN",
+    "resource_id": "run_demo_3",
+    "decision_batch_id": "batch_demo",
+    "expected_parent_result_version": 2,
+    "revision_round_reserved": true,
+    "revision_round_consumed": false
+  },
+  "version_conflict_response": {
+    "request_id": "req_demo",
+    "error_code": "VERSION_CONFLICT",
+    "user_message": "结果已更新，请比较最新版本后再提交。",
+    "retryable": false,
+    "current_version": 3,
+    "resource_id": "run_demo_2",
+    "allowed_actions": [
+      "REFRESH",
+      "COPY_UNSUBMITTED_DRAFT"
+    ]
+  },
+  "schema_adoption_request": {
+    "expected_proposal_version": 2,
+    "source_set_version": 1,
+    "goal_version": 1,
+    "action": "ADOPT_PROPOSAL"
+  }
+}

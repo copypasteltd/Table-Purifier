@@ -1,0 +1,14 @@
+{
+  "product_id": "P07",
+  "development_baseline": "P07-DEV 2.0.0",
+  "business_baseline": "v3.1",
+  "design_baseline": "P07-DS-B 1.0.0",
+  "manifest": "v2.0.0/manifest.json",
+  "manifest_sha256": "099cb2b21dd166339d15c6fb54ef63fcc2abfae8d6964c405d7d148d9bb049fa",
+  "documents": "../../docs/开发/README.md",
+  "requirements_pointer": "../requirements/active.json",
+  "design_pointer": "../design/active.json",
+  "execution_owner": "CODEX_AGENT",
+  "status": "DOCUMENTS_READY_PRODUCT_AND_AGENT_NOT_IMPLEMENTED",
+  "updated_on": "2026-10-27"
+}

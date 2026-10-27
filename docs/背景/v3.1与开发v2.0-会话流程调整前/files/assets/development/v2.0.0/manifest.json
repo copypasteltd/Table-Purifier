@@ -1,0 +1,606 @@
+{
+  "schema_version": "2.0",
+  "product_id": "P07",
+  "development_baseline": "P07-DEV 2.0.0",
+  "date": "2026-10-27",
+  "status": "CODEX_AGENT_DEVELOPMENT_DOCUMENTATION_BASELINE",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "product_test_status": "NOT_RUN",
+  "agent_runtime_test_status": "NOT_RUN",
+  "dependencies": {
+    "business_baseline": "v3.1",
+    "business_manifest_sha256": "d7c0c6c968985c8cc18a91132377662355fc1dfaeab880c16d53ae26b5d1dbdd",
+    "design_baseline": "P07-DS-B 1.0.0",
+    "design_pointer_sha256": "21ff4a569709cd7b483c235d4336ed5e1ea08ad54838b942d03f3e169349099b"
+  },
+  "architecture": {
+    "execution_owner": "CODEX_AGENT",
+    "primary_runtime": "@openai/codex-sdk",
+    "business_gates_only": true,
+    "virtualization": "FORBIDDEN",
+    "app_server": "DISABLED_EXPERIMENTAL"
+  },
+  "files": [
+    {
+      "project_path": "AGENTS.md",
+      "bytes": 5265,
+      "sha256": "139215fef1101fab78a52860f9af7722e6c726f12a095d0dcd7a894e0e5f46a1"
+    },
+    {
+      "project_path": "README.md",
+      "bytes": 9224,
+      "sha256": "037eb8b831f91b03d04815a321a84f8aadac42e632dc15d2c6e1ff80aaa3eae6"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/agent-completion.schema.json",
+      "bytes": 8411,
+      "sha256": "7ce38ba9ce25fd943721d3736a6d77b2b101247d091897c93271047f6d7b7128"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/agent-contract-examples.json",
+      "bytes": 9517,
+      "sha256": "4780965cdc58072813264f49878d44073387b21fa260cbb46804d489bc83f156"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/agent-input.schema.json",
+      "bytes": 12408,
+      "sha256": "0b85bc874e8042f63e99bed5ee783d187006d4d0b69b0d49bf59c148058e7976"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/agent-instructions.md",
+      "bytes": 4700,
+      "sha256": "93933263d5fbbf5f482b72dfd4b9822e32c7708c9c4877f94e952db2d33be7cd"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/agent-runtime.contract.json",
+      "bytes": 2580,
+      "sha256": "036f7e72dacdc8dae363054552261e2b9681a6b75a5c198481fce28755ec8fc7"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/agent-tools.contract.json",
+      "bytes": 2547,
+      "sha256": "74b1fdd1a1ef735db411df13cd823e3171a58b59348b5574f4a106bae2767d3a"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/artifact-manifest.schema.json",
+      "bytes": 4927,
+      "sha256": "6f355e6ce2a87c16f00219f307f41262153567eba0fa0fbe7057b5be09a40ae4"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/backlog.json",
+      "bytes": 68758,
+      "sha256": "75d5bb4b39f4df893df67cf122beceebac11e513d733082371c31a325a281d84"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/config.example.json",
+      "bytes": 3615,
+      "sha256": "42a8d6cda6b2d8815ab1e375341efe17d6258ec58609d5780a003ac536901137"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/config.schema.json",
+      "bytes": 21713,
+      "sha256": "d4b1621bdd84a8f1e4040523d406e15d529eb27bf83a7be432c8079d1697a70a"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/contract-examples.json",
+      "bytes": 4924,
+      "sha256": "98e6bf2ef8cf512c964d6bdb847c42d555287a2cce5c79b3fd1222473af3a8b3"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/database-catalog.json",
+      "bytes": 136079,
+      "sha256": "4419ecf9514c9cef97508c86ac80597f6a8a46ace4ff0f4af8cd7410606243cd"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/domain.schema.json",
+      "bytes": 131130,
+      "sha256": "3ebc4dfa8db8c7430cb7336c30828ca1b06da000894fbb1bb5577c789e45302a"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/integration-register.json",
+      "bytes": 7657,
+      "sha256": "b7926ff7f8a390c8b342678e5c71410c3dec3ae9587b1866139cc9ed26b2d9c0"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/official-source-register.json",
+      "bytes": 1897,
+      "sha256": "093eea6ba55079f54a85f4ef4947fda42e11c34ab0b5856d02e7d7c52f8ffd4d"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/openapi.json",
+      "bytes": 413198,
+      "sha256": "30203de42c945d4aff1d3e901a911eb5924a0c4f61976af518a31ab8e7453c80"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/pipeline-contract.json",
+      "bytes": 2469,
+      "sha256": "21192168eed41cdabf4769501b8b1975d453b3ac02b4daaae44fe7f82c1c88f5"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/schema-reference.sql",
+      "bytes": 62911,
+      "sha256": "3400fb8cdcbf223f65eda07cf3431862c66f96b2ce56a272809e06ab336ff86c"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/skill-template.md",
+      "bytes": 1291,
+      "sha256": "407fade7513f12dc14465023eabe70a59a6d2f8f7be23b932ba29a72947edae0"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/test-plan.json",
+      "bytes": 100709,
+      "sha256": "c1107d7d7876371637a568a60a2c71d986bbb528a5a478c397b78f4da279df83"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/transport.openapi.json",
+      "bytes": 6501,
+      "sha256": "33d2be17a11f7c9c89a0bd3f412a410c22c7d3f9e29f299cb0e8909037e40772"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/ui-implementation-map.json",
+      "bytes": 50805,
+      "sha256": "b0cf90fa303f2e3a93cf1afecff375bba8c08a13d4075342e3e52c0ffabddabe"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/validation-toolchain.json",
+      "bytes": 2146,
+      "sha256": "5e934d15c8a01f0ca1b2260cbe598dff6fea946592ff16af5c784890afc525a1"
+    },
+    {
+      "project_path": "assets/development/v2.0.0/validation-tools.requirements.txt",
+      "bytes": 478,
+      "sha256": "dba93432399bc22957d6579b5681c7cd38b59eb9237a277a2787ce142262dea9"
+    },
+    {
+      "project_path": "docs/03-架构数据与接口.md",
+      "bytes": 7636,
+      "sha256": "02338bca04b64a04f985cbb72ebaa50bc58e4c72b486a548e9b0b939f4a9edaa"
+    },
+    {
+      "project_path": "docs/实施/小程序优先开发任务与里程碑.md",
+      "bytes": 9911,
+      "sha256": "bde88d80127f219411b56f8242ee27dab179788b913e0c9dc4841bdfad916fa8"
+    },
+    {
+      "project_path": "docs/开发/01-技术选型与架构决策.md",
+      "bytes": 5967,
+      "sha256": "851f31f5743bcc9fd4cbba658f683a80f552324b39edf8e756716fce2a191a91"
+    },
+    {
+      "project_path": "docs/开发/02-工程结构与本地环境.md",
+      "bytes": 4861,
+      "sha256": "d105e2cd36344fb01d479240b50c279e6b522911c112dd2f3525f5adc30d536a"
+    },
+    {
+      "project_path": "docs/开发/03-数据库设计与迁移.md",
+      "bytes": 11015,
+      "sha256": "be3cfae3a4ac8a663cfd5e506f3ccdab5697194198df2056c29951817ed4eb82"
+    },
+    {
+      "project_path": "docs/开发/04-API实现与契约.md",
+      "bytes": 11847,
+      "sha256": "07961731ae393647fc889170ab85a658723ad1a94764d6ecc47c2647654172ee"
+    },
+    {
+      "project_path": "docs/开发/05-任务队列与并发恢复.md",
+      "bytes": 5231,
+      "sha256": "f5bd77d4f15e856c331a40376aefe57a0ceae26d3e6a2c2962ee8afed82d1a5b"
+    },
+    {
+      "project_path": "docs/开发/06-文件解析OCR与整理引擎.md",
+      "bytes": 5446,
+      "sha256": "0f06f336a8589808b25d6b9be4785e4a80eb2550dfba75377156c9bfb91eb8b6"
+    },
+    {
+      "project_path": "docs/开发/07-规范发现与人工决定.md",
+      "bytes": 7971,
+      "sha256": "02f026fca6862fe4dccc867991dbf63d00a0a7be0ffe2f8207f0c5eae8446b6f"
+    },
+    {
+      "project_path": "docs/开发/08-独立验收产物与私有规范.md",
+      "bytes": 7480,
+      "sha256": "c7710c4f670f1f33c539b9f1dc24d31ce4ef0bef6997e8b6d7115ce3dc697ad1"
+    },
+    {
+      "project_path": "docs/开发/09-双小程序与B组件实现.md",
+      "bytes": 6565,
+      "sha256": "a96b9e115b74644aa38b694c827f1b2f257bd66c291601f10fc0d72873b08f27"
+    },
+    {
+      "project_path": "docs/开发/10-订单支付退款与对账.md",
+      "bytes": 6782,
+      "sha256": "79302af16ba2a1feef0f95a510ceb4d07ab1135a1f3d28f861594433ed4bb494"
+    },
+    {
+      "project_path": "docs/开发/11-安全隐私与删除执行.md",
+      "bytes": 4388,
+      "sha256": "8ce9dd4657bc826837e75fe28849b8bb78ad0c51ab121a321b955053fc282995"
+    },
+    {
+      "project_path": "docs/开发/12-测试策略与持续集成.md",
+      "bytes": 3949,
+      "sha256": "df5d3d87f00cfd97080f0fb05773eb5da889aac322538d2db9681317fa8af43b"
+    },
+    {
+      "project_path": "docs/开发/13-原生部署监控与故障手册.md",
+      "bytes": 3745,
+      "sha256": "9088d9bcf320f9b7e7a78c5302efaf78e83a16924ff595dd5d7b191e46f38136"
+    },
+    {
+      "project_path": "docs/开发/14-开发任务与交接标准.md",
+      "bytes": 3324,
+      "sha256": "e414d4fbb52f861b0eaba555e413cd5ef8f68c8f46a91a47b7cc3c1a2051704a"
+    },
+    {
+      "project_path": "docs/开发/15-配置字典与外部接入清单.md",
+      "bytes": 3559,
+      "sha256": "a65bc89d00d5aa72297c6e5ab1397d572c648ffc9bdf466a292e0750fca03f82"
+    },
+    {
+      "project_path": "docs/开发/16-Codex-Agent业务封装与运行协议.md",
+      "bytes": 8932,
+      "sha256": "8170a1733b25c38c0ea676121db1d841aa6a8378fde714364cd4fd1ab92c9d8e"
+    },
+    {
+      "project_path": "docs/开发/17-改版差异与官方能力核对.md",
+      "bytes": 3942,
+      "sha256": "b4096e0d3604cfbea72b64cec3aa53b7d8ade4d7fde3b6cf2d76393e04a50b1b"
+    },
+    {
+      "project_path": "docs/开发/README.md",
+      "bytes": 6386,
+      "sha256": "c3a52b251adc868458ead0c54dff2867d5abb04e25dd94bce61435a136dff386"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/AGENTS.md",
+      "bytes": 4301,
+      "sha256": "2b4f53b31ec3416e251ed11bc844f504833fbfa936f1a8dd34eea0a289a43202"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/README.md",
+      "bytes": 8796,
+      "sha256": "f9787ee0263d42c18b66116fc30cdd7ca6f9e0fdbdfaeba2228cf3f363d4a7fe"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/active.json",
+      "bytes": 512,
+      "sha256": "66f63381f3ac053967a1e12b2c0c1c5bdcc6eec8f154676f2fc4d09f493b6add"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/artifact-manifest.schema.json",
+      "bytes": 4927,
+      "sha256": "6f355e6ce2a87c16f00219f307f41262153567eba0fa0fbe7057b5be09a40ae4"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/backlog.json",
+      "bytes": 60017,
+      "sha256": "e8cfd0f0a19459d13eecb56c18a5590e62dff5143d8384085688ad4c431aeba2"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/config.example.json",
+      "bytes": 2697,
+      "sha256": "c12260b79712e7466762adc5b441e967967a98ba8dae2b66b55611e832c3b62d"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/config.schema.json",
+      "bytes": 16089,
+      "sha256": "d49c8aff95fbb9c364eaad4697a6e0ba4436b619c4a74c33d40f6c997ca19e5f"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/contract-examples.json",
+      "bytes": 4924,
+      "sha256": "98e6bf2ef8cf512c964d6bdb847c42d555287a2cce5c79b3fd1222473af3a8b3"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/database-catalog.json",
+      "bytes": 121022,
+      "sha256": "db783d19bdfac79d3c6a452d9f5372bc0d7ad976887292030536645d8fdf1ac2"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/domain.schema.json",
+      "bytes": 131130,
+      "sha256": "3ebc4dfa8db8c7430cb7336c30828ca1b06da000894fbb1bb5577c789e45302a"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/engine-protocol.schema.json",
+      "bytes": 5704,
+      "sha256": "b3b4a39474aa0ce3f842d575bbc2412bff250b53371cc6471a4ff59748f8a6fb"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/integration-register.json",
+      "bytes": 5808,
+      "sha256": "7f3e3d45b888efd39a431822848bd49b97ccf69e2ead2847216737e69a4f0eb3"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/manifest.json",
+      "bytes": 9948,
+      "sha256": "74bd15201477a05adf06819fe23ebc529c7ffde46c54723c720b1e8b6f1f4c60"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/openapi.json",
+      "bytes": 413115,
+      "sha256": "f5160e76f54b36201a3417f07b6529005f62773d69523911f79d53b7015cdab6"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/pipeline-contract.json",
+      "bytes": 6548,
+      "sha256": "204c53f5cd8fd7db0619a8dc8e1d866bb6844e9088dca6916f4b9803f760f887"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/provenance/navigation-before-development/AGENTS.md",
+      "bytes": 3425,
+      "sha256": "87d94b96aa33718955d349fa18568add4c1e8403ac8f52b47b839c1f0feda154"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/provenance/navigation-before-development/README.md",
+      "bytes": 8025,
+      "sha256": "48928aaf3ce01c20b15eebdd229ebfefd0cedebea2db502a146b8475afa438f0"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/provenance/navigation-before-development/active.json",
+      "bytes": 577,
+      "sha256": "839be4f78755460af48dab8b99beac9f3468517de254d5f0603ad7bb1504db6a"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/provenance/navigation-before-development/baseline.v3.1.json",
+      "bytes": 8257,
+      "sha256": "6487e5c73435fa567a861deda4f171f2429880a71184da1f39468c9971555b76"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/provenance/navigation-before-development/snapshot.json",
+      "bytes": 1035,
+      "sha256": "b6c0ead2e0bec56b94fb7f019227ffb38a5bac59209fdd8cb0c3e1d08399f908"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/schema-reference.sql",
+      "bytes": 56267,
+      "sha256": "648022313ade2aa19300d32d84cffb242c88b9e62ba82f0119bd27b87c392a03"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/test-plan.json",
+      "bytes": 89675,
+      "sha256": "3f7efa3537d034b8f216aa1d46f3d63113832ac1f81fb9a4f71122dc726b8ec9"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/transport.openapi.json",
+      "bytes": 6418,
+      "sha256": "ebea009f14735a8da5a6a6005b9398cb56abcd58b4b15c8eae56792464e27130"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/ui-implementation-map.json",
+      "bytes": 50805,
+      "sha256": "eccf59337a1262257b391829a5816711e674eb89e683bcbf99014169d46b56ee"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/validation-toolchain.json",
+      "bytes": 2146,
+      "sha256": "2bbdac11d4672acd02fcf25487a98b3b4f39c4d4537c4ce0178f092102cb7787"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/development/v1.0.0/validation-tools.requirements.txt",
+      "bytes": 478,
+      "sha256": "dba93432399bc22957d6579b5681c7cd38b59eb9237a277a2787ce142262dea9"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/requirements/active.json",
+      "bytes": 577,
+      "sha256": "9052d1b8e547b1f73162fff380797783da85bad01ea2d1022b9e729e024e75fc"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/assets/requirements/baseline.v3.1.json",
+      "bytes": 8569,
+      "sha256": "9b59ffcfff7d3344079122f1bc96e5a7290a2935fb66307f61cbccb89b6f8373"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/03-架构数据与接口.md",
+      "bytes": 7136,
+      "sha256": "3d3ebca9ac370dcda8797871a19e8d94c9e193faf492328a748fdaa192dfc5ad"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/实施/小程序优先开发任务与里程碑.md",
+      "bytes": 8936,
+      "sha256": "8f1dd23b402a5d0c09f00014e8f13c19915598ccec5ea9ac5d6feb798b72d2e8"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/01-技术选型与架构决策.md",
+      "bytes": 7260,
+      "sha256": "43e796abb2497e9d7bc0f327d4961df49d56eb51043ca68e5fbb2072e982a62d"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/02-工程结构与本地环境.md",
+      "bytes": 8184,
+      "sha256": "eff26a34c83b88690486228fc246f7f7aeeb2fc3ac4fe6125e6a774b9fbf23fd"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/03-数据库设计与迁移.md",
+      "bytes": 9333,
+      "sha256": "ae5e141d42a6641d3476c36c8827342107938eae6018b0dd06f637e09a6d090e"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/04-API实现与契约.md",
+      "bytes": 10971,
+      "sha256": "df62152d77689f54baca5e74aa4f8bc094011c2f6ba7022881fa9204739f6b15"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/05-任务队列与并发恢复.md",
+      "bytes": 6824,
+      "sha256": "bd185243cc9afae0a2ba9379f0cf73a9a8a61145e3a24bed261efca91ac185b7"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/06-文件解析OCR与整理引擎.md",
+      "bytes": 7704,
+      "sha256": "5d676276cdb0f5e080d2ebab59b549f3b86bc40cf59c7420b76722bfc762ab7d"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/07-规范发现与人工决定.md",
+      "bytes": 6883,
+      "sha256": "0f3062951e9e0c17c168536f370ca468fff2320dc49b3ccc71ce8c95361e9a2b"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/08-独立验收产物与私有规范.md",
+      "bytes": 6709,
+      "sha256": "eceb2ce3d9cbfcd146e2b78d3a3717b6875abc3aa73ad988003d10a4e9011ed5"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/09-双小程序与B组件实现.md",
+      "bytes": 5819,
+      "sha256": "36a03098065c0021b386e9e2b3cfbcd58eb200ac283e116207fed262bd88768d"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/10-订单支付退款与对账.md",
+      "bytes": 6105,
+      "sha256": "a1d5a4480687144a888f186e31c813c3c207cd92658d22f4866fcde83d71df17"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/11-安全隐私与删除执行.md",
+      "bytes": 5778,
+      "sha256": "797882cb73dc8ddb197b62b9a64a6cca460c6186862f36557bb258e5070a9c36"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/12-测试策略与持续集成.md",
+      "bytes": 5867,
+      "sha256": "a7375ef71678aeaf1b267ca324b5aff3024c7d805d0d1ffe67a6d35fb0e2ca58"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/13-原生部署监控与故障手册.md",
+      "bytes": 5927,
+      "sha256": "e23b21ac06992a76da1e23f07d8d7f6fc5fa8c2c0cf59d93346be1b3f6712f11"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/14-开发任务与交接标准.md",
+      "bytes": 5180,
+      "sha256": "bc753db1b7e38f12e74b2d9346274f9575f185df0f6bf8f762ad825b20aa020c"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/15-配置字典与外部接入清单.md",
+      "bytes": 4897,
+      "sha256": "8e7b27bbd1a4a112798c2124e251f48bb9e0f0613421ba1634203428824ea526"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/开发/README.md",
+      "bytes": 6718,
+      "sha256": "921ec091ede85de471cf1857a9dc766af74e476b1beabda5bcb68be3a3b5ee04"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/docs/需求深化/03-整理引擎与规范验收规格.md",
+      "bytes": 9149,
+      "sha256": "71c89c725c30280f415c3e2b1579926c62b3b3120bb4f8a2f0943d0ea9d06bbf"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/output/development/package-receipt.json",
+      "bytes": 635,
+      "sha256": "a1d0193bd92d5f7c77a3ca2cd9101886bfbd571517917213c697f1f3face0b68"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/scripts/build_development_assets.py",
+      "bytes": 44460,
+      "sha256": "5a395af8fcc498d9b4c141be070c4f75145301c5da0237188d887b4a66565c61"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/scripts/build_development_contracts.py",
+      "bytes": 10275,
+      "sha256": "8ca04a7f12b7b05e2d266b07f357dc5089acf14c5608904323222b084310074d"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/scripts/build_development_openapi.py",
+      "bytes": 31126,
+      "sha256": "87a8fbdac28df31784176b4f9ec358934a80b83095f59e33c87e9371111d0ba8"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/scripts/package_development_docs.py",
+      "bytes": 4816,
+      "sha256": "600574562330e5236aedff09475f7714a33b538dc1e155e85eb3513aa7b62258"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/scripts/seal_development_baseline.py",
+      "bytes": 5063,
+      "sha256": "b6f6070bf9c023c795916636540068fe232bbe035d17299d9f719a44f845e9b0"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/files/scripts/verify_development_docs.py",
+      "bytes": 13778,
+      "sha256": "9aa64a1c12eafff97e7552d6551776b493f2eba0e3f08bcb383b51ae56dc7fa0"
+    },
+    {
+      "project_path": "docs/背景/开发v1.0.0-固定流水线/snapshot-manifest.json",
+      "bytes": 15078,
+      "sha256": "95fc77994e95d3c38daff9729bde9ea40280a947b9c73ab91aebcbf633ee3035"
+    },
+    {
+      "project_path": "docs/需求深化/03-整理引擎与规范验收规格.md",
+      "bytes": 9788,
+      "sha256": "48b0582845279b96290efd31adf5d8045db4250059e40063538aa053ff4e2268"
+    },
+    {
+      "project_path": "scripts/build_codex_agent_assets.py",
+      "bytes": 35574,
+      "sha256": "27e5247b91257bf4f970aa9e0046482ebc2357f792a3eaf3091d202988a86430"
+    },
+    {
+      "project_path": "scripts/build_codex_agent_docs.py",
+      "bytes": 82132,
+      "sha256": "577be7b6e19d89749f061fcb94b8fbc4f6881189d2146e13338618d7c17e3477"
+    },
+    {
+      "project_path": "scripts/build_development_assets.py",
+      "bytes": 45061,
+      "sha256": "5c882c76ed73023b70401fb10d2bcf59755d2b82d8c31ba39250f24af77e838b"
+    },
+    {
+      "project_path": "scripts/build_development_contracts.py",
+      "bytes": 10706,
+      "sha256": "7e1bbd7f45cf7feabacb6250faa3f9daab3f2c3c978bc0cf577dbe5c42175e6d"
+    },
+    {
+      "project_path": "scripts/build_development_openapi.py",
+      "bytes": 31702,
+      "sha256": "da5600654296a7af14c6fda292cd12c0482a0c23fbcf3a329019b302a3752539"
+    },
+    {
+      "project_path": "scripts/package_codex_agent_docs.py",
+      "bytes": 5543,
+      "sha256": "d45201e10665a2b3488adb2cfeeb1b7c7f3d14534adfdbf5fd6b8ffc7b4d6bdb"
+    },
+    {
+      "project_path": "scripts/package_development_docs.py",
+      "bytes": 5250,
+      "sha256": "ac2c0f982fe901d8c69b38e005b8f0c48c0fbe705e163856c020e059eb8568ea"
+    },
+    {
+      "project_path": "scripts/seal_codex_agent_baseline.py",
+      "bytes": 6107,
+      "sha256": "9bf7da839b229c794e27961cd69a523fee6792408739392da44813cc06fea70f"
+    },
+    {
+      "project_path": "scripts/seal_development_baseline.py",
+      "bytes": 5495,
+      "sha256": "413b7c21f830e9636178c28073459d81f4b91757e6d004692b24e7c0a22474f3"
+    },
+    {
+      "project_path": "scripts/verify_codex_agent_docs.py",
+      "bytes": 19326,
+      "sha256": "abfbc1874d553f32690ed9eca298215b1c19fb91c828c059676b3858f8a0ffe5"
+    },
+    {
+      "project_path": "scripts/verify_development_docs.py",
+      "bytes": 14318,
+      "sha256": "5314a654a6b78a6a2bc3cc50e43a2750ee7f3ab0c513e0f6cb3bca0fe4719020"
+    }
+  ],
+  "history": {
+    "snapshot": "docs/背景/开发v1.0.0-固定流水线/snapshot-manifest.json",
+    "original_development_inventory_count": 46,
+    "retained_files": 54,
+    "original_v1_zip": "output/development/P07-完整开发文档与需求设计参照-v1.0.0.zip"
+  },
+  "excluded_outputs": [
+    "runtime/**",
+    "output/**",
+    "docs/评审/P07-Codex-Agent开发文档-v2.0.0-核验-2026-10-27.*"
+  ],
+  "notes": [
+    "Documentation/static validation only; no live Codex/DB/device/payment tests.",
+    "v3.1 functions/API/state/budget preserved; engineering alignment transparent.",
+    "Frozen B/v3.0 and original v1 bytes/ZIP remain retained."
+  ]
+}

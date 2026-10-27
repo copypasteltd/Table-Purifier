@@ -1,0 +1,991 @@
+{
+  "product_id": "P07",
+  "baseline": "v3.2",
+  "api_prefix": "/v1/p07",
+  "status": "CONTRACT_DRAFT_NOT_IMPLEMENTED",
+  "not_platform_sdk": true,
+  "operations": [
+    {
+      "id": "P07-API01",
+      "method": "POST",
+      "path": "/v1/p07/auth/platform-sessions",
+      "name": "平台凭据换会话",
+      "request_contract": "provider/app_alias/one_time_code",
+      "response_contract": "session/current_account",
+      "guards": "凭据重放/过期拒绝",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F40"
+      ]
+    },
+    {
+      "id": "P07-API02",
+      "method": "GET",
+      "path": "/v1/p07/capabilities",
+      "name": "核定能力与动作",
+      "request_contract": "env/host/base_sdk/app_alias",
+      "response_contract": "capability_version/flags/reasons",
+      "guards": "关键资格不只信客户端OS",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F33",
+        "P07-F37",
+        "P07-F41"
+      ]
+    },
+    {
+      "id": "P07-API03",
+      "method": "POST",
+      "path": "/v1/p07/tasks",
+      "name": "创建任务草稿",
+      "request_contract": "ready_agent_session_id/mode/optional_goal/client_request_id",
+      "response_contract": "task_id/version",
+      "guards": "READY_FOR_INPUT且完整Skill预加载证明匹配owner；此后才接收任何客户内容",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F24"
+      ]
+    },
+    {
+      "id": "P07-API04",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/upload-sessions",
+      "name": "取得逐文件上传许可",
+      "request_contract": "role/name/bytes/mime/sha256",
+      "response_contract": "upload_id/limited_upload_target/expires",
+      "guards": "大小/类型预判，非公开桶权限",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F34"
+      ]
+    },
+    {
+      "id": "P07-API05",
+      "method": "POST",
+      "path": "/v1/p07/uploads/{id}/complete",
+      "name": "确认原件持久接收",
+      "request_contract": "upload_id/observed_hash",
+      "response_contract": "source_id/status",
+      "guards": "服务端重算真实字节/类型/哈希",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F26",
+        "P07-F34"
+      ]
+    },
+    {
+      "id": "P07-API06",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/sources",
+      "name": "添加文字或已收源入草稿",
+      "request_contract": "text或source_id/role/expected_task_version",
+      "response_contract": "source_set_version/received_status",
+      "guards": "不接受任意URL，SOURCE与规范分开",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F25",
+        "P07-F26",
+        "P07-F34"
+      ]
+    },
+    {
+      "id": "P07-API07",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/standard",
+      "name": "上传或选用/编辑目标规范",
+      "request_contract": "template_source或private_template_version或fields",
+      "response_contract": "schema_draft/clarifications",
+      "guards": "样例区不计事实",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F26"
+      ]
+    },
+    {
+      "id": "P07-API08",
+      "method": "GET",
+      "path": "/v1/p07/tasks/{id}/standard",
+      "name": "读取目标规范草案",
+      "request_contract": "task_id",
+      "response_contract": "schema/versions/unresolved_rules",
+      "guards": "只本人，未冻结不称已采用",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F03"
+      ]
+    },
+    {
+      "id": "P07-API09",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/preflight",
+      "name": "付费前全范围Agent分析",
+      "request_contract": "session_id/source_set_version/goal_version",
+      "response_contract": "analysis_operation/plan/proposal/preview/coverage",
+      "guards": "完整拟处理范围分析；预览最多5条；不生成正式批量包；分析独立限额",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F24",
+        "P07-F25"
+      ]
+    },
+    {
+      "id": "P07-API10",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/confirmations",
+      "name": "确认执行方案与不可变合同",
+      "request_contract": "session_id/plan_id/plan_version/plan_hash/binding_id/expected_versions/policy_consent",
+      "response_contract": "contract_id/hash",
+      "guards": "两种模式均已采用规范、明确源范围与策略，用户确认准确方案版本；付费前冻结",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F06"
+      ]
+    },
+    {
+      "id": "P07-API11",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/quotes",
+      "name": "原平台商品报价",
+      "request_contract": "session_id/confirmed_plan_id/plan_hash/contract_id/origin_environment",
+      "response_contract": "quote_id/unit/amount/expiry/policy",
+      "guards": "确认之后才能估费，可信计量与原渠道价格表；不允许消费者FREE生产路径",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F25"
+      ]
+    },
+    {
+      "id": "P07-API12",
+      "method": "POST",
+      "path": "/v1/p07/orders",
+      "name": "同合同建原渠道订单",
+      "request_contract": "quote_id/contract_hash",
+      "response_contract": "order_id/status",
+      "guards": "每quote有效订单唯一，晚支付先查",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F16"
+      ]
+    },
+    {
+      "id": "P07-API13",
+      "method": "POST",
+      "path": "/v1/p07/orders/{id}/checkout",
+      "name": "返回获准收银参数",
+      "request_contract": "order_id/expected_channel",
+      "response_contract": "provider_checkout_payload",
+      "guards": "服务端核app/SKU/OS资格",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F16"
+      ]
+    },
+    {
+      "id": "P07-API14",
+      "method": "GET",
+      "path": "/v1/p07/orders/{id}",
+      "name": "查原订单及必要通道核对",
+      "request_contract": "order_id",
+      "response_contract": "payment/refund/fulfillment/amount_unit",
+      "guards": "客户端success非到账",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F19",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "P07-API15",
+      "method": "POST",
+      "path": "/v1/p07/orders/{id}/refund-requests",
+      "name": "原渠道退款申请",
+      "request_contract": "reason/operation_reference",
+      "response_contract": "refund_request/status",
+      "guards": "申请非到账；实际可退按通道核实",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F19"
+      ]
+    },
+    {
+      "id": "P07-API16",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/runs",
+      "name": "实付后启动或找回批量执行",
+      "request_contract": "session_id/contract_id/order_id/confirmed_plan_hash",
+      "response_contract": "run_id/status",
+      "guards": "服务端CONFIRMED原实付且所有hash一致；拒绝free_grant；Run在此后创建",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F17"
+      ]
+    },
+    {
+      "id": "P07-API17",
+      "method": "GET",
+      "path": "/v1/p07/runs/{id}",
+      "name": "获取当前工作区状态",
+      "request_contract": "run_id",
+      "response_contract": "axes/versions/budget/window/allowed_actions",
+      "guards": "父子run/结果区分",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F05",
+        "P07-F07",
+        "P07-F08",
+        "P07-F09",
+        "P07-F10",
+        "P07-F11",
+        "P07-F12",
+        "P07-F17",
+        "P07-F23",
+        "P07-F24",
+        "P07-F33",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "P07-API18",
+      "method": "GET",
+      "path": "/v1/p07/tasks/{id}/schema-proposal",
+      "name": "读取付费前规范方案",
+      "request_contract": "run_id",
+      "response_contract": "proposal/coverage/preview/unmapped",
+      "guards": "READY后的本任务会话，未销毁，仅可读当前提案",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F29",
+        "P07-F30",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "P07-API19",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/schema-proposal/revisions",
+      "name": "付费前调整规范与处理策略",
+      "request_contract": "expected_proposal_version/instruction或patch",
+      "response_contract": "new_proposal/change_preview",
+      "guards": "新plan版本、旧确认/未付quote失效；调整返回S3/S4",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F30",
+        "P07-F31",
+        "P07-F35"
+      ]
+    },
+    {
+      "id": "P07-API20",
+      "method": "POST",
+      "path": "/v1/p07/tasks/{id}/schema-adoptions",
+      "name": "报价前采用确切规范",
+      "request_contract": "expected_proposal/source_set/goal",
+      "response_contract": "binding_id/schema_version",
+      "guards": "PROVIDED/DISCOVER均在报价前采用FULL规范；不依赖已付Run，不触发批量",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F30",
+        "P07-F35"
+      ]
+    },
+    {
+      "id": "P07-API21",
+      "method": "GET",
+      "path": "/v1/p07/runs/{id}/records",
+      "name": "记录卡/选列表格分页",
+      "request_contract": "result_version/cursor/filters/fields",
+      "response_contract": "records/counts/next_cursor",
+      "guards": "cursor绑定快照，最大100条",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F05",
+        "P07-F07",
+        "P07-F08",
+        "P07-F09",
+        "P07-F10",
+        "P07-F11",
+        "P07-F12",
+        "P07-F13",
+        "P07-F18",
+        "P07-F36"
+      ]
+    },
+    {
+      "id": "P07-API22",
+      "method": "GET",
+      "path": "/v1/p07/runs/{id}/issues",
+      "name": "问题分页与候选",
+      "request_contract": "result_version/cursor/severity/type",
+      "response_contract": "issues/affected_records",
+      "guards": "问题数与记录数分开",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F18",
+        "P07-F36"
+      ]
+    },
+    {
+      "id": "P07-API23",
+      "method": "GET",
+      "path": "/v1/p07/evidence/{id}",
+      "name": "按需读取依据",
+      "request_contract": "evidence_id",
+      "response_contract": "excerpt/coordinates/authorized_page",
+      "guards": "原件到期410；可用摘录另标期限",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F13",
+        "P07-F18"
+      ]
+    },
+    {
+      "id": "P07-API24",
+      "method": "POST",
+      "path": "/v1/p07/runs/{id}/decision-previews",
+      "name": "提交前校值/影响范围",
+      "request_contract": "expected_result_version/decisions/scope",
+      "response_contract": "preview_id/hash/affected/exceptions",
+      "guards": "未预选决定，范围必须确切",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F27",
+        "P07-F36"
+      ]
+    },
+    {
+      "id": "P07-API25",
+      "method": "POST",
+      "path": "/v1/p07/runs/{id}/decisions",
+      "name": "为结果调整创建新会话入口",
+      "request_contract": "preview_id/hash/expected_result_version",
+      "response_contract": "operation_id/new_session_id/revision_intent_id",
+      "guards": "新session先完整预载；带用户选择的父结果另行输入，再确认估费及核实实付权益，不复活旧container",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F27",
+        "P07-F36"
+      ]
+    },
+    {
+      "id": "P07-API26",
+      "method": "GET",
+      "path": "/v1/p07/operations/{id}",
+      "name": "查询未知写动作",
+      "request_contract": "operation_id",
+      "response_contract": "operation/status/resource/current_version",
+      "guards": "只能本人，查不会重复执行",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F27",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "P07-API27",
+      "method": "POST",
+      "path": "/v1/p07/runs/{id}/revisions",
+      "name": "查询或继续新会话中的修订意图",
+      "request_contract": "decision_batch_id/expected_result_version",
+      "response_contract": "existing_operation或authorized_retry",
+      "guards": "同意图幂等；符合S1—S7与实付权益后才建child Run；关闭的环境不可恢复",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F23",
+        "P07-F27",
+        "P07-F31"
+      ]
+    },
+    {
+      "id": "P07-API28",
+      "method": "GET",
+      "path": "/v1/p07/runs/{id}/artifacts",
+      "name": "指定结果9文件元信息",
+      "request_contract": "result_version",
+      "response_contract": "artifact_set/hash/expires/quality",
+      "guards": "原子发布，不把草案当正式包",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F18",
+        "P07-F32",
+        "P07-F38"
+      ]
+    },
+    {
+      "id": "P07-API29",
+      "method": "POST",
+      "path": "/v1/p07/artifacts/{id}/download-link",
+      "name": "权限内短链",
+      "request_contract": "artifact_id/expected_result_version",
+      "response_contract": "signed_url/ttl_seconds/hash",
+      "guards": "结果存储独立于运行环境，短链过期可重签；环境销毁不撤结果下载",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F38"
+      ]
+    },
+    {
+      "id": "P07-API30",
+      "method": "POST",
+      "path": "/v1/p07/runs/{id}/cancel",
+      "name": "取消与发布竞态裁决",
+      "request_contract": "expected_run_version/reason",
+      "response_contract": "operation_id/resolved_status",
+      "guards": "终态不反转，退款单独查",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F19"
+      ]
+    },
+    {
+      "id": "P07-API31",
+      "method": "POST",
+      "path": "/v1/p07/orders/{id}/tickets",
+      "name": "提交售后请求",
+      "request_contract": "category/note/content_access_opt_in",
+      "response_contract": "ticket_id/status",
+      "guards": "默认最小摘要，正文另授权",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F19"
+      ]
+    },
+    {
+      "id": "P07-API32",
+      "method": "POST",
+      "path": "/v1/p07/private-templates",
+      "name": "主动另存去事实规范",
+      "request_contract": "binding_id/name/policy_consent",
+      "response_contract": "template_id/version",
+      "guards": "结果规范主动另存去事实；独立持久对象不随container销毁",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F32",
+        "P07-F39"
+      ]
+    },
+    {
+      "id": "P07-API33",
+      "method": "POST",
+      "path": "/v1/p07/artifacts/{id}/export-attempts",
+      "name": "记录设备取用观察",
+      "request_contract": "observed_action/receipt_source/env",
+      "response_contract": "export_attempt_id",
+      "guards": "用户确认与平台回执区分",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F38"
+      ]
+    },
+    {
+      "id": "P07-API34",
+      "method": "GET",
+      "path": "/v1/p07/private-templates",
+      "name": "本人模板列表/版本摘要",
+      "request_contract": "cursor/query",
+      "response_contract": "templates/next_cursor",
+      "guards": "详情/复制/新版本/删除使用配套资源方法",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F39"
+      ]
+    },
+    {
+      "id": "P07-API35",
+      "method": "GET",
+      "path": "/v1/p07/privacy/policies",
+      "name": "告知用途/处理方/期限",
+      "request_contract": "environment/policy_version",
+      "response_contract": "policy/processors/retention",
+      "guards": "服务商未知不宣称零留存",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F20"
+      ]
+    },
+    {
+      "id": "P07-API36",
+      "method": "POST",
+      "path": "/v1/p07/privacy/consents",
+      "name": "记录必要处理同意/撤销",
+      "request_contract": "policy_version/scopes/action",
+      "response_contract": "consent_id/effect",
+      "guards": "系统平台授权独立，不用自写记录替代",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F20"
+      ]
+    },
+    {
+      "id": "P07-API37",
+      "method": "POST",
+      "path": "/v1/p07/data-deletion-requests",
+      "name": "分范围删除/注销",
+      "request_contract": "resource_scope/confirmation",
+      "response_contract": "deletion_job/status/retained_categories",
+      "guards": "已付履约/退款影响先说明，立即撤内容访问",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F20"
+      ]
+    },
+    {
+      "id": "P07-API38",
+      "method": "POST",
+      "path": "/v1/p07/account-binding-challenges",
+      "name": "可选跨端绑定挑战",
+      "request_contract": "current_verified_identity/target_provider",
+      "response_contract": "challenge_id/expiry",
+      "guards": "未获准/未实现默认关闭",
+      "priority": "P1_OPTIONAL",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F40"
+      ]
+    },
+    {
+      "id": "P07-API39",
+      "method": "GET",
+      "path": "/v1/p07/release-capabilities",
+      "name": "内部能力证据/开关查询",
+      "request_contract": "operator_auth/environment",
+      "response_contract": "evidence/gates/effective_flags",
+      "guards": "仅内部最小权限，不公开商户材料",
+      "priority": "P0_INTERNAL",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F41"
+      ]
+    },
+    {
+      "id": "P07-API40",
+      "method": "POST",
+      "path": "/v1/p07/projects/{id}/source-increments",
+      "name": "增量协作范围",
+      "request_contract": "expected_project_version/new_sources",
+      "response_contract": "impact/new_contract",
+      "guards": "P1另定成员和计费",
+      "priority": "P1",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F21"
+      ]
+    },
+    {
+      "id": "P07-API41",
+      "method": "GET",
+      "path": "/v1/p07/format-capabilities",
+      "name": "P1复杂格式说明",
+      "request_contract": "format/mode",
+      "response_contract": "support/limits/price_contract",
+      "guards": "未测试不可售",
+      "priority": "P1",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F22"
+      ]
+    },
+    {
+      "id": "P07-API42",
+      "method": "POST",
+      "path": "/v1/p07/open-api/runs",
+      "name": "开发者付费异步处理",
+      "request_contract": "ready_agent_session_id/confirmed_plan/paid_order",
+      "response_contract": "async_run/settlement_reference",
+      "guards": "P1亦须完整会话预载、确认估费与实付后生产，不提供绕过S1—S7的入口",
+      "priority": "P1",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F28"
+      ]
+    },
+    {
+      "id": "P07-API43",
+      "method": "GET",
+      "path": "/v1/p07/web/workspaces/{id}",
+      "name": "P1大屏同领域投影",
+      "request_contract": "verified_web_session/task_id",
+      "response_contract": "panels/versions/actions",
+      "guards": "不作受限小程序收银跳板",
+      "priority": "P1",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F42"
+      ]
+    },
+    {
+      "id": "P07-API44",
+      "method": "GET",
+      "path": "/v1/p07/tasks",
+      "name": "任务列表",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F18",
+        "P07-F24",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "P07-API45",
+      "method": "GET",
+      "path": "/v1/p07/tasks/{id}",
+      "name": "任务详情与恢复指针",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F18",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "P07-API46",
+      "method": "DELETE",
+      "path": "/v1/p07/tasks/{id}/sources/{source_id}",
+      "name": "仅草稿移除源/冻结后走新范围",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F25",
+        "P07-F34"
+      ]
+    },
+    {
+      "id": "P07-API47",
+      "method": "GET",
+      "path": "/v1/p07/private-templates/{id}",
+      "name": "模板详情",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F32",
+        "P07-F39"
+      ]
+    },
+    {
+      "id": "P07-API48",
+      "method": "POST",
+      "path": "/v1/p07/private-templates/{id}/versions",
+      "name": "新模板版本或复制",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F32",
+        "P07-F39"
+      ]
+    },
+    {
+      "id": "P07-API49",
+      "method": "DELETE",
+      "path": "/v1/p07/private-templates/{id}",
+      "name": "删除模板未来复用权限",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F39"
+      ]
+    },
+    {
+      "id": "P07-API50",
+      "method": "GET",
+      "path": "/v1/p07/data-deletion-requests/{id}",
+      "name": "删除进度与仍保留类别",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F26"
+      ]
+    },
+    {
+      "id": "P07-API51",
+      "method": "GET",
+      "path": "/v1/p07/orders",
+      "name": "本人订单列表",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F16",
+        "P07-F40"
+      ]
+    },
+    {
+      "id": "P07-API52",
+      "method": "POST",
+      "path": "/v1/p07/support/tickets",
+      "name": "无订单的一般帮助",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F18",
+        "P07-F20",
+        "P07-F38"
+      ]
+    },
+    {
+      "id": "P07-API53",
+      "method": "POST",
+      "path": "/v1/p07/platform-events/{provider}",
+      "name": "原始验签交易/退款回调，非消费者会话",
+      "request_contract": "资源ID、必要输入、幂等键和适用expected_version；回调为平台原始载荷",
+      "response_contract": "资源/operation_id及当前状态，错误含request_id",
+      "guards": "服务端归属与能力；平台事件独立验签/去重/对账",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F16",
+        "P07-F19",
+        "P07-F41"
+      ]
+    },
+    {
+      "id": "P07-API54",
+      "method": "POST",
+      "path": "/v1/p07/agent-sessions",
+      "name": "先建会话并完整加载Skill",
+      "request_contract": "client_request_id/skill_release_id；不得含客户资料",
+      "response_contract": "session_id/INITIALIZING/operation_id",
+      "guards": "owner/当前阶段/幂等；完整预载失败不接收资料；销毁只作用运行环境，结果另存",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F24",
+        "P07-F26"
+      ]
+    },
+    {
+      "id": "P07-API55",
+      "method": "GET",
+      "path": "/v1/p07/agent-sessions/{id}",
+      "name": "查会话阶段与加载清理证明",
+      "request_contract": "session_id",
+      "response_contract": "session_status/skill_manifest_hash/preload_receipt/result_ref/cleanup_status",
+      "guards": "owner/当前阶段/幂等；完整预载失败不接收资料；销毁只作用运行环境，结果另存",
+      "priority": "P0",
+      "idempotency_required": false,
+      "version_check_required": false,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F17",
+        "P07-F20",
+        "P07-F37"
+      ]
+    },
+    {
+      "id": "P07-API56",
+      "method": "POST",
+      "path": "/v1/p07/agent-sessions/{id}/close",
+      "name": "终止并销毁任务运行环境",
+      "request_contract": "expected_version/reason",
+      "response_contract": "cleanup_operation/result_preserved",
+      "guards": "owner/当前阶段/幂等；完整预载失败不接收资料；销毁只作用运行环境，结果另存",
+      "priority": "P0",
+      "idempotency_required": true,
+      "version_check_required": true,
+      "status": "DESIGNED_NOT_IMPLEMENTED",
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F20",
+        "P07-F26"
+      ]
+    }
+  ],
+  "workflow_contract": "P07-FLOW-7-1",
+  "compatibility_note": "Draft contract revision, not a deployed API. API18—20 moved from run to task because adoption is now before payment/Run creation; clients must regenerate."
+}

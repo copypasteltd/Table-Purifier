@@ -1,0 +1,78 @@
+{
+  "version": "P07-TOOLS-3",
+  "status": "INTERFACE_DESIGN_NOT_IMPLEMENTED",
+  "selection_owner": "CODEX_AGENT",
+  "binding": "Trusted installed CLI helpers; optional local MCP server can expose the same tools. Not codex mcp-server.",
+  "tool_calls_are_not_jobs": true,
+  "common_inputs": [
+    "workspace_id",
+    "attempt_id",
+    "fence",
+    "authorized_resource_refs",
+    "remaining_budget"
+  ],
+  "common_outputs": [
+    "relative_output_refs",
+    "content_hashes",
+    "source_locators",
+    "usage",
+    "limitations",
+    "retry_class"
+  ],
+  "tools": [
+    {
+      "name": "inspect_sources",
+      "contract": "Read authorized workspace inputs, signatures, sheets/pages and content samples; can invoke installed readers.",
+      "authority": "READ"
+    },
+    {
+      "name": "measure_scope",
+      "contract": "Trusted deterministic unitizer and size/hash meter; Agent consumes signed counts, cannot change billing scope.",
+      "authority": "READ"
+    },
+    {
+      "name": "read_document",
+      "contract": "Optional text/PDF/DOCX/XLSX readers; one method among those Agent may choose.",
+      "authority": "READ"
+    },
+    {
+      "name": "render_or_ocr",
+      "contract": "Optional page render/image/OCR tool with preserved page/bbox; allowed units only.",
+      "authority": "READ_AND_USAGE"
+    },
+    {
+      "name": "run_generated_script",
+      "contract": "Agent writes and runs Python/Node cleaning code inside workspace; no execution of uploaded code/macros.",
+      "authority": "WORKSPACE_WRITE"
+    },
+    {
+      "name": "write_candidates",
+      "contract": "Write proposals, evidence/lineage/coverage ledgers and all nine candidate artifacts.",
+      "authority": "WORKSPACE_WRITE"
+    },
+    {
+      "name": "validate_candidates",
+      "contract": "Call read-only trusted validator, receive checks/issues; Agent may repair its candidate files.",
+      "authority": "READ_AND_REPORT"
+    },
+    {
+      "name": "record_checkpoint",
+      "contract": "Request durable snapshot of already-written files; host verifies hashes and current lease.",
+      "authority": "REQUEST_ONLY"
+    }
+  ],
+  "no_tools_for": [
+    "payment",
+    "refund",
+    "database_sql",
+    "global_filesystem",
+    "schema_adoption",
+    "direct_publication",
+    "unrestricted_network",
+    "destroy_runtime",
+    "set_price",
+    "assert_payment_confirmed"
+  ],
+  "toolkit_role": "Capability library only; Agent can inspect, choose, combine and write custom transformations. Independent validator is outside its write permission.",
+  "phase_gate": "ANALYZE/ADJUST output analysis+plan+max5 previews only; full artifact build requires verified BATCH/REPAIR permit."
+}

@@ -1,0 +1,62 @@
+{
+  "name": "p07-table-station",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "支付宝、抖音资料成表小程序与 Codex Agent 服务",
+  "engines": {
+    "node": ">=22.14.0 <27"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    }
+  },
+  "scripts": {
+    "dev:api": "tsx watch src/api/main.ts",
+    "dev:worker": "tsx watch src/worker/main.ts",
+    "start:api": "node dist/api/main.js",
+    "start:worker": "node dist/worker/main.js",
+    "db:dev": "tsx scripts/dev-database.ts",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "contracts:generate": "tsx scripts/generate-contracts.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "build:miniapps": "tsx scripts/build-miniapps.ts",
+    "docs:preview": "node docs/preview/server.mjs",
+    "docs:capture": "node scripts/capture-docs.mjs",
+    "docs:media": "node scripts/build-doc-media.mjs",
+    "docs:verify": "node scripts/verify-repository-docs.mjs",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@fastify/cors": "11.3.1",
+    "@fastify/helmet": "13.2.0",
+    "@fastify/multipart": "10.1.6",
+    "@fastify/static": "10.1.8",
+    "@openai/codex-sdk": "0.164.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "decimal.js": "10.6.0",
+    "dotenv": "18.0.9",
+    "exceljs": "4.4.0",
+    "fastify": "5.12.7",
+    "file-type": "22.2.0",
+    "pg": "8.23.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "embedded-postgres": "18.4.0-beta.17",
+    "esbuild": "0.28.2",
+    "openapi-typescript": "7.13.0",
+    "playwright": "1.64.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  }
+}

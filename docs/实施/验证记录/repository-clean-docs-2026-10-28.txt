@@ -1,0 +1,14 @@
+
+> p07-table-station@0.1.0 docs:verify
+> node scripts/verify-repository-docs.mjs
+
+{
+  "status": "PASS",
+  "checks_passed": 555,
+  "checks_failed": 0,
+  "links_checked": 159,
+  "captured_pages": 36,
+  "media_files": 43,
+  "errors": [],
+  "scope": "Local documentation links, bilingual contracts, source hashes and media integrity only; no live integrations."
+}

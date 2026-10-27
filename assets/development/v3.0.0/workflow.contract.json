@@ -1,0 +1,57 @@
+{
+  "workflow_id": "P07-FLOW-7-1",
+  "business_baseline": "v3.2",
+  "development_baseline": "P07-DEV 3.0.0",
+  "status": "DESIGNED_NOT_IMPLEMENTED",
+  "steps": [
+    {
+      "id": "S1",
+      "label": "创建会话并完整预加载Skill"
+    },
+    {
+      "id": "S2",
+      "label": "用户提交信息"
+    },
+    {
+      "id": "S3",
+      "label": "Agent分析资料与形成方案"
+    },
+    {
+      "id": "S4",
+      "label": "用户确认或调整"
+    },
+    {
+      "id": "S5",
+      "label": "预估计费"
+    },
+    {
+      "id": "S6",
+      "label": "付费后批量产出"
+    },
+    {
+      "id": "S7",
+      "label": "持久保存结果后释放Agent并销毁任务运行环境"
+    }
+  ],
+  "all_new_processing_entries": [
+    "ALIPAY",
+    "DOUYIN",
+    "WEB_P1",
+    "OPEN_API_P1",
+    "POST_RESULT_REWORK"
+  ],
+  "skill_loading": "EAGER_FULL_BEFORE_CUSTOMER_INPUT",
+  "analysis": "FULL_SUBMITTED_SCOPE_BEFORE_CONFIRMATION_AND_QUOTE",
+  "preview_records_max": 5,
+  "confirmation_before_quote": true,
+  "consumer_batch_requires_confirmed_payment": true,
+  "free_grant_bypass": false,
+  "result_files_auto_delete": false,
+  "runtime_destruction": "AFTER_DURABLE_RESULT_PUBLICATION",
+  "container_definition": "Per-task isolated native execution environment: Agent/process tree, session state, inputs, code, scratch, logs and controlled copies. No local Docker/WSL/VM/MXC.",
+  "result_store": "INDEPENDENT_OF_RUNTIME",
+  "source_originals_after_cleanup": "NOT_RETAINED_OR_RECONSTRUCTED",
+  "result_evidence": "Self-contained necessary excerpts and locators in results; no full source archive disguised as provenance.",
+  "revision": "NEW_SESSION_EAGER_FULL; never resurrect destroyed runtime; exact original payment coverage may apply to platform correction.",
+  "abort": "Cancel/init failure/confirmed failure/unpaid idle expiry also trigger stop/cleanup; preserve any already-published results."
+}

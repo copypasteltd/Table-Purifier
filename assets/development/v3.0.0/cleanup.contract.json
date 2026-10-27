@@ -1,0 +1,46 @@
+{
+  "version": "P07-RUNTIME-CLEANUP-1",
+  "trigger": "DURABLE_RESULT_PUBLISHED or confirmed abort/failure/idle expiry",
+  "result_preservation_required": true,
+  "destroyed_runtime_cannot_resume": true,
+  "sequence": [
+    "freeze result set and independent destination keys",
+    "copy all nine files; hash/readback; verify durable storage commit",
+    "atomically commit result pointer plus cleanup outbox",
+    "fence runtime and stop Codex/tool process tree",
+    "revoke task mounts, scoped credentials and thread continuation",
+    "delete inputs, context, work, scripts, scratch, raw logs, checkpoints and controlled spill copies",
+    "delete task-scoped session/trace contents, purge non-result DB content/projections and caches",
+    "verify no live writers or remaining controlled runtime content",
+    "record minimal cleanup receipt; session CLOSED; result downloads remain authorized"
+  ],
+  "delete": [
+    "original uploads/quarantine copies",
+    "Agent/session prompt/output body",
+    "Codex task session files",
+    "generated scripts",
+    "OCR/text extraction caches",
+    "intermediate/analysis/preview data",
+    "workspace/checkpoints",
+    "stdout/stderr body",
+    "task temporary files and controlled backup/spill copies"
+  ],
+  "preserve": [
+    "nine final result files in independent result store",
+    "result-scoped record/issue/provenance projections",
+    "minimal result ownership/hash metadata",
+    "explicitly saved private templates",
+    "minimal order/payment and cleanup receipts"
+  ],
+  "result_path_must_not_be_under_runtime_workspace": true,
+  "forbidden": [
+    "delete project runtime root",
+    "delete shared skill/runtime binaries",
+    "delete persistent results",
+    "claim wiped on request accepted",
+    "restore source context from backup after CLOSED"
+  ],
+  "failure": "Keep cleanup PENDING/FAILED and retry with alert. Result READY is independent; do not charge/reproduce again.",
+  "provider_scope": "Local/controlled copies require actual deletion evidence; provider retention per verified agreement, not an unsupported zero-retention claim.",
+  "execution_status": "NOT_RUN"
+}

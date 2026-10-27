@@ -1,0 +1,15 @@
+<view class="hero">把零散资料，<view>整理成一张好表。</view></view>
+<view class="muted">有规范，照规范整理。没有规范，先帮你梳理。</view>
+<b-progress title="整理会话" text="{{phase}}"/>
+<button p:if="{{!session||session.status==='CLOSED'||session.status==='FAILED'||session.status==='INITIALIZATION_FAILED'||session.status==='CANCELED'}}" class="button primary" data-action="new" onTap="onAction" disabled="{{loading}}">新建整理会话</button>
+<view p:if="{{ready}}">
+ <b-folder title="我的资料"><view p:if="{{!sources.length}}" class="muted">添加文字、图片或当前环境支持的文件。</view><b-source p:for="{{sources}}" p:key="source_id" title="{{item.name}}" text="已接收 · {{item.bytes}} 字节"/>
+  <button class="button" data-action="go-MP02" onTap="onAction">添加与管理资料</button></b-folder>
+ <b-heading title="规范从哪里来"/>
+ <view class="split"><view><b-mode title="帮我生成规范" text="先分析资料，再由你确认" selected="{{mode==='DISCOVER'}}" action="mode-discover" onAction="onAction"/></view><view><b-mode title="我有规范" text="使用已有字段或规范文件" selected="{{mode==='PROVIDED'}}" action="mode-provided" onAction="onAction"/></view></view>
+ <b-input title="这张表用来做什么（选填）" text="说明用途有助于判断字段，一行代表什么由你确认。"><input value="{{goal}}" disabled="{{!!task}}" maxlength="1000" data-field="goal" onInput="onInput" placeholder="例如：汇总报名信息，一人一行"/></b-input>
+ <button p:if="{{mode==='PROVIDED'}}" class="button" data-action="go-MP03" onTap="onAction">提供规范</button>
+ <b-actions><button class="button primary" data-action="analyze" onTap="onAction" disabled="{{loading||!sources.length}}">分析全部资料</button></b-actions>
+</view>
+<b-capability p:if="{{capability&&!capability.flags.file_input}}" title="当前文件入口受限" text="可先粘贴文字。文件入口按实际平台能力开放。"/>
+<button class="button" data-action="go-MP17" onTap="onAction">资料用途与保存说明</button>

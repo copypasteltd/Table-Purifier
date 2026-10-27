@@ -1,0 +1,230 @@
+{
+  "development_baseline": "P07-DEV 1.0.0",
+  "status": "DESIGNED_NOT_IMPLEMENTED",
+  "budget": {
+    "source_files": 10,
+    "source_single_bytes": 20000000,
+    "source_total_bytes": 50000000,
+    "template_bytes": 5000000,
+    "text_codepoints": 50000,
+    "processing_units": 50,
+    "target_fields": 50,
+    "candidate_records": 1000,
+    "compute_seconds_max": 900,
+    "stage_auto_retries_max": 1
+  },
+  "clock": "one active compute lease per processing contract; cumulative active elapsed ms including provider wait; queue/user wait excluded",
+  "retry_max": 1,
+  "stages": [
+    {
+      "stage": "RECEIVE",
+      "input": "已授权上传或文字",
+      "output": "原件/hash/source_id",
+      "executor": "API",
+      "retry_guard": "同摘要/许可安全重传",
+      "exit_projection": "RECEIVED",
+      "work_package": "W03",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "PREFLIGHT",
+      "input": "当前源集/用途",
+      "output": "可读性/计量/局部建议",
+      "executor": "JOB",
+      "retry_guard": "最多3单元语义分析，非完整免费整理",
+      "exit_projection": "NOT_REQUIRED_YET",
+      "work_package": "W03",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "PARSE",
+      "input": "确认合同与源集",
+      "output": "SourceUnit/parse_manifest/范围账本",
+      "executor": "JOB",
+      "retry_guard": "临时错误且预算允许，最多一次",
+      "exit_projection": "RUNNING",
+      "work_package": "W03",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "ANALYZE",
+      "input": "全确认单元/源角色",
+      "output": "对象/主题/字段候选/重要未映射",
+      "executor": "JOB",
+      "retry_guard": "可查询或安全幂等外部调用",
+      "exit_projection": "RUNNING",
+      "work_package": "W04",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "PROPOSE",
+      "input": "DISCOVER全量分析",
+      "output": "FULL_DRAFT/proposal/preview",
+      "executor": "JOB",
+      "retry_guard": "按provider request查回，不能无限重发",
+      "exit_projection": "WAITING_SCHEMA",
+      "work_package": "W04",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "ADOPT",
+      "input": "FULL proposal精确源/用途/版本",
+      "output": "immutable binding + job",
+      "executor": "API",
+      "retry_guard": "同键返回原binding，旧版本409",
+      "exit_projection": "QUEUED",
+      "work_package": "W04",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "EXTRACT",
+      "input": "binding+确认源+批准decisions",
+      "output": "候选/字段/raw/value/evidence/lineage",
+      "executor": "JOB",
+      "retry_guard": "检查点与provider调用去重",
+      "exit_projection": "RUNNING",
+      "work_package": "W05",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "VALIDATE",
+      "input": "binding/候选/证据/coverage",
+      "output": "六维报告/issues/候选去向",
+      "executor": "JOB",
+      "retry_guard": "确定性重跑，不新增事实/删规范",
+      "exit_projection": "RUNNING",
+      "work_package": "W06",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "BUILD",
+      "input": "同结果与规范",
+      "output": "staging九文件/readback/hash",
+      "executor": "JOB",
+      "retry_guard": "未公开半包可新attempt；预算共享",
+      "exit_projection": "RUNNING",
+      "work_package": "W06",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    },
+    {
+      "stage": "PUBLISH",
+      "input": "9文件检查完成+当前fence/epoch",
+      "output": "READY/result pointer/轮次消费/outbox",
+      "executor": "TRANSACTION",
+      "retry_guard": "重复返回同一发布，删除取消先胜则拒绝",
+      "exit_projection": "SUCCEEDED",
+      "work_package": "W06",
+      "checkpoint_keys": [
+        "source_set_sha256",
+        "binding_sha256",
+        "parser_version",
+        "model_version",
+        "prompt_version",
+        "rule_version",
+        "input_sha256",
+        "output_sha256",
+        "usage",
+        "attempt_id"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,554 @@
+{
+  "protocol": "P07-DOCUMENTATION-MEDIA-1",
+  "captured_at": "2026-10-27T21:21:08.629Z",
+  "preview": "Actual native templates/components/controller rendered by documentation-only browser adapters; all data and server/payment/Agent/cleanup states are synthetic.",
+  "live_codex": "NOT_RUN",
+  "native_devices": "NOT_RUN",
+  "real_payments": "NOT_RUN",
+  "ubuntu_cleanup": "NOT_RUN",
+  "browser_closed": true,
+  "source_files": [
+    {
+      "path": "miniapp/src/controller.js",
+      "sha256": "edd3c8c6ec4efdd77de3b6723c653aceb65c05463f521990d7904011e9209f4c"
+    },
+    {
+      "path": "miniapp/src/components.js",
+      "sha256": "fc69bbae15a2d97fbd2cb14c61a9f887e4e0292238566ee6358903483026ede9"
+    },
+    {
+      "path": "miniapp/src/theme.css",
+      "sha256": "df41dfa996b94cacab7068014c3916c586c04186b01d7af331166cd6a9669c9a"
+    },
+    {
+      "path": "miniapp/src/pages/MP01.xml",
+      "sha256": "dbad36043fa92e90ba126d11be7c163e4d8e0a4cece3ac80c1efccec3c4a21ff"
+    },
+    {
+      "path": "miniapp/src/pages/MP02.xml",
+      "sha256": "bbdf0dcfe0fb06a0d554b6fb8b0733adebd35bf719b599cfa158c27a907d56ce"
+    },
+    {
+      "path": "miniapp/src/pages/MP03.xml",
+      "sha256": "5016d6dd2983f0a821df51ccbba5904b96339e7d1c777c48298c1871091c629b"
+    },
+    {
+      "path": "miniapp/src/pages/MP04.xml",
+      "sha256": "cb03c957db50f72f7200b5816ef504cd440261b877cb986b4b296a92a2f0c4ed"
+    },
+    {
+      "path": "miniapp/src/pages/MP05.xml",
+      "sha256": "18183e429b8d1aa949281dff6e7269410f523e9b818fe0d0fc326791d968bbfa"
+    },
+    {
+      "path": "miniapp/src/pages/MP06.xml",
+      "sha256": "ef0c887518643146e4793f358452b8fbc775ffde160792284699afc82fcabba9"
+    },
+    {
+      "path": "miniapp/src/pages/MP07.xml",
+      "sha256": "963088b90ce4fc0c215270c492e07bad7a7253e9e5baee2a2cf96f10168f6a1f"
+    },
+    {
+      "path": "miniapp/src/pages/MP08.xml",
+      "sha256": "6bf539fe1822ba85962193f238ff12d3ac995773bed728ef53f407c14b56584f"
+    },
+    {
+      "path": "miniapp/src/pages/MP09.xml",
+      "sha256": "48e4d93431c472d0cf6a66411aa32870e2e0c393dadc094c64276f7722ecb4d8"
+    },
+    {
+      "path": "miniapp/src/pages/MP10.xml",
+      "sha256": "7736dc4f317a6b7f6a78d632ec044be934e56340d3c083d88c681b079cd6b117"
+    },
+    {
+      "path": "miniapp/src/pages/MP11.xml",
+      "sha256": "864880d9702742a9a024fbae57a48e22f853c5fc39ac20d1bcebe06c6dd0ca49"
+    },
+    {
+      "path": "miniapp/src/pages/MP12.xml",
+      "sha256": "7a0ff6712fd85f88d0e4fd5c5e6a333f32fbf2124b743ccf5b4196501003565d"
+    },
+    {
+      "path": "miniapp/src/pages/MP13.xml",
+      "sha256": "79ab668ddb17bad3c2fbfd1cd5e7ba3a8b1986b4c12090f1477111c0ebbc0989"
+    },
+    {
+      "path": "miniapp/src/pages/MP14.xml",
+      "sha256": "ce6d02a8d1d27913bf3faa30a991a36487b120cf9cdf54659e96e5c656dd3813"
+    },
+    {
+      "path": "miniapp/src/pages/MP15.xml",
+      "sha256": "1934891e901cf9d27bc53c7a5d8b9a4942f5d2dc473b2ca4bbda978f20515d3d"
+    },
+    {
+      "path": "miniapp/src/pages/MP16.xml",
+      "sha256": "4887584934f4665370b7e2753466e8f13c7819f157232c1662fd95e7418b3d8d"
+    },
+    {
+      "path": "miniapp/src/pages/MP17.xml",
+      "sha256": "4c0db4e39663a772df62eda2c5511181f44a7cb9d81e50c6b0410dbed514a304"
+    },
+    {
+      "path": "miniapp/src/pages/MP18.xml",
+      "sha256": "794d24f010c323b4f9a5aa9233f3346ce013b72328459dbe47c17adbf7febce4"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/media/screenshots/alipay/MP01.png",
+      "bytes": 47849,
+      "sha256": "92a3c8cbd690ffeb29d0dec694b93643a1a2d616ce3d6cecb8c9d2f712e9d87b",
+      "provider": "支付宝 · Alipay",
+      "page": "MP01",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP02.png",
+      "bytes": 39093,
+      "sha256": "f56afa09099dea777224de7ffff1de836e1f8964df871f26e781a6852d51e526",
+      "provider": "支付宝 · Alipay",
+      "page": "MP02",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP03.png",
+      "bytes": 41759,
+      "sha256": "23543a320162a755921866a00adfabea7942b3f90c963f25660633759854445a",
+      "provider": "支付宝 · Alipay",
+      "page": "MP03",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP04.png",
+      "bytes": 47026,
+      "sha256": "7007cccab644d180589af8d088269b44afc3d3c823ff1e00adaa3233ec7cea87",
+      "provider": "支付宝 · Alipay",
+      "page": "MP04",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP05.png",
+      "bytes": 21280,
+      "sha256": "f7e60c795bf918c07a36947daba86327f4de3dc926cf02938d135d9c75955e73",
+      "provider": "支付宝 · Alipay",
+      "page": "MP05",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP06.png",
+      "bytes": 48866,
+      "sha256": "45346c80e59fcc98cec13c4497d93eb9a19820d7575fa58f2e76f73c992df8b7",
+      "provider": "支付宝 · Alipay",
+      "page": "MP06",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP07.png",
+      "bytes": 37530,
+      "sha256": "8f600f48dc3997fd190d4f7756d8d880568440c9d2eb51d5dabb0ce43102496b",
+      "provider": "支付宝 · Alipay",
+      "page": "MP07",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP08.png",
+      "bytes": 36753,
+      "sha256": "cbd985f1a6a54634f690d925988cba3d2278399a763996186efefa064c25ed95",
+      "provider": "支付宝 · Alipay",
+      "page": "MP08",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP09.png",
+      "bytes": 28655,
+      "sha256": "18eda78678d695605674c34b5706f513bd52ab2d235f916201bd3ca9a045344f",
+      "provider": "支付宝 · Alipay",
+      "page": "MP09",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP10.png",
+      "bytes": 35398,
+      "sha256": "9fa101349e00eee605924b40b429765e57d7c4a6de194fa7178f0d038b3a0219",
+      "provider": "支付宝 · Alipay",
+      "page": "MP10",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP11.png",
+      "bytes": 24975,
+      "sha256": "58822d703af158fe3c349f69278d494481315a1926fa624efce9b5fb29b7beac",
+      "provider": "支付宝 · Alipay",
+      "page": "MP11",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP12.png",
+      "bytes": 37950,
+      "sha256": "dee22a012bc11b125294b55de7f5cf1a37d42f4ba235eb5089a0c7b1dedf6dc5",
+      "provider": "支付宝 · Alipay",
+      "page": "MP12",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP13.png",
+      "bytes": 21725,
+      "sha256": "31915d3ddf027d3810b2c53a3045c0d57f0ec483f02f482a93d9ba6da6c07c15",
+      "provider": "支付宝 · Alipay",
+      "page": "MP13",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP14.png",
+      "bytes": 29999,
+      "sha256": "7640319c434de0bf2cbc02f32b7f94b8406159a9ead2e1f7b30fb31df81f7f8e",
+      "provider": "支付宝 · Alipay",
+      "page": "MP14",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP15.png",
+      "bytes": 33073,
+      "sha256": "47ebe9aeef2c6ec410bccb98a66cc240abb1503af57b59211d94d1a2cc5f53b1",
+      "provider": "支付宝 · Alipay",
+      "page": "MP15",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP16.png",
+      "bytes": 35713,
+      "sha256": "6d8f024e3dc4644fab80f49d9bce9bef94591c11d5e092f01885cbe5afce006a",
+      "provider": "支付宝 · Alipay",
+      "page": "MP16",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP17.png",
+      "bytes": 54122,
+      "sha256": "c62d7ad687b7a06d412abe4b313b89af7c8f37047820e9fd57c008a17ce39371",
+      "provider": "支付宝 · Alipay",
+      "page": "MP17",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/alipay/MP18.png",
+      "bytes": 34015,
+      "sha256": "6b50cac245156d738a3a0cb1c75503cde550c0f558fa72c9c20cbf776338ce1b",
+      "provider": "支付宝 · Alipay",
+      "page": "MP18",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP01.png",
+      "bytes": 47736,
+      "sha256": "716959c1c9208d1e4b3d33f6f3a23f5d771c51fba96056d81560a71e7483e890",
+      "provider": "抖音 · Douyin",
+      "page": "MP01",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP02.png",
+      "bytes": 38992,
+      "sha256": "5dd5f14f81429e55b36457b8598c6ae1fa9c586fe75d820bf7c8ea40b592b779",
+      "provider": "抖音 · Douyin",
+      "page": "MP02",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP03.png",
+      "bytes": 41647,
+      "sha256": "b7c42e7acfed333389951eae84db93ba11bddaa45ee3ec88f01ceff22752eea4",
+      "provider": "抖音 · Douyin",
+      "page": "MP03",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP04.png",
+      "bytes": 46258,
+      "sha256": "cc47c01af7684334e9c45dd4bd06a0d8adab74aa460481025d8e6eca51704c8f",
+      "provider": "抖音 · Douyin",
+      "page": "MP04",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP05.png",
+      "bytes": 21164,
+      "sha256": "ebcc4e7a9fda72d27b4740bef6dbf77168eb66c4743347ec3a5040623d12fd43",
+      "provider": "抖音 · Douyin",
+      "page": "MP05",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP06.png",
+      "bytes": 48735,
+      "sha256": "a87274e4d18c7e1776ea0f8569ef70ded418c7db6c3fc9177901acd29440f9ad",
+      "provider": "抖音 · Douyin",
+      "page": "MP06",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP07.png",
+      "bytes": 37415,
+      "sha256": "f0214966e18b6c1e128e03c63566312cb1834ce21ac6d83080c99e56d379abf4",
+      "provider": "抖音 · Douyin",
+      "page": "MP07",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP08.png",
+      "bytes": 36640,
+      "sha256": "bc8f3dcf7c00ac1474b3da11aa83cea2193439ffa71c8699392cf766e2b79aa9",
+      "provider": "抖音 · Douyin",
+      "page": "MP08",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP09.png",
+      "bytes": 28537,
+      "sha256": "034537f986ef344108cb4463dec09faa2a1dfc1e48ee71a319dbf5de5268a6de",
+      "provider": "抖音 · Douyin",
+      "page": "MP09",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP10.png",
+      "bytes": 35280,
+      "sha256": "a2ec40e73bf378beda5efb3fae72844ab18d377990095e5e3ac5487f47b00abb",
+      "provider": "抖音 · Douyin",
+      "page": "MP10",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP11.png",
+      "bytes": 24862,
+      "sha256": "051f255a6cf510451ef5048e94c362b6c773cd067d884ef5bc720d8a4b71413b",
+      "provider": "抖音 · Douyin",
+      "page": "MP11",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP12.png",
+      "bytes": 37833,
+      "sha256": "d352d1f84165088bb7fe048becd91821d47828ea02ecd64073f3251682147c76",
+      "provider": "抖音 · Douyin",
+      "page": "MP12",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP13.png",
+      "bytes": 21603,
+      "sha256": "d39086a7e8e9ec79a420aa0d5981ceb5d61ede8c7db9ffdb1839d8cb881db89b",
+      "provider": "抖音 · Douyin",
+      "page": "MP13",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP14.png",
+      "bytes": 29882,
+      "sha256": "1c162e0eea8664f77cda2ff9a5f430c9c11242ec226d969529dab33e39412749",
+      "provider": "抖音 · Douyin",
+      "page": "MP14",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP15.png",
+      "bytes": 32704,
+      "sha256": "1e0235cebeffcb36d7ddbaa32d1044b57b1a4cb417e6c2e5b5d53f7da610b591",
+      "provider": "抖音 · Douyin",
+      "page": "MP15",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP16.png",
+      "bytes": 34952,
+      "sha256": "19c9b2ba33dddf339043dff4567dd0f22314e744d10dfc36c6c317b553a1428b",
+      "provider": "抖音 · Douyin",
+      "page": "MP16",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP17.png",
+      "bytes": 54017,
+      "sha256": "d67965157f65b32c19d3786f74c2f350727e155a096d59c44d8f1658acca4875",
+      "provider": "抖音 · Douyin",
+      "page": "MP17",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/screenshots/douyin/MP18.png",
+      "bytes": 33901,
+      "sha256": "f7b701991b2d2612a0e14290df796df77887ae6d59a30d4e9351efa7c7a05c78",
+      "provider": "抖音 · Douyin",
+      "page": "MP18",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/schema-desktop.png",
+      "bytes": 114962,
+      "sha256": "5e69c7b56bb4f66ba1091537aa9cd7d269f7929833ba8ea4c7c858d4d117b9ea",
+      "provider": "支付宝 · Alipay",
+      "page": "MP06",
+      "viewport": {
+        "width": 1600,
+        "height": 1060
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    },
+    {
+      "path": "docs/media/overview.png",
+      "bytes": 103811,
+      "sha256": "3bdd70e649789f7ecef9661210b97702930b2db2828f7302f97a9308020b27ac",
+      "provider": "支付宝 · Alipay",
+      "page": "MP08",
+      "viewport": {
+        "width": 1600,
+        "height": 1060
+      },
+      "kind": "SOURCE_PREVIEW_WITH_SYNTHETIC_FIXTURES"
+    }
+  ]
+}

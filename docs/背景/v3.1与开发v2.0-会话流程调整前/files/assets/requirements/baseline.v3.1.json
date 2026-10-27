@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0",
+  "product_id": "P07",
+  "business_baseline": "v3.1",
+  "selected_design": "P07-DS-B 1.0.0",
+  "date": "2026-10-27",
+  "status": "SPECIFIED_NOT_IMPLEMENTED",
+  "implementation_status": "NOT_IMPLEMENTED",
+  "product_test_status": "NOT_RUN",
+  "counts": {
+    "functional_requirements": 42,
+    "P0": 38,
+    "P1": 4,
+    "acceptance_criteria": 126,
+    "business_rules": 24,
+    "page_contracts": 18,
+    "design_components": 32,
+    "rendered_design_reference_pages": 3,
+    "API_contracts": 53,
+    "nonfunctional_requirements": 18,
+    "quality_metrics": 8,
+    "exception_scenarios": 24
+  },
+  "decisions": "docs/需求深化/06-需求追踪与变更管理.md",
+  "design_compatibility": "兼容B1.0.0视觉及页面框架；不覆写冻结图稿/文档，其当时业务v3.0记录保留",
+  "retention": "旧v3.0原样快照独立保留；本清单不自包含自身/active/检查报告以避免自哈希循环",
+  "files": [
+    {
+      "project_path": "README.md",
+      "bytes": 9224,
+      "sha256": "037eb8b831f91b03d04815a321a84f8aadac42e632dc15d2c6e1ff80aaa3eae6"
+    },
+    {
+      "project_path": "AGENTS.md",
+      "bytes": 5265,
+      "sha256": "139215fef1101fab78a52860f9af7722e6c726f12a095d0dcd7a894e0e5f46a1"
+    },
+    {
+      "project_path": "docs/01-产品需求PRD.md",
+      "bytes": 10627,
+      "sha256": "8db9aa444769e0e6df398a15205c47d9c944fe5044aa555e8b2788dd2f45f1f7"
+    },
+    {
+      "project_path": "docs/02-功能需求与用户流程.md",
+      "bytes": 46344,
+      "sha256": "f32f10b92ff499e1cacd93508814aecff79ca32409bd423da58f0b0e98722888"
+    },
+    {
+      "project_path": "docs/03-架构数据与接口.md",
+      "bytes": 7636,
+      "sha256": "02338bca04b64a04f985cbb72ebaa50bc58e4c72b486a548e9b0b939f4a9edaa"
+    },
+    {
+      "project_path": "docs/04-计费交易与运营.md",
+      "bytes": 9169,
+      "sha256": "f848f123e07e9676eea342b30d989c3775223646b2f817586fb04cee44078478"
+    },
+    {
+      "project_path": "docs/05-验收测试与实施计划.md",
+      "bytes": 13119,
+      "sha256": "9e824aad17267d28abe535684a650381d7c102298ee13b8bc28b146a04198f54"
+    },
+    {
+      "project_path": "docs/小程序/01-产品形态与功能分层.md",
+      "bytes": 8365,
+      "sha256": "04baed62bd3d3177b642b96f01f288efb701aee82ef06aac93a9b6f7c6f20d9f"
+    },
+    {
+      "project_path": "docs/小程序/02-移动端页面与交互规格.md",
+      "bytes": 22512,
+      "sha256": "e255151d6a1c3a2a69117af6a88e7bece2cdaf37bf8837d098050dc4c436ba07"
+    },
+    {
+      "project_path": "docs/小程序/03-双平台能力与文件进出.md",
+      "bytes": 10150,
+      "sha256": "fd9f4fe0b64ca09e96837842ba630a1ab388a9e4bfa2eb08db9e5c675a98a143"
+    },
+    {
+      "project_path": "docs/小程序/04-账号订单支付与权益.md",
+      "bytes": 8879,
+      "sha256": "8c3b60d45beaef1963ce0a2ff702bec90bf289c352a210844bf9a28076eebe38"
+    },
+    {
+      "project_path": "docs/小程序/05-数据隐私与安全.md",
+      "bytes": 8136,
+      "sha256": "163f8adcc0993a34624d7f2b3cbe2d1ea3d3ade284fbc399547eda5a96203189"
+    },
+    {
+      "project_path": "docs/小程序/06-双端验收与发布清单.md",
+      "bytes": 8571,
+      "sha256": "db0858c38c1cc4ec35ad25075dc1e5808d2b2adf068272a379401b4a92d86fc7"
+    },
+    {
+      "project_path": "docs/小程序/07-Web进阶版与跨端衔接.md",
+      "bytes": 4483,
+      "sha256": "ca7b56665fd1949dd5b80868a3b643c9507fb3fd56079eee84613f8600b59d73"
+    },
+    {
+      "project_path": "docs/小程序/08-接口载荷与状态合同.md",
+      "bytes": 20153,
+      "sha256": "25555d3872c7042bd83ba70adb1e1b2de218183e6d7285662dc518c913c829c1"
+    },
+    {
+      "project_path": "docs/需求深化/01-用户故事与业务规则.md",
+      "bytes": 6783,
+      "sha256": "be675bd9306b55f3b612509179df4977b809917bab09eb74cce81780a7ef68ee"
+    },
+    {
+      "project_path": "docs/需求深化/02-数据字典与状态迁移.md",
+      "bytes": 14876,
+      "sha256": "34dbde08a5ee591dd2e8d972d128f9aa4c27858b8818029239390921c5e4ce94"
+    },
+    {
+      "project_path": "docs/需求深化/03-整理引擎与规范验收规格.md",
+      "bytes": 9788,
+      "sha256": "48b0582845279b96290efd31adf5d8045db4250059e40063538aa053ff4e2268"
+    },
+    {
+      "project_path": "docs/需求深化/04-非功能安全与运营需求.md",
+      "bytes": 8920,
+      "sha256": "d6102fb21ec199ab73dba506be8449579cc53ab949b8b999ee8fe0bd5de11a4e"
+    },
+    {
+      "project_path": "docs/需求深化/05-异常恢复与验收场景.md",
+      "bytes": 8820,
+      "sha256": "f55a27b260e7925681b06d44d1b216c2b22177ca3fc321e289615b7ef8432a91"
+    },
+    {
+      "project_path": "docs/需求深化/06-需求追踪与变更管理.md",
+      "bytes": 9644,
+      "sha256": "b92ee51c3014628006550fff00f54306f57016d6d2b7cf0d54a838883e298565"
+    },
+    {
+      "project_path": "docs/需求深化/README.md",
+      "bytes": 5583,
+      "sha256": "adac7de008a121aba5d480941cc64b8d1667a60e0ccdf75492ba7f46b1463e1c"
+    },
+    {
+      "project_path": "docs/实施/小程序优先开发任务与里程碑.md",
+      "bytes": 9911,
+      "sha256": "bde88d80127f219411b56f8242ee27dab179788b913e0c9dc4841bdfad916fa8"
+    },
+    {
+      "project_path": "docs/资料/双小程序官方能力复核-v3.1-2026-10-27.md",
+      "bytes": 5699,
+      "sha256": "bf54d0ba0a375c36a4ba5df65e166d3dd979d1c963cbd6fd7db991a083537b90"
+    },
+    {
+      "project_path": "assets/requirements/business-rules.v3.1.json",
+      "bytes": 5299,
+      "sha256": "c52985e6525e74d0a5b46970667d07377b33f6fbc53c4eb4371b91a722f66881"
+    },
+    {
+      "project_path": "assets/requirements/exception-cases.v3.1.json",
+      "bytes": 12404,
+      "sha256": "46e4647cd17d0b0583e82ecaf3591048e30532636ca43f098fa33912270fd3f3"
+    },
+    {
+      "project_path": "assets/requirements/nonfunctional.v3.1.json",
+      "bytes": 5395,
+      "sha256": "bd73b00b6d6c3febb5a8b8335284ccb5b89ffdc413c316934c43df9bb22beea1"
+    },
+    {
+      "project_path": "assets/requirements/pages.v3.1.json",
+      "bytes": 30781,
+      "sha256": "c87270724301739b318bedd9d8e3ce1a0132fda5b34cbb90b8dace4dbe5cc24e"
+    },
+    {
+      "project_path": "assets/requirements/quality-metrics.v3.1.json",
+      "bytes": 2750,
+      "sha256": "12750934e83e7f856e0cd2b6271e58e65bd719a79e5da5f3114cf9f24651ed80"
+    },
+    {
+      "project_path": "assets/requirements/requirements.v3.1.json",
+      "bytes": 78524,
+      "sha256": "8549f0f6b29396ea3918241de2737994ae781555384e0e24af007d5c690404ba"
+    },
+    {
+      "project_path": "assets/requirements/traceability.v3.1.json",
+      "bytes": 36040,
+      "sha256": "110180084e4ba0ee1d299e5510ef5053092cd505cc62120affa736af3c64296e"
+    },
+    {
+      "project_path": "assets/contracts/api-catalog.v3.1.json",
+      "bytes": 31278,
+      "sha256": "b22a14e1f28aa81c9cbf466f2056fedbfd008d708039aa2070d07fae86afd5b2"
+    },
+    {
+      "project_path": "assets/contracts/domain-contract.v3.1.json",
+      "bytes": 12163,
+      "sha256": "25adcdd8cb5387f3d3e4d899bbdaf01ceac2fa7d51565f0621be254f19a51f44"
+    },
+    {
+      "project_path": "assets/contracts/payload-examples.v3.1.json",
+      "bytes": 2825,
+      "sha256": "d49340e4ee2de663e29455b9ff6a4bcaa9045621f2c6ce1a3869d64bb752475d"
+    },
+    {
+      "project_path": "assets/platform/capabilities.v3.1.json",
+      "bytes": 24844,
+      "sha256": "05b9d8d6d439171c480e2368038b71d38cfbe6db485bfc822de235db45f295ed"
+    },
+    {
+      "project_path": "assets/flows/mini-program-flows.v3.1.json",
+      "bytes": 7867,
+      "sha256": "9af1552741ff74c745153fab93c382eedce4349f167df965a4a078e79438fd97"
+    },
+    {
+      "project_path": "assets/examples/v3.1/报价资料成表-合成验收规格.json",
+      "bytes": 3551,
+      "sha256": "7859a8b0dd0bb58c6998132abd98fe6c2ee3fff181874543348f3f9275e46671"
+    },
+    {
+      "project_path": "scripts/verify_requirements_baseline.py",
+      "bytes": 13512,
+      "sha256": "d9cab0b6d655676795c7682101d117e315be023044ad1ddf0d9be5fa2b4b327e"
+    }
+  ],
+  "navigation_maintenance": {
+    "date": "2026-10-27",
+    "scope": "Root README/AGENTS development documentation navigation only; business requirement content/version unchanged",
+    "original_manifest_archive": "assets/development/v1.0.0/provenance/navigation-before-development/baseline.v3.1.json"
+  },
+  "engineering_alignment": {
+    "date": "2026-10-27",
+    "development_baseline": "P07-DEV 2.0.0",
+    "reason": "User explicitly requested Codex Agent to own all file reading/analysis/cleaning/schema proposal/table generation.",
+    "business_contract_change": false,
+    "scope": "Five architecture/engine/implementation/navigation files; functional/API/state/budget contracts unchanged.",
+    "original_manifest_archive": "docs/背景/开发v1.0.0-固定流水线/files/assets/requirements/baseline.v3.1.json",
+    "changes": [
+      {
+        "project_path": "README.md",
+        "before_sha256": "f9787ee0263d42c18b66116fc30cdd7ca6f9e0fdbdfaeba2228cf3f363d4a7fe",
+        "after_sha256": "037eb8b831f91b03d04815a321a84f8aadac42e632dc15d2c6e1ff80aaa3eae6"
+      },
+      {
+        "project_path": "AGENTS.md",
+        "before_sha256": "2b4f53b31ec3416e251ed11bc844f504833fbfa936f1a8dd34eea0a289a43202",
+        "after_sha256": "139215fef1101fab78a52860f9af7722e6c726f12a095d0dcd7a894e0e5f46a1"
+      },
+      {
+        "project_path": "docs/03-架构数据与接口.md",
+        "before_sha256": "3d3ebca9ac370dcda8797871a19e8d94c9e193faf492328a748fdaa192dfc5ad",
+        "after_sha256": "02338bca04b64a04f985cbb72ebaa50bc58e4c72b486a548e9b0b939f4a9edaa"
+      },
+      {
+        "project_path": "docs/需求深化/03-整理引擎与规范验收规格.md",
+        "before_sha256": "71c89c725c30280f415c3e2b1579926c62b3b3120bb4f8a2f0943d0ea9d06bbf",
+        "after_sha256": "48b0582845279b96290efd31adf5d8045db4250059e40063538aa053ff4e2268"
+      },
+      {
+        "project_path": "docs/实施/小程序优先开发任务与里程碑.md",
+        "before_sha256": "8f1dd23b402a5d0c09f00014e8f13c19915598ccec5ea9ac5d6feb798b72d2e8",
+        "after_sha256": "bde88d80127f219411b56f8242ee27dab179788b913e0c9dc4841bdfad916fa8"
+      }
+    ]
+  }
+}

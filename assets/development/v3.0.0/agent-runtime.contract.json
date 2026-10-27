@@ -1,0 +1,65 @@
+{
+  "version": "P07-AGENT-3",
+  "execution_owner": "CODEX_AGENT",
+  "status": "DESIGNED_NOT_IMPLEMENTED",
+  "primary": {
+    "package": "@openai/codex-sdk",
+    "language": "TypeScript",
+    "role": "SERVER_SIDE_AUTOMATED_JOBS"
+  },
+  "documented_sdk_methods": [
+    "Codex()",
+    "startThread()",
+    "thread.run()",
+    "resumeThread(threadId)"
+  ],
+  "adapter_operations": [
+    "start",
+    "continue_after_adoption",
+    "observe",
+    "interrupt",
+    "recover",
+    "close"
+  ],
+  "mapping_status": "Core SDK methods verified in official docs. Working directory, sandbox, streaming, cancellation, structured output and auth option types require a pinned SDK/CLI integration spike; internal adapter names are not claimed SDK methods.",
+  "non_interactive_reference": {
+    "command": "codex exec",
+    "event_mode": "--json",
+    "final_schema": "--output-schema",
+    "final_file": "--output-last-message",
+    "resume": "explicit session ID only; never --last for multitenant"
+  },
+  "app_server": {
+    "default": "DISABLED",
+    "status": "EXPERIMENTAL",
+    "future_role": "Deeper interactive streaming client only after independent review."
+  },
+  "one_writer": "One active turn per session, one active compute lease per contract. Job fence and task epoch guard every commit.",
+  "identity_map": "business task != run != job attempt != Codex thread != turn; all mappings are server owned.",
+  "resume_conditions": [
+    "same owner and still-live session",
+    "complete Skill remains loaded",
+    "matching input/confirmed plan/binding hashes",
+    "valid phase budget; paid receipt for batch",
+    "not canceled/deleted/closed/cleanup fenced"
+  ],
+  "revision_strategy": "NEW session/workspace/thread through seven steps. Runtime destroyed after result publication; never resume CLOSED.",
+  "failure_recovery": "Fence old worker, interrupt/reap old process tree before resume; reconcile recorded turn/tool output; uncertain non-idempotent effect is not blindly repeated.",
+  "auth": "Dedicated reviewed service authentication. No assumption that desktop ChatGPT subscription or user login grants commercial backend usage; no copying desktop auth.json.",
+  "forbidden": [
+    "custom fixed parser pipeline as business brain",
+    "model-only JSON chat sold as Codex runtime",
+    "forking Codex Rust source for P0",
+    "Docker",
+    "WSL",
+    "virtual machines",
+    "MXC",
+    "danger-full-access",
+    "skip approvals and sandbox escape",
+    "client raw command events",
+    "Agent DB/payment/publish authority"
+  ],
+  "session_initialization": "Before task creation/customer input; eager full locked Skill, bootstrap turn and verified host receipt.",
+  "result_persistence": "Independent result storage and projections survive runtime destruction.",
+  "cleanup_owner": "Trusted Host; no claim that SDK thread.close/delete automatically wipes every artifact."
+}

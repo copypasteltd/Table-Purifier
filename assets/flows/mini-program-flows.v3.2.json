@@ -1,0 +1,388 @@
+{
+  "schema_version": "1.0",
+  "product_id": "P07",
+  "baseline": "v3.2",
+  "status": "DESIGN_NOT_IMPLEMENTED",
+  "primary_hosts": [
+    "alipay",
+    "douyin"
+  ],
+  "bottom_tabs": [
+    "MP01",
+    "MP13",
+    "MP14",
+    "MP15"
+  ],
+  "web_priority": "P1",
+  "platform_capabilities_ref": "../platform/capabilities.v3.2.json",
+  "pages": [
+    {
+      "page_id": "MP01",
+      "title": "整理首页",
+      "logical_route": "home",
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F24",
+        "P07-F33",
+        "P07-F34",
+        "P07-F01"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP02",
+      "title": "资料清单",
+      "logical_route": "sources",
+      "requirement_ids": [
+        "P07-F02",
+        "P07-F03",
+        "P07-F25",
+        "P07-F34"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP03",
+      "title": "规范输入",
+      "logical_route": "standard-input",
+      "requirement_ids": [
+        "P07-F03",
+        "P07-F06",
+        "P07-F32",
+        "P07-F35",
+        "P07-F39"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP04",
+      "title": "确认方案与预估计费",
+      "logical_route": "preflight-quote",
+      "requirement_ids": [
+        "P07-F04",
+        "P07-F15",
+        "P07-F16",
+        "P07-F25",
+        "P07-F41"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP05",
+      "title": "分析与批量进度",
+      "logical_route": "progress",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F29",
+        "P07-F30",
+        "P07-F37"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP06",
+      "title": "规范方案与确认",
+      "logical_route": "proposal",
+      "requirement_ids": [
+        "P07-F29",
+        "P07-F30",
+        "P07-F31",
+        "P07-F35"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP07",
+      "title": "字段编辑",
+      "logical_route": "field-editor",
+      "requirement_ids": [
+        "P07-F06",
+        "P07-F30",
+        "P07-F35"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP08",
+      "title": "已保存结果概览",
+      "logical_route": "result",
+      "requirement_ids": [
+        "P07-F12",
+        "P07-F18",
+        "P07-F23",
+        "P07-F36"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP09",
+      "title": "问题列表",
+      "logical_route": "issues",
+      "requirement_ids": [
+        "P07-F23",
+        "P07-F27",
+        "P07-F36"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP10",
+      "title": "记录问题详情",
+      "logical_route": "record",
+      "requirement_ids": [
+        "P07-F07",
+        "P07-F08",
+        "P07-F09",
+        "P07-F10",
+        "P07-F11",
+        "P07-F13",
+        "P07-F27",
+        "P07-F36"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP11",
+      "title": "结果来源说明",
+      "logical_route": "evidence",
+      "requirement_ids": [
+        "P07-F05",
+        "P07-F12",
+        "P07-F13",
+        "P07-F20",
+        "P07-F36"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP12",
+      "title": "结果领取",
+      "logical_route": "delivery",
+      "requirement_ids": [
+        "P07-F14",
+        "P07-F18",
+        "P07-F32",
+        "P07-F38",
+        "P07-F39"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP13",
+      "title": "任务与结果列表",
+      "logical_route": "tasks",
+      "requirement_ids": [
+        "P07-F17",
+        "P07-F24",
+        "P07-F37"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP14",
+      "title": "我的规范",
+      "logical_route": "templates",
+      "requirement_ids": [
+        "P07-F32",
+        "P07-F39",
+        "P07-F40"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP15",
+      "title": "我的",
+      "logical_route": "account",
+      "requirement_ids": [
+        "P07-F01",
+        "P07-F19",
+        "P07-F20",
+        "P07-F40"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP16",
+      "title": "订单详情",
+      "logical_route": "orders",
+      "requirement_ids": [
+        "P07-F15",
+        "P07-F16",
+        "P07-F19",
+        "P07-F40",
+        "P07-F41"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP17",
+      "title": "隐私与运行环境清理",
+      "logical_route": "privacy",
+      "requirement_ids": [
+        "P07-F20",
+        "P07-F26",
+        "P07-F39",
+        "P07-F41"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "page_id": "MP18",
+      "title": "帮助与售后",
+      "logical_route": "help",
+      "requirement_ids": [
+        "P07-F19",
+        "P07-F20",
+        "P07-F41"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED"
+    }
+  ],
+  "flows": [
+    {
+      "id": "UNIVERSAL_SESSION_FIRST",
+      "steps": [
+        {
+          "id": "S1",
+          "label": "创建会话并完整预加载Skill"
+        },
+        {
+          "id": "S2",
+          "label": "用户提交信息"
+        },
+        {
+          "id": "S3",
+          "label": "Agent分析资料与形成方案"
+        },
+        {
+          "id": "S4",
+          "label": "用户确认或调整"
+        },
+        {
+          "id": "S5",
+          "label": "预估计费"
+        },
+        {
+          "id": "S6",
+          "label": "付费后批量产出"
+        },
+        {
+          "id": "S7",
+          "label": "持久保存结果后释放Agent并销毁任务运行环境"
+        }
+      ],
+      "adjustment_loop": [
+        "S4",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "all_modes": [
+        "PROVIDED",
+        "DISCOVER"
+      ],
+      "result_files_preserved": true,
+      "runtime_destroyed": true
+    }
+  ],
+  "state_axes": {
+    "execution": [
+      "QUEUED",
+      "RUNNING",
+      "SUCCEEDED",
+      "FAILED",
+      "CANCELED"
+    ],
+    "schema": [
+      "NOT_REQUIRED_YET",
+      "PARTIAL_DRAFT",
+      "FULL_DRAFT",
+      "ADOPTED",
+      "SUPERSEDED"
+    ],
+    "quality": [
+      "NOT_EVALUATED",
+      "PASSED",
+      "NEEDS_REVIEW",
+      "BLOCKED"
+    ],
+    "artifact": [
+      "NOT_READY",
+      "BUILDING",
+      "READY",
+      "FAILED",
+      "EXPIRED",
+      "REVOKED"
+    ],
+    "payment": [
+      "NOT_CREATED",
+      "PENDING",
+      "CONFIRMED",
+      "FAILED",
+      "CLOSED",
+      "UNKNOWN"
+    ],
+    "refund": [
+      "NONE",
+      "REQUESTED",
+      "PROCESSING",
+      "SUCCEEDED",
+      "FAILED",
+      "UNKNOWN"
+    ],
+    "fulfillment": [
+      "NOT_STARTED",
+      "IN_PROGRESS",
+      "DELIVERABLE",
+      "DELIVERED",
+      "FAILED",
+      "CANCELED"
+    ],
+    "operation": [
+      "PENDING",
+      "SUCCEEDED",
+      "FAILED"
+    ],
+    "export_observation": [
+      "ARTIFACT_READY",
+      "FETCHED",
+      "CACHED",
+      "OPEN_REQUESTED",
+      "OPENED",
+      "EXPORT_REQUESTED",
+      "USER_CONFIRMED",
+      "PLATFORM_CONFIRMED",
+      "FAILED",
+      "UNKNOWN"
+    ],
+    "session": [
+      "INITIALIZING",
+      "READY_FOR_INPUT",
+      "INPUT_RECEIVED",
+      "ANALYZING",
+      "WAITING_CONFIRMATION",
+      "QUOTABLE",
+      "AWAITING_PAYMENT",
+      "BATCH_QUEUED",
+      "BATCH_RUNNING",
+      "PERSISTING_RESULTS",
+      "RELEASING_RUNTIME",
+      "CLOSED",
+      "INITIALIZATION_FAILED",
+      "FAILED",
+      "CANCELED"
+    ],
+    "cleanup": [
+      "NOT_REQUESTED",
+      "PENDING",
+      "STOPPING",
+      "DELETING",
+      "SUCCEEDED",
+      "FAILED"
+    ]
+  },
+  "implementation_note": "逻辑页面标识不是宿主路由；实际SDK/构建待核。支付/退款状态按原平台映射，不以客户端success入账。",
+  "page_contracts_ref": "../requirements/pages.v3.2.json",
+  "selected_design_ref": "../design/active.json",
+  "requirements_ref": "../requirements/requirements.v3.2.json"
+}

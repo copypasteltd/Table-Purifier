@@ -1,0 +1,662 @@
+{
+  "components": {
+    "schemas": {
+      "SchemaDefinition": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "PROVIDED",
+              "DISCOVERED",
+              "PRIVATE_TEMPLATE",
+              "MANUAL"
+            ]
+          },
+          "purpose": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "row_kind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SchemaField"
+            },
+            "minItems": 1,
+            "maxItems": 50
+          },
+          "identity_keys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "maxItems": 50
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RuleNode"
+            },
+            "maxItems": 100
+          },
+          "locale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "timezone": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "rounding": {
+            "type": "string",
+            "enum": [
+              "HALF_UP",
+              "HALF_EVEN",
+              "NONE"
+            ]
+          },
+          "export_policy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "version": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "formula_protection": {
+                "type": "boolean"
+              },
+              "csv_encoding": {
+                "type": "string",
+                "enum": [
+                  "UTF-8-BOM"
+                ]
+              },
+              "csv_separator": {
+                "type": "string",
+                "enum": [
+                  ",",
+                  ";",
+                  "\t"
+                ]
+              }
+            },
+            "required": [
+              "version",
+              "formula_protection",
+              "csv_encoding",
+              "csv_separator"
+            ]
+          }
+        },
+        "required": [
+          "schema_id",
+          "version",
+          "origin",
+          "purpose",
+          "row_kind",
+          "fields",
+          "identity_keys",
+          "rules",
+          "locale",
+          "timezone",
+          "rounding",
+          "export_policy"
+        ]
+      },
+      "SchemaField": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "TEXT",
+              "DECIMAL",
+              "INTEGER",
+              "BOOLEAN",
+              "DATE",
+              "DATETIME",
+              "ENUM"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "nullable": {
+            "type": "boolean"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "scale": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "enum_values": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "maxItems": 100
+          },
+          "closed_enum": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "field_id",
+          "label",
+          "order",
+          "type",
+          "required",
+          "nullable",
+          "unit",
+          "description"
+        ]
+      },
+      "RuleNode": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "op": {
+            "type": "string",
+            "enum": [
+              "FIELD",
+              "CONST",
+              "COMPARE",
+              "AND",
+              "OR",
+              "REQUIRED_IF",
+              "DECIMAL_ADD",
+              "DECIMAL_SUBTRACT",
+              "DECIMAL_MULTIPLY",
+              "DECIMAL_DIVIDE"
+            ]
+          },
+          "field_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "value": {
+            "type": [
+              "string",
+              "integer",
+              "boolean",
+              "null"
+            ],
+            "description": "Decimal serialized as exact string; field binding determines semantic type. No floating JSON monetary value."
+          },
+          "comparator": {
+            "type": "string",
+            "enum": [
+              "EQ",
+              "NE",
+              "GT",
+              "GE",
+              "LT",
+              "LE"
+            ]
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RuleNode"
+            },
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "op"
+        ],
+        "description": "Restricted AST. Domain compiler checks op-specific operands, type, max depth/nodes. Never eval strings."
+      },
+      "FieldSuggestion": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "$ref": "#/components/schemas/SchemaField"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 1500
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "observed_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "relevant_count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "from_sample": {
+            "type": "boolean"
+          },
+          "ambiguity": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "field",
+          "reason",
+          "evidence_ids",
+          "observed_count",
+          "relevant_count",
+          "from_sample",
+          "ambiguity"
+        ]
+      },
+      "Record": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "disposition": {
+            "type": "string",
+            "enum": [
+              "ACCEPTED",
+              "NEEDS_REVIEW",
+              "EXCLUDED"
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldValue"
+            },
+            "maxItems": 50
+          },
+          "issue_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "exclusion_reason": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "record_id",
+          "ordinal",
+          "disposition",
+          "fields",
+          "issue_ids",
+          "exclusion_reason"
+        ]
+      },
+      "FieldValue": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "raw_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 50000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "typed_value": {
+            "type": [
+              "string",
+              "integer",
+              "boolean",
+              "null"
+            ],
+            "description": "Decimal serialized as exact string; field binding determines semantic type. No floating JSON monetary value."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "EXTRACTED",
+              "NORMALIZED",
+              "DERIVED",
+              "DEFAULTED",
+              "USER_PROVIDED",
+              "MISSING",
+              "CONFLICT",
+              "UNREADABLE"
+            ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "transform_chain": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "rule_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "version": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "input_field_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  }
+                },
+                "description": {
+                  "type": "string",
+                  "maxLength": 500
+                }
+              },
+              "required": [
+                "rule_id",
+                "version",
+                "input_field_ids",
+                "description"
+              ]
+            }
+          }
+        },
+        "required": [
+          "field_id",
+          "raw_text",
+          "typed_value",
+          "status",
+          "evidence_ids",
+          "unit",
+          "transform_chain"
+        ]
+      },
+      "Issue": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "record_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "field_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "WARNING",
+              "BLOCKER"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "allowed_decisions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "CHOOSE_EVIDENCE",
+                "USER_VALUE",
+                "KEEP_UNRESOLVED"
+              ]
+            }
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "OPEN",
+              "RESOLVED",
+              "KEPT_UNRESOLVED"
+            ]
+          }
+        },
+        "required": [
+          "issue_id",
+          "record_id",
+          "field_id",
+          "code",
+          "severity",
+          "message",
+          "allowed_decisions",
+          "evidence_ids",
+          "status"
+        ]
+      },
+      "Locator": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "TEXT_SPAN",
+              "PDF_PAGE",
+              "IMAGE_BBOX",
+              "DOCX_PATH",
+              "SHEET_CELL",
+              "CSV_CELL"
+            ]
+          },
+          "page_or_ordinal": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "span": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "bbox": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "path": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "version",
+          "kind"
+        ]
+      }
+    }
+  }
+}
