@@ -1,1 +1,1 @@
-<view class="section-title">{{title}} <text a:if="{{count}}" class="small">{{count}}</text></view>
+<view class="section-title">{{title}}<text a:if="{{count}}" class="heading-count">{{count}}</text></view>

@@ -1,16 +1,19 @@
-<b-frame><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><view class="hero">把零散资料，<view>整理成一张好表。</view></view>
-<view class="muted">有规范，照规范整理。没有规范，先帮你梳理。</view>
-<b-progress title="整理会话" text="{{phase}}"/>
+<b-frame variant="page-root"><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><view class="hero">把零散资料，整理成表</view>
+<view class="muted home-subtitle">没有模板也能开始</view>
+<b-progress tt:if="{{!ready}}" title="整理会话" text="{{phase}}"/>
 <button tt:if="{{!session||session.status==='CLOSED'||session.status==='FAILED'||session.status==='INITIALIZATION_FAILED'||session.status==='CANCELED'}}" class="button primary" data-action="new" bindtap="onAction" disabled="{{loading}}">新建整理会话</button>
 <view tt:if="{{ready}}">
- <b-folder title="我的资料"><view tt:if="{{!sources.length}}" class="muted">添加文字、图片或当前环境支持的文件。</view><b-source tt:for="{{sources}}" tt:key="source_id" title="{{item.name}}" text="已接收 · {{item.bytes}} 字节"/>
-  <button class="button" data-action="go-MP02" bindtap="onAction">添加与管理资料</button></b-folder>
+ <b-folder variant="home-folder" title="添加资料" text="文字 / 图片 / 文件">
+  <b-source tt:for="{{homeSources}}" tt:key="source_id" title="{{item.name}}" text="{{item.meta}}" icon="{{item.icon}}" action="go-MP02" bind:action="onAction"/>
+  <button tt:if="{{!sourceCount}}" class="add-source" data-action="go-MP02" bindtap="onAction"><image class="icon" src="/assets/icons/plus.png" aria-hidden="true"/>添加第一份资料</button>
+  <view class="folder-footer"><text class="small">{{sourceCount}} 份资料</text><button class="text-button" data-action="go-MP02" bindtap="onAction">{{sourceCount?'管理资料':'粘贴文字'}}<image class="chevron" src="/assets/icons/chevron.png" aria-hidden="true"/></button><button tt:if="{{sourceCount}}" class="text-button muted" data-action="clear-sources" bindtap="onAction" disabled="{{loading}}"><image class="icon" src="/assets/icons/trash.png" aria-hidden="true"/>清空</button></view>
+ </b-folder>
  <b-heading title="规范从哪里来"/>
- <view class="split"><view><b-mode title="帮我生成规范" text="先分析资料，再由你确认" selected="{{mode==='DISCOVER'}}" action="mode-discover" bind:action="onAction"/></view><view><b-mode title="我有规范" text="使用已有字段或规范文件" selected="{{mode==='PROVIDED'}}" action="mode-provided" bind:action="onAction"/></view></view>
- <b-input title="这张表用来做什么（选填）" text="说明用途有助于判断字段，一行代表什么由你确认。"><input value="{{goal}}" disabled="{{!!task}}" maxlength="1000" data-field="goal" bindinput="onInput" placeholder="例如：汇总报名信息，一人一行"/></b-input>
+ <view class="split"><view><b-mode title="帮我生成规范" text="先分析，再由你确认" selected="{{mode==='DISCOVER'}}" action="mode-discover" bind:action="onAction"/></view><view><b-mode title="我有规范" text="照我的表格整理" selected="{{mode==='PROVIDED'}}" action="mode-provided" bind:action="onAction"/></view></view>
+ <b-heading title="这次想整理什么"/>
+ <input value="{{goal}}" disabled="{{!!task}}" maxlength="1000" data-field="goal" bindinput="onInput" aria-label="这次想整理什么，选填" placeholder="例如：汇总供应商报价，一件商品一行"/>
  <button tt:if="{{mode==='PROVIDED'}}" class="button" data-action="go-MP03" bindtap="onAction">提供规范</button>
- <b-actions><button class="button primary" data-action="analyze" bindtap="onAction" disabled="{{loading||!sources.length}}">分析全部资料</button></b-actions>
+ <view class="row"><text class="small">{{sourceCount?'资料已接收，待你发起检查':'会话已就绪，只处理你提交的资料'}}</text><button class="text-button" data-action="go-MP17" bindtap="onAction">资料用途说明</button></view>
 </view>
-<b-capability tt:if="{{capability&&!capability.flags.file_input}}" title="当前文件入口受限" text="可先粘贴文字。文件入口按实际平台能力开放。"/>
-<button class="button" data-action="go-MP17" bindtap="onAction">资料用途与保存说明</button>
-</b-frame><b-navigation><view class="nav-button nav-current" data-action="go-MP01" bindtap="onAction">整理</view><view class="nav-button " data-action="go-MP13" bindtap="onAction">任务</view><view class="nav-button " data-action="go-MP14" bindtap="onAction">规范</view><view class="nav-button " data-action="go-MP15" bindtap="onAction">我的</view></b-navigation>
+<button tt:if="{{!ready}}" class="text-button" data-action="go-MP17" bindtap="onAction">资料用途与保存说明</button>
+</b-frame><view class="home-footer"><b-actions tt:if="{{ready}}" variant="embedded"><button class="button primary" data-action="analyze" bindtap="onAction" disabled="{{loading||!sourceCount}}">检查资料</button></b-actions><b-navigation variant="embedded"><button class="nav-button nav-current" data-action="go-MP01" bindtap="onAction" aria-label="整理，当前页面"><image class="nav-icon" src="/assets/icons/folder-filled.png" aria-hidden="true"/><text>整理</text></button><button class="nav-button " data-action="go-MP13" bindtap="onAction" aria-label="任务"><image class="nav-icon" src="/assets/icons/clipboard.png" aria-hidden="true"/><text>任务</text></button><button class="nav-button " data-action="go-MP14" bindtap="onAction" aria-label="规范"><image class="nav-icon" src="/assets/icons/grid.png" aria-hidden="true"/><text>规范</text></button><button class="nav-button " data-action="go-MP15" bindtap="onAction" aria-label="我的"><image class="nav-icon" src="/assets/icons/user.png" aria-hidden="true"/><text>我的</text></button></b-navigation></view>

@@ -1,7 +1,7 @@
-<b-folder title="推荐规范"><b-schema title="{{proposal.schema.row_kind}}" text="完整资料分析 · {{fields.length}} 个字段 · 当前为待确认草案"/>
-<view class="small">已读 {{proposal.coverage.read_units}} / {{proposal.coverage.confirmed_units}} 个确认单元</view></b-folder>
-<b-field p:for="{{fields}}" p:key="field_id" title="{{item.label}}" text="{{item.type}}"><view>{{item.description}}</view><view class="small">{{item.required?'必填':'选填'}} · {{item.nullable?'可空':'不可空'}} · {{item.unit||'无单位'}}</view></b-field>
+<b-folder variant="compact"><b-schema title="{{proposal.schema.row_kind}}" text="{{fields.length}} 个字段 · {{sourceCount}} 份资料"/><view class="row"><text class="badge">待确认草案</text><text class="small">已读 {{proposal.coverage.read_units}} / {{proposal.coverage.confirmed_units}} 个确认单元</text></view></b-folder>
+<view class="section-heading-row"><b-heading title="字段示例"/><button class="text-button" data-action="go-MP07" onTap="onAction">查看全部 {{fields.length}} 个字段<image class="chevron" src="/assets/icons/chevron.png" aria-hidden="true"/></button></view>
+<b-field p:for="{{fieldCards}}" p:key="field_id" title="{{item.label}}" text="{{item.meta}}" meta="{{item.reason}}" icon="{{item.icon}}" action="go-MP07" onAction="onAction"/>
 <view p:for="{{proposal.unmapped_important}}" p:key="*this" class="warning">重要未纳入：{{item}}</view>
-<b-heading title="记录小样"/><view class="small">仅为展示样例，正式批量产出在付款核验后进行。</view>
-<b-table title="按当前规范展示的小样"><view p:for="{{records}}" p:key="record_id"><view p:for="{{item.values}}" p:for-item="value" p:key="id" class="table-cell"><view class="small">{{value.label}}</view>{{value.value}}</view></view></b-table>
-<b-actions><button class="button primary" data-action="adopt" onTap="onAction" disabled="{{loading||!proposal}}">采用规范，继续确认方案</button><button class="button" data-action="go-MP07" onTap="onAction">调整字段与规则</button></b-actions>
+<b-heading title="记录预览"/>
+<b-table title="仅展示分析小样，完整整理将在付款核验后进行。"><view class="table-grid"><view class="table-row table-head"><view p:for="{{previewColumns}}" p:key="id" class="table-cell">{{item.label}}</view></view><view p:for="{{previewRows}}" p:key="id" class="table-row"><view p:for="{{item.cells}}" p:for-item="cell" p:key="id" class="table-cell {{cell.unresolved?'cell-unresolved':''}}">{{cell.value}}</view></view></view></b-table>
+<b-actions variant="fixed"><button class="button" data-action="go-MP07" onTap="onAction">调整字段</button><button class="button primary" data-action="adopt" onTap="onAction" disabled="{{loading||!proposal}}">采用规范</button></b-actions>

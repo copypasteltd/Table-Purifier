@@ -6,9 +6,15 @@
 
 优先提供支付宝、抖音小程序，采用已选定的 **B 青绿资料夹**设计。后端使用官方 Codex SDK 封装 Agent，可信业务服务负责确认、计价、资金、独立验收、发布和整个任务环境的清理。Web / 开放 API 属于后续阶段。
 
-![实际页面源码的文档预览：结果与七步流程](docs/media/overview.png)
+![B 青绿资料夹：首页、推荐规范与问题详情源码预览](docs/media/design-review/after-board.png)
 
 > 展示边界：截图、MP4、GIF 来自实际小程序页面模板、组件和业务控制器的**浏览器文档预览**。资料、Agent、报价、订单和清理状态均为合成夹具；不是支付宝/抖音真机截图，不代表真实模型、支付或 Ubuntu 隔离清理验收。演示金额不是服务定价。
+
+## B 方案还原更新
+
+共享前端已按留存 B 稿统一资料夹、文件/字段卡、表头、字体间距、图标和固定操作栏。两端仍各有 18 页与 32 个组件，结果页可展开全部字段，领取页可展开完整九文件。首页用途与规范模式跨页保留，查看来源返回后保留已选决定。
+
+[原稿 / 修复前 / 修复后对照与逐页说明](docs/实施/B方案前端还原与验收.md) · [164 个布局组合及 14 项交互回归](docs/实施/验证记录/ui-design-fidelity-2026-10-28.json)。覆盖 320/375/390/430 宽度、横屏、文字放大模拟、长内容与错误展示；这些是源码浏览器检查，真机、真实键盘和系统字体缩放仍待验证。
 
 ## 演示
 
@@ -175,6 +181,7 @@ npm run docs:preview
 Ubuntu 使用 `export PLAYWRIGHT_BROWSERS_PATH="$PWD/runtime/tools/playwright"`。浏览器系统库需已就绪；脚本不自动提权安装系统包。
 
 ```bash
+npm run design:audit
 npm run docs:capture
 npm run docs:media
 npm run docs:verify

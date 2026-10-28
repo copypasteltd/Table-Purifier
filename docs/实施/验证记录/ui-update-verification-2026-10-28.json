@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-28T00:15:41.455124+00:00",
+  "scope": "B1.0.0 frontend source fidelity, native source builds, fixture tests and documentation media. No deployment or live platform/model/payment/Ubuntu acceptance.",
+  "base_commit": "a9d9699b2613654d8778e836f61ecf62056fbc09",
+  "checks": {
+    "npm_run_check": {
+      "status": "PASS",
+      "test_files": 13,
+      "tests_passed": 87,
+      "typecheck": "PASS",
+      "typescript_build": "PASS"
+    },
+    "final_native_builder_typecheck_and_targeted_tests": {
+      "status": "PASS",
+      "targeted_tests_passed": 8
+    },
+    "python_document_tools": {
+      "status": "PASS",
+      "tests_passed": 11
+    },
+    "native_builds": {
+      "mini-alipay": {
+        "pages": 18,
+        "components": 32,
+        "source_inputs": 70,
+        "outputs": 243,
+        "manifest_sha256": "67bae129d3f65ae3d6c219dc85bbe0e62238c03d9fbda6d684016076d3207556",
+        "native_device_status": "NOT_RUN"
+      },
+      "mini-douyin": {
+        "pages": 18,
+        "components": 32,
+        "source_inputs": 70,
+        "outputs": 243,
+        "manifest_sha256": "b785759e7a230cfcdfe289ebc324fe86559b381974988e375620c8ded05723b4",
+        "native_device_status": "NOT_RUN"
+      }
+    },
+    "design_fidelity": {
+      "status": "PASS",
+      "layout_cases": 164,
+      "interaction_regressions": 14,
+      "failed": 0,
+      "receipt_sha256": "136a190bcc23749d766bb55d842121e92bff3f56d3bfac68fc9d09a565931b39"
+    },
+    "frozen_baseline": {
+      "status": "PASS",
+      "passed": 2372,
+      "failed": 0,
+      "design_manifest_sha256": "cb9dda9864476b2ed0d644fa2b03ab48c55c26ea3ab16a9f2d11c3c689f27a2e",
+      "development_manifest_sha256": "7fd7af155ab556f3a21bb56e0983f095ef9f3eebb0575d155e22215ed103bdf0",
+      "business_manifest_sha256": "7042f20a0ef1ca830ffe4a1303f2fc779094de119dfd7e55ebbc6f427d0a8250"
+    },
+    "repository_docs": {
+      "status": "PASS",
+      "checks_passed": 1489,
+      "links_checked": 194,
+      "failed": 0
+    },
+    "media": {
+      "status": "PASS",
+      "page_screenshots": 36,
+      "desktop_screenshots": 2,
+      "total_media_files": 56,
+      "mp4_seconds": 48.16,
+      "manifest_sha256": "681fc08187817e0b2ad4bbe22b58f1964af345ef887af00d013a84613f2ec1f6",
+      "capture_receipt_sha256": "670b86fa5180ec41d052533222fa99ac9057e1ef852a03d894c529d0ade75d43",
+      "browser_closed": true
+    },
+    "git_diff_check": "PASS",
+    "browser_process_cleanup": "PASS; no task-owned Chromium/PostgreSQL/FFmpeg/Node processes remained after checks"
+  },
+  "not_run": [
+    "Native Alipay/Douyin device and IDE acceptance",
+    "Actual mobile keyboard and system Dynamic Type",
+    "Dark theme acceptance",
+    "Live Codex/API/payment credentials",
+    "Native Ubuntu 22.04 isolation and whole-session cleanup"
+  ],
+  "constraints": {
+    "deployment_performed": false,
+    "docker_wsl_vm_invoked": false,
+    "frozen_reference_bytes_modified": false,
+    "customer_data_used": false
+  }
+}

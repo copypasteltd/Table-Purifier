@@ -1,1 +1,1 @@
-<view a:if="{{text}}" class="notice">{{text}}</view>
+<view a:if="{{text}}" class="notice message">{{text}}</view>

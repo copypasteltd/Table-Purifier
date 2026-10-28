@@ -1,1 +1,1 @@
-<view class="spaced"><slot/></view>
+<view class="action-bar {{variant}}"><view class="action-inner"><slot/></view></view>

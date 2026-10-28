@@ -1,5 +1,5 @@
 import { build } from 'esbuild';
-import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { readFile, mkdir, writeFile,cp } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -27,6 +27,7 @@ export async function buildPreview() {
     });
   }
   await writeFile(path.join(output, 'native.css'), theme);
+  await cp(path.join(root,'miniapp/src/assets'),path.join(output,'assets'),{recursive:true});
   for (const name of ['index.html', 'preview.css'])
     await writeFile(path.join(output, name), await readFile(path.join(root, `docs/preview/${name}`)));
   return output;

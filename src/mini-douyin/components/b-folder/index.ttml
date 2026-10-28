@@ -1,1 +1,1 @@
-<view class="folder"><view class="folder-tab">{{title}}</view><slot/></view>
+<view class="folder {{variant}}"><view class="folder-tab" aria-hidden="true"/><view tt:if="{{title}}" class="folder-heading"><text class="folder-title">{{title}}</text><text tt:if="{{text}}" class="small">{{text}}</text></view><slot/></view>

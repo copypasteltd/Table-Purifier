@@ -1,4 +1,4 @@
-<b-frame><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-heading title="提供你的规范"/>
+<b-frame variant=""><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-heading title="提供你的规范"/>
 <view class="muted">规范规定字段、类型、单位和规则。示例数据不会被当作本次事实。</view>
 <button class="button" data-action="add-template" bindtap="onAction" disabled="{{loading||!ready||!capability.flags.template_input||!canChooseOffice}}">上传规范文件</button>
 <button class="button" data-action="go-MP14" bindtap="onAction">从我的规范选择</button>

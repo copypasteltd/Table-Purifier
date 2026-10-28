@@ -27,6 +27,7 @@
 
 - 指定仓库：`git@github.com:copypasteltd/Table-Purifier.git`，默认分支 `main`。用户已明确要求本次和后续相关更新都同步提交、推送、更新说明；在此范围内无需反复询问是否推送。
 - 每次完成修改时，同步维护 README.md 与 README.en.md、相关需求/技术文档、CHANGELOG.md 的中英更新说明。行为或界面变化须更新受影响截图、录屏、GIF、采集凭据及摘要清单。
+- 前端改动先对照 B 原稿和定型规格，修改共享源后生成两端。运行 `npm run design:audit`，将通过的收据按当前日期保存并更新相关文档/校验入口；对照图保留原稿比例，不把浏览器检查称为真机或像素一致率。
 - 执行与改动相关的检查；当前标准入口：`npm run check`、`npm run build:miniapps`、Python 文档工具测试、`python -X utf8 scripts/verify_repository_baseline.py`、`npm run docs:verify`。旧冻结校验脚本原样保留，使用新的仓库级静态入口。媒体按 `docs/preview/README.md` 重现。
 - 推送前检查暂存内容、差异、文件大小、私有配置与密钥；不提交 node_modules、runtime、dist、输出 ZIP、真实凭据、客户数据或真实验收正文。演示仅使用明确标识的合成资料。
 - 使用可解释的提交说明；不 force push，不覆盖远端已有修改，不改写冻结基线或替换历史状态以伪造通过。远端有更新先安全集成。

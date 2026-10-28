@@ -1,16 +1,16 @@
-<b-frame><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-schema-edit title="{{templateEdit?'修改我的规范':'调整字段与规则'}}" text="字段、顺序和规则都可以明确设置。整理任务修改后需重新分析并确认。">
- <b-input a:if="{{templateEdit}}" title="规范名称"><input value="{{name}}" data-field="name" onInput="onInput" maxlength="200"/></b-input>
- <b-input title="一行代表什么"><input value="{{draft.row_kind}}" data-property="row_kind" onInput="onSchemaInput" maxlength="200" placeholder="例如：一名报名者、一件订单商品"/></b-input>
- <b-field a:for="{{fields}}" a:for-item="field" a:key="field_id" title="{{field.label}}" text="{{field.typeLabel}}">
-  <text class="label">字段名称</text><input value="{{field.label}}" data-id="{{field.field_id}}" data-property="label" onInput="onSchemaInput" maxlength="200"/>
-  <text class="label">字段含义</text><input value="{{field.description}}" data-id="{{field.field_id}}" data-property="description" onInput="onSchemaInput" maxlength="1000"/>
+<b-frame variant=""><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-schema-edit title="{{templateEdit?'修改我的规范':'调整字段与规则'}}" text="字段、顺序和规则都可以明确设置。整理任务修改后需重新分析并确认。">
+ <b-input a:if="{{templateEdit}}" title="规范名称"><input aria-label="规范名称" value="{{name}}" data-field="name" onInput="onInput" maxlength="200"/></b-input>
+ <b-input title="一行代表什么"><input aria-label="一行代表什么" value="{{draft.row_kind}}" data-property="row_kind" onInput="onSchemaInput" maxlength="200" placeholder="例如：一名报名者、一件订单商品"/></b-input>
+ <b-field a:for="{{fields}}" a:for-item="field" a:key="field_id" title="{{field.label}}" text="{{field.typeLabel}}" action="edit-field" itemId="{{field.field_id}}" onAction="onAction"><view a:if="{{expandedField===field.field_id}}">
+  <text class="label">字段名称</text><input aria-label="字段名称" value="{{field.label}}" data-id="{{field.field_id}}" data-property="label" onInput="onSchemaInput" maxlength="200"/>
+  <text class="label">字段含义</text><input aria-label="字段含义" value="{{field.description}}" data-id="{{field.field_id}}" data-property="description" onInput="onSchemaInput" maxlength="1000"/>
   <text class="label">数据类型</text><view class="choices"><button a:for="{{fieldTypes}}" a:key="value" class="choice {{field.type===item.value?'selected':''}}" data-action="field-type-{{item.value}}" data-id="{{field.field_id}}" onTap="onAction">{{item.label}}</button></view>
   <view class="split"><button class="choice {{field.required?'selected':''}}" data-action="field-toggle-required" data-id="{{field.field_id}}" onTap="onAction">{{field.required?'● 必填':'○ 非必填'}}</button><button class="choice {{field.nullable?'selected':''}}" data-action="field-toggle-nullable" data-id="{{field.field_id}}" onTap="onAction">{{field.nullable?'● 允许空值':'○ 不允许空值'}}</button></view>
-  <text class="label">单位（可留空）</text><input value="{{field.unit}}" data-id="{{field.field_id}}" data-property="unit" onInput="onSchemaInput" maxlength="200" placeholder="例如：元、件、小时"/>
-  <view a:if="{{field.type==='DECIMAL'}}"><text class="label">最多小数位（留空则按规范范围）</text><input value="{{field.scale}}" data-id="{{field.field_id}}" data-property="scale" onInput="onSchemaInput" maxlength="2" type="number"/></view>
-  <view a:if="{{field.type==='ENUM'}}"><text class="label">枚举选项，每行一项</text><textarea value="{{field.enumText}}" data-id="{{field.field_id}}" data-property="enum_values" onInput="onSchemaInput" maxlength="20000"/><button class="choice" data-action="field-toggle-closed_enum" data-id="{{field.field_id}}" onTap="onAction">{{field.closed_enum?'仅接受这些选项':'允许出现其他选项'}}</button></view>
+  <text class="label">单位（可留空）</text><input aria-label="单位" value="{{field.unit}}" data-id="{{field.field_id}}" data-property="unit" onInput="onSchemaInput" maxlength="200" placeholder="例如：元、件、小时"/>
+  <view a:if="{{field.type==='DECIMAL'}}"><text class="label">最多小数位（留空则按规范范围）</text><input aria-label="最多小数位" value="{{field.scale}}" data-id="{{field.field_id}}" data-property="scale" onInput="onSchemaInput" maxlength="2" type="number"/></view>
+  <view a:if="{{field.type==='ENUM'}}"><text class="label">枚举选项，每行一项</text><textarea aria-label="枚举选项，每行一项" value="{{field.enumText}}" data-id="{{field.field_id}}" data-property="enum_values" onInput="onSchemaInput" maxlength="20000"/><button class="choice" data-action="field-toggle-closed_enum" data-id="{{field.field_id}}" onTap="onAction">{{field.closed_enum?'仅接受这些选项':'允许出现其他选项'}}</button></view>
   <view class="split"><button class="button" data-action="field-up" data-id="{{field.field_id}}" onTap="onAction">上移</button><button class="button" data-action="field-down" data-id="{{field.field_id}}" onTap="onAction">下移</button><b-icon-action text="删除字段" action="remove-field" itemId="{{field.field_id}}" onAction="onAction"/></view>
- </b-field>
+ </view></b-field>
  <b-button text="新增字段" action="add-field" onAction="onAction" disabled="{{loading}}"/>
 </b-schema-edit>
 <b-schema-edit title="验收规则" text="已有规则会完整保留；删除字段前请先移除引用它的规则。">
@@ -18,12 +18,12 @@
  <view class="split"><button class="choice {{ruleKind==='COMPARE'?'selected':''}}" data-action="rule-kind-COMPARE" onTap="onAction">字段比较</button><button class="choice {{ruleKind==='REQUIRED_IF'?'selected':''}}" data-action="rule-kind-REQUIRED_IF" onTap="onAction">满足条件时必填</button></view>
  <text class="label">条件字段</text><view class="choices"><button a:for="{{fields}}" a:key="field_id" class="choice {{ruleField===item.field_id?'selected':''}}" data-action="rule-field" data-id="{{item.field_id}}" onTap="onAction">{{item.label}}</button></view>
  <view class="choices"><button a:for="{{comparators}}" a:key="value" class="choice {{ruleComparator===item.value?'selected':''}}" data-action="rule-compare-{{item.value}}" onTap="onAction">{{item.label}}</button></view>
- <input value="{{ruleValue}}" data-field="ruleValue" onInput="onInput" maxlength="200" placeholder="比较值；金额填写精确小数，是或否填写 true / false"/>
+ <text class="label">比较值</text><input aria-label="比较值" value="{{ruleValue}}" data-field="ruleValue" onInput="onInput" maxlength="200" placeholder="比较值；金额填写精确小数，是或否填写 true / false"/>
  <view a:if="{{ruleKind==='REQUIRED_IF'}}"><text class="label">条件成立时，哪个字段必填</text><view class="choices"><button a:for="{{fields}}" a:key="field_id" class="choice {{ruleTarget===item.field_id?'selected':''}}" data-action="rule-target" data-id="{{item.field_id}}" onTap="onAction">{{item.label}}</button></view></view>
  <button class="button" data-action="add-rule" onTap="onAction">加入验收规则</button>
 </b-schema-edit>
 <button a:if="{{templateEdit}}" class="button primary" data-action="save-template-version" onTap="onAction" disabled="{{loading}}">审阅并保存私有规范的新版本</button>
 <view a:if="{{!templateEdit}}"><b-version title="修改会使当前方案与报价失效" text="重新分析完成后，请重新采用规范并确认范围与费用。"/><button class="button primary" data-action="save-schema-edit" onTap="onAction" disabled="{{loading||!draft}}">提交字段与规则调整</button>
- <b-input title="也可以用文字说明复杂调整" text="例如修改记录识别规则，或按商品拆行。文字说明与上方字段表单分别提交。"><textarea value="{{instruction}}" data-field="instruction" onInput="onInput" maxlength="2000" placeholder="请说明需要怎样调整"/></b-input>
+ <b-input title="也可以用文字说明复杂调整" text="例如修改记录识别规则，或按商品拆行。文字说明与上方字段表单分别提交。"><textarea aria-label="复杂调整说明" value="{{instruction}}" data-field="instruction" onInput="onInput" maxlength="2000" placeholder="请说明需要怎样调整"/></b-input>
  <button class="button" data-action="revise-schema" onTap="onAction" disabled="{{loading||!instruction}}">提交文字调整要求</button></view>
 </b-frame>

@@ -1,1 +1,1 @@
-<view><text class="label">{{title}}</text><slot/><text tt:if="{{text}}" class="small">{{text}}</text></view>
+<view class="input-group"><text tt:if="{{title}}" class="label">{{title}}</text><slot/><text tt:if="{{text}}" class="input-hint">{{text}}</text></view>

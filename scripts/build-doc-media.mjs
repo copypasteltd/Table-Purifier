@@ -25,6 +25,7 @@ run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-ss', String(evidenc
   '-loop', '0', path.join(media, 'evidence.gif')]);
 const python = process.platform === 'win32' ? path.join(root, 'runtime/python-tools/Scripts/python.exe') : path.join(root, 'runtime/python-tools/bin/python3');
 run(python, [path.join(root, 'scripts/build-doc-contact-sheets.py')]);
+run(python, [path.join(root, 'scripts/build-design-comparison.py')]);
 const captured = JSON.parse(await readFile(path.join(media, 'capture-receipt.json'), 'utf8'));
 const files = [];
 async function walk(directory) {

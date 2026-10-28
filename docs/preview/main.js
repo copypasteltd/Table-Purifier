@@ -2,8 +2,9 @@ import { createPage } from '../../miniapp/src/controller.js';
 import { components } from '../../miniapp/src/components.js';
 import { titles } from '../../miniapp/src/pages.generated.js';
 import { state, reset, issue, sampleText } from './client.js';
+import { navigationMarkup,rootPages,headerTitle } from '../../miniapp/src/navigation.js';
 const templates = __TEMPLATES__, provider = __P07_PROVIDER__;
-let current, renderPending = false;
+let current, renderPending = false,stack=[];
 const app = document.getElementById('app');
 const steps = ['创建会话 / Prepare session', '提交资料 / Add sources', 'Agent 分析 / Analyze', '确认规范 / Confirm', '预估费用 / Estimate', '实付后生产 / Produce', '保留结果 / Retain results'];
 document.getElementById('provider').textContent = provider === 'ALIPAY' ? '支付宝 · Alipay' : '抖音 · Douyin';
@@ -38,12 +39,12 @@ function nodes(list, scope, component = null, slots = null) {
     const tag = source.tagName.toLowerCase();
     if (tag === 'slot') { if (slots) result.append(nodes(slots.children, slots.scope, slots.component)); continue; }
     if (components[tag]) {
-      const props = { title: '', text: '', action: '', itemId: '', variant: '', disabled: false, loading: false, selected: false, count: 0 };
+      const props = { title: '', text: '', action: '', itemId: '', variant: '',icon:'',meta:'', disabled: false, loading: false, selected: false, count: 0 };
       for (const attr of source.attributes) props[attr.name === 'itemid' ? 'itemId' : attr.name] = value(attr.value, scope);
       result.append(nodes(parse(components[tag].xml), props, { props, handler: source.getAttribute('onaction') }, { children: [...source.childNodes], scope, component }));
       continue;
     }
-    const target = document.createElement(tag);
+    const target = document.createElement(tag==='image'?'img':tag);
     for (const attr of source.attributes) {
       if (attr.name.startsWith('p:') || attr.name.startsWith('on')) continue;
       const v = value(attr.value, scope);
@@ -65,38 +66,45 @@ function nodes(list, scope, component = null, slots = null) {
 }
 function render() {
   renderPending = false; if (!current) return;
-  const id = current.data.page, tabs = ['MP01', 'MP13', 'MP14', 'MP15'].includes(id)
-    ? `<b-navigation>${[['MP01', '整理'], ['MP13', '任务'], ['MP14', '规范'], ['MP15', '我的']].map(([tab, text]) => `<view class="nav-button ${id === tab ? 'nav-current' : ''}" data-action="go-${tab}" onTap="onAction">${text}</view>`).join('')}</b-navigation>` : '';
-  const markup = `<b-frame><view p:if="{{loading}}" class="notice">正在处理，请稍候……</view><view p:if="{{error}}" class="error">{{error}}</view><b-message text="{{notice}}"/>${templates[id]}</b-frame>${tabs}`;
-  const top = app.scrollTop; app.replaceChildren(nodes(parse(markup), current.data)); app.scrollTop = top;
-  document.getElementById('page-title').textContent = titles[id];
+  const id=current.data.page,tabs=navigationMarkup(id);
+  const markup = `<b-frame variant="${rootPages.includes(id)?'page-root':''}"><view p:if="{{loading}}" class="notice">正在处理，请稍候……</view><view p:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/>${templates[id]}</b-frame>${tabs}`;
+  const top=app.scrollTop,focused=app.contains(document.activeElement)?document.activeElement:null;
+  const focus=focused&&(focused.dataset.field||focused.dataset.property)?{field:focused.dataset.field,property:focused.dataset.property,id:focused.dataset.id,start:focused.selectionStart,end:focused.selectionEnd}:null;
+  app.replaceChildren(nodes(parse(markup),current.data));app.scrollTop=top;
+  if(focus){const target=[...app.querySelectorAll('input,textarea')].find(el=>el.dataset.field===focus.field&&el.dataset.property===focus.property&&el.dataset.id===focus.id);target?.focus({preventScroll:true});if(target?.setSelectionRange&&focus.start!==null&&target.type!=='number')target.setSelectionRange(focus.start,focus.end);}
+  document.getElementById('page-title').textContent = headerTitle(id,titles[id]);
   document.getElementById('page-code').textContent = id;
   document.body.dataset.page = id;
   document.body.dataset.busy = String(current.data.loading);
 }
 async function navigate(id, query = {}) {
-  current?.onHide(); current?.onUnload(); current = createPage(id);
+  current?.onHide();
+  if(rootPages.includes(id)){current?.onUnload();for(const item of stack)item.instance.onUnload();stack=[];}
+  else if(current)stack.push({instance:current,scroll:app.scrollTop});
+  current = createPage(id);
   const instance = current;
   current.setData = data => { Object.assign(instance.data, data); if (current === instance && !renderPending) { renderPending = true; queueMicrotask(render); } };
   current.onLoad(query); app.scrollTop = 0; render(); current.onShow();
 }
+async function back(){current?.onHide();current?.onUnload();const previous=stack.pop();if(!previous){current=null;await navigate('MP01');return;}current=previous.instance;render();app.scrollTop=previous.scroll;current.onShow();}
+function dispose(){current?.onHide();current?.onUnload();for(const item of stack)item.instance.onUnload();stack=[];current=null;}
 function caption(step, title, subtitle) {
   document.getElementById('caption-title').textContent = title;
   document.getElementById('caption-en').textContent = subtitle;
   document.querySelectorAll('[data-step]').forEach(el => el.classList.toggle('active', Number(el.dataset.step) === step));
 }
 window.__preview = {
-  navigate, caption, state, sampleText,
+  navigate, back, caption, state, sampleText,
   get current() { return current; },
-  async seed(id, stage = 'delivered') {
-    current?.onUnload(); reset(stage);
+  async seed(id, stage = 'delivered',scenario='registration') {
+    dispose(); reset(stage,scenario);
     if (id === 'MP03') { state.task.mode = 'PROVIDED'; state.selectedTemplate = await (await import('./client.js')).api('/private-templates/demo-template'); }
     if (id === 'MP10') state.selectedIssue = issue;
     await navigate(id, id === 'MP11' ? { evidence: 'demo-evidence' } : {});
   },
-  dispose() { current?.onHide(); current?.onUnload(); current = null; },
+  dispose,
 };
-document.getElementById('back').onclick = () => navigate('MP01');
+document.getElementById('back').onclick = back;
 document.getElementById('restart').onclick = async () => { reset(); caption(1, '先准备会话，再接收资料', 'Session and full Skill must be ready before input'); await navigate('MP01'); };
 document.getElementById('gallery').onchange = e => window.__preview.seed(e.target.value,
   ['MP01', 'MP02'].includes(e.target.value) ? 'ready' : ['MP03', 'MP06', 'MP07'].includes(e.target.value) ? 'analysis' : e.target.value === 'MP04' ? 'quoted' : 'delivered');

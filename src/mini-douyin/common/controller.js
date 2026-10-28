@@ -181,7 +181,7 @@ function copyFileLink(url) {
 }
 
 // miniapp/src/client.js
-var state = { session: null, task: null, proposal: null, confirmation: null, quote: null, order: null, run: null, resultSchema: null, resultVersion: null, selectedIssue: null, selectedTemplate: null, capability: null, consent: null, reworkSession: null, reworkForRun: null };
+var state = { session: null, task: null, draftGoal: "", draftMode: "DISCOVER", proposal: null, confirmation: null, quote: null, order: null, run: null, resultSchema: null, resultVersion: null, selectedIssue: null, selectedTemplate: null, capability: null, consent: null, reworkSession: null, reworkForRun: null };
 var _a, _b;
 var token = (_b = (_a = getStored("p07-login")) == null ? void 0 : _a.token) != null ? _b : null;
 var loginPromise = null;
@@ -257,6 +257,8 @@ function rememberDeletion(job) {
 function clearDraft() {
   state.session = null;
   state.task = null;
+  state.draftGoal = "";
+  state.draftMode = "DISCOVER";
   state.proposal = null;
   state.confirmation = null;
   state.quote = null;
@@ -380,6 +382,79 @@ function ruleFromForm(schema, form) {
   return condition;
 }
 
+// miniapp/src/presentation.js
+var types = { TEXT: "\u6587\u672C", INTEGER: "\u6574\u6570", DECIMAL: "\u91D1\u989D / \u6570\u503C", DATE: "\u65E5\u671F", DATETIME: "\u65E5\u671F\u65F6\u95F4", BOOLEAN: "\u662F / \u5426", ENUM: "\u9009\u9879" };
+function fileSize(bytes) {
+  if (!Number.isFinite(bytes) || bytes < 0) return "\u5927\u5C0F\u5F85\u6838\u5BF9";
+  return bytes < 1e3 ? bytes + " B" : bytes < 1e6 ? (bytes / 1e3).toFixed(bytes < 1e4 ? 1 : 0) + " KB" : (bytes / 1e6).toFixed(1) + " MB";
+}
+function sourceView(source) {
+  const name = source.name || "\u6587\u5B57\u8D44\u6599", icon = /\.pdf$/i.test(name) ? "pdf" : /\.(png|jpe?g|webp)$/i.test(name) ? "image" : /\.(xlsx?|csv)$/i.test(name) ? "sheet" : "document";
+  return __spreadProps(__spreadValues({}, source), { icon, meta: fileSize(source.bytes) + " \xB7 " + (source.status === "PURGED" ? "\u539F\u4EF6\u5DF2\u6E05\u7406" : "\u5DF2\u63A5\u6536") });
+}
+function fieldView(field) {
+  return __spreadProps(__spreadValues({}, field), {
+    icon: ["DATE", "DATETIME"].includes(field.type) ? "calendar" : ["INTEGER", "DECIMAL"].includes(field.type) ? "currency" : "text",
+    meta: (types[field.type] || field.type) + " \xB7 " + (field.required ? "\u5FC5\u586B" : "\u9009\u586B"),
+    reason: field.description || "\u6309\u5F53\u524D\u89C4\u8303\u6574\u7406"
+  });
+}
+function fieldExamples(fields) {
+  const selected = [], seen = /* @__PURE__ */ new Set();
+  for (const field of fields) {
+    if (!seen.has(field.type)) {
+      selected.push(field);
+      seen.add(field.type);
+    }
+    if (selected.length === 3) break;
+  }
+  for (const field of fields) {
+    if (selected.length === 3) break;
+    if (!selected.includes(field)) selected.push(field);
+  }
+  return selected.map(fieldView);
+}
+function tableView(records, schema) {
+  const fields = ((schema == null ? void 0 : schema.fields) || []).slice(0, 4);
+  return {
+    previewColumns: fields.map((f) => ({ id: f.field_id, label: f.label })),
+    previewRows: records.slice(0, 5).map((r) => ({ id: r.record_id, cells: fields.map((f) => {
+      const cell = r.fields.find((v) => v.field_id === f.field_id);
+      return { id: f.field_id, value: (cell == null ? void 0 : cell.typed_value) == null ? "\u5F85\u8865" : String(cell.typed_value), unresolved: (cell == null ? void 0 : cell.typed_value) == null };
+    }) }))
+  };
+}
+function issueView(issue, record, schema) {
+  const field = schema == null ? void 0 : schema.fields.find((f) => f.field_id === issue.field_id), cells = (record == null ? void 0 : record.fields) || [];
+  const label = (f) => {
+    var _a2;
+    return ((_a2 = schema == null ? void 0 : schema.fields.find((x) => x.field_id === f.field_id)) == null ? void 0 : _a2.label) || f.field_id;
+  };
+  const identified = cells.filter((f) => {
+    var _a2;
+    return f.typed_value != null && ((_a2 = schema == null ? void 0 : schema.identity_keys) == null ? void 0 : _a2.includes(f.field_id));
+  });
+  const other = cells.filter((f) => {
+    var _a2;
+    return f.typed_value != null && !((_a2 = schema == null ? void 0 : schema.identity_keys) == null ? void 0 : _a2.includes(f.field_id)) && f.field_id !== issue.field_id;
+  }).sort((a, b) => {
+    var _a2, _b2;
+    return Number(((_a2 = schema == null ? void 0 : schema.fields.find((f) => f.field_id === b.field_id)) == null ? void 0 : _a2.type) === "INTEGER") - Number(((_b2 = schema == null ? void 0 : schema.fields.find((f) => f.field_id === a.field_id)) == null ? void 0 : _b2.type) === "INTEGER");
+  });
+  const issueCell = cells.find((f) => f.field_id === issue.field_id);
+  const facts = [issueCell || { field_id: issue.field_id, typed_value: null }, ...other].slice(0, 3).map((f) => {
+    var _a2;
+    return { id: f.field_id, label: label(f), value: f.typed_value == null ? "\u5F85\u8865" : String(f.typed_value) + (((_a2 = schema == null ? void 0 : schema.fields.find((x) => x.field_id === f.field_id)) == null ? void 0 : _a2.unit) ? " " + schema.fields.find((x) => x.field_id === f.field_id).unit : ""), unresolved: f.field_id === issue.field_id };
+  });
+  return {
+    issueLabel: (field == null ? void 0 : field.label) || issue.field_id,
+    issueRecordTitle: identified[0] ? String(identified[0].typed_value) : "\u8BB0\u5F55 " + (record ? record.ordinal + 1 : issue.record_id),
+    issueRecordSubtitle: identified.slice(1).map((f) => String(f.typed_value)).join(" \xB7 ") || (schema == null ? void 0 : schema.row_kind) || "\u5F85\u786E\u8BA4\u7684\u539F\u8BB0\u5F55",
+    issueFacts: facts,
+    issueRecordAvailable: !!record
+  };
+}
+
 // miniapp/src/controller.js
 var STATUS = { INITIALIZING: "\u6B63\u5728\u51C6\u5907\u6574\u7406\u4F1A\u8BDD", READY_FOR_INPUT: "\u4F1A\u8BDD\u5DF2\u5C31\u7EEA\uFF0C\u53EF\u4EE5\u63D0\u4EA4\u8D44\u6599", INPUT_RECEIVED: "\u8D44\u6599\u5DF2\u63A5\u6536\uFF0C\u7B49\u5F85\u5206\u6790", ANALYZING: "\u6B63\u5728\u7406\u89E3\u5168\u90E8\u5DF2\u63D0\u4EA4\u8D44\u6599", WAITING_CONFIRMATION: "\u89C4\u8303\u8349\u6848\u5DF2\u51C6\u5907\u597D\uFF0C\u8BF7\u786E\u8BA4", QUOTABLE: "\u65B9\u6848\u5DF2\u786E\u8BA4\uFF0C\u53EF\u4EE5\u9884\u4F30\u8D39\u7528", AWAITING_PAYMENT: "\u7B49\u5F85\u539F\u5E73\u53F0\u786E\u8BA4\u4ED8\u6B3E", BATCH_QUEUED: "\u5DF2\u6838\u5B9E\u4ED8\u6B3E\uFF0C\u7B49\u5F85\u6574\u7406", BATCH_RUNNING: "\u6B63\u5728\u6279\u91CF\u6574\u7406", PERSISTING_RESULTS: "\u6B63\u5728\u4FDD\u5B58\u5E76\u6838\u9A8C\u7ED3\u679C", RELEASING_RUNTIME: "\u7ED3\u679C\u4E0E\u4EFB\u52A1\u73AF\u5883\u5206\u522B\u5904\u7406\uFF0C\u6B63\u5728\u6E05\u7406\u73AF\u5883", CLOSED: "\u4EFB\u52A1\u73AF\u5883\u5DF2\u6E05\u7406\uFF0C\u7ED3\u679C\u7EE7\u7EED\u4FDD\u7559", FAILED: "\u6574\u7406\u672A\u5B8C\u6210\uFF0C\u8BF7\u67E5\u770B\u8BA2\u5355\u4E0E\u552E\u540E", CANCELED: "\u6574\u7406\u5DF2\u505C\u6B62", INITIALIZATION_FAILED: "\u4F1A\u8BDD\u51C6\u5907\u5931\u8D25\uFF0C\u8BF7\u91CD\u8BD5" };
 var labels = { CONFIRMED: "\u670D\u52A1\u7AEF\u5DF2\u6838\u5B9E\u4ED8\u6B3E", PENDING: "\u7B49\u5F85\u4ED8\u6B3E\u786E\u8BA4", UNKNOWN: "\u72B6\u6001\u5F85\u6838\u5BF9", NOT_CREATED: "\u5C1A\u672A\u53D1\u8D77\u652F\u4ED8", DELIVERABLE: "\u7ED3\u679C\u53EF\u9886\u53D6", DELIVERED: "\u5DF2\u786E\u8BA4\u53D6\u7528", NONE: "\u65E0\u9000\u6B3E\u7533\u8BF7", SUCCEEDED: "\u5DF2\u5B8C\u6210", PROCESSING: "\u5904\u7406\u4E2D", REQUESTED: "\u5DF2\u7533\u8BF7", PARTIAL: "\u90E8\u5206\u9000\u6B3E", FULL: "\u5168\u989D\u9000\u6B3E", NOT_STARTED: "\u5C1A\u672A\u751F\u4EA7", IN_PROGRESS: "\u6B63\u5728\u5C65\u7EA6" };
@@ -389,6 +464,10 @@ function values(record, schema) {
     var _a2, _b2;
     return { id: f.field_id, label: (_b2 = (_a2 = schema == null ? void 0 : schema.fields.find((x) => x.field_id === f.field_id)) == null ? void 0 : _a2.label) != null ? _b2 : f.field_id, value: f.typed_value === null ? "\u2014" : String(f.typed_value), status: f.status, evidence: f.evidence_ids };
   });
+}
+function recordView(record, schema) {
+  const fields = values(record, schema);
+  return __spreadProps(__spreadValues({}, record), { values: fields, keyValues: fields.slice(0, 5), moreFields: fields.length > 5 });
 }
 function createPage(page) {
   return {
@@ -410,7 +489,12 @@ function createPage(page) {
       category: "\u8D44\u6599\u6574\u7406\u95EE\u9898",
       supportAccess: false,
       sources: [],
+      homeSources: [],
+      sourceCount: 0,
       fields: [],
+      fieldCards: [],
+      previewColumns: [],
+      previewRows: [],
       records: [],
       issues: [],
       files: [],
@@ -437,6 +521,10 @@ function createPage(page) {
       bindingId: null,
       contractId: null,
       consentId: null,
+      primaryFiles: [],
+      additionalFiles: [],
+      moreFiles: false,
+      expandedRecord: "",
       environment: environment(),
       canChooseOffice: !!config_generated_default[provider].approvedOfficePicker,
       draft: null,
@@ -499,6 +587,7 @@ function createPage(page) {
     },
     onInput(e) {
       const field = e.currentTarget.dataset.field;
+      if (field === "goal" && writable() && !state.task) state.draftGoal = e.detail.value;
       this.setData({ [field]: e.detail.value });
     },
     onChoice(e) {
@@ -511,11 +600,13 @@ function createPage(page) {
       this.setData({ mode: e.currentTarget.dataset.mode });
     },
     loadEditor(schema, key) {
+      var _a2, _b2;
       if (this.editorKey === key) {
         this.setData(editorView(clone(this.data.draft)));
         return;
       }
       this.editorKey = key;
+      this.setData({ expandedField: (_b2 = (_a2 = schema.fields[0]) == null ? void 0 : _a2.field_id) != null ? _b2 : "" });
       this.originalSchema = clone(schema);
       this.setData(editorView(clone(schema)));
     },
@@ -534,15 +625,18 @@ function createPage(page) {
       this.setData(editorView(draft));
     },
     async ensureTask() {
+      var _a2;
       if (!writable()) throw new Error("\u8BF7\u5148\u65B0\u5EFA\u4F1A\u8BDD\uFF0C\u5E76\u7B49\u5F85\u51C6\u5907\u5B8C\u6210\u3002");
       if (!state.task) {
-        state.task = await this.write("create-task", "/tasks", __spreadValues({ mode: this.data.mode, client_request_id: this.key("task-request"), agent_session_id: state.session.session_id }, this.data.goal ? { optional_goal: this.data.goal } : {}));
+        const goal = (_a2 = state.draftGoal) != null ? _a2 : this.data.goal;
+        state.task = await this.write("create-task", "/tasks", __spreadValues({ mode: this.data.mode, client_request_id: this.key("task-request"), agent_session_id: state.session.session_id }, goal ? { optional_goal: goal } : {}));
+        state.draftGoal = "";
         remember();
       }
       return refreshTask();
     },
     async refresh() {
-      var _a2, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+      var _a2, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t;
       if (this.route.template && page === "MP07") {
         const t = await api("/private-templates/" + this.route.template);
         state.selectedTemplate = t;
@@ -577,24 +671,30 @@ function createPage(page) {
       if (state.correction && !state.task) this.setData({ mode: "PROVIDED", notice: "\u8FD9\u662F\u539F\u5355\u7EA0\u9519\u7684\u65B0\u4F1A\u8BDD\u3002\u8BF7\u91CD\u4F20\u9700\u8981\u6838\u5BF9\u7684\u539F\u59CB\u8D44\u6599\uFF0C\u5206\u6790\u786E\u8BA4\u540E\u518D\u63D0\u4EA4\u9650\u65F6\u552E\u540E\u5BA1\u6838\uFF1B\u5BA1\u6838\u901A\u8FC7\u524D\u4E0D\u6536\u53D6\u7B2C\u4E8C\u6B21\u8D39\u7528\u3002" });
       const env = environment();
       if (!state.capability) state.capability = await api("/capabilities?" + Object.entries(env).map(([k, v]) => k + "=" + encodeURIComponent(v)).join("&"), "GET", null, null, true);
+      const sources = ((_e = (_d = state.task) == null ? void 0 : _d.sources) != null ? _e : []).map(sourceView), homeSources = sources.filter((s) => s.role !== "TEMPLATE");
       this.setData({
         session: state.session,
         task: state.task,
-        sources: (_e = (_d = state.task) == null ? void 0 : _d.sources) != null ? _e : [],
+        sources,
+        homeSources: homeSources.slice(0, 3),
+        sourceCount: homeSources.length,
+        goal: (_h = (_g = (_f = state.task) == null ? void 0 : _f.goal) != null ? _g : state.draftGoal) != null ? _h : "",
         ready: !!writable(),
-        mode: (_g = (_f = state.task) == null ? void 0 : _f.mode) != null ? _g : this.data.mode,
-        phase: (_i = STATUS[(_h = state.session) == null ? void 0 : _h.status]) != null ? _i : "\u5148\u65B0\u5EFA\u4F1A\u8BDD\uFF0C\u51C6\u5907\u597D\u540E\u518D\u6DFB\u52A0\u8D44\u6599\u3002",
+        mode: (_k = (_j = (_i = state.task) == null ? void 0 : _i.mode) != null ? _j : state.draftMode) != null ? _k : this.data.mode,
+        phase: (_m = STATUS[(_l = state.session) == null ? void 0 : _l.status]) != null ? _m : "\u5148\u65B0\u5EFA\u4F1A\u8BDD\uFF0C\u51C6\u5907\u597D\u540E\u518D\u6DFB\u52A0\u8D44\u6599\u3002",
         capability: state.capability
       });
       if (["MP03", "MP06", "MP07"].includes(page) && state.task) {
         if (page === "MP03" && state.selectedTemplate) this.setData({ fields: state.selectedTemplate.schema.fields, name: state.selectedTemplate.name });
-        else if (((_j = state.session) == null ? void 0 : _j.status) === "WAITING_CONFIRMATION" || ((_k = state.session) == null ? void 0 : _k.status) === "QUOTABLE") {
+        else if (((_n = state.session) == null ? void 0 : _n.status) === "WAITING_CONFIRMATION" || ((_o = state.session) == null ? void 0 : _o.status) === "QUOTABLE") {
           state.proposal = await api("/tasks/" + state.task.task_id + "/schema-proposal");
-          this.setData({
+          this.setData(__spreadProps(__spreadValues({
             proposal: state.proposal,
             fields: state.proposal.schema.fields,
+            fieldCards: fieldExamples(state.proposal.schema.fields)
+          }, tableView(state.proposal.preview_records, state.proposal.schema)), {
             records: state.proposal.preview_records.map((r) => __spreadProps(__spreadValues({}, r), { values: values(r, state.proposal.schema) }))
-          });
+          }));
         }
         if (page === "MP07" && state.proposal) this.loadEditor(state.proposal.schema, "proposal:" + state.proposal.proposal_id + ":" + state.proposal.version);
       }
@@ -608,7 +708,7 @@ function createPage(page) {
         if (p.order_id) state.order = await api("/orders/" + p.order_id);
         this.setData({ quote: state.quote, order: state.order });
       }
-      if (((_l = state.task) == null ? void 0 : _l.current_run_id) && !state.run) state.run = await api("/runs/" + state.task.current_run_id);
+      if (((_p = state.task) == null ? void 0 : _p.current_run_id) && !state.run) state.run = await api("/runs/" + state.task.current_run_id);
       if (state.run && ["MP05", "MP08", "MP09", "MP10", "MP12"].includes(page)) {
         state.run = await api("/runs/" + state.run.run_id);
         this.setData({ run: state.run, stageLabel: state.run.stage === "AGENT_BATCH" ? "\u6574\u7406\u4E0E\u6821\u9A8C" : state.run.execution_status === "SUCCEEDED" ? "\u7ED3\u679C\u5DF2\u4FDD\u5B58" : "\u7B49\u5F85\u5904\u7406" });
@@ -618,7 +718,7 @@ function createPage(page) {
         }
         if (page === "MP08" && state.run.result_version) {
           const r = await api(`/runs/${state.run.run_id}/records?result_version=${state.run.result_version}&limit=20`);
-          this.setData({ records: r.records.map((x) => __spreadProps(__spreadValues({}, x), { values: values(x, state.resultSchema) })), counts: r.counts, nextCursor: r.next_cursor });
+          this.setData({ records: r.records.map((x) => recordView(x, state.resultSchema)), counts: r.counts, nextCursor: r.next_cursor });
         }
         if (page === "MP09" && state.run.result_version) {
           const r = await api(`/runs/${state.run.run_id}/issues?result_version=${state.run.result_version}&limit=20${this.data.filter ? "&severity=" + this.data.filter : ""}`);
@@ -627,7 +727,19 @@ function createPage(page) {
         if (page === "MP10") {
           const issue = state.selectedIssue;
           if (!issue) throw new Error("\u8BF7\u4ECE\u95EE\u9898\u5217\u8868\u9009\u62E9\u4E00\u9879\u3002");
-          this.setData({ issue, selectedAction: "", canUserValue: issue.allowed_decisions.includes("USER_VALUE"), canEvidence: issue.allowed_decisions.includes("CHOOSE_EVIDENCE"), canKeep: issue.allowed_decisions.includes("KEEP_UNRESOLVED") });
+          this.setData({ issue, canUserValue: issue.allowed_decisions.includes("USER_VALUE"), canEvidence: issue.allowed_decisions.includes("CHOOSE_EVIDENCE"), canKeep: issue.allowed_decisions.includes("KEEP_UNRESOLVED") });
+          if (this.issueKey !== issue.issue_id) {
+            this.issueKey = issue.issue_id;
+            this.setData({ selectedAction: "", selectedEvidence: "", decisionPreview: null });
+            let record = null, cursor = null;
+            for (let batch = 0; batch < 50; batch++) {
+              const r = await api(`/runs/${state.run.run_id}/records?result_version=${state.run.result_version}&limit=20${cursor ? "&cursor=" + encodeURIComponent(cursor) : ""}`);
+              record = r.records.find((r2) => r2.record_id === issue.record_id);
+              if (record || !r.next_cursor) break;
+              cursor = r.next_cursor;
+            }
+            this.setData(issueView(issue, record, state.resultSchema));
+          }
           if (!state.reworkSession || state.reworkForRun !== state.run.run_id) {
             const prepared = await prepareRework(state.run.run_id, this.key("rework-session"), this.key("rework-request"), config_generated_default.skillReleaseId);
             state.reworkSession = { session_id: prepared.session_id };
@@ -641,8 +753,8 @@ function createPage(page) {
           this.setData({ excerpts });
         }
         if (page === "MP12" && state.run.result_version) {
-          const r = await api("/runs/" + state.run.run_id + "/artifacts");
-          this.setData({ files: r.artifacts, resultVersion: r.result_version });
+          const r = await api("/runs/" + state.run.run_id + "/artifacts"), names = ["result.xlsx", "standard.xlsx", "issues.xlsx"];
+          this.setData({ files: r.artifacts, primaryFiles: names.map((name) => r.artifacts.find((f) => f.name === name)).filter(Boolean), additionalFiles: r.artifacts.filter((f) => !names.includes(f.name)), resultVersion: r.result_version });
         }
       }
       if (page === "MP11") {
@@ -668,12 +780,12 @@ function createPage(page) {
       }
       if (page === "MP17") {
         this.setData({ policy: await api("/privacy/policies?environment=" + env.provider + "_" + env.os, "GET", null, null, true) });
-        const deletionId = (_n = (_m = this.data.deletion) == null ? void 0 : _m.deletion_request_id) != null ? _n : deletionReference();
+        const deletionId = (_r = (_q = this.data.deletion) == null ? void 0 : _q.deletion_request_id) != null ? _r : deletionReference();
         if (deletionId) this.setData({ deletion: await api("/data-deletion-requests/" + deletionId) });
       }
       if (page === "MP18" && state.correction) this.setData({ category: "\u5E73\u53F0\u7EA0\u9519", notice: "\u8BF7\u8BF4\u660E\u539F\u8D44\u6599\u4E2D\u7684\u9057\u6F0F\u6216\u9519\u8BEF\uFF0C\u5E76\u9009\u62E9\u662F\u5426\u6388\u6743\u552E\u540E\u9650\u65F6\u6838\u5BF9\u5F53\u524D\u4EFB\u52A1\u3002\u5BA1\u6838\u53EA\u8986\u76D6\u5DF2\u786E\u8BA4\u7684\u539F\u8D44\u6599\u7EA0\u9519\u8303\u56F4\u3002" });
       remember();
-      if (this.visible && (((_o = state.session) == null ? void 0 : _o.status) === "INITIALIZING" || page === "MP10" && ((_p = state.reworkSession) == null ? void 0 : _p.status) === "INITIALIZING" || page === "MP05" && state.session && !["CLOSED", "FAILED", "CANCELED", "INITIALIZATION_FAILED", "WAITING_CONFIRMATION", "QUOTABLE", "AWAITING_PAYMENT"].includes(state.session.status))) {
+      if (this.visible && (((_s = state.session) == null ? void 0 : _s.status) === "INITIALIZING" || page === "MP10" && ((_t = state.reworkSession) == null ? void 0 : _t.status) === "INITIALIZING" || page === "MP05" && state.session && !["CLOSED", "FAILED", "CANCELED", "INITIALIZATION_FAILED", "WAITING_CONFIRMATION", "QUOTABLE", "AWAITING_PAYMENT"].includes(state.session.status))) {
         clearTimeout(this.poller);
         this.poller = setTimeout(() => {
           if (this.visible) this.perform(() => this.refresh());
@@ -686,9 +798,21 @@ function createPage(page) {
       this.perform(() => this.act(action, id));
     },
     async act(action, id) {
-      var _a2, _b2, _c, _d, _e, _f, _g, _h;
+      var _a2, _b2, _c, _d, _e, _f, _g, _h, _i, _j;
       if (action === "refresh") {
         await this.refresh();
+        return;
+      }
+      if (action === "toggle-files") {
+        this.setData({ moreFiles: !this.data.moreFiles });
+        return;
+      }
+      if (action === "toggle-record") {
+        this.setData({ expandedRecord: this.data.expandedRecord === id ? "" : id });
+        return;
+      }
+      if (action === "edit-field") {
+        this.setData({ expandedField: this.data.expandedField === id ? "" : id });
         return;
       }
       if (action === "prepare-correction") {
@@ -780,7 +904,8 @@ function createPage(page) {
       }
       if (action === "mode-discover" || action === "mode-provided") {
         if (state.task) throw new Error("\u5F53\u524D\u4EFB\u52A1\u5DF2\u7ECF\u63D0\u4EA4\uFF0C\u5207\u6362\u6A21\u5F0F\u8BF7\u65B0\u5EFA\u4F1A\u8BDD\u3002");
-        this.setData({ mode: action === "mode-discover" ? "DISCOVER" : "PROVIDED" });
+        state.draftMode = action === "mode-discover" ? "DISCOVER" : "PROVIDED";
+        this.setData({ mode: state.draftMode });
         return;
       }
       if (action == null ? void 0 : action.startsWith("go-")) {
@@ -828,6 +953,22 @@ function createPage(page) {
         await api("/tasks/" + state.task.task_id + "/sources/" + id + "?expected_task_version=" + state.task.version, "DELETE", null, this.key("remove-" + id));
         this.done("remove-" + id);
         await this.refresh();
+        return;
+      }
+      if (action === "clear-sources") {
+        if (!writable()) throw new Error("\u5F53\u524D\u4F1A\u8BDD\u4E0D\u53EF\u8C03\u6574\u8D44\u6599\u3002");
+        const sources = (_e = (_d = state.task) == null ? void 0 : _d.sources.filter((s) => s.role !== "TEMPLATE")) != null ? _e : [];
+        if (!sources.length) return;
+        if (!await confirm("\u6E05\u7A7A\u6765\u6E90\u8D44\u6599", "\u79FB\u9664\u672C\u6B21\u5168\u90E8\u6765\u6E90\u8D44\u6599\uFF1B\u89C4\u8303\u6587\u4EF6\u4FDD\u7559\u3002\u540E\u7EED\u65B9\u6848\u548C\u672A\u4ED8\u62A5\u4EF7\u9700\u8981\u91CD\u65B0\u786E\u8BA4\u3002", "\u6E05\u7A7A\u8D44\u6599")) return;
+        try {
+          for (const source of sources) {
+            await refreshTask();
+            await api("/tasks/" + state.task.task_id + "/sources/" + source.source_id + "?expected_task_version=" + state.task.version, "DELETE", null, this.key("remove-" + source.source_id));
+            this.done("remove-" + source.source_id);
+          }
+        } finally {
+          await this.refresh();
+        }
         return;
       }
       if (action === "analyze") {
@@ -904,7 +1045,7 @@ function createPage(page) {
       if (action === "checkout" || action === "continue-checkout") {
         if (state.correction) throw new Error("\u539F\u5355\u7EA0\u9519\u8BF7\u8D70\u552E\u540E\u5BA1\u6838\u4E0E\u539F\u5B9E\u4ED8\u6743\u76CA\u6838\u9A8C\u3002");
         if (!state.order) {
-          if (!((_d = state.quote) == null ? void 0 : _d.quote_id) || !state.confirmation) throw new Error("\u8BF7\u5148\u786E\u8BA4\u5F53\u524D\u65B9\u6848\u4E0E\u8D39\u7528\u3002");
+          if (!((_f = state.quote) == null ? void 0 : _f.quote_id) || !state.confirmation) throw new Error("\u8BF7\u5148\u786E\u8BA4\u5F53\u524D\u65B9\u6848\u4E0E\u8D39\u7528\u3002");
           state.order = await this.write("order", "/orders", { quote_id: state.quote.quote_id, contract_hash: state.confirmation.contract_hash });
           remember();
         }
@@ -969,7 +1110,7 @@ function createPage(page) {
         let d = { issue_id: i.issue_id, record_id: i.record_id, field_id: i.field_id, action: this.data.selectedAction };
         if (d.action === "USER_VALUE") {
           if (!this.data.value.trim()) throw new Error("\u8BF7\u8F93\u5165\u660E\u786E\u7684\u8865\u5145\u503C\u3002");
-          const field = (_e = state.resultSchema) == null ? void 0 : _e.fields.find((f) => f.field_id === i.field_id);
+          const field = (_g = state.resultSchema) == null ? void 0 : _g.fields.find((f) => f.field_id === i.field_id);
           let value = this.data.value;
           if ((field == null ? void 0 : field.type) === "INTEGER") {
             value = Number(value);
@@ -997,7 +1138,7 @@ function createPage(page) {
         return;
       }
       if (action === "copy-file-link") {
-        if (!((_f = state.capability) == null ? void 0 : _f.flags.export)) throw new Error("\u5F53\u524D\u6784\u5EFA\u5C1A\u672A\u901A\u8FC7\u7ED3\u679C\u9886\u53D6\u80FD\u529B\u9A8C\u8BC1\u3002");
+        if (!((_h = state.capability) == null ? void 0 : _h.flags.export)) throw new Error("\u5F53\u524D\u6784\u5EFA\u5C1A\u672A\u901A\u8FC7\u7ED3\u679C\u9886\u53D6\u80FD\u529B\u9A8C\u8BC1\u3002");
         const file = this.data.files.find((f) => f.artifact_id === id);
         if (!file) throw new Error("\u8BF7\u5237\u65B0\u6587\u4EF6\u5217\u8868\u3002");
         if (!await confirm("\u590D\u5236\u6B64\u6587\u4EF6\u7684\u77ED\u671F\u9886\u53D6\u94FE\u63A5", "\u6B64\u94FE\u63A5\u4E94\u5206\u949F\u5185\u6709\u6548\uFF0C\u6301\u6709\u94FE\u63A5\u7684\u4EBA\u53EF\u4EE5\u9886\u53D6\u8BE5\u6587\u4EF6\u3002\u8BF7\u53EA\u5728\u81EA\u5DF1\u7684\u8BBE\u5907\u6216\u53EF\u4FE1\u63A5\u6536\u65B9\u4F7F\u7528\u3002", "\u590D\u5236\u94FE\u63A5")) return;
@@ -1007,7 +1148,7 @@ function createPage(page) {
         return;
       }
       if (action === "download") {
-        if (!((_g = state.capability) == null ? void 0 : _g.flags.export)) throw new Error("\u5F53\u524D\u6784\u5EFA\u5C1A\u672A\u901A\u8FC7\u7ED3\u679C\u9886\u53D6\u80FD\u529B\u9A8C\u8BC1\uFF0C\u8BF7\u4FDD\u7559\u4EFB\u52A1\u540E\u7A0D\u540E\u9886\u53D6\u3002");
+        if (!((_i = state.capability) == null ? void 0 : _i.flags.export)) throw new Error("\u5F53\u524D\u6784\u5EFA\u5C1A\u672A\u901A\u8FC7\u7ED3\u679C\u9886\u53D6\u80FD\u529B\u9A8C\u8BC1\uFF0C\u8BF7\u4FDD\u7559\u4EFB\u52A1\u540E\u7A0D\u540E\u9886\u53D6\u3002");
         const file = this.data.files.find((f) => f.artifact_id === id), attempt = uuid();
         if (!file) throw new Error("\u6587\u4EF6\u4FE1\u606F\u5DF2\u66F4\u65B0\uFF0C\u8BF7\u5237\u65B0\u3002");
         const observe = async (status) => this.write("export-" + status, "/artifacts/" + id + "/export-attempts", { client_attempt_id: attempt, observed_action: status, receipt_source: "CLIENT", environment: environment(), observed_at: (/* @__PURE__ */ new Date()).toISOString() });
@@ -1118,8 +1259,8 @@ function createPage(page) {
           key = page === "MP09" ? "issues" : "records";
           path = "/runs/" + state.run.run_id + "/" + key + "?result_version=" + state.run.result_version + "&limit=20&cursor=" + cursor + (this.data.filter ? "&severity=" + this.data.filter : "");
         }
-        const r = await api(path), items = (_h = r.items) != null ? _h : r[key];
-        this.setData({ [key]: [...this.data[key], ...key === "records" ? items.map((x) => __spreadProps(__spreadValues({}, x), { values: values(x, state.resultSchema) })) : items], nextCursor: r.next_cursor });
+        const r = await api(path), items = (_j = r.items) != null ? _j : r[key];
+        this.setData({ [key]: [...this.data[key], ...key === "records" ? items.map((x) => recordView(x, state.resultSchema)) : items], nextCursor: r.next_cursor });
         return;
       }
       throw new Error("\u6B64\u64CD\u4F5C\u5F53\u524D\u4E0D\u53EF\u7528\uFF0C\u8BF7\u5237\u65B0\u9875\u9762\u540E\u91CD\u8BD5\u3002");

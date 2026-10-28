@@ -1,5 +1,5 @@
 import { provider,options,request,loginCode,getStored,store,forget,uuid,apiBase,invoke } from './platform.js';
-export const state={session:null,task:null,proposal:null,confirmation:null,quote:null,order:null,run:null,resultSchema:null,resultVersion:null,selectedIssue:null,selectedTemplate:null,capability:null,consent:null,reworkSession:null,reworkForRun:null};
+export const state={session:null,task:null,draftGoal:'',draftMode:'DISCOVER',proposal:null,confirmation:null,quote:null,order:null,run:null,resultSchema:null,resultVersion:null,selectedIssue:null,selectedTemplate:null,capability:null,consent:null,reworkSession:null,reworkForRun:null};
 let token=getStored('p07-login')?.token??null,loginPromise=null;
 export async function authenticate(){if(token)return;
  if(!loginPromise)loginPromise=(async()=>{const code=await loginCode(),key=uuid(),r=await request('/v1/p07/auth/platform-sessions','POST',{provider,app_alias:options.appAlias,one_time_code:code},null,key);
@@ -26,4 +26,4 @@ export async function prepareRework(id,key,clientRequestId,skillReleaseId){await
 export async function businessTransport(path,method='GET',body,key){await authenticate();return request('/transport/v1'+path,method,body,token,key);}
 export function deletionReference(){return getStored('p07-deletion')?.id??null;}
 export function rememberDeletion(job){store('p07-deletion',{id:job.deletion_request_id});}
-export function clearDraft(){state.session=null;state.task=null;state.proposal=null;state.confirmation=null;state.quote=null;state.order=null;state.run=null;state.resultSchema=null;state.selectedIssue=null;state.selectedTemplate=null;state.reworkSession=null;state.reworkForRun=null;state.correction=false;state.consent=null;remember();}
+export function clearDraft(){state.session=null;state.task=null;state.draftGoal='';state.draftMode='DISCOVER';state.proposal=null;state.confirmation=null;state.quote=null;state.order=null;state.run=null;state.resultSchema=null;state.selectedIssue=null;state.selectedTemplate=null;state.reworkSession=null;state.reworkForRun=null;state.correction=false;state.consent=null;remember();}

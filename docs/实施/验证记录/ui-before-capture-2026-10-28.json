@@ -1,0 +1,19 @@
+{
+  "baseline": "a9d9699b2613654d8778e836f61ecf62056fbc09",
+  "scope": "Historical templates/components/controller/theme, current documentation-only quotation fixture; not native-device evidence.",
+  "screenshots": [
+    {
+      "page": "MP01",
+      "path": "docs/media/design-review/before-MP01.png"
+    },
+    {
+      "page": "MP06",
+      "path": "docs/media/design-review/before-MP06.png"
+    },
+    {
+      "page": "MP10",
+      "path": "docs/media/design-review/before-MP10.png"
+    }
+  ],
+  "browser_closed": true
+}

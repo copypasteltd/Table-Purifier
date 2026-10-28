@@ -1,5 +1,5 @@
-<b-frame><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-heading title="帮助与售后"/><b-feedback title="常见问题" text="没有规范也可以整理；原件处理后清理，结果持续保留；状态未知先查询原订单，勿重复付款。"/>
-<b-input title="遇到了什么问题" text="请说明操作与现象。不要提交支付密码、验证码或密钥。"><textarea value="{{note}}" data-field="note" bindinput="onInput" maxlength="2000" placeholder="例如：这笔订单已扣款，但页面还在等待确认……"/></b-input>
+<b-frame variant=""><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-heading title="帮助与售后"/><b-feedback title="常见问题" text="没有规范也可以整理；原件处理后清理，结果持续保留；状态未知先查询原订单，勿重复付款。"/>
+<b-input title="遇到了什么问题" text="请说明操作与现象。不要提交支付密码、验证码或密钥。"><textarea aria-label="遇到了什么问题" value="{{note}}" data-field="note" bindinput="onInput" maxlength="2000" placeholder="例如：这笔订单已扣款，但页面还在等待确认……"/></b-input>
 <button class="choice {{supportAccess?'selected':''}}" data-action="support-access" bindtap="onAction">{{supportAccess?'●':'○'}} 允许客服在 24 小时内查看当前任务的必要保留内容（选填）</button><view class="small">默认关闭。原始资料清理后不会因为授权客服而恢复。</view>
 <button class="button primary" data-action="support" bindtap="onAction" disabled="{{loading||!note}}">记录问题并生成售后编号</button>
 </b-frame>

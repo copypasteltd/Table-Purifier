@@ -1,0 +1,3668 @@
+{
+  "protocol": "P07-DESIGN-FIDELITY-1",
+  "captured_at": "2026-10-27T23:55:55.168Z",
+  "reference": "P07-DS-B1.0.0",
+  "cases": [
+    {
+      "provider": "ALIPAY",
+      "page": "MP01",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP02",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP03",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP04",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP05",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP07",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP08",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP09",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP10",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP11",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP12",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP13",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP14",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP15",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP16",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP17",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP18",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP01",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP02",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP03",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP04",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP05",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP07",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP08",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP09",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP10",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP11",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP12",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP13",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP14",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP15",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP16",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP17",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP18",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP01",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP02",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP03",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP04",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP05",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP07",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP08",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP09",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP10",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP11",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP12",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP13",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP14",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP15",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP16",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP17",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP18",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP01",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP02",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP03",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP04",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP05",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP07",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP08",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP09",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP10",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP11",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP12",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP13",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP14",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP15",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP16",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP17",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP18",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP01",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "quotation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 14,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP01",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "text-135-percent-simulation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": true,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 14,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "quotation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "text-135-percent-simulation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP10",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "quotation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP10",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "text-135-percent-simulation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 812,
+        "height": 430
+      },
+      "variant": "landscape",
+      "width": 812,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP01",
+      "viewport": {
+        "width": 320,
+        "height": 700
+      },
+      "variant": "long-filenames",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 14,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP06",
+      "viewport": {
+        "width": 320,
+        "height": 700
+      },
+      "variant": "long-field-labels",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "page": "MP02",
+      "viewport": {
+        "width": 320,
+        "height": 700
+      },
+      "variant": "network-error",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP01",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP02",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP03",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP04",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP05",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP07",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP08",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP09",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP10",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP11",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP12",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP13",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP14",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP15",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP16",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP17",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP18",
+      "viewport": {
+        "width": 320,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP01",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP02",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP03",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP04",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP05",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP07",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP08",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP09",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP10",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP11",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP12",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP13",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP14",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP15",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP16",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP17",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP18",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP01",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP02",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP03",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP04",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP05",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP07",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP08",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP09",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP10",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP11",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP12",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP13",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP14",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP15",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP16",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP17",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP18",
+      "viewport": {
+        "width": 390,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 390,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP01",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 11,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP02",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP03",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP04",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP05",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP07",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 38,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP08",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP09",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP10",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP11",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 0,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP12",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 10,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP13",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP14",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 9,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP15",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 7,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP16",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP17",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP18",
+      "viewport": {
+        "width": 430,
+        "height": 920
+      },
+      "variant": "standard",
+      "width": 430,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 3,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP01",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "quotation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 14,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP01",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "text-135-percent-simulation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": true,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 14,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "quotation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "text-135-percent-simulation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP10",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "quotation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP10",
+      "viewport": {
+        "width": 375,
+        "height": 920
+      },
+      "variant": "text-135-percent-simulation",
+      "width": 375,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 4,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 812,
+        "height": 430
+      },
+      "variant": "landscape",
+      "width": 812,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP01",
+      "viewport": {
+        "width": 320,
+        "height": 700
+      },
+      "variant": "long-filenames",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 14,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP06",
+      "viewport": {
+        "width": 320,
+        "height": 700
+      },
+      "variant": "long-field-labels",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 1,
+      "controls": 6,
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "page": "MP02",
+      "viewport": {
+        "width": 320,
+        "height": 700
+      },
+      "variant": "network-error",
+      "width": 320,
+      "document_overflow": false,
+      "small_targets": [],
+      "element_overflows": [],
+      "toolbar_overlap": false,
+      "initial_goal_obscured": false,
+      "last_control_obscured": false,
+      "missing_icons": [],
+      "gutter": 16,
+      "folder_count": 0,
+      "controls": 5,
+      "passed": true
+    }
+  ],
+  "regressions": [
+    {
+      "provider": "ALIPAY",
+      "test": "draft-goal-and-mode-survive-navigation",
+      "passed": true,
+      "goal": "保留这个用途，一条记录一行",
+      "mode": "PROVIDED"
+    },
+    {
+      "provider": "ALIPAY",
+      "test": "issue-decision-requires-explicit-choice",
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "test": "evidence-return-keeps-explicit-decision",
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "test": "field-collapse-retains-unsaved-draft",
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "test": "all-nine-artifacts-remain-reachable",
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "test": "record-preview-expands-to-all-fields",
+      "passed": true
+    },
+    {
+      "provider": "ALIPAY",
+      "test": "focused-goal-reachable-in-short-viewport",
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "test": "draft-goal-and-mode-survive-navigation",
+      "passed": true,
+      "goal": "保留这个用途，一条记录一行",
+      "mode": "PROVIDED"
+    },
+    {
+      "provider": "DOUYIN",
+      "test": "issue-decision-requires-explicit-choice",
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "test": "evidence-return-keeps-explicit-decision",
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "test": "field-collapse-retains-unsaved-draft",
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "test": "all-nine-artifacts-remain-reachable",
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "test": "record-preview-expands-to-all-fields",
+      "passed": true
+    },
+    {
+      "provider": "DOUYIN",
+      "test": "focused-goal-reachable-in-short-viewport",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "screenshots": [
+    {
+      "path": "docs/media/design-review/alipay-MP01.png",
+      "sha256": "0ad0a4c073d10f0bf9e7dff2d68bf7bd03c25ee04889632518c5b166b8a80e7b",
+      "scenario": "SYNTHETIC_QUOTATION",
+      "provider": "ALIPAY",
+      "page": "MP01"
+    },
+    {
+      "path": "docs/media/design-review/alipay-MP06.png",
+      "sha256": "e26c34b9a968a8c06d75028c76ec3d1857ff1b778790c5d7b90c1882f8f35df5",
+      "scenario": "SYNTHETIC_QUOTATION",
+      "provider": "ALIPAY",
+      "page": "MP06"
+    },
+    {
+      "path": "docs/media/design-review/alipay-MP10.png",
+      "sha256": "018b549b9a60cc92aadbfd8d814b4436637e42ba7995ff647e7a9a5aaa58c45b",
+      "scenario": "SYNTHETIC_QUOTATION",
+      "provider": "ALIPAY",
+      "page": "MP10"
+    },
+    {
+      "path": "docs/media/design-review/douyin-MP01.png",
+      "sha256": "d262d1bb75ff39adfe6ef86d52e3fe6895df019e43268edca7679c2acf57a013",
+      "scenario": "SYNTHETIC_QUOTATION",
+      "provider": "DOUYIN",
+      "page": "MP01"
+    },
+    {
+      "path": "docs/media/design-review/douyin-MP06.png",
+      "sha256": "abc1add9dc8972d741b085619fb9832e192f76ad02c1e6eaed63df3f5e2258d4",
+      "scenario": "SYNTHETIC_QUOTATION",
+      "provider": "DOUYIN",
+      "page": "MP06"
+    },
+    {
+      "path": "docs/media/design-review/douyin-MP10.png",
+      "sha256": "534bea17319fd1ef3401800589701571572bacddc2209928a642ebb574acc61a",
+      "scenario": "SYNTHETIC_QUOTATION",
+      "provider": "DOUYIN",
+      "page": "MP10"
+    }
+  ],
+  "sources": [
+    {
+      "path": "miniapp/src/theme.css",
+      "sha256": "5f391a29168712ea67ffeb4e87a6e8c55cb822f4b2486aca8092be2ce8dbd227"
+    },
+    {
+      "path": "miniapp/src/components.js",
+      "sha256": "c9f12721f8ac8ed5c0abf7eddd7cb4302c3d9e00dd0c37b0bcd8b312f2f521a0"
+    },
+    {
+      "path": "miniapp/src/controller.js",
+      "sha256": "ea4bdecf09b973339a420858a6af368fa9f7e6ade3118025a0d97827565d3786"
+    },
+    {
+      "path": "miniapp/src/presentation.js",
+      "sha256": "624fa77298867a74112453a14df5facdab84255b1f4c6226d1fa403a60d63602"
+    },
+    {
+      "path": "miniapp/src/navigation.js",
+      "sha256": "b60b90fade3a6c58dde4816a65c82825602463275ce96849a30e7cb00e01e56e"
+    },
+    {
+      "path": "miniapp/src/pages/MP01.xml",
+      "sha256": "2b5365dd01fef3d9d0d1ad8dfa4d14896bf6968493b1273a41c1a27438b0731f"
+    },
+    {
+      "path": "miniapp/src/pages/MP02.xml",
+      "sha256": "059ae5b4caf946763bc67b8a677bd148501c453ba0725872080a41dda3b6bd14"
+    },
+    {
+      "path": "miniapp/src/pages/MP03.xml",
+      "sha256": "5016d6dd2983f0a821df51ccbba5904b96339e7d1c777c48298c1871091c629b"
+    },
+    {
+      "path": "miniapp/src/pages/MP04.xml",
+      "sha256": "cb03c957db50f72f7200b5816ef504cd440261b877cb986b4b296a92a2f0c4ed"
+    },
+    {
+      "path": "miniapp/src/pages/MP05.xml",
+      "sha256": "18183e429b8d1aa949281dff6e7269410f523e9b818fe0d0fc326791d968bbfa"
+    },
+    {
+      "path": "miniapp/src/pages/MP06.xml",
+      "sha256": "9e435cf15dff22bbbd2707d476427d91494356903eefc38ff2e2834e1aa093b2"
+    },
+    {
+      "path": "miniapp/src/pages/MP07.xml",
+      "sha256": "4769e7be4ec9f0395b78087b38f215e764ec53626d98798dedf1cf0a0ba1b443"
+    },
+    {
+      "path": "miniapp/src/pages/MP08.xml",
+      "sha256": "09b9c05cf1760eb46980fb909499a7e2a6ac72d01b34f0c1221713e80dbe7c35"
+    },
+    {
+      "path": "miniapp/src/pages/MP09.xml",
+      "sha256": "48e4d93431c472d0cf6a66411aa32870e2e0c393dadc094c64276f7722ecb4d8"
+    },
+    {
+      "path": "miniapp/src/pages/MP10.xml",
+      "sha256": "c5e7867390a4cb1f3e1057d4b4cdfdaee9409476a30b11d9718c1e933f3ca1ab"
+    },
+    {
+      "path": "miniapp/src/pages/MP11.xml",
+      "sha256": "864880d9702742a9a024fbae57a48e22f853c5fc39ac20d1bcebe06c6dd0ca49"
+    },
+    {
+      "path": "miniapp/src/pages/MP12.xml",
+      "sha256": "02c6112c008fe08e0a5149c51eafbe3ef58d6ef801e8c49d7f25201b0dc20c5a"
+    },
+    {
+      "path": "miniapp/src/pages/MP13.xml",
+      "sha256": "79ab668ddb17bad3c2fbfd1cd5e7ba3a8b1986b4c12090f1477111c0ebbc0989"
+    },
+    {
+      "path": "miniapp/src/pages/MP14.xml",
+      "sha256": "24db8566cb9577216cd6ec688c249d4ce259bb47b3b47d7aea785e06526a3900"
+    },
+    {
+      "path": "miniapp/src/pages/MP15.xml",
+      "sha256": "1934891e901cf9d27bc53c7a5d8b9a4942f5d2dc473b2ca4bbda978f20515d3d"
+    },
+    {
+      "path": "miniapp/src/pages/MP16.xml",
+      "sha256": "69f6f04704210c1c0838d7ef5678db3dc1519b81e9286dd3f578802fd45dcfd3"
+    },
+    {
+      "path": "miniapp/src/pages/MP17.xml",
+      "sha256": "4c0db4e39663a772df62eda2c5511181f44a7cb9d81e50c6b0410dbed514a304"
+    },
+    {
+      "path": "miniapp/src/pages/MP18.xml",
+      "sha256": "dbb3d9040dbd7d6606fd8ac39a3f166ba55d87de95003b02d060b204447b47c6"
+    }
+  ],
+  "browser_closed": true,
+  "scope": "Actual native source in documentation browser adapters; synthetic data; text scaling is simulated. Native devices, keyboard, dark mode and Ubuntu are NOT_RUN."
+}

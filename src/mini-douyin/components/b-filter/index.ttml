@@ -1,1 +1,1 @@
-<view class="section"><view class="section-title">{{title}}</view><slot/></view>
+<view class="filter-section"><view class="section-title">{{title}}</view><slot/></view>

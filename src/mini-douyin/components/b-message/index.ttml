@@ -1,1 +1,1 @@
-<view tt:if="{{text}}" class="notice">{{text}}</view>
+<view tt:if="{{text}}" class="notice message">{{text}}</view>

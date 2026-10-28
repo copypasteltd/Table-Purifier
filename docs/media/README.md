@@ -6,6 +6,20 @@
 
 **All media show a browser adapter rendering actual native page source with synthetic fixtures. They are not native-device captures or live model/payment/Ubuntu-cleanup acceptance.** Screenshots carry a preview label; the recording shows its boundaries throughout. Demo amounts are not service prices.
 
+## B 方案对照 / B design comparison
+
+![当前三页源码预览 / Current source screens](design-review/after-board.png)
+
+| 页面 / Page | 原稿、修复前、修复后 / Reference, before, after | 支付宝 / Alipay | 抖音 / Douyin |
+| --- | --- | --- | --- |
+| 首页 / Home | [对照](design-review/comparison-MP01.png) | [375 px](design-review/alipay-MP01.png) | [375 px](design-review/douyin-MP01.png) |
+| 推荐规范 / Schema | [对照](design-review/comparison-MP06.png) | [375 px](design-review/alipay-MP06.png) | [375 px](design-review/douyin-MP06.png) |
+| 问题详情 / Issue | [对照](design-review/comparison-MP10.png) | [375 px](design-review/alipay-MP10.png) | [375 px](design-review/douyin-MP10.png) |
+
+修复前由初始提交 `a9d9699` 的真实模板、组件、控制器和主题只读构建，采用与修复后相同的合成报价资料。对照仅统一宽度并去掉预览标识/模拟状态栏，保留原稿宽高比，不作为像素评分。另有三张历史源码截图及三张对照图，所有摘要均纳入 manifest。详见 [逐页修复说明与验收](../实施/B方案前端还原与验收.md)。
+
+Before captures use the actual initial source with the same synthetic quotation fixture as the after captures. Reference aspect ratios are preserved; comparisons do not claim pixel equivalence or native-device acceptance. All additional images are included in the media manifest.
+
 ## 流程与依据 / Workflow and evidence
 
 ![合成流程 GIF / Synthetic workflow](walkthrough.gif)

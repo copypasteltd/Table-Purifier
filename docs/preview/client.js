@@ -1,7 +1,8 @@
 // Documentation-only fixtures. The production client is never modified or imported here.
+import {quotationFixture} from './quotation-fixture.js';
 export const state = {};
 export const sampleText = '【合成演示资料，不对应真实人员或交易】\n样例甲，插画组，报名费 29.90 元，2026-10-26。\n样例乙，摄影组，报名费 59.00 元，2026-10-27。\n样例丙，插画组，报名费待确认，2026-10-27。';
-const schema = {
+let schema = {
   schema_id: 'demo-schema', version: 1, row_kind: '一位活动报名者对应一行',
   identity_keys: ['name'], locale: 'zh-CN', timezone: 'Asia/Shanghai', rules: [],
   rounding_policy: 'HALF_UP', export_policy: { formula_policy: 'ESCAPE' },
@@ -13,24 +14,27 @@ const schema = {
   ].map((f, order) => ({ unit: null, ...f, order })),
 };
 const names = ['样例甲', '样例乙', '样例丙'];
-const records = names.map((name, ordinal) => ({
+let records = names.map((name, ordinal) => ({
   record_id: `demo-record-${ordinal + 1}`, ordinal, disposition: ordinal === 2 ? 'NEEDS_REVIEW' : 'ACCEPTED',
   fields: [name, ordinal === 1 ? '摄影组' : '插画组', ['29.90', '59.00', null][ordinal], ordinal ? '2026-10-27' : '2026-10-26']
     .map((typed_value, i) => ({ field_id: schema.fields[i].field_id, typed_value,
       status: typed_value === null ? 'MISSING' : 'EXTRACTED', evidence_ids: ['demo-evidence'] })),
 }));
-export const issue = { issue_id: 'demo-issue', record_id: 'demo-record-3', field_id: 'amount', severity: 'BLOCKER',
+export let issue = { issue_id: 'demo-issue', record_id: 'demo-record-3', field_id: 'amount', severity: 'BLOCKER',
   message: '样例丙的报名费尚无明确依据，请保留待确认或由你补充。', evidence_ids: ['demo-evidence'],
   allowed_decisions: ['USER_VALUE', 'KEEP_UNRESOLVED'] };
-const evidence = { evidence_id: 'demo-evidence', source_unit_id: 'demo-unit-3',
+let evidence = { evidence_id: 'demo-evidence', source_unit_id: 'demo-unit-3',
   excerpt: '样例丙，插画组，报名费待确认，2026-10-27。',
   locator: { page_or_ordinal: 3, path: '文字资料 / 第 3 条' }, limitations: ['只保留结果所需摘录；此预览使用合成数据。'] };
 const artifactNames = ['standard.xlsx', 'standard.json', 'result.xlsx', 'accepted.csv', 'result.json', 'issues.xlsx', 'provenance.jsonl', 'validation.json', 'manifest.json'];
 const artifacts = artifactNames.map((name, i) => ({ artifact_id: `demo-file-${i}`, name, bytes: [9432, 1536, 10812, 186, 2974, 8012, 1390, 764, 2531][i], sha256: '0'.repeat(64) }));
 let database, created = 0, analysis = 0, batch = 0;
 const copy = x => x === undefined ? undefined : structuredClone(x);
+const registration={schema,records,issue,evidence};
 const wait = () => new Promise(resolve => setTimeout(resolve, 65));
-export function reset(stage = 'empty') {
+export function reset(stage = 'empty',scenario='registration') {
+  const fixture=scenario==='quotation'?quotationFixture():registration;
+  ({schema,records,issue,evidence}=copy(fixture));
   for (const key of Object.keys(state)) delete state[key];
   const unit = __P07_PROVIDER__ === 'ALIPAY' ? 'CNY_FEN' : 'DOUYIN_DIAMOND';
   database = {
@@ -52,7 +56,8 @@ export function reset(stage = 'empty') {
   if (stage !== 'empty') {
     state.session = copy(database.session);
     if (stage !== 'ready') {
-      database.task.sources = [{ source_id: 'demo-source', name: '活动报名文字资料', role: 'SOURCE', status: 'RECEIVED', bytes: new TextEncoder().encode(sampleText).length }];
+      database.task.sources = fixture.sources?copy(fixture.sources):[{ source_id: 'demo-source', name: '活动报名文字资料', role: 'SOURCE', status: 'RECEIVED', bytes: new TextEncoder().encode(sampleText).length }];
+      if(scenario==='quotation'){database.task.goal='汇总供应商报价，一件商品一行';database.proposal.preview_records=copy(records.slice(0,2));}
       state.task = copy(database.task); state.consent = 'demo-consent';
       database.session.status = 'WAITING_CONFIRMATION';
       state.proposal = copy(database.proposal);
@@ -101,6 +106,7 @@ export async function api(path, method = 'GET', body) {
     database.task.sources.push({ source_id: 'demo-source', name: '活动报名文字资料', bytes: new TextEncoder().encode(body.text).length, role: 'SOURCE', status: 'RECEIVED' });
     database.session.status = 'INPUT_RECEIVED'; return copy(database.task.sources[0]);
   }
+  if(method==='DELETE'&&route.includes('/sources/')){database.task.sources=database.task.sources.filter(s=>s.source_id!==route.split('/').at(-1));database.task.version++;return {};}
   if (route.endsWith('/preflight')) { analysis = Date.now(); database.session.status = 'ANALYZING'; return { status: 'QUEUED' }; }
   if (route.endsWith('/schema-proposal')) return copy(database.proposal);
   if (route.endsWith('/schema-adoptions')) { database.binding = 'demo-binding'; database.session.status = 'QUOTABLE'; return { binding_id: database.binding }; }

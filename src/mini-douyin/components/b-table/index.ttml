@@ -1,1 +1,1 @@
-<view><view class="small">{{title}}</view><scroll-view scroll-x="{{true}}" class="horizontal"><slot/></scroll-view></view>
+<view class="table-card"><scroll-view scroll-x="{{true}}" class="horizontal"><slot/></scroll-view><view tt:if="{{title}}" class="table-caption">{{title}}</view></view>

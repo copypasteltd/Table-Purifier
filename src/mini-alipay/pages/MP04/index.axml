@@ -1,4 +1,4 @@
-<b-frame><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-heading title="确认范围与执行方案"/>
+<b-frame variant=""><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-heading title="确认范围与执行方案"/>
 <b-status title="{{plan.status==='CONFIRMED'?'已确认方案':'待确认方案'}}" text="{{plan.strategy_summary}}"/>
 <view class="section"><view>完整已提交范围 · {{task.latest_preflight.processing_units}} 个读取单元</view><view>预计记录：{{plan.estimated_records===null?'待实际整理确认':plan.estimated_records}}</view><view a:for="{{plan.limitations}}" a:key="*this" class="warning">{{item}}</view></view>
 <b-quote title="本次费用" text="{{quote.amount?quote.amount.amount_minor:'待确认方案后估费'}}"><view a:if="{{quote.amount}}">原单位：{{quote.amount.amount_unit==='CNY_FEN'?'人民币分':'抖音钻石'}}。固定范围，按此原单位金额封顶。</view><view a:if="{{quote.expires_at}}" class="small">报价到期：{{quote.expires_at}}</view></b-quote>

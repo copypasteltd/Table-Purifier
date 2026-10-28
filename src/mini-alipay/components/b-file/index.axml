@@ -1,1 +1,1 @@
-<view class="section"><view>{{title}}</view><view class="small">{{text}}</view><slot/></view>
+<view class="section"><view class="file-heading"><image class="file-icon" src="/assets/icons/sheet.png" aria-hidden="true"/><view class="grow"><view class="card-title">{{title}}</view><view class="small">{{text}}</view></view></view><slot/></view>

@@ -6,9 +6,15 @@
 
 Alipay and Douyin mini programs are the first surfaces, using the selected **B Jade Folders** visual system. The backend wraps the official Codex SDK as an Agent. A trusted application service owns confirmation, pricing, payment verification, independent validation, publication and destruction of the entire task runtime. Web and public API access are later phases.
 
-![Source preview: results and the seven-step workflow](docs/media/overview.png)
+![B Jade Folders source preview: home, schema and issue detail](docs/media/design-review/after-board.png)
 
 > Media scope: screenshots, MP4 and GIF are captured from a **browser documentation adapter running the actual native templates, components and controller**. Data, Agent progress, quotes, orders and cleanup states are synthetic fixtures. These are not native-device screenshots, live Codex results, real payments or proof of Ubuntu isolation and cleanup. Demo amounts are not service prices.
+
+## B design fidelity update
+
+The shared frontend now follows the retained B folder layout, file/field cards, table headers, type scale, spacing, icon family and fixed actions. Each platform still has 18 pages and 32 components. Records expand to all fields and downloads expand to all nine files. The goal and schema mode survive navigation; returning from evidence preserves the explicit decision.
+
+[Reference / before / after comparisons and page coverage](docs/实施/B方案前端还原与验收.md) · [164 layout cases and 14 interaction regressions](docs/实施/验证记录/ui-design-fidelity-2026-10-28.json). Coverage includes 320/375/390/430 widths, landscape, simulated larger text, long content and errors. These are browser checks of native source; native devices, actual keyboards and system text scaling remain unverified.
 
 ## Watch the workflow
 
@@ -175,6 +181,7 @@ npm run docs:preview
 PowerShell: `$env:PLAYWRIGHT_BROWSERS_PATH = "$PWD/runtime/tools/playwright"`. Browser system libraries must already exist; scripts do not elevate privileges or install OS packages.
 
 ```bash
+npm run design:audit
 npm run docs:capture
 npm run docs:media
 npm run docs:verify

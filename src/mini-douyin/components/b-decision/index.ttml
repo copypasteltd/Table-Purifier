@@ -1,1 +1,1 @@
-<view class="section"><view class="section-title">{{title}}</view><view class="small">{{text}}</view><slot/></view>
+<view class="decision-section"><view class="section-title">{{title}}</view><view tt:if="{{text}}" class="small">{{text}}</view><slot/></view>

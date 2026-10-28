@@ -1,1 +1,1 @@
-<button class="button" disabled="{{disabled}}" onTap="act">{{text}}</button>
+<button class="icon-action" aria-label="{{text}}" disabled="{{disabled}}" onTap="act"><image a:if="{{icon}}" class="icon" src="{{'/assets/icons/'+icon+'.png'}}" aria-hidden="true"/><text a:if="{{!icon}}">{{text}}</text></button>

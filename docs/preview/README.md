@@ -11,7 +11,7 @@ The documentation build renders actual native templates, components, controller,
 - 资料、身份、Session、报价、订单、模型、生产、CLOSED 均为内存夹具。All states are synthetic and in memory.
 - 不连接业务 API、数据库、Codex、支付或真实下载；不证明宿主渲染或 Ubuntu 清理。No live integration or native-device acceptance.
 - 预览收费/导出 flags 不改变产品默认关闭的能力。Fixture flags do not enable product capabilities.
-- CSP 禁止网络连接，临时服务只监听 `127.0.0.1`、提供五个白名单资源。CSP denies connections; the loopback server serves five allowlisted assets.
+- CSP 禁止网络连接，临时服务只监听 `127.0.0.1`、提供页面脚本/样式及明确白名单中的本地图标。CSP denies connections; the loopback server serves only allowlisted page assets and local icons.
 - 录制鼠标、表单和实际控制器动作，未拍摄平台 IDE。Recordings show browser source interaction, not a platform IDE.
 
 ## 准备 / Prerequisites
@@ -45,6 +45,7 @@ Open the loopback URL; add the provider query for Douyin. Use the selector or Re
 ## 采集与转码 / Capture and encode
 
 ```bash
+npm run design:audit
 npm run docs:capture
 npm run docs:media
 npm run docs:verify
@@ -58,3 +59,11 @@ npm run docs:verify
 The capture traverses both providers and exercises actual controller actions, asserting fixture lifecycle gates and closing resources even on failure. Raw WebM stays ignored. FFmpeg/Pillow produce committed MP4/GIF/contact sheets; JSON records source hashes, boundaries and metadata. The final verifier reads local files only.
 
 生成覆盖同路径展示素材，不修改冻结 B 原稿、真实结果、密钥或生产配置。UI/控制器变化后重采受影响媒体，随中英说明提交推送。Generated presentation assets overwrite previous media only; refresh and commit evidence after relevant source changes.
+
+## 设计还原检查 / Fidelity checks
+
+`npm run design:audit` 遍历两端 18 页、四种宽度与长内容/放大文字/错误/横屏场景，并检查交互回归；完整凭据写入被忽略的 `runtime/ui-fidelity/audit.json`。三页 375×920 合成报价截图输出到 `docs/media/design-review`。修改源码后，应将 PASS 的运行收据按当次日期保存至 `docs/实施/验证记录`，并同步更新 README、还原说明及文档校验器的收据路径。当前运行结果入版本库于 [验收记录](../实施/验证记录/ui-design-fidelity-2026-10-28.json)，判定范围见 [还原说明](../实施/B方案前端还原与验收.md)。
+
+`npm run design:before` 可从初始 Git 提交 `a9d9699` 只读重建三页旧前端，仍使用同一组当前合成报价夹具，不切换或覆盖工作区。普通 `docs:media` 使用已保存的修复前/后截图与冻结参照图生成对照，不依赖历史 Git 可用性。`npm run design:icons` 重新生成 19 个同系列 SVG / 4 倍 PNG；修改图标后重新构建、核验并采集媒体。
+
+The layout audit checks native source rendered through browser adapters and records each scenario, source hashes and resource cleanup. Before captures read the initial commit without checking it out. Comparison images preserve the reference aspect ratio and label synthetic fixtures. Browser text enlargement and a shortened viewport simulate layout pressure; they do not prove native Dynamic Type or actual keyboard avoidance.

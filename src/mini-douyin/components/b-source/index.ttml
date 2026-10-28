@@ -1,1 +1,1 @@
-<view class="source-row"><view>{{title}}</view><view class="small">{{text}}</view><slot/></view>
+<view class="source-row"><view class="source-main"><view class="icon-tile"><image class="file-icon" src="{{'/assets/icons/'+(icon||'document')+'.png'}}" aria-hidden="true"/></view><view class="grow"><view class="card-title">{{title}}</view><view class="small">{{text}}</view></view><button tt:if="{{action}}" class="icon-action" bindtap="act" aria-label="{{'管理资料：'+title}}"><image class="icon" src="/assets/icons/more.png" aria-hidden="true"/></button></view><slot/></view>

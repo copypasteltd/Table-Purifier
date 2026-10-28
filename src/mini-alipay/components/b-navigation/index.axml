@@ -1,1 +1,1 @@
-<view class="bottom"><slot/></view>
+<view class="bottom {{variant}}"><slot/></view>

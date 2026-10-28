@@ -1,1 +1,1 @@
-<view class="mode {{selected?'mode-selected':''}}" bindtap="act"><view>{{selected?'●':'○'}} {{title}}</view><view class="small">{{text}}</view></view>
+<button aria-pressed="{{selected}}" class="mode {{selected?'mode-selected':''}}" bindtap="act" aria-label="{{title+(selected?'，已选择':'，未选择')}}"><view class="mode-title"><view class="radio {{selected?'radio-selected':''}}" aria-hidden="true"/><text>{{title}}</text></view><view class="small mode-hint">{{text}}</view></button>

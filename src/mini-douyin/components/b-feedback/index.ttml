@@ -1,1 +1,1 @@
-<view class="notice"><view>{{title}}</view><view>{{text}}</view><slot/></view>
+<view class="notice"><view class="card-title">{{title}}</view><view>{{text}}</view><slot/></view>

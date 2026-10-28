@@ -9,7 +9,7 @@ function check(name, ok) { checks.push({ name, result: ok ? 'PASS' : 'FAIL' }); 
 const hash = data => createHash('sha256').update(data).digest('hex');
 const inside = file => { const rel = path.relative(root, file); return rel !== '..' && !rel.startsWith(`..${path.sep}`) && !path.isAbsolute(rel); };
 const entries = ['README.md', 'README.en.md', 'SOURCE_README.md', 'AGENTS.md', 'CONTRIBUTING.md', 'CHANGELOG.md', 'docs/README.md',
-  'docs/implementation-decisions.md', 'docs/repository-verification.md', 'docs/preview/README.md', 'docs/media/README.md'];
+  'docs/implementation-decisions.md', 'docs/repository-verification.md', 'docs/preview/README.md', 'docs/media/README.md','docs/实施/B方案前端还原与验收.md'];
 let links = 0;
 for (const entry of entries) {
   const full = path.join(root, entry), text = await readFile(full, 'utf8');
@@ -37,6 +37,20 @@ check('capture_count', capture.screenshots.length === 38);
 check('browser_resources_closed', capture.browser_closed === true);
 check('preview_boundaries', ['live_codex', 'native_devices', 'real_payments', 'ubuntu_cleanup'].every(key => capture[key] === 'NOT_RUN' && manifest.verification[key] === 'NOT_RUN'));
 for (const source of capture.source_files) check(`captured_source:${source.path}`, hash(await readFile(path.join(root, source.path))) === source.sha256);
+const design=JSON.parse(await readFile(path.join(root,'docs/实施/验证记录/ui-design-fidelity-2026-10-28.json'),'utf8'));
+check('design_failures',design.failures.length===0);
+check('design_resources_closed',design.browser_closed===true);
+for(const provider of ['ALIPAY','DOUYIN'])for(const width of [320,375,390,430])for(let n=1;n<=18;n++)check(`design_matrix:${provider}:${width}:${n}`,design.cases.some(c=>c.provider===provider&&c.page==='MP'+String(n).padStart(2,'0')&&c.viewport.width===width&&c.variant==='standard'&&c.passed));
+check('design_edge_cases',design.cases.length===164&&design.cases.every(c=>c.passed));
+check('design_interactions',design.regressions.length===14&&design.regressions.every(r=>r.passed));
+for(const source of design.sources)check('design_source:'+source.path,hash(await readFile(path.join(root,source.path)))===source.sha256);
+for(const screenshot of design.screenshots)check('design_capture:'+screenshot.path,hash(await readFile(path.join(root,screenshot.path)))===screenshot.sha256);
+for(const target of ['mini-alipay','mini-douyin']){
+ const directory=path.join(root,'src',target),native=JSON.parse(await readFile(path.join(directory,'source-manifest.json'),'utf8'));
+ check('native_inventory:'+target,native.pages===18&&native.components===32&&native.native_device_status==='NOT_RUN');
+ for(const input of native.source_inputs){const file=path.resolve(root,input.path);check('native_input:'+target+':'+input.path,inside(file)&&hash(await readFile(file))===input.sha256);}
+ for(const item of native.files){const file=path.resolve(directory,item.path),rel=path.relative(directory,file),data=await readFile(file);check('native_output:'+target+':'+item.path,!path.isAbsolute(rel)&&rel!=='..'&&!rel.startsWith('..'+path.sep)&&data.length===item.bytes&&hash(data)===item.sha256);}
+}
 const listed = new Set(manifest.files.map(file => file.path));
 check('media_unique_paths', listed.size === manifest.files.length);
 for (const file of manifest.files) {
@@ -61,7 +75,7 @@ async function walk(directory) {
 }
 await walk(path.join(root, 'docs/media'));
 const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
-for (const name of ['docs:preview', 'docs:capture', 'docs:media', 'docs:verify']) check(`documented_script:${name}`, typeof pkg.scripts[name] === 'string');
+for (const name of ['docs:preview', 'docs:capture', 'docs:media', 'docs:verify','design:audit','design:before','design:icons']) check(`documented_script:${name}`, typeof pkg.scripts[name] === 'string');
 const report = { status: failures.length ? 'FAIL' : 'PASS', checks_passed: checks.length - failures.length,
   checks_failed: failures.length, links_checked: links, captured_pages: 36, media_files: manifest.files.length, errors: failures,
   scope: 'Local documentation links, bilingual contracts, source hashes and media integrity only; no live integrations.' };

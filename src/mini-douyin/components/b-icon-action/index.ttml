@@ -1,1 +1,1 @@
-<button class="button" disabled="{{disabled}}" bindtap="act">{{text}}</button>
+<button class="icon-action" aria-label="{{text}}" disabled="{{disabled}}" bindtap="act"><image tt:if="{{icon}}" class="icon" src="{{'/assets/icons/'+icon+'.png'}}" aria-hidden="true"/><text tt:if="{{!icon}}">{{text}}</text></button>

@@ -14,6 +14,7 @@
 | 原开发证据 / Source evidence | [验证交付](实施/验证与交付记录.md)、[进度证据](实施/源码开发进度与证据.md) | 有限范围 / Scoped checks |
 | 本轮仓库证据 / Handoff evidence | [仓库验证](repository-verification.md) | 源码、媒体、文档 / Source, media, docs |
 | B 设计定型 / Frozen B design | [设计入口](设计定型/B-青绿资料夹-v1.0.0/README.md)、[原图与规格](../assets/design/b-jade-folders/v1.0.0) | B1.0.0 冻结 / Frozen |
+| B 方案实现还原 / B fidelity | [逐页修复及验收](实施/B方案前端还原与验收.md) | 当前源码；真机待验 / Source; devices pending |
 | 技术决策 / Decisions | [决策记录](implementation-decisions.md) | 当前与待评估 / Current and future |
 | 截图、录屏、GIF / Media | [媒体索引](media/README.md)、[摘要](media/manifest.json) | 合成预览 / Synthetic preview |
 | 复现展示 / Reproduce | [预览工具](preview/README.md) | 本地无凭据 / Local, no credentials |

@@ -1,7 +1,7 @@
 <b-heading title="资料清单" count="{{sources.length}}"/>
 <view class="muted">单文件最多 20 MB；最多 10 份资料；规范单独计算角色，最多 5 MB。</view>
-<b-source p:for="{{sources}}" p:key="source_id" title="{{item.name}}" text="{{item.role==='TEMPLATE'?'规范文件':'来源资料'}} · {{item.status==='RECEIVED'?'已接收':'原件已清理'}} · {{item.bytes}} 字节"><button p:if="{{ready}}" class="button danger" data-action="remove-source" data-id="{{item.source_id}}" onTap="onAction">移除此项资料</button></b-source>
-<view p:if="{{ready}}"><b-input title="粘贴文字" text="只读取你主动提交的内容，最多五万字。"><textarea value="{{text}}" maxlength="50000" data-field="text" onInput="onInput" placeholder="粘贴名单、聊天记录、订单说明……"/></b-input>
+<b-source p:for="{{sources}}" p:key="source_id" title="{{item.name}}" icon="{{item.icon}}" text="{{item.role==='TEMPLATE'?'规范文件':'来源资料'}} · {{item.status==='RECEIVED'?'已接收':'原件已清理'}} · {{item.bytes}} 字节"><button p:if="{{ready}}" class="button danger" data-action="remove-source" data-id="{{item.source_id}}" onTap="onAction">移除此项资料</button></b-source>
+<view p:if="{{ready}}"><b-input title="粘贴文字" text="只读取你主动提交的内容，最多五万字。"><textarea aria-label="粘贴文字" value="{{text}}" maxlength="50000" data-field="text" onInput="onInput" placeholder="粘贴名单、聊天记录、订单说明……"/></b-input>
 <button class="button primary" data-action="add-text" onTap="onAction" disabled="{{loading||!text}}">添加这段文字</button>
 <button class="button" data-action="add-image" onTap="onAction" disabled="{{loading||!capability.flags.file_input}}">从相册或相机添加图片</button>
 <button p:if="{{canChooseOffice}}" class="button" data-action="add-office" onTap="onAction" disabled="{{loading||!capability.flags.file_input}}">选择当前宿主支持的文件</button></view>

@@ -1,1 +1,1 @@
-Component({props:{"title":"","text":"","action":"","itemId":"","variant":"","disabled":false,"loading":false,"selected":false,"count":0,"onAction":null},methods:{act(){if(this.props.onAction)this.props.onAction({action:this.props.action,id:this.props.itemId})}}});
+Component({props:{"title":"","text":"","action":"","itemId":"","variant":"","icon":"","meta":"","disabled":false,"loading":false,"selected":false,"count":0,"onAction":null},methods:{act(){if(this.props.onAction)this.props.onAction({action:this.props.action,id:this.props.itemId})}}});

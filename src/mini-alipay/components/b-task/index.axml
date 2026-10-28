@@ -1,1 +1,1 @@
-<view class="source-row"><view>{{title}}</view><view class="small">{{text}}</view><slot/></view>
+<view class="section"><view class="card-title">{{title}}</view><view class="small">{{text}}</view><slot/></view>

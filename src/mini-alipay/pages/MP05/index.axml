@@ -1,4 +1,4 @@
-<b-frame><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-progress title="整理进度" text="{{phase}}"><view a:if="{{run}}" class="small">当前阶段：{{stageLabel}}。离开本页后可从任务列表继续查看。</view></b-progress>
+<b-frame variant=""><view a:if="{{loading}}" class="notice">正在处理，请稍候……</view><view a:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" onTap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><b-progress title="整理进度" text="{{phase}}"><view a:if="{{run}}" class="small">当前阶段：{{stageLabel}}。离开本页后可从任务列表继续查看。</view></b-progress>
 <b-feedback a:if="{{session.status==='ANALYZING'}}" title="正在理解全部资料" text="完成后先展示规范与少量样例，供你确认后再估费。"/>
 <button a:if="{{session.status==='WAITING_CONFIRMATION'}}" class="button primary" data-action="go-MP06" onTap="onAction">查看并确认推荐规范</button>
 <button a:if="{{session.status==='QUOTABLE'||session.status==='AWAITING_PAYMENT'}}" class="button primary" data-action="go-MP04" onTap="onAction">查看方案、费用与原订单</button>

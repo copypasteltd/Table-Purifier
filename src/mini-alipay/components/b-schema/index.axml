@@ -1,1 +1,1 @@
-<view><view class="hero">{{title}}</view><view class="muted">{{text}}</view><slot/></view>
+<view class="schema-summary"><view class="schema-title">{{title}}</view><view class="muted">{{text}}</view><slot/></view>

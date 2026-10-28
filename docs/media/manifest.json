@@ -1,6 +1,6 @@
 {
   "protocol": "P07-MEDIA-MANIFEST-1",
-  "captured_at": "2026-10-27T21:21:08.629Z",
+  "captured_at": "2026-10-28T00:01:28.939Z",
   "scope": "Actual native templates/components/controller rendered by documentation-only browser adapters; all data and server/payment/Agent/cleanup states are synthetic.",
   "verification": {
     "live_codex": "NOT_RUN",
@@ -8,7 +8,7 @@
     "real_payments": "NOT_RUN",
     "ubuntu_cleanup": "NOT_RUN"
   },
-  "capture_receipt_sha256": "20675d2c0e93a6d9fdbf17a3cb0e4e5759ef49db13b62a4e965b1de6f97b4fb8",
+  "capture_receipt_sha256": "670b86fa5180ec41d052533222fa99ac9057e1ef852a03d894c529d0ade75d43",
   "ffmpeg": "ffmpeg version 8.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers\r",
   "timeline": [
     {
@@ -24,43 +24,43 @@
       "en": "Only user-submitted data enters the session"
     },
     {
-      "seconds": 11.9,
+      "seconds": 11.96,
       "step": 3,
       "zh": "先分析全部资料，再提出规范",
       "en": "Synthetic Agent states · No live model call"
     },
     {
-      "seconds": 17.39,
+      "seconds": 17.41,
       "step": 4,
       "zh": "你确认一行是什么、字段是什么",
       "en": "Review the schema and a small preview before quoting"
     },
     {
-      "seconds": 22,
+      "seconds": 22.02,
       "step": 5,
       "zh": "确认方案，查看原单位封顶报价",
       "en": "199 CNY fen is a fixture amount, not a service price"
     },
     {
-      "seconds": 24.79,
+      "seconds": 24.82,
       "step": 6,
       "zh": "模拟实付确认后，才进入批量",
       "en": "Mock order verification · No checkout or money transfer"
     },
     {
-      "seconds": 33.26,
+      "seconds": 33.37,
       "step": 7,
       "zh": "保留结果，把不确定的事实留给你",
       "en": "2 accepted + 1 needs review · Missing does not become zero"
     },
     {
-      "seconds": 40.48,
+      "seconds": 40.86,
       "step": 7,
       "zh": "每个疑问，都能回到保留的依据",
       "en": "Evidence excerpt and locator remain with the result"
     },
     {
-      "seconds": 42.71,
+      "seconds": 43.18,
       "step": 7,
       "zh": "九文件持续保留，任务环境整体清理",
       "en": "Simulated CLOSED state · Native Ubuntu cleanup is NOT_RUN"
@@ -69,8 +69,8 @@
   "files": [
     {
       "path": "docs/media/alipay-pages.png",
-      "bytes": 922086,
-      "sha256": "2c2a9615c2e6facbb2bacb082c5a24058be4cf7fac0a9783af55b2140752c20e",
+      "bytes": 918647,
+      "sha256": "20205283ccb5317a20597ae2fda172c94f86849b115495677e292759e06f17d4",
       "width": 924,
       "height": 4170,
       "codec": "png",
@@ -78,9 +78,139 @@
       "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
     },
     {
+      "path": "docs/media/design-review/after-board.png",
+      "bytes": 270335,
+      "sha256": "ad90730e04fd6870d4273ea529a2851e3483ae92c4f600189bd8a4afdfb7a6ef",
+      "width": 1054,
+      "height": 894,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/alipay-MP01.png",
+      "bytes": 56403,
+      "sha256": "0ad0a4c073d10f0bf9e7dff2d68bf7bd03c25ee04889632518c5b166b8a80e7b",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/alipay-MP06.png",
+      "bytes": 44264,
+      "sha256": "e26c34b9a968a8c06d75028c76ec3d1857ff1b778790c5d7b90c1882f8f35df5",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/alipay-MP10.png",
+      "bytes": 42563,
+      "sha256": "018b549b9a60cc92aadbfd8d814b4436637e42ba7995ff647e7a9a5aaa58c45b",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/before-MP01.png",
+      "bytes": 42839,
+      "sha256": "e93c94fd7d3afeba3486db094feb6f9e98f2031acdc5e4b4a5690480efb59940",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/before-MP06.png",
+      "bytes": 41078,
+      "sha256": "c7845431b6887de9c5492aed652726aa2874b3be22c1a2362f81939e5c908012",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/before-MP10.png",
+      "bytes": 35080,
+      "sha256": "94eda9d0b1d6970d61591b55471b41ef5eb32a5e1a7ddd00f02025c3e57d1c54",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/comparison-MP01.png",
+      "bytes": 386375,
+      "sha256": "bcaba596657e515d74b3c9c25504b61442ac8baff070e626fdcdf04e8900ebc4",
+      "width": 1181,
+      "height": 970,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/comparison-MP06.png",
+      "bytes": 362114,
+      "sha256": "3b0dd8dc27dfeb9c614ff50bd48cf732c9371682ba9e3ee3f82f93427bbafe26",
+      "width": 1181,
+      "height": 970,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/comparison-MP10.png",
+      "bytes": 336924,
+      "sha256": "76188aae09913e87842b455c7dcd7a0e29d9a3860dcc6501bd9b21fd09bc5475",
+      "width": 1181,
+      "height": 970,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/douyin-MP01.png",
+      "bytes": 56303,
+      "sha256": "d262d1bb75ff39adfe6ef86d52e3fe6895df019e43268edca7679c2acf57a013",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/douyin-MP06.png",
+      "bytes": 44157,
+      "sha256": "abc1add9dc8972d741b085619fb9832e192f76ad02c1e6eaed63df3f5e2258d4",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
+      "path": "docs/media/design-review/douyin-MP10.png",
+      "bytes": 42458,
+      "sha256": "534bea17319fd1ef3401800589701571572bacddc2209928a642ebb574acc61a",
+      "width": 375,
+      "height": 920,
+      "codec": "png",
+      "pixel_format": "rgb24",
+      "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
+    },
+    {
       "path": "docs/media/douyin-pages.png",
-      "bytes": 922550,
-      "sha256": "c5f52c35026373b3fc49ebae9341912c5690371dc76600edb19e4edc3924b432",
+      "bytes": 918911,
+      "sha256": "8d4bf96e1e6a89fc2442ce437f82c5407c9190b933f2ae764eaaaffda147e17e",
       "width": 924,
       "height": 4170,
       "codec": "png",
@@ -89,8 +219,8 @@
     },
     {
       "path": "docs/media/evidence.gif",
-      "bytes": 1301063,
-      "sha256": "469bb844a816744cf4fb55de4d6bbf9d7e02ce23803235937386a48f93c8218b",
+      "bytes": 1184796,
+      "sha256": "7b48d9b3fbb0814ff0c2bc2d8877276c5e08ff9d82c45e52855a642d56c1c18d",
       "width": 430,
       "height": 920,
       "codec": "gif",
@@ -100,8 +230,8 @@
     },
     {
       "path": "docs/media/overview.png",
-      "bytes": 103811,
-      "sha256": "3bdd70e649789f7ecef9661210b97702930b2db2828f7302f97a9308020b27ac",
+      "bytes": 105356,
+      "sha256": "fce2f4bcec35ca6179cffbcd50a28465af2ef4a7315c0556d3c9ab0c55a704f6",
       "width": 1600,
       "height": 1060,
       "codec": "png",
@@ -110,8 +240,8 @@
     },
     {
       "path": "docs/media/schema-desktop.png",
-      "bytes": 114962,
-      "sha256": "5e69c7b56bb4f66ba1091537aa9cd7d269f7929833ba8ea4c7c858d4d117b9ea",
+      "bytes": 115042,
+      "sha256": "14cb2daf1540348b92467a193641f797319d7ef3f42bc7fe9be2225a26b473eb",
       "width": 1600,
       "height": 1060,
       "codec": "png",
@@ -120,8 +250,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP01.png",
-      "bytes": 47849,
-      "sha256": "92a3c8cbd690ffeb29d0dec694b93643a1a2d616ce3d6cecb8c9d2f712e9d87b",
+      "bytes": 51171,
+      "sha256": "7a2661c9b3b16b182bceaac434508b897f20c5841f3de08f6cb1294dbfe3804e",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -130,8 +260,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP02.png",
-      "bytes": 39093,
-      "sha256": "f56afa09099dea777224de7ffff1de836e1f8964df871f26e781a6852d51e526",
+      "bytes": 40419,
+      "sha256": "87fd2e058e238cf1722d2899c41b2a76169a65267199b85e50a493102e0c808a",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -140,8 +270,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP03.png",
-      "bytes": 41759,
-      "sha256": "23543a320162a755921866a00adfabea7942b3f90c963f25660633759854445a",
+      "bytes": 44069,
+      "sha256": "bac872acb0766ea7e42adfee00d97f680b3f0ab13567299af69f110430d71d0f",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -150,8 +280,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP04.png",
-      "bytes": 47026,
-      "sha256": "7007cccab644d180589af8d088269b44afc3d3c823ff1e00adaa3233ec7cea87",
+      "bytes": 46636,
+      "sha256": "5dd5a6728a902dca36a29187a61439f433272a910e7f1eb53b844fdc1371153c",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -160,8 +290,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP05.png",
-      "bytes": 21280,
-      "sha256": "f7e60c795bf918c07a36947daba86327f4de3dc926cf02938d135d9c75955e73",
+      "bytes": 21278,
+      "sha256": "a9b966cfea7e1cbec751a41d6fcfcd64d6949d0dc355184c58e4e907eaf08b4c",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -170,8 +300,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP06.png",
-      "bytes": 48866,
-      "sha256": "45346c80e59fcc98cec13c4497d93eb9a19820d7575fa58f2e76f73c992df8b7",
+      "bytes": 50549,
+      "sha256": "0c00b05b94a9e73985db5f26d42ec575ce80230b168927bac8aab64f8cf75d70",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -180,8 +310,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP07.png",
-      "bytes": 37530,
-      "sha256": "8f600f48dc3997fd190d4f7756d8d880568440c9d2eb51d5dabb0ce43102496b",
+      "bytes": 40647,
+      "sha256": "8397079ac73bdf26710cc1c2603884fb9ca97e178969ca51986412fa7dcf494e",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -190,8 +320,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP08.png",
-      "bytes": 36753,
-      "sha256": "cbd985f1a6a54634f690d925988cba3d2278399a763996186efefa064c25ed95",
+      "bytes": 37930,
+      "sha256": "162c9bb1c3371e726ee6c4ad79584ecf98b8dabe7a002cc793a0518cb1cb837c",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -200,8 +330,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP09.png",
-      "bytes": 28655,
-      "sha256": "18eda78678d695605674c34b5706f513bd52ab2d235f916201bd3ca9a045344f",
+      "bytes": 28858,
+      "sha256": "6b296e799daa2ab9d796c8346670db30a2db4c05d9e5f21a14bf799757bfa622",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -210,8 +340,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP10.png",
-      "bytes": 35398,
-      "sha256": "9fa101349e00eee605924b40b429765e57d7c4a6de194fa7178f0d038b3a0219",
+      "bytes": 43902,
+      "sha256": "7567e7fc96334d1039bdace69553b0036e0526fedd24277ee03d2c64e97c6a86",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -220,8 +350,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP11.png",
-      "bytes": 24975,
-      "sha256": "58822d703af158fe3c349f69278d494481315a1926fa624efce9b5fb29b7beac",
+      "bytes": 26184,
+      "sha256": "48ea1858bf697d02b13461ce315eddfaa41a21951b5be6443b4a587e4946cf14",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -230,8 +360,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP12.png",
-      "bytes": 37950,
-      "sha256": "dee22a012bc11b125294b55de7f5cf1a37d42f4ba235eb5089a0c7b1dedf6dc5",
+      "bytes": 43511,
+      "sha256": "a28749794b710b2927d2a9ea62b90265240d37327aa7e943788ab794891ca41a",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -240,8 +370,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP13.png",
-      "bytes": 21725,
-      "sha256": "31915d3ddf027d3810b2c53a3045c0d57f0ec483f02f482a93d9ba6da6c07c15",
+      "bytes": 22851,
+      "sha256": "94c49542cdfb696e29a5cb881deb2381979e8f1747bfc8359011e60cc4c0543d",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -250,8 +380,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP14.png",
-      "bytes": 29999,
-      "sha256": "7640319c434de0bf2cbc02f32b7f94b8406159a9ead2e1f7b30fb31df81f7f8e",
+      "bytes": 31835,
+      "sha256": "91c0d1d10c0d5281fdefed4b0641b6389c84536df48d02c3c7824ee59180effe",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -260,8 +390,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP15.png",
-      "bytes": 33073,
-      "sha256": "47ebe9aeef2c6ec410bccb98a66cc240abb1503af57b59211d94d1a2cc5f53b1",
+      "bytes": 34709,
+      "sha256": "11c8d86117a29ddb8a128e709d6f27e164cf59c86b4bd469bee0e7d339ea4fd7",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -270,8 +400,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP16.png",
-      "bytes": 35713,
-      "sha256": "6d8f024e3dc4644fab80f49d9bce9bef94591c11d5e092f01885cbe5afce006a",
+      "bytes": 36314,
+      "sha256": "804bfd37f9776d4790f04f8dc98adf122070e02306bffd4b82bbb07e74e17590",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -280,8 +410,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP17.png",
-      "bytes": 54122,
-      "sha256": "c62d7ad687b7a06d412abe4b313b89af7c8f37047820e9fd57c008a17ce39371",
+      "bytes": 56626,
+      "sha256": "425de3c9d58e0f4b5b571806ab997a13c292f394c229760c9b2b4ab5cb992b68",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -290,8 +420,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP18.png",
-      "bytes": 34015,
-      "sha256": "6b50cac245156d738a3a0cb1c75503cde550c0f558fa72c9c20cbf776338ce1b",
+      "bytes": 35932,
+      "sha256": "288d3e4544973579bea7c9882d56b0067d4a4d61323a91f803aace2f50500c92",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -300,8 +430,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP01.png",
-      "bytes": 47736,
-      "sha256": "716959c1c9208d1e4b3d33f6f3a23f5d771c51fba96056d81560a71e7483e890",
+      "bytes": 51053,
+      "sha256": "3e6402de4ad993faa02f3be1a844ed2262144fba8adb5b21b9c41043b56e910e",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -310,8 +440,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP02.png",
-      "bytes": 38992,
-      "sha256": "5dd5f14f81429e55b36457b8598c6ae1fa9c586fe75d820bf7c8ea40b592b779",
+      "bytes": 40308,
+      "sha256": "786ad2ef0ca3d371b8224db522568d674d78b150b6d234bf50dfb1064459a2be",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -320,8 +450,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP03.png",
-      "bytes": 41647,
-      "sha256": "b7c42e7acfed333389951eae84db93ba11bddaa45ee3ec88f01ceff22752eea4",
+      "bytes": 43957,
+      "sha256": "08be4628e496fb016b5ed0643583b5a935cfa391cc6e1f01cdd421daeb5a1624",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -330,8 +460,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP04.png",
-      "bytes": 46258,
-      "sha256": "cc47c01af7684334e9c45dd4bd06a0d8adab74aa460481025d8e6eca51704c8f",
+      "bytes": 45856,
+      "sha256": "41d095a1d3e36b82bb08737ea07bc810e6755337a3e6831738bab686df51fdcb",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -340,8 +470,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP05.png",
-      "bytes": 21164,
-      "sha256": "ebcc4e7a9fda72d27b4740bef6dbf77168eb66c4743347ec3a5040623d12fd43",
+      "bytes": 21159,
+      "sha256": "6872751db32f9714b8f65c396efd8bde5dc5636013f7041d9ee37989e2bb02aa",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -350,8 +480,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP06.png",
-      "bytes": 48735,
-      "sha256": "a87274e4d18c7e1776ea0f8569ef70ded418c7db6c3fc9177901acd29440f9ad",
+      "bytes": 50430,
+      "sha256": "7298b93dafb1afa2b4653b8a8d82fe2141f59d39d5c651d6a99d50c9e586daf7",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -360,8 +490,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP07.png",
-      "bytes": 37415,
-      "sha256": "f0214966e18b6c1e128e03c63566312cb1834ce21ac6d83080c99e56d379abf4",
+      "bytes": 40525,
+      "sha256": "39f593849a54f90d0579ef01c8a5aa877a0c40188412b7b75a8e7ebce6e243e4",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -370,8 +500,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP08.png",
-      "bytes": 36640,
-      "sha256": "bc8f3dcf7c00ac1474b3da11aa83cea2193439ffa71c8699392cf766e2b79aa9",
+      "bytes": 37812,
+      "sha256": "42bbf30bc7a292db7b10e8a4c70259b3df1fafce3223b16e155accbfa5a148f7",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -380,8 +510,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP09.png",
-      "bytes": 28537,
-      "sha256": "034537f986ef344108cb4463dec09faa2a1dfc1e48ee71a319dbf5de5268a6de",
+      "bytes": 28726,
+      "sha256": "a69bf7dfb460313672fdd17361132270af1bcc65b24c3a7baf215275a5ba7309",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -390,8 +520,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP10.png",
-      "bytes": 35280,
-      "sha256": "a2ec40e73bf378beda5efb3fae72844ab18d377990095e5e3ac5487f47b00abb",
+      "bytes": 43786,
+      "sha256": "b244cfdc2cbe406d278cedb8040412f9bd9d77ade565902873cf05035feab32f",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -400,8 +530,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP11.png",
-      "bytes": 24862,
-      "sha256": "051f255a6cf510451ef5048e94c362b6c773cd067d884ef5bc720d8a4b71413b",
+      "bytes": 26066,
+      "sha256": "f6e1bb7a68efa0e506635b221bcdcd718fc9a6e3fb49d4c72fe9153f2b0ba8ab",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -410,8 +540,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP12.png",
-      "bytes": 37833,
-      "sha256": "d352d1f84165088bb7fe048becd91821d47828ea02ecd64073f3251682147c76",
+      "bytes": 43398,
+      "sha256": "da5a25e62a63f5356b71d3bca416d1e34e78e72bee07e6dd26ce69a1fb8e1a85",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -420,8 +550,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP13.png",
-      "bytes": 21603,
-      "sha256": "d39086a7e8e9ec79a420aa0d5981ceb5d61ede8c7db9ffdb1839d8cb881db89b",
+      "bytes": 22730,
+      "sha256": "9a9c589e0116752e70052b70298873646515e2caee09b9a2f10f68cf827baeca",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -430,8 +560,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP14.png",
-      "bytes": 29882,
-      "sha256": "1c162e0eea8664f77cda2ff9a5f430c9c11242ec226d969529dab33e39412749",
+      "bytes": 31721,
+      "sha256": "e39a7a29ef5ae0da1683b85a470a9bb57197a303a71315e904ba52387d8b689f",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -440,8 +570,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP15.png",
-      "bytes": 32704,
-      "sha256": "1e0235cebeffcb36d7ddbaa32d1044b57b1a4cb417e6c2e5b5d53f7da610b591",
+      "bytes": 34363,
+      "sha256": "7e1f017b976e162f2eed2b962b5dd12b06f0c9bfede28f43fce42f36eb7e6251",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -450,8 +580,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP16.png",
-      "bytes": 34952,
-      "sha256": "19c9b2ba33dddf339043dff4567dd0f22314e744d10dfc36c6c317b553a1428b",
+      "bytes": 35561,
+      "sha256": "fe222f2ef89a9bae0638fd30394a05ed10d98d586c697784a336539262074a68",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -460,8 +590,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP17.png",
-      "bytes": 54017,
-      "sha256": "d67965157f65b32c19d3786f74c2f350727e155a096d59c44d8f1658acca4875",
+      "bytes": 56506,
+      "sha256": "c87bd4e94f953e9aad3c4e95403478ff356004f742943602e2e17dbb59380667",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -470,8 +600,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP18.png",
-      "bytes": 33901,
-      "sha256": "f7b701991b2d2612a0e14290df796df77887ae6d59a30d4e9351efa7c7a05c78",
+      "bytes": 35820,
+      "sha256": "6263a4c7662e98ad39e4091b607397dd9cfde90d0dc6d05ff42fd09f74163ed4",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -480,8 +610,8 @@
     },
     {
       "path": "docs/media/walkthrough.gif",
-      "bytes": 4974105,
-      "sha256": "bcdd5d0673c8330a5971be5690fad26bfdecee98c15a8b583264f9dee33c0dd3",
+      "bytes": 4101417,
+      "sha256": "3d1fffbd42a2a6d1d0e062141757621aa6460e530c9e5cfbdfaf831b0bf83ea5",
       "width": 880,
       "height": 748,
       "codec": "gif",
@@ -491,13 +621,13 @@
     },
     {
       "path": "docs/media/walkthrough.mp4",
-      "bytes": 1113234,
-      "sha256": "cf4d9e018f9170478de345461ab4accbc479c88833473dc88b75ee210c65f504",
+      "bytes": 1156026,
+      "sha256": "f44ee967a873b43f3bd113b20d8b90cdd84ecb7f9f5d5397b0111966100815c1",
       "width": 1440,
       "height": 954,
       "codec": "h264",
       "pixel_format": "yuv420p",
-      "duration_seconds": 47.92,
+      "duration_seconds": 48.16,
       "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
     }
   ]

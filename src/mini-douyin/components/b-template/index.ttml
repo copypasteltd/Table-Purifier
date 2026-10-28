@@ -1,1 +1,1 @@
-<view class="section"><view class="row"><text>{{title}}</text><text class="badge">私有规范</text></view><view class="small">{{text}}</view><slot/></view>
+<view class="section"><view class="row"><text class="card-title">{{title}}</text><text class="badge">私有规范</text></view><view class="small">{{text}}</view><slot/></view>

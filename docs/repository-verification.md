@@ -1,5 +1,7 @@
 # 仓库整理验证 / Repository handoff verification
 
+> 本文保留初始提交 `a9d9699` 的历史验证与媒体统计。当前界面和媒体已更新，请另读 [B 方案还原验收](实施/B方案前端还原与验收.md) 及 [本次验证](实施/验证记录/ui-update-verification-2026-10-28.json)。This is the initial handoff record; current UI/media verification is recorded separately.
+
 日期：2026-10-28。版本：源码 0.1.0、业务 v3.2、DEV3、B1.0.0。
 
 本轮完成源码与文档入口整理、中英 README、可复现页面预览、截图/录屏/GIF、仓库规则和 Git 交付准备。以下是实际执行的检查，不代表外部真实集成验收。

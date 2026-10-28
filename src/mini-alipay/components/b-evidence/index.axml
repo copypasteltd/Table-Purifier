@@ -1,1 +1,1 @@
-<view class="section"><view class="small">{{title}}</view><view class="excerpt">{{text}}</view><slot/></view>
+<view class="evidence-card"><view class="evidence-heading"><image class="file-icon" src="/assets/icons/document.png" aria-hidden="true"/><view class="grow"><view class="excerpt">{{text}}</view><view class="small evidence-caption">{{title}}</view></view></view><slot/></view>

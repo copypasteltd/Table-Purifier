@@ -1,1 +1,1 @@
-<view class="section-title">{{title}} <text tt:if="{{count}}" class="small">{{count}}</text></view>
+<view class="section-title">{{title}}<text tt:if="{{count}}" class="heading-count">{{count}}</text></view>

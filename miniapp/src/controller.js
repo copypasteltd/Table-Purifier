@@ -4,15 +4,17 @@ import { sha256 } from './sha256.js';
 import config from '../config.generated.json';
 import { titles } from './pages.generated.js';
 import { clone,fieldTypes,comparators,editorView,schemaPatch,ruleFromForm } from './schema-editor.js';
+import { sourceView,fieldExamples,tableView,issueView } from './presentation.js';
 
 const STATUS={INITIALIZING:'正在准备整理会话',READY_FOR_INPUT:'会话已就绪，可以提交资料',INPUT_RECEIVED:'资料已接收，等待分析',ANALYZING:'正在理解全部已提交资料',WAITING_CONFIRMATION:'规范草案已准备好，请确认',QUOTABLE:'方案已确认，可以预估费用',AWAITING_PAYMENT:'等待原平台确认付款',BATCH_QUEUED:'已核实付款，等待整理',BATCH_RUNNING:'正在批量整理',PERSISTING_RESULTS:'正在保存并核验结果',RELEASING_RUNTIME:'结果与任务环境分别处理，正在清理环境',CLOSED:'任务环境已清理，结果继续保留',FAILED:'整理未完成，请查看订单与售后',CANCELED:'整理已停止',INITIALIZATION_FAILED:'会话准备失败，请重试'};
 const labels={CONFIRMED:'服务端已核实付款',PENDING:'等待付款确认',UNKNOWN:'状态待核对',NOT_CREATED:'尚未发起支付',DELIVERABLE:'结果可领取',DELIVERED:'已确认取用',NONE:'无退款申请',SUCCEEDED:'已完成',PROCESSING:'处理中',REQUESTED:'已申请',PARTIAL:'部分退款',FULL:'全额退款',NOT_STARTED:'尚未生产',IN_PROGRESS:'正在履约'};
 const writable=()=>state.session&&['READY_FOR_INPUT','INPUT_RECEIVED','WAITING_CONFIRMATION','QUOTABLE'].includes(state.session.status);
 function values(record,schema){return record.fields.map(f=>({id:f.field_id,label:schema?.fields.find(x=>x.field_id===f.field_id)?.label??f.field_id,value:f.typed_value===null?'—':String(f.typed_value),status:f.status,evidence:f.evidence_ids}));}
+function recordView(record,schema){const fields=values(record,schema);return {...record,values:fields,keyValues:fields.slice(0,5),moreFields:fields.length>5};}
 export function createPage(page){return {
  data:{page,title:titles[page],loading:false,error:'',notice:'',phase:'',ready:false,mode:'DISCOVER',goal:'',text:'',instruction:'',name:'',value:'',note:'',category:'资料整理问题',supportAccess:false,
-  sources:[],fields:[],records:[],issues:[],files:[],tasks:[],templates:[],orders:[],nextCursor:null,selectedAction:'',selectedEvidence:'',filter:'',policy:null,quote:null,order:null,run:null,task:null,session:null,plan:null,proposal:null,evidence:null,decisionPreview:null,deletion:null,capability:null,
-  counts:null,bindingId:null,contractId:null,consentId:null,environment:environment(),canChooseOffice:!!config[provider].approvedOfficePicker,
+  sources:[],homeSources:[],sourceCount:0,fields:[],fieldCards:[],previewColumns:[],previewRows:[],records:[],issues:[],files:[],tasks:[],templates:[],orders:[],nextCursor:null,selectedAction:'',selectedEvidence:'',filter:'',policy:null,quote:null,order:null,run:null,task:null,session:null,plan:null,proposal:null,evidence:null,decisionPreview:null,deletion:null,capability:null,
+  counts:null,bindingId:null,contractId:null,consentId:null,primaryFiles:[],additionalFiles:[],moreFiles:false,expandedRecord:'',environment:environment(),canChooseOffice:!!config[provider].approvedOfficePicker,
   draft:null,ruleViews:[],fieldTypes,comparators,ruleKind:'COMPARE',ruleField:'',ruleTarget:'',ruleComparator:'GE',ruleValue:'',templateEdit:false,reworkReady:false},
  onLoad(query={}){this.route=query;this.pendingKeys={};this.visible=true;this.localFile=null;},
  onShow(){this.visible=true;this.perform(async()=>{if(!state.session&&page!=='MP17'&&page!=='MP18')await restore();await this.refresh();});},
@@ -24,16 +26,16 @@ export function createPage(page){return {
  key(action){return this.pendingKeys[action]??(this.pendingKeys[action]=uuid());},
  done(action){delete this.pendingKeys[action];},
  async write(action,path,body){const r=await api(path,'POST',body,this.key(action));this.done(action);return r;},
- onInput(e){const field=e.currentTarget.dataset.field;this.setData({[field]:e.detail.value});},
+ onInput(e){const field=e.currentTarget.dataset.field;if(field==='goal'&&writable()&&!state.task)state.draftGoal=e.detail.value;this.setData({[field]:e.detail.value});},
  onChoice(e){if(page==='MP10'&&!this.data.reworkReady)return;this.setData({selectedAction:e.currentTarget.dataset.action,selectedEvidence:e.currentTarget.dataset.id??'',decisionPreview:null});},
  onMode(e){if(state.task)return;this.setData({mode:e.currentTarget.dataset.mode});},
- loadEditor(schema,key){if(this.editorKey===key){this.setData(editorView(clone(this.data.draft)));return;}this.editorKey=key;this.originalSchema=clone(schema);this.setData(editorView(clone(schema)));},
+ loadEditor(schema,key){if(this.editorKey===key){this.setData(editorView(clone(this.data.draft)));return;}this.editorKey=key;this.setData({expandedField:schema.fields[0]?.field_id??''});this.originalSchema=clone(schema);this.setData(editorView(clone(schema)));},
  onSchemaInput(e){const {id,property}=e.currentTarget.dataset,draft=clone(this.data.draft),field=draft.fields.find(f=>f.field_id===id),value=e.detail.value;
   if(field){if(property==='enum_values')field.enum_values=value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
    else if(property==='scale'){if(value!==''&&(!/^\d+$/.test(value)||Number(value)>18)){this.setData({error:'小数位数请填写 0 至 18。'});return;}field.scale=value===''?null:Number(value);}
    else field[property]=property==='unit'&&value===''?null:value;}else draft[property]=value;this.setData(editorView(draft));},
  async ensureTask(){if(!writable())throw new Error('请先新建会话，并等待准备完成。');
-  if(!state.task){state.task=await this.write('create-task','/tasks',{mode:this.data.mode,client_request_id:this.key('task-request'),agent_session_id:state.session.session_id,...(this.data.goal?{optional_goal:this.data.goal}:{})});remember();}return refreshTask();},
+  if(!state.task){const goal=state.draftGoal??this.data.goal;state.task=await this.write('create-task','/tasks',{mode:this.data.mode,client_request_id:this.key('task-request'),agent_session_id:state.session.session_id,...(goal?{optional_goal:goal}:{})});state.draftGoal='';remember();}return refreshTask();},
  async refresh(){
   if(this.route.template&&page==='MP07'){const t=await api('/private-templates/'+this.route.template);state.selectedTemplate=t;
    this.setData({templateEdit:true,name:t.name});this.loadEditor(t.schema,'private:'+t.template_id+':'+t.version);return;}
@@ -45,13 +47,14 @@ export function createPage(page){return {
   if(state.task)await refreshTask();
   if(state.correction&&!state.task)this.setData({mode:'PROVIDED',notice:'这是原单纠错的新会话。请重传需要核对的原始资料，分析确认后再提交限时售后审核；审核通过前不收取第二次费用。'});
   const env=environment();if(!state.capability)state.capability=await api('/capabilities?'+Object.entries(env).map(([k,v])=>k+'='+encodeURIComponent(v)).join('&'),'GET',null,null,true);
-  this.setData({session:state.session,task:state.task,sources:state.task?.sources??[],ready:!!writable(),mode:state.task?.mode??this.data.mode,
+  const sources=(state.task?.sources??[]).map(sourceView),homeSources=sources.filter(s=>s.role!=='TEMPLATE');
+  this.setData({session:state.session,task:state.task,sources,homeSources:homeSources.slice(0,3),sourceCount:homeSources.length,goal:state.task?.goal??state.draftGoal??'',ready:!!writable(),mode:state.task?.mode??state.draftMode??this.data.mode,
    phase:STATUS[state.session?.status]??'先新建会话，准备好后再添加资料。',capability:state.capability});
   if(['MP03','MP06','MP07'].includes(page)&&state.task){
    if(page==='MP03'&&state.selectedTemplate)this.setData({fields:state.selectedTemplate.schema.fields,name:state.selectedTemplate.name});
    else if(state.session?.status==='WAITING_CONFIRMATION'||state.session?.status==='QUOTABLE'){
-    state.proposal=await api('/tasks/'+state.task.task_id+'/schema-proposal');this.setData({proposal:state.proposal,fields:state.proposal.schema.fields,
-     records:state.proposal.preview_records.map(r=>({...r,values:values(r,state.proposal.schema)}))});}
+    state.proposal=await api('/tasks/'+state.task.task_id+'/schema-proposal');this.setData({proposal:state.proposal,fields:state.proposal.schema.fields,fieldCards:fieldExamples(state.proposal.schema.fields),
+     ...tableView(state.proposal.preview_records,state.proposal.schema),records:state.proposal.preview_records.map(r=>({...r,values:values(r,state.proposal.schema)}))});}
    if(page==='MP07'&&state.proposal)this.loadEditor(state.proposal.schema,'proposal:'+state.proposal.proposal_id+':'+state.proposal.version);
   }
   if(page==='MP04'&&state.task){const p=await readPlan();this.setData({plan:p.plan,bindingId:p.binding_id,contractId:p.contract_id});
@@ -63,13 +66,16 @@ export function createPage(page){return {
    state.run=await api('/runs/'+state.run.run_id);this.setData({run:state.run,stageLabel:state.run.stage==='AGENT_BATCH'?'整理与校验':state.run.execution_status==='SUCCEEDED'?'结果已保存':'等待处理'});
    if(state.run.result_version&&(!state.resultSchema||this.schemaRun!==state.run.run_id)){await resultSchema();this.schemaRun=state.run.run_id;}
    if(page==='MP08'&&state.run.result_version){const r=await api(`/runs/${state.run.run_id}/records?result_version=${state.run.result_version}&limit=20`);
-    this.setData({records:r.records.map(x=>({...x,values:values(x,state.resultSchema)})),counts:r.counts,nextCursor:r.next_cursor});}
+    this.setData({records:r.records.map(x=>recordView(x,state.resultSchema)),counts:r.counts,nextCursor:r.next_cursor});}
    if(page==='MP09'&&state.run.result_version){const r=await api(`/runs/${state.run.run_id}/issues?result_version=${state.run.result_version}&limit=20${this.data.filter?'&severity='+this.data.filter:''}`);this.setData({issues:r.issues,nextCursor:r.next_cursor,affected:r.affected_records});}
-   if(page==='MP10'){const issue=state.selectedIssue;if(!issue)throw new Error('请从问题列表选择一项。');this.setData({issue,selectedAction:'',canUserValue:issue.allowed_decisions.includes('USER_VALUE'),canEvidence:issue.allowed_decisions.includes('CHOOSE_EVIDENCE'),canKeep:issue.allowed_decisions.includes('KEEP_UNRESOLVED')});
+   if(page==='MP10'){const issue=state.selectedIssue;if(!issue)throw new Error('请从问题列表选择一项。');this.setData({issue,canUserValue:issue.allowed_decisions.includes('USER_VALUE'),canEvidence:issue.allowed_decisions.includes('CHOOSE_EVIDENCE'),canKeep:issue.allowed_decisions.includes('KEEP_UNRESOLVED')});
+    if(this.issueKey!==issue.issue_id){this.issueKey=issue.issue_id;this.setData({selectedAction:'',selectedEvidence:'',decisionPreview:null});
+     let record=null,cursor=null;for(let batch=0;batch<50;batch++){const r=await api(`/runs/${state.run.run_id}/records?result_version=${state.run.result_version}&limit=20${cursor?'&cursor='+encodeURIComponent(cursor):''}`);record=r.records.find(r=>r.record_id===issue.record_id);if(record||!r.next_cursor)break;cursor=r.next_cursor;}
+     this.setData(issueView(issue,record,state.resultSchema));}
     if(!state.reworkSession||state.reworkForRun!==state.run.run_id){const prepared=await prepareRework(state.run.run_id,this.key('rework-session'),this.key('rework-request'),config.skillReleaseId);state.reworkSession={session_id:prepared.session_id};state.reworkForRun=state.run.run_id;this.done('rework-session');}
     state.reworkSession=await api('/agent-sessions/'+state.reworkSession.session_id);this.setData({reworkReady:state.reworkSession.status==='READY_FOR_INPUT',reworkPhase:STATUS[state.reworkSession.status]});
     const excerpts=[];for(const id of issue.evidence_ids.slice(0,8))excerpts.push(await api('/evidence/'+id));this.setData({excerpts});}
-   if(page==='MP12'&&state.run.result_version){const r=await api('/runs/'+state.run.run_id+'/artifacts');this.setData({files:r.artifacts,resultVersion:r.result_version});}
+   if(page==='MP12'&&state.run.result_version){const r=await api('/runs/'+state.run.run_id+'/artifacts'),names=['result.xlsx','standard.xlsx','issues.xlsx'];this.setData({files:r.artifacts,primaryFiles:names.map(name=>r.artifacts.find(f=>f.name===name)).filter(Boolean),additionalFiles:r.artifacts.filter(f=>!names.includes(f.name)),resultVersion:r.result_version});}
   }
   if(page==='MP11'){const id=this.route.evidence;if(!id)throw new Error('请选择需要查看的来源摘录。');this.setData({evidence:await api('/evidence/'+id)});}
   if(page==='MP13'){const r=await api('/tasks?limit=20');this.setData({tasks:r.items,nextCursor:r.next_cursor});}
@@ -87,6 +93,9 @@ export function createPage(page){return {
   this.perform(()=>this.act(action,id));},
  async act(action,id){
   if(action==='refresh'){await this.refresh();return;}
+  if(action==='toggle-files'){this.setData({moreFiles:!this.data.moreFiles});return;}
+  if(action==='toggle-record'){this.setData({expandedRecord:this.data.expandedRecord===id?'':id});return;}
+  if(action==='edit-field'){this.setData({expandedField:this.data.expandedField===id?'':id});return;}
   if(action==='prepare-correction'){
    const r=await businessTransport('/runs/'+state.run.run_id+'/correction-sessions','POST',{client_request_id:this.key('correction-request'),skill_release_id:config.skillReleaseId},this.key('correction-session'));
    this.done('correction-session');clearDraft();state.correction=true;state.session=await api('/agent-sessions/'+r.session_id);remember();await navigate('MP01');return;
@@ -119,7 +128,7 @@ export function createPage(page){return {
    await navigate('MP14');return;
   }
   if(action==='filter-blocker'||action==='filter-all'){this.setData({filter:action==='filter-blocker'?'BLOCKER':''});await this.refresh();return;}
-  if(action==='mode-discover'||action==='mode-provided'){if(state.task)throw new Error('当前任务已经提交，切换模式请新建会话。');this.setData({mode:action==='mode-discover'?'DISCOVER':'PROVIDED'});return;}
+  if(action==='mode-discover'||action==='mode-provided'){if(state.task)throw new Error('当前任务已经提交，切换模式请新建会话。');state.draftMode=action==='mode-discover'?'DISCOVER':'PROVIDED';this.setData({mode:state.draftMode});return;}
   if(action?.startsWith('go-')){await navigate(action.slice(3));return;}
   if(action==='new'){
    if(state.session&&!['CLOSED','FAILED','CANCELED','INITIALIZATION_FAILED'].includes(state.session.status)){
@@ -147,6 +156,9 @@ export function createPage(page){return {
   }
   if(action==='remove-source'){if(!await confirm('移除资料','只从当前任务的确认范围移除此项，后续方案与费用需要重新确认。','移除资料'))return;
    await api('/tasks/'+state.task.task_id+'/sources/'+id+'?expected_task_version='+state.task.version,'DELETE',null,this.key('remove-'+id));this.done('remove-'+id);await this.refresh();return;}
+  if(action==='clear-sources'){if(!writable())throw new Error('当前会话不可调整资料。');const sources=state.task?.sources.filter(s=>s.role!=='TEMPLATE')??[];if(!sources.length)return;
+   if(!await confirm('清空来源资料','移除本次全部来源资料；规范文件保留。后续方案和未付报价需要重新确认。','清空资料'))return;
+   try{for(const source of sources){await refreshTask();await api('/tasks/'+state.task.task_id+'/sources/'+source.source_id+'?expected_task_version='+state.task.version,'DELETE',null,this.key('remove-'+source.source_id));this.done('remove-'+source.source_id);}}finally{await this.refresh();}return;}
   if(action==='analyze'){
    const task=await this.ensureTask();if(!state.consent){await navigate('MP17');this.setData({notice:'请先阅读并确认资料处理用途，再回来开始分析。'});return;}
    await this.write('analyze','/tasks/'+task.task_id+'/preflight',{agent_session_id:state.session.session_id,source_set_version:task.source_set_version,goal_version:task.goal_version});await navigate('MP05');return;
@@ -267,7 +279,7 @@ export function createPage(page){return {
    if(page==='MP13'){path='/tasks?limit=20&cursor='+cursor;key='tasks';}else if(page==='MP14'){path='/private-templates?limit=20&cursor='+cursor+(this.data.name?'&query='+encodeURIComponent(this.data.name):'');key='templates';}
    else if(page==='MP15'){path='/orders?limit=20&cursor='+cursor;key='orders';}
    else{key=page==='MP09'?'issues':'records';path='/runs/'+state.run.run_id+'/'+key+'?result_version='+state.run.result_version+'&limit=20&cursor='+cursor+(this.data.filter?'&severity='+this.data.filter:'');}
-   const r=await api(path),items=r.items??r[key];this.setData({[key]:[...this.data[key],...(key==='records'?items.map(x=>({...x,values:values(x,state.resultSchema)})):items)],nextCursor:r.next_cursor});return;
+   const r=await api(path),items=r.items??r[key];this.setData({[key]:[...this.data[key],...(key==='records'?items.map(x=>recordView(x,state.resultSchema)):items)],nextCursor:r.next_cursor});return;
   }
   throw new Error('此操作当前不可用，请刷新页面后重试。');
  }

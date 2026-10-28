@@ -4,7 +4,16 @@
 
 ## Unreleased / 待发布
 
-后续修改在此补充中英说明、用户影响与验证。Add bilingual changes, user impact and validation here for subsequent updates.
+- 按 B1.0.0 原稿修复共享前端：资料夹正文标题、独立文件/字段卡、真实表头、统一 19 图标、固定操作和图标导航；保留两端 18 页 / 32 组件。
+  Aligned the shared frontend with B1.0.0: folder body titles, file/field cards, real table headers, 19 consistent icons, fixed actions and icon navigation; retained 18 pages / 32 components per provider.
+- 首页用途和模式跨页保留；同一问题刷新或查看来源返回后保留明确选择；字段表单按需展开保留草稿；结果和领取支持展开全部字段与九文件。
+  Preserved in-memory goal/mode across navigation and explicit decisions on refresh/evidence return; added draft-preserving field collapse and expandable complete records/artifacts.
+- 新增两端 164 个布局组合与 14 项交互回归、同组报价资料的原稿/修复前/修复后对照；更新 36 页截图、联系表、MP4、GIF、双语说明和来源摘要。
+  Added 164 layout cases, 14 interaction regressions and reference/before/after comparisons using the same synthetic quotation fixture; refreshed 36 page captures, contact sheets, MP4/GIFs, bilingual guides and source hashes.
+- 检查仍区分源码、夹具、浏览器与真实平台验收；未部署，未调用 Docker/WSL，未改动冻结原稿或历史哈希。
+  Kept source/fixture/browser checks separate from native/live acceptance. No deployment, Docker/WSL, frozen-reference edits or historical hash rewrites.
+
+[还原与验收说明 / Fidelity record](docs/实施/B方案前端还原与验收.md)
 
 ## 0.1.0 — 2026-10-28
 
