@@ -2,6 +2,21 @@
 
 产品源码版本与需求/设计冻结版本分别记录。Source releases and frozen specification versions are tracked separately.
 
+## 2026-10-31 — 内网 HTTP 部署 / LAN HTTP deployment
+
+- 按用户授权在 Ubuntu 22.04 主机 `192.168.31.20` 原生部署，HTTP 入口 `18707`；API `18708` 和独立 PostgreSQL 集群 `18709` 仅监听环回，配置系统服务和开机启动。
+  Deployed natively on the authorized Ubuntu 22.04 host with HTTP port 18707, loopback-only API/database ports, system services and boot startup.
+- 安装本项目独立 Node 24.22.2、Python 固定依赖及中英文 OCR。新增可复现部署脚本、专用 cgroup 层级、非 root 进程隔离、独立数据库角色和十二项迁移；不调用 Docker/WSL，不配置 HTTPS。
+  Added a dedicated Node runtime, pinned Python tools, OCR, deployment scripts, project-only cgroup hierarchy, non-root isolation, separate database roles and twelve migrations. No Docker/WSL or HTTPS setup.
+- 增加生产 HTTP 显式开关和配置回归；HTTP 地址不发送 HSTS 或强制升级指令。默认生产配置仍须 HTTPS 或明确选择 HTTP。
+  Added explicit production HTTP opt-in and regression checks; HTTP addresses emit neither HSTS nor insecure-request upgrades. Production retains its default transport guard.
+- 用户名、随机密码和运行密钥明文保存在服务器 `/root/cfg/table-purifier/`，仅 root 可读，Git 不含真实值。提供双语部署/维护、穿透地址、配置和缺失凭据说明。
+  Saved plaintext credentials root-only under the requested server configuration path and excluded real values from Git; added bilingual installation, maintenance and forwarding instructions.
+- 实测 HTTP、迁移就绪、数据库运行角色、原生 canary、运行中子进程树清理及服务重启恢复；浏览器仍为合成资料预览，专用模型、真实平台和支付未配置。
+  Checked HTTP, migration readiness, runtime roles, native canaries, live synthetic process-tree cleanup and service restart recovery; previews remain synthetic and dedicated model/platform/payment credentials are still unconfigured.
+
+[部署说明 / Deployment guide](docs/deployment/README.md) · [核验记录 / Verification](docs/deployment/verification-2026-10-31.json)
+
 ## Unreleased / 待发布
 
 - 按 B1.0.0 原稿修复共享前端：资料夹正文标题、独立文件/字段卡、真实表头、统一 19 图标、固定操作和图标导航；保留两端 18 页 / 32 组件。

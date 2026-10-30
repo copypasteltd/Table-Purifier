@@ -11,7 +11,8 @@ const envSchema = z.object({
   P07_ENV: z.enum(['development', 'test', 'production']).default('development'),
   P07_HOST: z.string().default('127.0.0.1'),
   P07_PORT: integer(1, 65535).default(4317),
-  P07_PUBLIC_URL: z.url().default('http://127.0.0.1:4317'),
+  P07_PUBLIC_URL: z.url().refine(value => ['http:', 'https:'].includes(new URL(value).protocol), 'Public URL must use HTTP or HTTPS.').default('http://127.0.0.1:4317'),
+  P07_ALLOW_HTTP_DEPLOYMENT: boolean.default(false),
   P07_DATABASE_URL: z.string().default(''),
   P07_WORKER_DATABASE_URL: z.string().default(''),
   P07_MIGRATION_DATABASE_URL: z.string().default(''),
@@ -72,7 +73,8 @@ export function loadConfig(overrides: Record<string, string | undefined> = {}, l
   if (env.P07_ENV !== 'test' && env.P07_TOKEN_SECRET.length < 32) throw new Error('P07_TOKEN_SECRET must contain at least 32 characters.');
   if(env.P07_ENV!=='test'&&(env.P07_ALIPAY_ENABLED||env.P07_DOUYIN_ENABLED)&&env.P07_IDENTITY_SECRET.length<32)
     throw new Error('Platform identity storage requires a stable, dedicated P07_IDENTITY_SECRET.');
-  if (env.P07_ENV === 'production' && !env.P07_PUBLIC_URL.startsWith('https://')) throw new Error('Production requires an HTTPS public URL.');
+  if (env.P07_ENV === 'production' && new URL(env.P07_PUBLIC_URL).protocol === 'http:' && !env.P07_ALLOW_HTTP_DEPLOYMENT)
+    throw new Error('Production HTTP requires explicit P07_ALLOW_HTTP_DEPLOYMENT=true.');
   if (env.P07_AGENT_ENABLED && (!env.P07_CODEX_MODEL || !env.P07_CODEX_API_KEY || !env.P07_ISOLATION_PROFILE)) {
     throw new Error('Agent requires dedicated model authentication and a verified native isolation profile.');
   }

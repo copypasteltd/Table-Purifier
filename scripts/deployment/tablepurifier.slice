@@ -1,0 +1,8 @@
+[Unit]
+Description=Table Purifier application-only process hierarchy
+
+[Slice]
+CPUAccounting=true
+MemoryAccounting=true
+TasksAccounting=true
+TasksMax=1024

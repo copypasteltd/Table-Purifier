@@ -9,7 +9,8 @@ function check(name, ok) { checks.push({ name, result: ok ? 'PASS' : 'FAIL' }); 
 const hash = data => createHash('sha256').update(data).digest('hex');
 const inside = file => { const rel = path.relative(root, file); return rel !== '..' && !rel.startsWith(`..${path.sep}`) && !path.isAbsolute(rel); };
 const entries = ['README.md', 'README.en.md', 'SOURCE_README.md', 'AGENTS.md', 'CONTRIBUTING.md', 'CHANGELOG.md', 'docs/README.md',
-  'docs/implementation-decisions.md', 'docs/repository-verification.md', 'docs/preview/README.md', 'docs/media/README.md','docs/实施/B方案前端还原与验收.md'];
+  'docs/implementation-decisions.md', 'docs/repository-verification.md', 'docs/preview/README.md', 'docs/media/README.md','docs/实施/B方案前端还原与验收.md',
+  'docs/deployment/README.md','docs/deployment/README.en.md'];
 let links = 0;
 for (const entry of entries) {
   const full = path.join(root, entry), text = await readFile(full, 'utf8');
@@ -74,10 +75,34 @@ async function walk(directory) {
   }
 }
 await walk(path.join(root, 'docs/media'));
+// These are integrity checks of dated server evidence, not new live acceptance.
+const deployment = JSON.parse(await readFile(path.join(root, 'docs/deployment/verification-2026-10-31.json'), 'utf8'));
+check('deployment_evidence_scope', deployment.scope === 'AUTHORIZED_NATIVE_UBUNTU_HTTP_DEPLOYMENT' && deployment.status === 'PASS');
+check('deployment_http_only', deployment.https_configured === false && deployment.public_url === 'http://192.168.31.20:18707');
+check('deployment_no_local_virtualization', deployment.local_virtualization_used === false);
+check('deployment_no_connection_secrets', deployment.credentials_in_git === false && !JSON.stringify(deployment).includes('postgresql://'));
+check('deployment_boot_services', deployment.services.length === 4 && deployment.services.every(service => service.ActiveState === 'active' && service.enabled === 'enabled'));
+check('deployment_restart_evidence', deployment.restart_check.result === 'PASS' && deployment.restart_check.host_rebooted === false);
+check('deployment_native_probe', deployment.native_probe.result === 'PASS' && deployment.native_probe.live_process_tree_killed === true && deployment.native_probe.session_and_process_group_removed === true);
+check('deployment_external_gates', deployment.live_model === 'NOT_CONFIGURED' && deployment.live_platform_payment === 'NOT_CONFIGURED' && deployment.complete_paid_business_workflow === 'NOT_RUN');
+check('deployment_migration_count', deployment.migrations.length === 12);
+for (const migration of deployment.migrations) {
+  const file = path.resolve(root, 'migrations', migration.name);
+  check(`deployment_migration:${migration.name}`, inside(file) && migration.disk_sha256_matches === true && hash(await readFile(file)) === migration.sha256);
+}
+check('deployment_http_evidence', deployment.http.every(row => !row.hsts_present && !row.https_upgrade_present));
+check('deployment_browser_closed', deployment.browser_preview.browser_closed === true);
+check('deployment_preview_count', deployment.browser_preview.pages.length === 2);
+for (const capture of deployment.browser_preview.pages) {
+  const file = path.resolve(root, 'docs/deployment/screenshots', capture.file);
+  const data = await readFile(file);
+  check(`deployment_screenshot:${capture.provider}`, inside(file) && data.length === capture.bytes && hash(data) === capture.sha256);
+  check(`deployment_browser:${capture.provider}`, capture.status === 200 && capture.synthetic_marker.includes('SYNTHETIC') && capture.javascript_errors.length === 0 && capture.broken_images.length === 0);
+}
 const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
 for (const name of ['docs:preview', 'docs:capture', 'docs:media', 'docs:verify','design:audit','design:before','design:icons']) check(`documented_script:${name}`, typeof pkg.scripts[name] === 'string');
 const report = { status: failures.length ? 'FAIL' : 'PASS', checks_passed: checks.length - failures.length,
-  checks_failed: failures.length, links_checked: links, captured_pages: 36, media_files: manifest.files.length, errors: failures,
-  scope: 'Local documentation links, bilingual contracts, source hashes and media integrity only; no live integrations.' };
+  checks_failed: failures.length, links_checked: links, captured_pages: 36, media_files: manifest.files.length, deployment_screenshots: deployment.browser_preview.pages.length, errors: failures,
+  scope: 'Local documentation, source/media integrity and saved deployment evidence; no new live network, model or payment requests.' };
 console.log(JSON.stringify(report, null, 2));
 if (failures.length) process.exitCode = 1;

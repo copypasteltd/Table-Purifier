@@ -13,6 +13,7 @@
 | 实际实现 / Implementation | [技术说明](实施/源码技术说明.md)、[补充接口](实施/补充运输接口.md) | 当前源码 / Current source |
 | 原开发证据 / Source evidence | [验证交付](实施/验证与交付记录.md)、[进度证据](实施/源码开发进度与证据.md) | 有限范围 / Scoped checks |
 | 本轮仓库证据 / Handoff evidence | [仓库验证](repository-verification.md) | 源码、媒体、文档 / Source, media, docs |
+| 内网原生部署 / LAN deployment | [中文部署说明](deployment/README.md)、[English](deployment/README.en.md)、[核验](deployment/verification-2026-10-31.json) | 2026-10-31 授权 HTTP；真实模型与平台凭据待配 / Authorized HTTP; live credentials pending |
 | B 设计定型 / Frozen B design | [设计入口](设计定型/B-青绿资料夹-v1.0.0/README.md)、[原图与规格](../assets/design/b-jade-folders/v1.0.0) | B1.0.0 冻结 / Frozen |
 | B 方案实现还原 / B fidelity | [逐页修复及验收](实施/B方案前端还原与验收.md) | 当前源码；真机待验 / Source; devices pending |
 | 技术决策 / Decisions | [决策记录](implementation-decisions.md) | 当前与待评估 / Current and future |

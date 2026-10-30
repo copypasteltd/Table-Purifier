@@ -5,7 +5,8 @@
 ## 工作范围与用户约束
 
 - 所有本地项目操作位于当前仓库根目录；本次为 `E:\dev\sandbox\支付宝黑客松\表格修复站`。依赖、缓存、浏览器二进制、运行数据、日志和输出均留在项目目录。
-- 严禁调用本地 Docker、WSL、VM、MXC 或其他虚拟化环境。Ubuntu 22.04 是目标运行环境，不授权本地虚拟化、远程部署或系统服务安装。
+- 严禁调用本地 Docker、WSL、VM、MXC 或其他虚拟化环境。2026-10-31 用户明确授权在 `192.168.31.20` 的 Ubuntu 22.04 上原生安装依赖、部署本项目与系统服务；该授权不扩展到其他服务器。
+- 本次部署仅提供 HTTP 高位端口，禁止配置本项目的 HTTPS、证书、HTTPS 跳转或 HSTS；凭据按用户要求明文保存在服务器 `/root/cfg/table-purifier/`，仅 root 可读，不提交到 Git。
 - 不进行应用部署、小程序提审、上线或发布，除非用户明确指定。Git 仓库同步不等于部署授权。
 - 浏览器使用后关闭本次不再需要的所有页面、上下文、浏览器和临时服务；失败路径也要释放。不要关闭用户自己的页面。
 - 不主动调度子 Agent，除非用户或适用指令明确要求。不要把本产品使用 Codex Agent 的业务方案误解为当前开发任务的多 Agent 授权。
@@ -36,6 +37,6 @@
 
 ## English maintenance contract
 
-Keep all work inside this repository. Never invoke local Docker, WSL or virtual machines; never deploy or publish the application without an explicit request. Close browser resources created for the task, including failure paths. Preserve the seven-step lifecycle, persistent results, full Skill preload, verified-payment gate and separate trusted Host / Agent responsibilities. Real credentials and live platform/device/Ubuntu verification are not ready.
+Keep all local work inside this repository. Never invoke local Docker, WSL or virtual machines. The user explicitly authorized native deployment and dependency installation on Ubuntu 22.04 host `192.168.31.20` on 2026-10-31, with a high HTTP port and plaintext root-only credentials under `/root/cfg/table-purifier/`; do not configure HTTPS, redirects or HSTS for this deployment. Other hosts and platform publishing require an explicit request. Close browser resources created for the task, including failure paths. Preserve the seven-step lifecycle, persistent results, full Skill preload, verified-payment gate and separate trusted Host / Agent responsibilities. Distinguish server deployment checks from still-missing live credentials and device acceptance.
 
 For every completed future change, update both READMEs, affected documents and bilingual CHANGELOG entries. Refresh affected screenshots, recordings, GIFs and manifests. Run relevant checks, review staged content, commit and push to the specified origin/main, and verify remote HEAD. The user has already authorized this repository synchronization. Never force-push, commit secrets/customer data, rewrite frozen evidence or present fixture previews as live acceptance. Repository publishing does not authorize application deployment.

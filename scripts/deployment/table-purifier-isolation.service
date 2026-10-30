@@ -1,0 +1,18 @@
+[Unit]
+Description=Table Purifier native per-session cgroup delegation
+
+[Service]
+Type=notify
+NotifyAccess=all
+User=tablepurifier
+Group=tablepurifier
+Slice=tablepurifier.slice
+Delegate=cpu memory pids
+ExecStartPre=+/bin/chown tablepurifier:tablepurifier /sys/fs/cgroup/tablepurifier.slice/cgroup.procs
+ExecStart=/bin/sh /opt/table-purifier/app/scripts/deployment/prepare-cgroup.sh
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=20
+
+[Install]
+WantedBy=multi-user.target

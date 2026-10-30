@@ -29,6 +29,8 @@ afterAll(async()=>{await app?.close();await db?.close();await rm(root,{recursive
 const headers=(key=newId())=>({authorization:'Bearer '+token,'idempotency-key':key});
 it('registers the 56 contracts, keeps uploads behind actual READY, validates envelopes/idempotency and isolates owners',async()=>{
  const live=await app.inject('/health/live');expect(live.statusCode).toBe(200);expect(live.json()).toEqual({status:'alive'});
+ expect(live.headers['strict-transport-security']).toBeUndefined();
+ expect(live.headers['content-security-policy']).not.toContain('upgrade-insecure-requests');
  expect((await app.inject('/health/ready')).statusCode).toBe(200);
  expect((await app.inject('/v1/p07/tasks')).statusCode).toBe(401);
  const request={client_request_id:newId(),skill_release_id:skill.releaseId},key=newId();

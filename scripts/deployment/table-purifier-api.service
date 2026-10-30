@@ -1,0 +1,30 @@
+[Unit]
+Description=Table Purifier HTTP API
+After=network.target postgresql@14-tablepurifier.service table-purifier-isolation.service
+Requires=postgresql@14-tablepurifier.service table-purifier-isolation.service
+
+[Service]
+Type=simple
+User=tablepurifier
+Group=tablepurifier
+Slice=tablepurifier.slice
+WorkingDirectory=/opt/table-purifier/app
+EnvironmentFile=/root/cfg/table-purifier/api.env
+Environment=NODE_ENV=production
+ExecStart=/opt/table-purifier/toolchain/node-v24.22.2-linux-x64/bin/node dist/api/main.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/table-purifier/app/runtime /sys/fs/cgroup/tablepurifier.slice/table-purifier-isolation.service
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+LimitNOFILE=8192
+
+[Install]
+WantedBy=multi-user.target

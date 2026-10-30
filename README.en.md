@@ -10,6 +10,16 @@ Alipay and Douyin mini programs are the first surfaces, using the selected **B J
 
 > Media scope: screenshots, MP4 and GIF are captured from a **browser documentation adapter running the actual native templates, components and controller**. Data, Agent progress, quotes, orders and cleanup states are synthetic fixtures. These are not native-device screenshots, live Codex results, real payments or proof of Ubuntu isolation and cleanup. Demo amounts are not service prices.
 
+## LAN HTTP deployment · 2026-10-31
+
+The authorized native deployment is available at **[http://192.168.31.20:18707/](http://192.168.31.20:18707/)**, opening the Alipay documentation preview; a [Douyin preview](http://192.168.31.20:18707/preview/douyin.html) is also available. Both use synthetic fixtures without API connections. The P1 Web product remains a future phase.
+
+The API, Worker, dedicated PostgreSQL 14 cluster and Nginx HTTP listener run as system services with boot startup enabled. A dedicated Node.js 24.22.2 runtime, Python tools and English/Chinese OCR are installed. No Docker/WSL, HTTPS listener, certificates, HSTS or HTTPS redirects are configured. Forward the tunnel to **`192.168.31.20:18707`**.
+
+As requested, generated database usernames/passwords and runtime secrets are plaintext in **`/root/cfg/table-purifier/credentials.json`** on the server, with directory/file permissions `0700/0600`. Separate `api.env` and `worker.env` files are in the same directory; persistent services never receive migration administrator credentials. Real values are excluded from Git.
+
+HTTP health, migration readiness, non-root confinement and cleanup of a synthetic live process tree were checked on the server. Dedicated Codex, App ID and payment credentials remain unconfigured and their gates stay disabled. A ready health endpoint is not live end-to-end acceptance. [Bilingual deployment/maintenance guide](docs/deployment/README.en.md) · [Deployment evidence](docs/deployment/verification-2026-10-31.json).
+
 ## B design fidelity update
 
 The shared frontend now follows the retained B folder layout, file/field cards, table headers, type scale, spacing, icon family and fixed actions. Each platform still has 18 pages and 32 components. Records expand to all fields and downloads expand to all nine files. The goal and schema mode survive navigation; returning from evidence preserves the explicit decision.
@@ -137,11 +147,12 @@ The trusted Host owns authorization, confirmation, pricing, payment facts, valid
 | Scanned PDFs | No automatic per-page OCR; supply readable text or supported images |
 | Mobile files | Enabled per host/build evidence; arbitrary office-file picking off by default |
 | Checked locally | Type checks, builds, unit/native database integration tests, Python tools, static docs and generated mini programs |
-| Not run live | Dedicated Codex; platform login/checkout/refunds; four device environments; Ubuntu isolation and process-tree cleanup |
+| Deployment checked | Ubuntu 22.04 HTTP services, twelve migrations, native read isolation and synthetic live process-tree/session cleanup; see deployment evidence |
+| Not run live | Complete dedicated Codex business workflow; platform login/checkout/refunds; four device environments |
 | Default gates | Agent, platforms and commerce off; live evidence must match App, OS, host SDK, build, SKU and configuration digests |
 | Later | Web / public API; P1 endpoints explicitly report unimplemented behavior |
 
-Building source is not external integration acceptance. No real credentials, customer data, runtime directory or deployment automation are included. [Source evidence, Chinese](docs/实施/验证与交付记录.md) · [Repository verification](docs/repository-verification.md)
+Building source is not external integration acceptance. No real credentials, customer data or runtime directory are included. Native deployment scripts for the authorized server are provided separately. [Source evidence, Chinese](docs/实施/验证与交付记录.md) · [Repository verification](docs/repository-verification.md) · [Server deployment](docs/deployment/README.en.md)
 
 ## Install and verify locally
 
@@ -193,7 +204,7 @@ Media generation requires `ffmpeg` / `ffprobe` on PATH and Pillow in the project
 
 Dedicated model credentials, App IDs and payment credentials are not ready. Source checks, tests and documentation preview are independent. For controlled local integration, read the [technical guide, Chinese](docs/实施/源码技术说明.md), then prepare project-local `.env`. Optionally use `npm run db:dev` for a loopback-only native database. It creates ignored project-local credentials and connection files, leaves an existing `.env` intact, and stops its child process on Ctrl+C. Run `npm run dev:api` and `npm run dev:worker` in separate terminals afterward.
 
-Missing integrations remain unavailable. Do not enable charges or bypass isolation, payment or evidence gates for a demo. This handoff performs no deployment, container orchestration, platform submission or publication.
+Missing integrations remain unavailable. Do not enable charges or bypass isolation, payment or evidence gates for a demo. The separately authorized 2026-10-31 LAN deployment is described above; no container orchestration, platform submission or publication is performed.
 
 ## Configuration
 

@@ -9,7 +9,8 @@
 | Taro | 尚未采用；React + TS + Taro 待独立评估。之前比较不足，不能宣称原生天然更优；本轮未迁移。Earlier comparison was incomplete; no inherent-superiority claim or migration. |
 | Agent | 官方 Codex SDK 0.164.0，完整 Skill/工具预载，由 Agent 自主理解、读取、清洗和成表。Codex owns interpretation and constrained transformations. |
 | 可信 Host / Trusted Host | 权限、用户确认、价格、资金、独立验收、发布和清理在模型外。Business authority remains outside the Agent. |
-| 隔离 / Isolation | Ubuntu 22.04 原生 Landlock/seccomp/cgroup；禁止 Docker/WSL/VM。真实 Ubuntu 验收待做。Native isolation target; live verification pending. |
+| 隔离 / Isolation | Ubuntu 22.04 原生 Landlock/seccomp/cgroup；禁止 Docker/WSL/VM。2026-10-31 完成合成 canary 与运行中进程树清理探针，完整模型流程仍待凭据。Native synthetic confinement/cleanup probe passed; full model workflow pending. |
+| 部署 / Deployment | 用户授权 `192.168.31.20:18707` 原生 HTTP，生产模式显式 `P07_ALLOW_HTTP_DEPLOYMENT=true`；root-only 明文凭据存服务器 `/root/cfg/table-purifier/`，无 HTTPS/HSTS。User-authorized HTTP with explicit opt-in and server-local credentials; see deployment guide. |
 | 生命周期 / Lifecycle | 输入前完整预载，保存结果后销毁整个任务环境；CLOSED 不恢复，结果保留。Full preload, durable results, irreversible runtime closure. |
 | 再加工 / Rework | 新 Session、父结果引用、必要原件重传、新确认和报价；审核后原单纠错不重置预算。Fresh sessions and exact plans; reviewed correction uses original entitlement. |
 | 结果 / Results | 独立持久区、九文件、摘要回读、原子发布和清理 outbox。Durable results and cleanup have separate observable states. |

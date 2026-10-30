@@ -1,0 +1,426 @@
+{
+  "scope": "AUTHORIZED_NATIVE_UBUNTU_HTTP_DEPLOYMENT",
+  "status": "PASS",
+  "checked_at_utc": "2026-10-30T20:57:17.633389+00:00",
+  "host": "192.168.31.20",
+  "os": "Ubuntu 22.04.5 LTS",
+  "kernel": "5.15.0-191-generic",
+  "node": "v24.22.2",
+  "python": "3.10.12",
+  "postgresql": "psql (PostgreSQL) 14.24 (Ubuntu 14.24-0ubuntu0.22.04.1)",
+  "public_url": "http://192.168.31.20:18707",
+  "listeners": [
+    "State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess",
+    "LISTEN 0      511          0.0.0.0:18707      0.0.0.0:*          ",
+    "LISTEN 0      511        127.0.0.1:18708      0.0.0.0:*          ",
+    "LISTEN 0      144        127.0.0.1:18709      0.0.0.0:*"
+  ],
+  "services": [
+    {
+      "name": "table-purifier-api",
+      "NRestarts": "0",
+      "Slice": "tablepurifier.slice",
+      "User": "tablepurifier",
+      "ActiveState": "active",
+      "SubState": "running",
+      "enabled": "enabled"
+    },
+    {
+      "name": "table-purifier-worker",
+      "NRestarts": "0",
+      "Slice": "tablepurifier.slice",
+      "User": "tablepurifier",
+      "ActiveState": "active",
+      "SubState": "running",
+      "enabled": "enabled"
+    },
+    {
+      "name": "table-purifier-isolation",
+      "NRestarts": "0",
+      "Slice": "tablepurifier.slice",
+      "User": "tablepurifier",
+      "ActiveState": "active",
+      "SubState": "running",
+      "enabled": "enabled"
+    },
+    {
+      "name": "postgresql@14-tablepurifier",
+      "NRestarts": "0",
+      "Slice": "system-postgresql.slice",
+      "User": "",
+      "ActiveState": "active",
+      "SubState": "running",
+      "enabled": "enabled"
+    }
+  ],
+  "http": [
+    {
+      "path": "/health/live",
+      "status": 200,
+      "hsts_present": false,
+      "https_upgrade_present": false
+    },
+    {
+      "path": "/health/ready",
+      "status": 200,
+      "hsts_present": false,
+      "https_upgrade_present": false
+    },
+    {
+      "path": "/v1/p07/tasks",
+      "status": 401,
+      "hsts_present": false,
+      "https_upgrade_present": false
+    },
+    {
+      "path": "/preview/",
+      "status": 200,
+      "hsts_present": false,
+      "https_upgrade_present": false
+    },
+    {
+      "path": "/preview/douyin.html",
+      "status": 200,
+      "hsts_present": false,
+      "https_upgrade_present": false
+    },
+    {
+      "path": "/root/cfg/table-purifier/credentials.json",
+      "status": 404,
+      "hsts_present": false,
+      "https_upgrade_present": false
+    }
+  ],
+  "migrations": [
+    {
+      "name": "0001_reference_model.sql",
+      "sha256": "828ebca111f7c486a177ca8f08da8a8f0622eac3ca660a527b797f6122794e0c",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0002_runtime_controls.sql",
+      "sha256": "fbcc1a1a4960e33b7f6e7193a234645b06d354528d425ef82a745e89a411b9ce",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0003_roles_and_row_security.sql",
+      "sha256": "50307d9e33d340f3b4e6df6b5c08db1b8d4002abc4b12ee12199f2a2a4ff4a49",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0004_service_fields.sql",
+      "sha256": "ef09d84d2b002e93daa32465b9d1b30be6894ec60fe4519340c000ea9732ab87",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0005_login_idempotency.sql",
+      "sha256": "8ff9dd5e8ee5505e6c11627d9368de64f59d575433c6c2f6a426a4b102faf62b",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0006_channel_policy.sql",
+      "sha256": "79cefa97dd0d72d810b924c48b5b8c395d6597b8946a48ddd4de7590b4d9374f",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0007_publication_and_cleanup.sql",
+      "sha256": "524a84b57c2ad0f33edb0fe8ee70ee4ae1e4b82d7ed23d6674b09305ce1aba79",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0008_worker_maintenance.sql",
+      "sha256": "0aeb2d779ca1b5cc453171065f4d755733582daca2d3d32a244b74fcd24536ca",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0009_result_projection.sql",
+      "sha256": "d1de9f4907b4ab19a4cc7021c810397549b2d6ff667ddfe4e3dd31d77a2d2053",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0010_revision_intents.sql",
+      "sha256": "555a4abfdd1c02b002953f77c133d8629edcab959f69dc4195b3a0311c45b1d6",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0011_rework_preload_and_deletion_receipt.sql",
+      "sha256": "04f8162025db379b300c521d8218bc1e47e840874ff30b665a8aacc7152f139c",
+      "disk_sha256_matches": true
+    },
+    {
+      "name": "0012_original_paid_corrections.sql",
+      "sha256": "259e86e1f0c867df2f5beba4737f8582d44ae8ce0945b4e4d3941a392632c18e",
+      "disk_sha256_matches": true
+    }
+  ],
+  "database_roles": [
+    {
+      "rolname": "p07_control",
+      "rolsuper": false,
+      "rolbypassrls": true,
+      "rolcanlogin": false
+    },
+    {
+      "rolname": "tp_api",
+      "rolsuper": false,
+      "rolbypassrls": false,
+      "rolcanlogin": true
+    },
+    {
+      "rolname": "tp_migrator",
+      "rolsuper": true,
+      "rolbypassrls": false,
+      "rolcanlogin": true
+    },
+    {
+      "rolname": "tp_worker",
+      "rolsuper": false,
+      "rolbypassrls": false,
+      "rolcanlogin": true
+    }
+  ],
+  "credential_files": [
+    {
+      "path": "/root/cfg/table-purifier",
+      "mode": "0o700",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "/root/cfg/table-purifier/README.txt",
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "/root/cfg/table-purifier/api.env",
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "/root/cfg/table-purifier/credentials.json",
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "/root/cfg/table-purifier/migration.env",
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "/root/cfg/table-purifier/worker.env",
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0
+    }
+  ],
+  "runtime_configuration": {
+    "api.env": {
+      "P07_ENV": "production",
+      "P07_HOST": "127.0.0.1",
+      "P07_PORT": "18708",
+      "P07_PUBLIC_URL": "http://192.168.31.20:18707",
+      "P07_ALLOW_HTTP_DEPLOYMENT": "true",
+      "P07_AGENT_ENABLED": "false",
+      "P07_ALIPAY_ENABLED": "false",
+      "P07_DOUYIN_ENABLED": "false",
+      "P07_COMMERCE_ENABLED": "false",
+      "migration_url_excluded": true
+    },
+    "worker.env": {
+      "P07_ENV": "production",
+      "P07_HOST": "127.0.0.1",
+      "P07_PORT": "18708",
+      "P07_PUBLIC_URL": "http://192.168.31.20:18707",
+      "P07_ALLOW_HTTP_DEPLOYMENT": "true",
+      "P07_AGENT_ENABLED": "false",
+      "P07_ALIPAY_ENABLED": "false",
+      "P07_DOUYIN_ENABLED": "false",
+      "P07_COMMERCE_ENABLED": "false",
+      "migration_url_excluded": true
+    }
+  },
+  "native_probe": {
+    "kind": "ACTUAL_UBUNTU_NATIVE_PROBE",
+    "at": "2026-10-30T20:53:47.455Z",
+    "model_calls": 0,
+    "customer_data": false,
+    "read_isolated": true,
+    "control_readonly": true,
+    "own_work_writable": true,
+    "tool_dependencies_imported": true,
+    "process": {
+      "pid": 129233,
+      "landlock_abi": 1,
+      "seccomp": true,
+      "no_new_privs": true
+    },
+    "confined_codex_version": "codex-cli 0.164.0",
+    "session_and_process_group_removed": true,
+    "live_process_tree_killed": true,
+    "cleanup": {
+      "removed_roots": 1,
+      "deleted_entries": 23
+    },
+    "result": "PASS"
+  },
+  "https_configured": false,
+  "local_virtualization_used": false,
+  "credentials_in_git": false,
+  "application_files": {
+    "src/shared/config.ts": "3150825e301a35ebdd4ab35d689eb98ca270eb280ea0d9970391db40604cb5df",
+    "src/api/server.ts": "d2bad0f774eb874c54869f0f6befd349a2d933714e226c6d6507b26b045273ba",
+    "dist/shared/config.js": "f317f0fb265a70c82543dbf23be36a7d6b3191b6997c79d1c0f3e7c44c452cfb",
+    "dist/api/server.js": "27376b097cd86a0c6f63f0cc80ceaa4293a8fbbeddf49f1a95837b2567aeec9b",
+    "native/p07-isolate.c": "dd190d53b7cb9b25077a32d5e706c257bb8e640f7dc0fbcba523e897d8deda93",
+    "scripts/deployment/native-probe.mjs": "2065cb8917b5ce35f4fc3c189ae04261229bcd3533cbe7935ea016494b0b33b8",
+    "scripts/deployment/prepare-cgroup.sh": "9f1f22fc2eb10d275d57959925d144b1e8defa9811ce271c62d8f7bb55e156d3"
+  },
+  "live_model": "NOT_CONFIGURED",
+  "live_platform_payment": "NOT_CONFIGURED",
+  "native_devices": "NOT_RUN",
+  "complete_paid_business_workflow": "NOT_RUN",
+  "restart_check": {
+    "before_pids": {
+      "table-purifier-api": 128774,
+      "table-purifier-worker": 128775
+    },
+    "after_pids": {
+      "table-purifier-api": 129484,
+      "table-purifier-worker": 129492
+    },
+    "result": "PASS",
+    "host_rebooted": false
+  },
+  "lan_http_checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 2215,
+      "final_url": "http://192.168.31.20:18707/preview/",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": true
+    },
+    {
+      "path": "/health/live",
+      "status": 200,
+      "bytes": 18,
+      "final_url": "http://192.168.31.20:18707/health/live",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": null
+    },
+    {
+      "path": "/health/ready",
+      "status": 200,
+      "bytes": 18,
+      "final_url": "http://192.168.31.20:18707/health/ready",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": null
+    },
+    {
+      "path": "/v1/p07/tasks",
+      "status": 401,
+      "bytes": 132,
+      "final_url": "http://192.168.31.20:18707/v1/p07/tasks",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": null
+    },
+    {
+      "path": "/preview/",
+      "status": 200,
+      "bytes": 2215,
+      "final_url": "http://192.168.31.20:18707/preview/",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": true
+    },
+    {
+      "path": "/preview/douyin.html",
+      "status": 200,
+      "bytes": 2215,
+      "final_url": "http://192.168.31.20:18707/preview/douyin.html",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": true
+    },
+    {
+      "path": "/preview/ALIPAY.js",
+      "status": 200,
+      "bytes": 148029,
+      "final_url": "http://192.168.31.20:18707/preview/ALIPAY.js",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": null
+    },
+    {
+      "path": "/preview/DOUYIN.js",
+      "status": 200,
+      "bytes": 148030,
+      "final_url": "http://192.168.31.20:18707/preview/DOUYIN.js",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": null
+    },
+    {
+      "path": "/root/cfg/table-purifier/credentials.json",
+      "status": 404,
+      "bytes": 146,
+      "final_url": "http://192.168.31.20:18707/root/cfg/table-purifier/credentials.json",
+      "hsts": null,
+      "https_upgrade": false,
+      "synthetic_marker": null
+    }
+  ],
+  "browser_preview": {
+    "scope": "ACTUAL_LAN_HTTP_SYNTHETIC_PREVIEW",
+    "at": "2026-10-30T20:57:14.835Z",
+    "pages": [
+      {
+        "provider": "ALIPAY",
+        "url": "http://192.168.31.20:18707/preview/",
+        "status": 200,
+        "synthetic_marker": "文档预览 · 合成资料 / SYNTHETIC PREVIEW",
+        "platform": "支付宝 · Alipay",
+        "file": "alipay-http.png",
+        "javascript_errors": [],
+        "broken_images": [],
+        "sha256": "769cd5b8b995c917a0c68bb92287895585fb89a2c12a9553f6be40526892f431",
+        "bytes": 99404
+      },
+      {
+        "provider": "DOUYIN",
+        "url": "http://192.168.31.20:18707/preview/douyin.html",
+        "status": 200,
+        "synthetic_marker": "文档预览 · 合成资料 / SYNTHETIC PREVIEW",
+        "platform": "抖音 · Douyin",
+        "file": "douyin-http.png",
+        "javascript_errors": [],
+        "broken_images": [],
+        "sha256": "102efed85d9363f27b377a09abdd66a590da1e7246181c9d682060e387936f9e",
+        "bytes": 99259
+      }
+    ],
+    "browser_closed": true
+  },
+  "local_source_checks": {
+    "npm_run_check": "PASS",
+    "test_files": 14,
+    "tests": 89,
+    "static_baseline_checks_passed": 2375,
+    "static_baseline_checks_failed": 0,
+    "frozen_baselines_modified": false,
+    "documentation_checks_passed": 1546,
+    "documentation_checks_failed": 0,
+    "documentation_links": 221,
+    "deployment_python_syntax": "PASS",
+    "deployment_javascript_syntax": "PASS"
+  },
+  "evidence_boundary": "Actual server infrastructure, native synthetic canaries and browser documentation preview only. No dedicated model call, real platform identity/payment, native device or complete paid business workflow acceptance."
+}

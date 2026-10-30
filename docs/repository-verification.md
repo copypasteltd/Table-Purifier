@@ -4,6 +4,8 @@
 
 日期：2026-10-28。版本：源码 0.1.0、业务 v3.2、DEV3、B1.0.0。
 
+2026-10-31 新增用户授权的内网 HTTP 部署，当前配置、原生隔离探针、服务重启及状态见[部署说明](deployment/README.md)和[独立部署核验](deployment/verification-2026-10-31.json)。本页下方“未部署/未验 Ubuntu”保留 2026-10-28 的历史范围，不覆盖后续服务器证据。The later authorized deployment has its own dated evidence; the historical checks below remain unchanged in scope.
+
 本轮完成源码与文档入口整理、中英 README、可复现页面预览、截图/录屏/GIF、仓库规则和 Git 交付准备。以下是实际执行的检查，不代表外部真实集成验收。
 
 This handoff organizes source and documentation, bilingual READMEs, reproducible preview/media and repository workflow. Checks below cover source and fixtures, not live integration acceptance.

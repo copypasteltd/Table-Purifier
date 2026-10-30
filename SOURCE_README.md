@@ -1,5 +1,7 @@
 # 表格修复站源码入口
 
+2026-10-31 用户另行授权的 Ubuntu 内网原生 HTTP 部署及维护见[中文部署说明](docs/deployment/README.md) / [English deployment guide](docs/deployment/README.en.md)。源码构建、文档预览与真实业务接入仍分别验收。
+
 本目录包含支付宝、抖音两套原生小程序源码、TypeScript 业务服务与后台 Worker、官方 Codex SDK Agent 封装、文档工具、PostgreSQL 迁移和测试。产品采用已定型的 B 青绿资料夹设计，面向“提供标准表”和“从资料发现标准表”两种模式。
 
 当前交付是可安装依赖、检查和构建的源码。真实模型、真实支付、Ubuntu 原生隔离运行、小程序 IDE 与四种真机环境仍需后续接入验收。用户尚未准备相关凭据，本次没有部署、上线、发布，也没有调用 Docker、WSL 或虚拟机。

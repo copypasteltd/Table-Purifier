@@ -20,7 +20,9 @@ const bearer=(request:FastifyRequest)=>{const h=request.headers.authorization;in
 export async function buildServer(a:Application){
  const app=Fastify({logger:false,bodyLimit:512_000,requestTimeout:45_000,connectionTimeout:10_000,keepAliveTimeout:5000,
   genReqId:()=>newId(),trustProxy:false});
- await app.register(helmet,{contentSecurityPolicy:{directives:{defaultSrc:["'none'"],frameAncestors:["'none'"]}}});
+ const httpsPublicUrl=new URL(a.config.P07_PUBLIC_URL).protocol==='https:';
+ await app.register(helmet,{strictTransportSecurity:httpsPublicUrl,
+  contentSecurityPolicy:{directives:{defaultSrc:["'none'"],frameAncestors:["'none'"],upgradeInsecureRequests:httpsPublicUrl?[]:null}}});
  await app.register(multipart,{limits:{fileSize:20_000_000,files:1,fields:0,parts:1,fieldNameSize:100,headerPairs:30},throwFileSizeLimit:true});
  const buckets=new Map<string,{at:number;count:number}>();
  app.addHook('onRequest',async req=>{
