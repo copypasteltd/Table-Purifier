@@ -2,6 +2,13 @@
 
 产品源码版本与需求/设计冻结版本分别记录。Source releases and frozen specification versions are tracked separately.
 
+## 2026-11-01 — 小程序简介与描述 / Mini-program listing copy
+
+- 为「词元拾序」编写支付宝、抖音共用的 16 字简介与 300 字描述（含标点），提供文档及可直接复制的纯文本，覆盖两种规范模式、确认估费、付费批量与结果保留。
+  Added shared Chinese listing copy: a 16-character summary and 300-character description, with copyable text sources covering both schema modes, confirmation, estimation, paid production and retained results.
+- 同步品牌入口、文档导航及中英 README，核对字数与源文案一致性；未修改界面、部署服务或提交小程序后台。
+  Updated brand/documentation navigation and both READMEs, validating length and source consistency without UI changes, deployment or platform submission.
+
 ## 2026-11-01 — 词元拾序品牌定稿 / Approved 词元拾序 identity
 
 - 用户选定正式中文名称「词元拾序」与 06「折纸归档」，新增独立品牌 V1.0.0 和单一身份入口；保留选定原图与全部探索素材，未再次请求图像生成。

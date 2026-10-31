@@ -14,7 +14,7 @@
 
 用户已选定名称 **「词元拾序」** 与 **06「折纸归档」Logo**，版本 `P07-BRAND-CIYUANSHIXU-1.0.0`。青绿文档、暖橙表格与浅色折页表达从零散资料到规范交付。当前小程序源码、原生导航标题、文档预览、截图、录屏和 GIF 均采用新品牌；十款候选及冻结 B 原图保留为历史。
 
-[品牌定型与使用规范](docs/brand/README.md) · [正式透明图标、字标、头像和封面](assets/brand/ciyuan-shixu/v1.0.0/README.md) · [十款探索留存](docs/brand/logo-exploration.md)
+[品牌定型与使用规范](docs/brand/README.md) · [小程序简介与描述](docs/brand/miniapp-listing.md) · [正式透明图标、字标、头像和封面](assets/brand/ciyuan-shixu/v1.0.0/README.md) · [十款探索留存](docs/brand/logo-exploration.md)
 
 ![词元拾序 · 06 折纸归档正式品牌](assets/brand/ciyuan-shixu/v1.0.0/brand-board.png)
 

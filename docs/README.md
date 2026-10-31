@@ -16,6 +16,7 @@
 | 内网原生部署 / LAN deployment | [中文部署说明](deployment/README.md)、[English](deployment/README.en.md)、[核验](deployment/verification-2026-10-31.json) | 2026-10-31 授权 HTTP；真实模型与平台凭据待配 / Authorized HTTP; live credentials pending |
 | B 设计定型 / Frozen B design | [设计入口](设计定型/B-青绿资料夹-v1.0.0/README.md)、[原图与规格](../assets/design/b-jade-folders/v1.0.0) | B1.0.0 冻结 / Frozen |
 | B 方案实现还原 / B fidelity | [逐页修复及验收](实施/B方案前端还原与验收.md) | 当前源码；真机待验 / Source; devices pending |
+| 小程序上架文案 / Mini-program listing copy | [简介与描述](brand/miniapp-listing.md) | 简介 16 字；描述 300 字（含标点） / 16-character summary; 300-character description |
 | 品牌定稿 / Approved identity | [词元拾序 + 06 折纸归档](brand/README.md)、[正式资产](../assets/brand/ciyuan-shixu/v1.0.0/README.md)、[历史探索](brand/logo-exploration.md) | 2026-11-01 用户定稿 / User-approved V1.0.0 |
 | 技术决策 / Decisions | [决策记录](implementation-decisions.md) | 当前与待评估 / Current and future |
 | 截图、录屏、GIF / Media | [媒体索引](media/README.md)、[摘要](media/manifest.json) | 合成预览 / Synthetic preview |

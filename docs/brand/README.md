@@ -1,6 +1,6 @@
 # 词元拾序 · 品牌定型 / Approved brand identity
 
-[中文项目说明](../../README.md) · [English project guide](../../README.en.md) · [正式素材](../../assets/brand/ciyuan-shixu/v1.0.0/README.md) · [十款探索留存](logo-exploration.md)
+[中文项目说明](../../README.md) · [English project guide](../../README.en.md) · [小程序简介与描述](miniapp-listing.md) · [正式素材](../../assets/brand/ciyuan-shixu/v1.0.0/README.md) · [十款探索留存](logo-exploration.md)
 
 用户于 **2026-11-01** 明确定稿：产品名称为 **词元拾序**，Logo 使用 **06「折纸归档 / Folded Paper」**。正式版本为 `P07-BRAND-CIYUANSHIXU-1.0.0`，唯一机器入口为 [current.json](../../assets/brand/current.json)。后续新内容默认使用该名称与图形，不再延续候选推荐。
 

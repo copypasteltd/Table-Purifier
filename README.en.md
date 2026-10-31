@@ -14,7 +14,7 @@ Alipay and Douyin mini programs are the first surfaces, using the selected **B J
 
 The user selected **词元拾序** and **06 Folded Paper**, released as `P07-BRAND-CIYUANSHIXU-1.0.0`. The jade document, warm orange table and paper fold connect scattered material with structured delivery. Shared mini-program source, native titles, documentation preview, screenshots, MP4 and GIF now carry the approved identity. The ten original candidates and frozen B references remain historical evidence.
 
-[Identity and usage rules](docs/brand/README.md) · [Transparent marks, lockups, avatars and cover](assets/brand/ciyuan-shixu/v1.0.0/README.md) · [Historical exploration](docs/brand/logo-exploration.md)
+[Identity and usage rules](docs/brand/README.md) · [Chinese mini-program summary and description](docs/brand/miniapp-listing.md) · [Transparent marks, lockups, avatars and cover](assets/brand/ciyuan-shixu/v1.0.0/README.md) · [Historical exploration](docs/brand/logo-exploration.md)
 
 ![Approved 词元拾序 / Folded Paper identity](assets/brand/ciyuan-shixu/v1.0.0/brand-board.png)
 
