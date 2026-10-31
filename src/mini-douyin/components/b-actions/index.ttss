@@ -4,6 +4,9 @@ view,text,input,textarea,button,image { box-sizing:border-box; }
 .page { max-width:640px; min-height:100vh; margin:0 auto; padding:16px 16px 104px; background:#fff; overflow-wrap:anywhere; }
 .page-root { padding-bottom:164px; }
 .hero { font-size:24px; font-weight:600; line-height:34px; margin:0 0 4px; }
+.home-brand { display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+.home-brand .hero { margin:0; }
+.brand-logo { display:block; width:32px; height:32px; flex-shrink:0; }
 .home-subtitle { margin-bottom:20px; }
 .muted { color:#5E7167; font-size:14px; line-height:22px; }
 .small { font-size:12px; line-height:18px; color:#5E7167; }

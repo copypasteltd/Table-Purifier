@@ -1,0 +1,70 @@
+{
+  "protocol": "P07-BRAND-HANDOFF-1",
+  "checked_at": "2026-10-31T19:33:27.728877+00:00",
+  "release_id": "P07-BRAND-CIYUANSHIXU-1.0.0",
+  "name_zh": "词元拾序",
+  "selected_logo": "06",
+  "status": "PASS",
+  "scope": "LOCAL_SOURCE_BRAND_ASSETS_AND_SYNTHETIC_DOCUMENTATION_MEDIA",
+  "checks": {
+    "npm_run_check": {
+      "status": "PASS",
+      "test_files": 14,
+      "tests": 89,
+      "typecheck": "PASS",
+      "build": "PASS"
+    },
+    "native_source_build": {
+      "status": "PASS",
+      "platforms": [
+        "ALIPAY",
+        "DOUYIN"
+      ],
+      "pages_per_platform": 18,
+      "components_per_platform": 32
+    },
+    "design_audit": {
+      "status": "PASS",
+      "layout_cases": 164,
+      "interaction_regressions": 14,
+      "failures": 0,
+      "receipt": "docs/实施/验证记录/ui-design-fidelity-2026-11-01.json"
+    },
+    "frozen_baseline": {
+      "status": "PASS",
+      "checks_passed": 2379,
+      "checks_failed": 0
+    },
+    "documentation_and_assets": {
+      "status": "PASS",
+      "command": "npm run docs:verify"
+    },
+    "media": {
+      "screenshots": 38,
+      "page_screenshots": 36,
+      "all_media_files": 56,
+      "mp4_duration_seconds": 47.68,
+      "mp4_and_gifs_refreshed": true
+    },
+    "brand_assets": {
+      "files": 17,
+      "png_files": 16,
+      "ico_files": 1,
+      "selected_original_unchanged": true
+    },
+    "delivery_zip": {
+      "integrity": "PASS",
+      "entries": 20,
+      "path": "output/imagegen/ciyuan-shixu-brand-v1.0.0/Ciyuan-Shixu-Brand-v1.0.0.zip",
+      "sha256": "d0c8fc417a088d584ab36ed392916ffa3cfcd844174fa13852e66d91e5dc2932"
+    }
+  },
+  "browser_resources_closed": true,
+  "local_virtualization_used": false,
+  "new_image_generation": false,
+  "application_deployment_performed": false,
+  "native_device_acceptance": "NOT_RUN",
+  "live_model_and_payment": "NOT_RUN",
+  "historical_deployment_evidence": "PRESERVED_UNCHANGED",
+  "frozen_b_design": "PRESERVED_UNCHANGED"
+}

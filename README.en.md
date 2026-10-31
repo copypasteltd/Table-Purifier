@@ -1,4 +1,4 @@
-# Table Purifier · 表格修复站
+# 词元拾序 · Table Purifier
 
 [简体中文](README.md) · [English](README.en.md) · [Documentation](docs/README.md) · [Screenshots & demos](docs/media/README.md) · [Changelog](CHANGELOG.md)
 
@@ -10,13 +10,15 @@ Alipay and Douyin mini programs are the first surfaces, using the selected **B J
 
 > Media scope: screenshots, MP4 and GIF are captured from a **browser documentation adapter running the actual native templates, components and controller**. Data, Agent progress, quotes, orders and cleanup states are synthetic fixtures. These are not native-device screenshots, live Codex results, real payments or proof of Ubuntu isolation and cleanup. Demo amounts are not service prices.
 
-## Brand logo exploration · 2026-11-01
+## Approved brand · 词元拾序 / Logo 06
 
-**Ten distinct logo directions** were generated through the requested `sub2-image-gen / gpt-image-2.5` route. The collection includes transparent originals, six PNG sizes, Chinese/English brand presentations, an overview and generation provenance. Suggested shortlist: **01 Jade Folder, 04 TP Monogram and 09 Grid Buddy**. Selection is pending; existing B design and product icons remain unchanged.
+The user selected **词元拾序** and **06 Folded Paper**, released as `P07-BRAND-CIYUANSHIXU-1.0.0`. The jade document, warm orange table and paper fold connect scattered material with structured delivery. Shared mini-program source, native titles, documentation preview, screenshots, MP4 and GIF now carry the approved identity. The ten original candidates and frozen B references remain historical evidence.
 
-[Comparison and selection guide](docs/brand/README.md) · [Individual sheets, transparent PNGs and prompts](assets/brand/logo-exploration/2026-11-01/README.md)
+[Identity and usage rules](docs/brand/README.md) · [Transparent marks, lockups, avatars and cover](assets/brand/ciyuan-shixu/v1.0.0/README.md) · [Historical exploration](docs/brand/logo-exploration.md)
 
-![Ten candidate logo directions](assets/brand/logo-exploration/2026-11-01/logo-overview.png)
+![Approved 词元拾序 / Folded Paper identity](assets/brand/ciyuan-shixu/v1.0.0/brand-board.png)
+
+Table Purifier remains the English project alias; repository paths, API contracts and service identifiers retain their existing names. No new image request or update to the running server is included in this brand revision.
 
 ## LAN HTTP deployment · 2026-10-31
 
@@ -32,7 +34,7 @@ HTTP health, migration readiness, non-root confinement and cleanup of a syntheti
 
 The shared frontend now follows the retained B folder layout, file/field cards, table headers, type scale, spacing, icon family and fixed actions. Each platform still has 18 pages and 32 components. Records expand to all fields and downloads expand to all nine files. The goal and schema mode survive navigation; returning from evidence preserves the explicit decision.
 
-[Reference / before / after comparisons and page coverage](docs/实施/B方案前端还原与验收.md) · [164 layout cases and 14 interaction regressions](docs/实施/验证记录/ui-design-fidelity-2026-10-28.json). Coverage includes 320/375/390/430 widths, landscape, simulated larger text, long content and errors. These are browser checks of native source; native devices, actual keyboards and system text scaling remain unverified.
+[Reference / before / after comparisons and page coverage](docs/实施/B方案前端还原与验收.md) · [164 layout cases and 14 interaction regressions](docs/实施/验证记录/ui-design-fidelity-2026-11-01.json). Coverage includes 320/375/390/430 widths, landscape, simulated larger text, long content and errors. These are browser checks of native source; native devices, actual keyboards and system text scaling remain unverified.
 
 ## Watch the workflow
 

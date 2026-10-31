@@ -1,5 +1,7 @@
 # 表格修复站 · 10 款 Logo 选型 / Ten logo directions
 
+> 用户已定稿 **「词元拾序」+ 06 折纸归档**。当前请使用[正式品牌资产](../../ciyuan-shixu/v1.0.0/README.md)和[定型规范](../../../../docs/brand/README.md)。以下为生成时的候选留存，原图、展示字标和历史状态保持原样。Selection is complete; the following is the historical exploration, not the current public brand.
+
 日期 / Date: 2026-11-01（Asia/Taipei）。状态 / Status: 待用户选型 / Awaiting selection。
 
 使用用户指定的 sub2-image-gen 路径生成，模型请求固定为 gpt-image-2.5、high、PNG，未使用替代模型。十款均保留生成原图、提示词和不含密钥的收据。All ten concepts were generated through the requested skill; no provider/model substitution.

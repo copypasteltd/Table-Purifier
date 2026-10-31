@@ -1,4 +1,6 @@
-# 表格修复站源码入口
+# 词元拾序源码入口
+
+2026-11-01 用户定稿「词元拾序」与 06 折纸归档；当前身份入口为 `assets/brand/current.json`，由两端小程序与后端 Excel 作者元数据共用。正式资产和规则见[品牌定型](docs/brand/README.md)。本轮只更新源码和媒体，没有更改服务器运行版本。
 
 2026-10-31 用户另行授权的 Ubuntu 内网原生 HTTP 部署及维护见[中文部署说明](docs/deployment/README.md) / [English deployment guide](docs/deployment/README.en.md)。源码构建、文档预览与真实业务接入仍分别验收。
 

@@ -102,6 +102,7 @@ try {
   if (video) await copyFile(await video.path(), path.join(root, 'runtime/docs-recording/walkthrough.webm'));
   if (problems.length) throw new Error(problems.join('\n'));
   const sourceFiles = ['miniapp/src/controller.js','miniapp/src/client.js', 'miniapp/src/components.js', 'miniapp/src/theme.css','miniapp/src/presentation.js','miniapp/src/navigation.js','miniapp/src/schema-editor.js',
+    'miniapp/src/brand.js','miniapp/src/assets/brand/logo.png','assets/brand/current.json',
     'docs/preview/main.js','docs/preview/client.js','docs/preview/platform.js','docs/preview/quotation-fixture.js','docs/preview/build.mjs','docs/preview/server.mjs','docs/preview/index.html','docs/preview/preview.css',
     ...Array.from({ length: 18 }, (_, i) => `miniapp/src/pages/MP${String(i + 1).padStart(2, '0')}.xml`)];
   const sources = [];

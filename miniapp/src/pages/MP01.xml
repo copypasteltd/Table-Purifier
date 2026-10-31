@@ -1,5 +1,5 @@
-<view class="hero">把零散资料，整理成表</view>
-<view class="muted home-subtitle">没有模板也能开始</view>
+<view class="home-brand"><image class="brand-logo" src="{{brand.logo}}" mode="aspectFit" aria-hidden="true"/><view class="hero">{{brand.name}}</view></view>
+<view class="muted home-subtitle">把零散资料整理成表，没有模板也能开始</view>
 <b-progress p:if="{{!ready}}" title="整理会话" text="{{phase}}"/>
 <button p:if="{{!session||session.status==='CLOSED'||session.status==='FAILED'||session.status==='INITIALIZATION_FAILED'||session.status==='CANCELED'}}" class="button primary" data-action="new" onTap="onAction" disabled="{{loading}}">新建整理会话</button>
 <view p:if="{{ready}}">

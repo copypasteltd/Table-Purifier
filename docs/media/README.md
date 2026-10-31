@@ -6,6 +6,8 @@
 
 **All media show a browser adapter rendering actual native page source with synthetic fixtures. They are not native-device captures or live model/payment/Ubuntu-cleanup acceptance.** Screenshots carry a preview label; the recording shows its boundaries throughout. Demo amounts are not service prices.
 
+当前媒体已按 **2026-11-01「词元拾序」与 06 折纸归档**重采；[当前品牌规范](../brand/README.md)。历史 B 原稿、初始源码截图与 2026-10-31 服务器部署截图仍保留旧名称，作为各自时间点的证据。Current source media uses the approved brand; reference/before/deployment evidence remains historical.
+
 ## B 方案对照 / B design comparison
 
 ![当前三页源码预览 / Current source screens](design-review/after-board.png)

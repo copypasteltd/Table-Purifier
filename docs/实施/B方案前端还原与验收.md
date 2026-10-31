@@ -1,5 +1,7 @@
 # B 方案前端还原与验收 / B design fidelity
 
+> 2026-11-01 品牌更新：当前源码采用用户定稿 **「词元拾序」+ 06 折纸归档**，通过独立品牌版本叠加在 B1.0.0 上；原始冻结设计及下述 2026-10-28 还原记录不改写。当前[验收记录](验证记录/ui-design-fidelity-2026-11-01.json)与[品牌规范](../brand/README.md)单列。The approved name/logo is a later source overlay; the original fidelity decision below remains historical.
+
 本轮解决初始源码布局与选定稿偏离的问题。视觉目标仍是冻结的 **P07-DS-B1.0.0 青绿资料夹**，没有重做品牌或替换设计方向。业务继续采用七步流程和 v3.2 生命周期。
 
 This revision brings the initial frontend closer to the retained B design. It preserves the frozen visual direction and the seven-step v3.2 lifecycle.

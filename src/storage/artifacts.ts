@@ -3,6 +3,7 @@ import { contentHash,sha256 } from '../shared/crypto.js';
 import { LocalStore,RESULT_FILES,type ResultFileName } from './local-store.js';
 import { csvCell,safeSpreadsheetText } from '../validation/schema.js';
 import type { ValidatedResult } from '../validation/result.js';
+import { PRODUCT_NAME } from '../shared/brand.js';
 
 export const MEDIA:Record<ResultFileName,string>={'standard.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
  'result.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','issues.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -10,7 +11,7 @@ export const MEDIA:Record<ResultFileName,string>={'standard.xlsx':'application/v
  'accepted.csv':'text/csv; charset=utf-8','provenance.jsonl':'application/x-ndjson'};
 const json=(value:unknown)=>Buffer.from(JSON.stringify(value,null,2)+'\n');
 async function xlsx(sheets:{name:string;headers:string[];rows:(string|number|boolean|null)[][]}[]):Promise<Buffer>{
-  const workbook=new ExcelJS.Workbook();workbook.creator='表格修复站';
+  const workbook=new ExcelJS.Workbook();workbook.creator=PRODUCT_NAME;
   for(const sheet of sheets){const page=workbook.addWorksheet(sheet.name,{views:[{state:'frozen',ySplit:1}]});
     page.addRow(sheet.headers.map(safeSpreadsheetText));
     // Every source string is an explicit text cell. Formula-looking text is prefixed for downstream CSV/Excel safety.

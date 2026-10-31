@@ -3,6 +3,7 @@ import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {createPreviewServer} from '../docs/preview/server.mjs';
 import {root} from '../docs/preview/build.mjs';
+import {brand} from '../miniapp/src/brand.js';
 process.env.PLAYWRIGHT_BROWSERS_PATH??=path.join(root,'runtime/tools/playwright');
 const {chromium}=await import('playwright');
 const output=path.join(root,'runtime/ui-fidelity'),media=path.join(root,'docs/media/design-review');
@@ -29,6 +30,8 @@ try{browser=await chromium.launch({headless:true});
  for(const provider of ['ALIPAY','DOUYIN']){
   const context=await browser.newContext({viewport:{width:375,height:920},locale:'zh-CN',reducedMotion:'reduce'});
   try{const page=await context.newPage();page.on('pageerror',error=>failures.push({provider,page_error:error.message}));page.on('dialog',d=>d.accept());await page.goto(server.url+'/?provider='+provider);await ready(page,'MP01');
+   const branding=await page.evaluate(()=>({title:document.getElementById('page-title').textContent,name:document.querySelector('.home-brand .hero')?.textContent,logo:document.querySelector('.brand-logo')?.getAttribute('src')}));
+   if(branding.title!==brand.name||branding.name!==brand.name||branding.logo!==brand.logo)failures.push({provider,brand_mismatch:branding});
    for(const width of [320,375,390,430]){await page.setViewportSize({width,height:920});for(let n=1;n<=18;n++){
     const id='MP'+String(n).padStart(2,'0');await seed(page,id);await page.evaluate(()=>Promise.all([...document.images].map(img=>img.decode().catch(()=>{}))));record({provider,page:id,viewport:{width,height:920},variant:'standard'},await measure(page));
    }}
@@ -60,7 +63,7 @@ try{browser=await chromium.launch({headless:true});
   }finally{await context.close();}
  }
 }catch(error){failures.push({exception:error.message});}finally{await browser?.close();await server.close();}
-const sourceFiles=['miniapp/src/theme.css','miniapp/src/components.js','miniapp/src/controller.js','miniapp/src/presentation.js','miniapp/src/navigation.js',...Array.from({length:18},(_,i)=>'miniapp/src/pages/MP'+String(i+1).padStart(2,'0')+'.xml')];
+const sourceFiles=['miniapp/src/theme.css','miniapp/src/components.js','miniapp/src/controller.js','miniapp/src/presentation.js','miniapp/src/navigation.js','miniapp/src/brand.js','miniapp/src/assets/brand/logo.png','assets/brand/current.json',...Array.from({length:18},(_,i)=>'miniapp/src/pages/MP'+String(i+1).padStart(2,'0')+'.xml')];
 const sources=[];for(const file of sourceFiles)sources.push({path:file,sha256:digest(await readFile(path.join(root,file)))});
-const report={protocol:'P07-DESIGN-FIDELITY-1',captured_at:new Date().toISOString(),reference:'P07-DS-B1.0.0',cases,regressions,failures,screenshots,sources,browser_closed:true,scope:'Actual native source in documentation browser adapters; synthetic data; text scaling is simulated. Native devices, keyboard, dark mode and Ubuntu are NOT_RUN.'};
+const report={protocol:'P07-DESIGN-FIDELITY-1',captured_at:new Date().toISOString(),reference:'P07-DS-B1.0.0',brand_release_id:brand.releaseId,brand_name:brand.name,cases,regressions,failures,screenshots,sources,browser_closed:true,scope:'Actual native source with the user-approved brand overlay in documentation browser adapters; synthetic data; text scaling is simulated. Native devices, keyboard, dark mode and Ubuntu are NOT_RUN.'};
 await writeFile(path.join(output,'audit.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({cases:cases.length,regressions:regressions.length,failures:failures.length,browser_closed:true,report:'runtime/ui-fidelity/audit.json'}));if(failures.length){console.log(JSON.stringify(failures.slice(0,8),null,2));process.exitCode=1;}

@@ -3,6 +3,7 @@ import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { root } from '../docs/preview/build.mjs';
+import { brand } from '../miniapp/src/brand.js';
 
 const media = path.join(root, 'docs/media');
 function run(command, args) {
@@ -14,7 +15,7 @@ function run(command, args) {
 const input = path.join(root, 'runtime/docs-recording/walkthrough.webm');
 run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', input, '-an', '-vf', 'scale=1440:954:flags=lanczos,setsar=1',
   '-c:v', 'libx264', '-crf', '23', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
-  '-metadata', 'title=Table Purifier - synthetic source preview, no real model/payment/device verification', path.join(media, 'walkthrough.mp4')]);
+  '-metadata', `title=${brand.name} / Table Purifier - synthetic source preview, no real model/payment/device verification`, path.join(media, 'walkthrough.mp4')]);
 run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', input, '-an', '-filter_complex',
   '[0:v]setpts=0.55*PTS,fps=5,crop=1200:1020:140:0,scale=880:-2:flags=lanczos,split[a][b];[a]palettegen=max_colors=64:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle',
   '-loop', '0', path.join(media, 'walkthrough.gif')]);

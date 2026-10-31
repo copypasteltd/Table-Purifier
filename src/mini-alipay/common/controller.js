@@ -455,6 +455,66 @@ function issueView(issue, record, schema) {
   };
 }
 
+// assets/brand/current.json
+var current_default = {
+  protocol: "P07-BRAND-IDENTITY-1",
+  release_id: "P07-BRAND-CIYUANSHIXU-1.0.0",
+  version: "1.0.0",
+  approved_at: "2026-11-01",
+  status: "USER_APPROVED",
+  name_zh: "\u8BCD\u5143\u62FE\u5E8F",
+  project_alias_en: "Table Purifier",
+  previous_name_zh: "\u8868\u683C\u4FEE\u590D\u7AD9",
+  tagline_zh: "\u628A\u96F6\u6563\u8D44\u6599\uFF0C\u6574\u7406\u6210\u6709\u636E\u53EF\u67E5\u7684\u8868\u683C",
+  short_description_zh: "AI \u8D44\u6599\u6574\u7406\u4E0E\u89C4\u8303\u6210\u8868\u5DE5\u5177",
+  selection: {
+    authority: "USER_MESSAGE",
+    instruction: "\u5B9A\u7A3F\u4E3A \u8BCD\u5143\u62FE\u5E8F\uFF1BLOGO\u4F7F\u752806",
+    concept_id: "06",
+    slug: "06-folded-paper",
+    name_zh: "\u6298\u7EB8\u5F52\u6863",
+    name_en: "Folded Paper",
+    source: "assets/brand/logo-exploration/2026-11-01/originals/06-folded-paper.png",
+    source_sha256: "bb4f0cc9e23200d060753468f75fe8676e7656f0aa4d93d5fd16a86220f2b830"
+  },
+  asset_directory: "assets/brand/ciyuan-shixu/v1.0.0",
+  palette: {
+    logo_jade: "#167864",
+    logo_orange: "#EB9B4A",
+    logo_paper: "#FADEB7",
+    text: "#203C32",
+    background: "#EAF1EE",
+    surface: "#FFFFFF",
+    ui_primary: "#17745E"
+  },
+  rules: {
+    clear_space: "At least 1/8 of the visible mark height on each side; supplied icon canvases use 78% visible height.",
+    minimum_color_mark_px: 32,
+    preferred_color_mark_px: 64,
+    small_16_24_px: "Favicon-only silhouette; internal detail is not guaranteed readable.",
+    vector_master: "NOT_CREATED",
+    english_brand_name: "NOT_SEPARATELY_APPROVED",
+    frozen_b_design: "PRESERVED_UNCHANGED",
+    ui_theme: "B1.0.0 with the approved brand name/logo overlay"
+  },
+  scope: {
+    local_source_branding: true,
+    repository_and_workspace_renamed: false,
+    application_deployment: false,
+    new_image_generation: false,
+    live_platform_acceptance: "NOT_RUN"
+  }
+};
+
+// miniapp/src/brand.js
+var brand = {
+  name: current_default.name_zh,
+  description: current_default.short_description_zh,
+  tagline: current_default.tagline_zh,
+  releaseId: current_default.release_id,
+  logo: "/assets/brand/logo.png"
+};
+
 // miniapp/src/controller.js
 var STATUS = { INITIALIZING: "\u6B63\u5728\u51C6\u5907\u6574\u7406\u4F1A\u8BDD", READY_FOR_INPUT: "\u4F1A\u8BDD\u5DF2\u5C31\u7EEA\uFF0C\u53EF\u4EE5\u63D0\u4EA4\u8D44\u6599", INPUT_RECEIVED: "\u8D44\u6599\u5DF2\u63A5\u6536\uFF0C\u7B49\u5F85\u5206\u6790", ANALYZING: "\u6B63\u5728\u7406\u89E3\u5168\u90E8\u5DF2\u63D0\u4EA4\u8D44\u6599", WAITING_CONFIRMATION: "\u89C4\u8303\u8349\u6848\u5DF2\u51C6\u5907\u597D\uFF0C\u8BF7\u786E\u8BA4", QUOTABLE: "\u65B9\u6848\u5DF2\u786E\u8BA4\uFF0C\u53EF\u4EE5\u9884\u4F30\u8D39\u7528", AWAITING_PAYMENT: "\u7B49\u5F85\u539F\u5E73\u53F0\u786E\u8BA4\u4ED8\u6B3E", BATCH_QUEUED: "\u5DF2\u6838\u5B9E\u4ED8\u6B3E\uFF0C\u7B49\u5F85\u6574\u7406", BATCH_RUNNING: "\u6B63\u5728\u6279\u91CF\u6574\u7406", PERSISTING_RESULTS: "\u6B63\u5728\u4FDD\u5B58\u5E76\u6838\u9A8C\u7ED3\u679C", RELEASING_RUNTIME: "\u7ED3\u679C\u4E0E\u4EFB\u52A1\u73AF\u5883\u5206\u522B\u5904\u7406\uFF0C\u6B63\u5728\u6E05\u7406\u73AF\u5883", CLOSED: "\u4EFB\u52A1\u73AF\u5883\u5DF2\u6E05\u7406\uFF0C\u7ED3\u679C\u7EE7\u7EED\u4FDD\u7559", FAILED: "\u6574\u7406\u672A\u5B8C\u6210\uFF0C\u8BF7\u67E5\u770B\u8BA2\u5355\u4E0E\u552E\u540E", CANCELED: "\u6574\u7406\u5DF2\u505C\u6B62", INITIALIZATION_FAILED: "\u4F1A\u8BDD\u51C6\u5907\u5931\u8D25\uFF0C\u8BF7\u91CD\u8BD5" };
 var labels = { CONFIRMED: "\u670D\u52A1\u7AEF\u5DF2\u6838\u5B9E\u4ED8\u6B3E", PENDING: "\u7B49\u5F85\u4ED8\u6B3E\u786E\u8BA4", UNKNOWN: "\u72B6\u6001\u5F85\u6838\u5BF9", NOT_CREATED: "\u5C1A\u672A\u53D1\u8D77\u652F\u4ED8", DELIVERABLE: "\u7ED3\u679C\u53EF\u9886\u53D6", DELIVERED: "\u5DF2\u786E\u8BA4\u53D6\u7528", NONE: "\u65E0\u9000\u6B3E\u7533\u8BF7", SUCCEEDED: "\u5DF2\u5B8C\u6210", PROCESSING: "\u5904\u7406\u4E2D", REQUESTED: "\u5DF2\u7533\u8BF7", PARTIAL: "\u90E8\u5206\u9000\u6B3E", FULL: "\u5168\u989D\u9000\u6B3E", NOT_STARTED: "\u5C1A\u672A\u751F\u4EA7", IN_PROGRESS: "\u6B63\u5728\u5C65\u7EA6" };
@@ -473,6 +533,7 @@ function createPage(page) {
   return {
     data: {
       page,
+      brand,
       title: titles[page],
       loading: false,
       error: "",

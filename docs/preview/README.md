@@ -60,9 +60,13 @@ The capture traverses both providers and exercises actual controller actions, as
 
 生成覆盖同路径展示素材，不修改冻结 B 原稿、真实结果、密钥或生产配置。UI/控制器变化后重采受影响媒体，随中英说明提交推送。Generated presentation assets overwrite previous media only; refresh and commit evidence after relevant source changes.
 
+## 品牌定稿 / Approved identity
+
+当前预览与媒体使用 **词元拾序 + 06 折纸归档**，与两端原生源码共用身份 JSON 和图片。品牌规则见[定型文档](../brand/README.md)。2026-10-28 的验收记录保留为历史，本轮检查为 2026-11-01；服务器仍运行原部署版本。The preview and native source share the approved identity. Current media/audit evidence is dated separately from the preserved historical server deployment.
+
 ## 设计还原检查 / Fidelity checks
 
-`npm run design:audit` 遍历两端 18 页、四种宽度与长内容/放大文字/错误/横屏场景，并检查交互回归；完整凭据写入被忽略的 `runtime/ui-fidelity/audit.json`。三页 375×920 合成报价截图输出到 `docs/media/design-review`。修改源码后，应将 PASS 的运行收据按当次日期保存至 `docs/实施/验证记录`，并同步更新 README、还原说明及文档校验器的收据路径。当前运行结果入版本库于 [验收记录](../实施/验证记录/ui-design-fidelity-2026-10-28.json)，判定范围见 [还原说明](../实施/B方案前端还原与验收.md)。
+`npm run design:audit` 遍历两端 18 页、四种宽度与长内容/放大文字/错误/横屏场景，并检查交互回归；完整凭据写入被忽略的 `runtime/ui-fidelity/audit.json`。三页 375×920 合成报价截图输出到 `docs/media/design-review`。修改源码后，应将 PASS 的运行收据按当次日期保存至 `docs/实施/验证记录`，并同步更新 README、还原说明及文档校验器的收据路径。当前运行结果入版本库于 [验收记录](../实施/验证记录/ui-design-fidelity-2026-11-01.json)，判定范围见 [还原说明](../实施/B方案前端还原与验收.md)。
 
 `npm run design:before` 可从初始 Git 提交 `a9d9699` 只读重建三页旧前端，仍使用同一组当前合成报价夹具，不切换或覆盖工作区。普通 `docs:media` 使用已保存的修复前/后截图与冻结参照图生成对照，不依赖历史 Git 可用性。`npm run design:icons` 重新生成 19 个同系列 SVG / 4 倍 PNG；修改图标后重新构建、核验并采集媒体。
 

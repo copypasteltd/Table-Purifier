@@ -1,5 +1,5 @@
-<b-frame variant="page-root"><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><view class="hero">把零散资料，整理成表</view>
-<view class="muted home-subtitle">没有模板也能开始</view>
+<b-frame variant="page-root"><view tt:if="{{loading}}" class="notice">正在处理，请稍候……</view><view tt:if="{{error}}" class="error">{{error}}<button class="button" data-action="refresh" bindtap="onAction">重新读取状态</button></view><b-message text="{{notice}}"/><view class="home-brand"><image class="brand-logo" src="{{brand.logo}}" mode="aspectFit" aria-hidden="true"/><view class="hero">{{brand.name}}</view></view>
+<view class="muted home-subtitle">把零散资料整理成表，没有模板也能开始</view>
 <b-progress tt:if="{{!ready}}" title="整理会话" text="{{phase}}"/>
 <button tt:if="{{!session||session.status==='CLOSED'||session.status==='FAILED'||session.status==='INITIALIZATION_FAILED'||session.status==='CANCELED'}}" class="button primary" data-action="new" bindtap="onAction" disabled="{{loading}}">新建整理会话</button>
 <view tt:if="{{ready}}">

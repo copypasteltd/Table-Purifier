@@ -1,6 +1,6 @@
 {
   "protocol": "P07-MEDIA-MANIFEST-1",
-  "captured_at": "2026-10-28T00:01:28.939Z",
+  "captured_at": "2026-10-31T19:31:28.662Z",
   "scope": "Actual native templates/components/controller rendered by documentation-only browser adapters; all data and server/payment/Agent/cleanup states are synthetic.",
   "verification": {
     "live_codex": "NOT_RUN",
@@ -8,7 +8,7 @@
     "real_payments": "NOT_RUN",
     "ubuntu_cleanup": "NOT_RUN"
   },
-  "capture_receipt_sha256": "670b86fa5180ec41d052533222fa99ac9057e1ef852a03d894c529d0ade75d43",
+  "capture_receipt_sha256": "0a177dc68ff9824a7f351ca25d2faadd62bc43660c3c727f5d72b55f9f63b867",
   "ffmpeg": "ffmpeg version 8.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers\r",
   "timeline": [
     {
@@ -18,13 +18,13 @@
       "en": "Session + full Skill before any user input"
     },
     {
-      "seconds": 6.33,
+      "seconds": 6.34,
       "step": 2,
       "zh": "粘贴资料，说明表格用途",
       "en": "Only user-submitted data enters the session"
     },
     {
-      "seconds": 11.96,
+      "seconds": 11.97,
       "step": 3,
       "zh": "先分析全部资料，再提出规范",
       "en": "Synthetic Agent states · No live model call"
@@ -36,31 +36,31 @@
       "en": "Review the schema and a small preview before quoting"
     },
     {
-      "seconds": 22.02,
+      "seconds": 21.95,
       "step": 5,
       "zh": "确认方案，查看原单位封顶报价",
       "en": "199 CNY fen is a fixture amount, not a service price"
     },
     {
-      "seconds": 24.82,
+      "seconds": 24.74,
       "step": 6,
       "zh": "模拟实付确认后，才进入批量",
       "en": "Mock order verification · No checkout or money transfer"
     },
     {
-      "seconds": 33.37,
+      "seconds": 33.17,
       "step": 7,
       "zh": "保留结果，把不确定的事实留给你",
       "en": "2 accepted + 1 needs review · Missing does not become zero"
     },
     {
-      "seconds": 40.86,
+      "seconds": 40.39,
       "step": 7,
       "zh": "每个疑问，都能回到保留的依据",
       "en": "Evidence excerpt and locator remain with the result"
     },
     {
-      "seconds": 43.18,
+      "seconds": 42.62,
       "step": 7,
       "zh": "九文件持续保留，任务环境整体清理",
       "en": "Simulated CLOSED state · Native Ubuntu cleanup is NOT_RUN"
@@ -69,8 +69,8 @@
   "files": [
     {
       "path": "docs/media/alipay-pages.png",
-      "bytes": 918647,
-      "sha256": "20205283ccb5317a20597ae2fda172c94f86849b115495677e292759e06f17d4",
+      "bytes": 917174,
+      "sha256": "ba48a2d9f788496161542abe6b4d65f3817984aad03c403742aed62338ef09fe",
       "width": 924,
       "height": 4170,
       "codec": "png",
@@ -79,8 +79,8 @@
     },
     {
       "path": "docs/media/design-review/after-board.png",
-      "bytes": 270335,
-      "sha256": "ad90730e04fd6870d4273ea529a2851e3483ae92c4f600189bd8a4afdfb7a6ef",
+      "bytes": 267826,
+      "sha256": "fe9e9281775cedeed4f6af1eab4d44bb3ffdb0b86bfc9615f99206882db9fda5",
       "width": 1054,
       "height": 894,
       "codec": "png",
@@ -89,8 +89,8 @@
     },
     {
       "path": "docs/media/design-review/alipay-MP01.png",
-      "bytes": 56403,
-      "sha256": "0ad0a4c073d10f0bf9e7dff2d68bf7bd03c25ee04889632518c5b166b8a80e7b",
+      "bytes": 54549,
+      "sha256": "c80f2409d6e270977f68a1987b24ca0dacb5af14c80efb920497217caa760b5d",
       "width": 375,
       "height": 920,
       "codec": "png",
@@ -149,8 +149,8 @@
     },
     {
       "path": "docs/media/design-review/comparison-MP01.png",
-      "bytes": 386375,
-      "sha256": "bcaba596657e515d74b3c9c25504b61442ac8baff070e626fdcdf04e8900ebc4",
+      "bytes": 384197,
+      "sha256": "49ad943a591cbdb15e23574b45022874179bcd28ad497f5ec63c152dfdf699a2",
       "width": 1181,
       "height": 970,
       "codec": "png",
@@ -179,8 +179,8 @@
     },
     {
       "path": "docs/media/design-review/douyin-MP01.png",
-      "bytes": 56303,
-      "sha256": "d262d1bb75ff39adfe6ef86d52e3fe6895df019e43268edca7679c2acf57a013",
+      "bytes": 54449,
+      "sha256": "9f3ad53f424ced1ceaaef0d06a19a604f9db1d7fe48d3b536da74e70b8aa5e99",
       "width": 375,
       "height": 920,
       "codec": "png",
@@ -209,8 +209,8 @@
     },
     {
       "path": "docs/media/douyin-pages.png",
-      "bytes": 918911,
-      "sha256": "8d4bf96e1e6a89fc2442ce437f82c5407c9190b933f2ae764eaaaffda147e17e",
+      "bytes": 917427,
+      "sha256": "62c4c774713c768771f78f4f2bdc9ef992855ddf46d237b565e3ed1334c425c6",
       "width": 924,
       "height": 4170,
       "codec": "png",
@@ -219,8 +219,8 @@
     },
     {
       "path": "docs/media/evidence.gif",
-      "bytes": 1184796,
-      "sha256": "7b48d9b3fbb0814ff0c2bc2d8877276c5e08ff9d82c45e52855a642d56c1c18d",
+      "bytes": 1391454,
+      "sha256": "1ecfaf5036687a130fdc6c213469912518b103e32e170907571866d8a5d50194",
       "width": 430,
       "height": 920,
       "codec": "gif",
@@ -230,8 +230,8 @@
     },
     {
       "path": "docs/media/overview.png",
-      "bytes": 105356,
-      "sha256": "fce2f4bcec35ca6179cffbcd50a28465af2ef4a7315c0556d3c9ab0c55a704f6",
+      "bytes": 110962,
+      "sha256": "7bf4a746230f103c72ebd711169f92b7d91107d88e2e47f5f360d572de678484",
       "width": 1600,
       "height": 1060,
       "codec": "png",
@@ -240,8 +240,8 @@
     },
     {
       "path": "docs/media/schema-desktop.png",
-      "bytes": 115042,
-      "sha256": "14cb2daf1540348b92467a193641f797319d7ef3f42bc7fe9be2225a26b473eb",
+      "bytes": 121016,
+      "sha256": "0d50a73cd8b5a36c5e03848f5a0175e9cafc52bd90d553a12a152a5ae57d69f5",
       "width": 1600,
       "height": 1060,
       "codec": "png",
@@ -250,8 +250,8 @@
     },
     {
       "path": "docs/media/screenshots/alipay/MP01.png",
-      "bytes": 51171,
-      "sha256": "7a2661c9b3b16b182bceaac434508b897f20c5841f3de08f6cb1294dbfe3804e",
+      "bytes": 49284,
+      "sha256": "7e3fa98d9a20ce86353d9f7bda136c3eb5f1d56ebf5b61337e045b62a3c2ac4d",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -430,8 +430,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP01.png",
-      "bytes": 51053,
-      "sha256": "3e6402de4ad993faa02f3be1a844ed2262144fba8adb5b21b9c41043b56e910e",
+      "bytes": 49157,
+      "sha256": "659501349355fecce0f5017660d52b183a1875c2f19dd4f5b89227fab7bc446c",
       "width": 430,
       "height": 920,
       "codec": "png",
@@ -610,24 +610,24 @@
     },
     {
       "path": "docs/media/walkthrough.gif",
-      "bytes": 4101417,
-      "sha256": "3d1fffbd42a2a6d1d0e062141757621aa6460e530c9e5cfbdfaf831b0bf83ea5",
+      "bytes": 4397349,
+      "sha256": "1701a25a86e99cb0506bf8fbfd3910cb8dc48a0bf44bbe516f52f8c4485d2231",
       "width": 880,
       "height": 748,
       "codec": "gif",
       "pixel_format": "bgra",
-      "duration_seconds": 26.4,
+      "duration_seconds": 26.2,
       "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
     },
     {
       "path": "docs/media/walkthrough.mp4",
-      "bytes": 1156026,
-      "sha256": "f44ee967a873b43f3bd113b20d8b90cdd84ecb7f9f5d5397b0111966100815c1",
+      "bytes": 1143061,
+      "sha256": "189009cc8fdf988edf8a59c48ab547c63395203b5f993666e7ef46064febe71e",
       "width": 1440,
       "height": 954,
       "codec": "h264",
       "pixel_format": "yuv420p",
-      "duration_seconds": 48.16,
+      "duration_seconds": 47.68,
       "description": "Synthetic documentation source preview; not native-device or live-integration evidence."
     }
   ]

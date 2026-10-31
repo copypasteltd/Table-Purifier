@@ -11,6 +11,7 @@ export async function createPreviewServer(port = 0,preparedDirectory=null) {
   if(!preparedDirectory)await buildPreview();
   const files = new Set(['index.html', 'preview.css', 'native.css', 'ALIPAY.js', 'DOUYIN.js']);
   for(const name of await readdir(path.join(directory,'assets/icons')))if(/^[a-z-]+\.png$/.test(name))files.add('assets/icons/'+name);
+  files.add('assets/brand/logo.png');
   const server = http.createServer(async (request, response) => {
     try {
       const url = new URL(request.url, 'http://127.0.0.1');

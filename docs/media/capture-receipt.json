@@ -1,6 +1,6 @@
 {
   "protocol": "P07-DOCUMENTATION-MEDIA-1",
-  "captured_at": "2026-10-28T00:01:28.939Z",
+  "captured_at": "2026-10-31T19:31:28.662Z",
   "preview": "Actual native templates/components/controller rendered by documentation-only browser adapters; all data and server/payment/Agent/cleanup states are synthetic.",
   "live_codex": "NOT_RUN",
   "native_devices": "NOT_RUN",
@@ -10,7 +10,7 @@
   "source_files": [
     {
       "path": "miniapp/src/controller.js",
-      "sha256": "ea4bdecf09b973339a420858a6af368fa9f7e6ade3118025a0d97827565d3786"
+      "sha256": "75e067bdfaef341c82a597ac66a7fed80f7a2a53f78334fcb4cd5a07537686d1"
     },
     {
       "path": "miniapp/src/client.js",
@@ -22,7 +22,7 @@
     },
     {
       "path": "miniapp/src/theme.css",
-      "sha256": "5f391a29168712ea67ffeb4e87a6e8c55cb822f4b2486aca8092be2ce8dbd227"
+      "sha256": "587cb3401e36fcde27a79592072fa103b7a356574ec6d735710fbc51c4a5f4ea"
     },
     {
       "path": "miniapp/src/presentation.js",
@@ -30,15 +30,27 @@
     },
     {
       "path": "miniapp/src/navigation.js",
-      "sha256": "b60b90fade3a6c58dde4816a65c82825602463275ce96849a30e7cb00e01e56e"
+      "sha256": "39a7e7b5467c23c56044ef69220dd4d8fce7357a605862b3dfa847c65d2f3224"
     },
     {
       "path": "miniapp/src/schema-editor.js",
       "sha256": "e6db9900a4f63551f09bce28cfdecceabe104ade9543d716f1ad7d1b83fa4b36"
     },
     {
+      "path": "miniapp/src/brand.js",
+      "sha256": "0ef976e4e24ab9a7c9500273e062c3d5fe14c68eaebfb393e6b87db6faa5027a"
+    },
+    {
+      "path": "miniapp/src/assets/brand/logo.png",
+      "sha256": "ca76a287171c2e5f2c7104aea63fcb1847756bf6823368b0008285a0f6a2d738"
+    },
+    {
+      "path": "assets/brand/current.json",
+      "sha256": "3d1b7f68524f7cf7241fb004c049eee57a4a8e933459f3c99159d2196ecbdf87"
+    },
+    {
       "path": "docs/preview/main.js",
-      "sha256": "596bc41edbf6846285044588e256813bbc7408dff6cdcfea0f1ffc94ba08e694"
+      "sha256": "0387da324eb971daf78d171357da7ce8faf10264d525ae96aa74010799dc03ff"
     },
     {
       "path": "docs/preview/client.js",
@@ -58,19 +70,19 @@
     },
     {
       "path": "docs/preview/server.mjs",
-      "sha256": "f7076954a671bee6412f96b6a840b86d3cf1ddaf404cfe44db76026db2867a29"
+      "sha256": "c9063545f6648e3e32180b811f610840beffc624faf977aafebdc169f775475b"
     },
     {
       "path": "docs/preview/index.html",
-      "sha256": "0239b289c66f313d5112c8ad4c06f9d7a85950b05e7ef286901712f0400ccfbf"
+      "sha256": "0a281913b2e32b2b225f5223aed1d9208a6bf68b701f2a35cf3482ab5e7c7af9"
     },
     {
       "path": "docs/preview/preview.css",
-      "sha256": "bbb506fee75a01aea52b419a1a1e5eeec1c3d51c0debadd7c20b520b6e2d9303"
+      "sha256": "b2c82203947e7f23231bf61ce34972fa40d57883584ef0e08255f7881117b66f"
     },
     {
       "path": "miniapp/src/pages/MP01.xml",
-      "sha256": "2b5365dd01fef3d9d0d1ad8dfa4d14896bf6968493b1273a41c1a27438b0731f"
+      "sha256": "dd50898a4f876a383c9f4104d78180e2481653001ecf9ba4f86e473c4505db83"
     },
     {
       "path": "miniapp/src/pages/MP02.xml",
@@ -144,8 +156,8 @@
   "screenshots": [
     {
       "path": "docs/media/screenshots/alipay/MP01.png",
-      "bytes": 51171,
-      "sha256": "7a2661c9b3b16b182bceaac434508b897f20c5841f3de08f6cb1294dbfe3804e",
+      "bytes": 49284,
+      "sha256": "7e3fa98d9a20ce86353d9f7bda136c3eb5f1d56ebf5b61337e045b62a3c2ac4d",
       "provider": "支付宝 · Alipay",
       "page": "MP01",
       "viewport": {
@@ -360,8 +372,8 @@
     },
     {
       "path": "docs/media/screenshots/douyin/MP01.png",
-      "bytes": 51053,
-      "sha256": "3e6402de4ad993faa02f3be1a844ed2262144fba8adb5b21b9c41043b56e910e",
+      "bytes": 49157,
+      "sha256": "659501349355fecce0f5017660d52b183a1875c2f19dd4f5b89227fab7bc446c",
       "provider": "抖音 · Douyin",
       "page": "MP01",
       "viewport": {
@@ -576,8 +588,8 @@
     },
     {
       "path": "docs/media/schema-desktop.png",
-      "bytes": 115042,
-      "sha256": "14cb2daf1540348b92467a193641f797319d7ef3f42bc7fe9be2225a26b473eb",
+      "bytes": 121016,
+      "sha256": "0d50a73cd8b5a36c5e03848f5a0175e9cafc52bd90d553a12a152a5ae57d69f5",
       "provider": "支付宝 · Alipay",
       "page": "MP06",
       "viewport": {
@@ -588,8 +600,8 @@
     },
     {
       "path": "docs/media/overview.png",
-      "bytes": 105356,
-      "sha256": "fce2f4bcec35ca6179cffbcd50a28465af2ef4a7315c0556d3c9ab0c55a704f6",
+      "bytes": 110962,
+      "sha256": "7bf4a746230f103c72ebd711169f92b7d91107d88e2e47f5f360d572de678484",
       "provider": "支付宝 · Alipay",
       "page": "MP08",
       "viewport": {

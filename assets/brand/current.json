@@ -1,0 +1,49 @@
+{
+  "protocol": "P07-BRAND-IDENTITY-1",
+  "release_id": "P07-BRAND-CIYUANSHIXU-1.0.0",
+  "version": "1.0.0",
+  "approved_at": "2026-11-01",
+  "status": "USER_APPROVED",
+  "name_zh": "词元拾序",
+  "project_alias_en": "Table Purifier",
+  "previous_name_zh": "表格修复站",
+  "tagline_zh": "把零散资料，整理成有据可查的表格",
+  "short_description_zh": "AI 资料整理与规范成表工具",
+  "selection": {
+    "authority": "USER_MESSAGE",
+    "instruction": "定稿为 词元拾序；LOGO使用06",
+    "concept_id": "06",
+    "slug": "06-folded-paper",
+    "name_zh": "折纸归档",
+    "name_en": "Folded Paper",
+    "source": "assets/brand/logo-exploration/2026-11-01/originals/06-folded-paper.png",
+    "source_sha256": "bb4f0cc9e23200d060753468f75fe8676e7656f0aa4d93d5fd16a86220f2b830"
+  },
+  "asset_directory": "assets/brand/ciyuan-shixu/v1.0.0",
+  "palette": {
+    "logo_jade": "#167864",
+    "logo_orange": "#EB9B4A",
+    "logo_paper": "#FADEB7",
+    "text": "#203C32",
+    "background": "#EAF1EE",
+    "surface": "#FFFFFF",
+    "ui_primary": "#17745E"
+  },
+  "rules": {
+    "clear_space": "At least 1/8 of the visible mark height on each side; supplied icon canvases use 78% visible height.",
+    "minimum_color_mark_px": 32,
+    "preferred_color_mark_px": 64,
+    "small_16_24_px": "Favicon-only silhouette; internal detail is not guaranteed readable.",
+    "vector_master": "NOT_CREATED",
+    "english_brand_name": "NOT_SEPARATELY_APPROVED",
+    "frozen_b_design": "PRESERVED_UNCHANGED",
+    "ui_theme": "B1.0.0 with the approved brand name/logo overlay"
+  },
+  "scope": {
+    "local_source_branding": true,
+    "repository_and_workspace_renamed": false,
+    "application_deployment": false,
+    "new_image_generation": false,
+    "live_platform_acceptance": "NOT_RUN"
+  }
+}

@@ -4,6 +4,7 @@ import { build } from 'esbuild';
 import { PROJECT_ROOT } from '../src/shared/config.js';
 import { sha256 } from '../src/shared/crypto.js';
 import {navigationMarkup,rootPages,headerTitle} from '../miniapp/src/navigation.js';
+import {brand} from '../miniapp/src/brand.js';
 
 const root=join(PROJECT_ROOT,'miniapp'),source=join(root,'src');
 const spec=JSON.parse(await readFile(join(PROJECT_ROOT,'assets/design/b-jade-folders/v1.0.0/specs/pages.json'),'utf8')) as {pages:{page_id:string;title:string}[]};
@@ -18,7 +19,7 @@ const css=await readFile(join(source,'theme.css'),'utf8');
 const inputs:{path:string;sha256:string;bytes:number}[]=[];
 async function collectInputs(directory:string):Promise<void>{for(const entry of (await readdir(directory,{withFileTypes:true})).sort((a,b)=>a.name.localeCompare(b.name))){const file=join(directory,entry.name);if(entry.isDirectory())await collectInputs(file);else{const bytes=await readFile(file);inputs.push({path:relative(PROJECT_ROOT,file).replaceAll('\\','/'),bytes:bytes.length,sha256:sha256(bytes)});}}}
 await collectInputs(source);
-for(const path of ['scripts/build-miniapps.ts','assets/design/b-jade-folders/v1.0.0/specs/pages.json','agent/skill/manifest.json']){const bytes=await readFile(join(PROJECT_ROOT,path));inputs.push({path,bytes:bytes.length,sha256:sha256(bytes)});}
+for(const path of ['scripts/build-miniapps.ts','assets/brand/current.json','assets/design/b-jade-folders/v1.0.0/specs/pages.json','agent/skill/manifest.json']){const bytes=await readFile(join(PROJECT_ROOT,path));inputs.push({path,bytes:bytes.length,sha256:sha256(bytes)});}
 for(const provider of ['ALIPAY','DOUYIN'] as const){
  const alipay=provider==='ALIPAY',folder=alipay?'mini-alipay':'mini-douyin',out=join(PROJECT_ROOT,'src',folder),ext=alipay?'axml':'ttml',style=alipay?'acss':'ttss';
  const outputs:{path:string;sha256:string;bytes:number}[]=[];
@@ -46,9 +47,10 @@ for(const provider of ['ALIPAY','DOUYIN'] as const){
  const bundled=await build({entryPoints:[join(source,'controller.js')],bundle:true,write:false,platform:'neutral',format:'cjs',target:'es2017',define:{__P07_PROVIDER__:JSON.stringify(provider)},minify:false});
  await put('common/controller.js',bundled.outputFiles[0]!.text);
  await put('app.js','App({onLaunch(){},onHide(){}});\n');await put('app.'+style,css);
- await put('app.json',JSON.stringify({pages:spec.pages.map(p=>'pages/'+p.page_id+'/index'),window:alipay?{defaultTitle:'表格修复站',titleBarColor:'#EAF1EE',backgroundColor:'#EAF1EE'}:{navigationBarTitleText:'表格修复站',navigationBarBackgroundColor:'#EAF1EE',backgroundColor:'#EAF1EE'}},null,2));
+ await put('app.json',JSON.stringify({pages:spec.pages.map(p=>'pages/'+p.page_id+'/index'),window:alipay?{defaultTitle:brand.name,titleBarColor:'#EAF1EE',backgroundColor:'#EAF1EE'}:{navigationBarTitleText:brand.name,navigationBarBackgroundColor:'#EAF1EE',backgroundColor:'#EAF1EE'}},null,2));
  for(const name of await readdir(join(source,'assets/icons'))){const bytes=await readFile(join(source,'assets/icons',name));await mkdir(join(out,'assets/icons'),{recursive:true});await writeFile(join(out,'assets/icons',name),bytes);outputs.push({path:'assets/icons/'+name,bytes:bytes.length,sha256:sha256(bytes)});}
- const appConfig=config[provider] as {appId:string};await put(alipay?'mini.project.json':'project.config.json',JSON.stringify({appid:appConfig.appId,projectname:'表格修复站',...(alipay?{enableAppxNg:true}:{setting:{es6:true,minified:false,urlCheck:true}})},null,2));
- await put('source-manifest.json',JSON.stringify({provider,build_id:config.buildId,design:'P07-DS-B1.0.0',skill_release_id:skill.release_id,pages:18,components:32,native_device_status:'NOT_RUN',source_inputs:inputs,files:outputs},null,2));
+ const brandBytes=await readFile(join(source,'assets/brand/logo.png'));await mkdir(join(out,'assets/brand'),{recursive:true});await writeFile(join(out,'assets/brand/logo.png'),brandBytes);outputs.push({path:'assets/brand/logo.png',bytes:brandBytes.length,sha256:sha256(brandBytes)});
+ const appConfig=config[provider] as {appId:string};await put(alipay?'mini.project.json':'project.config.json',JSON.stringify({appid:appConfig.appId,projectname:brand.name,...(alipay?{enableAppxNg:true}:{setting:{es6:true,minified:false,urlCheck:true}})},null,2));
+ await put('source-manifest.json',JSON.stringify({provider,build_id:config.buildId,design:'P07-DS-B1.0.0',brand_release_id:brand.releaseId,brand_name:brand.name,skill_release_id:skill.release_id,pages:18,components:32,native_device_status:'NOT_RUN',source_inputs:inputs,files:outputs},null,2));
  process.stdout.write(JSON.stringify({provider,directory:relative(PROJECT_ROOT,out),pages:18,components:Object.keys(components).length,bytes:outputs.reduce((s,f)=>s+f.bytes,0),status:'SOURCE_BUILT_NOT_DEVICE_VERIFIED'})+'\n');
 }

@@ -5,6 +5,7 @@ import config from '../config.generated.json';
 import { titles } from './pages.generated.js';
 import { clone,fieldTypes,comparators,editorView,schemaPatch,ruleFromForm } from './schema-editor.js';
 import { sourceView,fieldExamples,tableView,issueView } from './presentation.js';
+import { brand } from './brand.js';
 
 const STATUS={INITIALIZING:'正在准备整理会话',READY_FOR_INPUT:'会话已就绪，可以提交资料',INPUT_RECEIVED:'资料已接收，等待分析',ANALYZING:'正在理解全部已提交资料',WAITING_CONFIRMATION:'规范草案已准备好，请确认',QUOTABLE:'方案已确认，可以预估费用',AWAITING_PAYMENT:'等待原平台确认付款',BATCH_QUEUED:'已核实付款，等待整理',BATCH_RUNNING:'正在批量整理',PERSISTING_RESULTS:'正在保存并核验结果',RELEASING_RUNTIME:'结果与任务环境分别处理，正在清理环境',CLOSED:'任务环境已清理，结果继续保留',FAILED:'整理未完成，请查看订单与售后',CANCELED:'整理已停止',INITIALIZATION_FAILED:'会话准备失败，请重试'};
 const labels={CONFIRMED:'服务端已核实付款',PENDING:'等待付款确认',UNKNOWN:'状态待核对',NOT_CREATED:'尚未发起支付',DELIVERABLE:'结果可领取',DELIVERED:'已确认取用',NONE:'无退款申请',SUCCEEDED:'已完成',PROCESSING:'处理中',REQUESTED:'已申请',PARTIAL:'部分退款',FULL:'全额退款',NOT_STARTED:'尚未生产',IN_PROGRESS:'正在履约'};
@@ -12,7 +13,7 @@ const writable=()=>state.session&&['READY_FOR_INPUT','INPUT_RECEIVED','WAITING_C
 function values(record,schema){return record.fields.map(f=>({id:f.field_id,label:schema?.fields.find(x=>x.field_id===f.field_id)?.label??f.field_id,value:f.typed_value===null?'—':String(f.typed_value),status:f.status,evidence:f.evidence_ids}));}
 function recordView(record,schema){const fields=values(record,schema);return {...record,values:fields,keyValues:fields.slice(0,5),moreFields:fields.length>5};}
 export function createPage(page){return {
- data:{page,title:titles[page],loading:false,error:'',notice:'',phase:'',ready:false,mode:'DISCOVER',goal:'',text:'',instruction:'',name:'',value:'',note:'',category:'资料整理问题',supportAccess:false,
+ data:{page,brand,title:titles[page],loading:false,error:'',notice:'',phase:'',ready:false,mode:'DISCOVER',goal:'',text:'',instruction:'',name:'',value:'',note:'',category:'资料整理问题',supportAccess:false,
   sources:[],homeSources:[],sourceCount:0,fields:[],fieldCards:[],previewColumns:[],previewRows:[],records:[],issues:[],files:[],tasks:[],templates:[],orders:[],nextCursor:null,selectedAction:'',selectedEvidence:'',filter:'',policy:null,quote:null,order:null,run:null,task:null,session:null,plan:null,proposal:null,evidence:null,decisionPreview:null,deletion:null,capability:null,
   counts:null,bindingId:null,contractId:null,consentId:null,primaryFiles:[],additionalFiles:[],moreFiles:false,expandedRecord:'',environment:environment(),canChooseOffice:!!config[provider].approvedOfficePicker,
   draft:null,ruleViews:[],fieldTypes,comparators,ruleKind:'COMPARE',ruleField:'',ruleTarget:'',ruleComparator:'GE',ruleValue:'',templateEdit:false,reworkReady:false},

@@ -2,6 +2,17 @@
 
 产品源码版本与需求/设计冻结版本分别记录。Source releases and frozen specification versions are tracked separately.
 
+## 2026-11-01 — 词元拾序品牌定稿 / Approved 词元拾序 identity
+
+- 用户选定正式中文名称「词元拾序」与 06「折纸归档」，新增独立品牌 V1.0.0 和单一身份入口；保留选定原图与全部探索素材，未再次请求图像生成。
+  Recorded the user-approved Chinese name and concept 06 as brand V1.0.0, preserving original artwork and historical candidates without a new image request.
+- 提供六尺寸透明图形、横竖字标组合、单色/反白、深浅头像、分享封面、favicon、正式展示和可重现 ZIP；记录原图摘要和派生边界，不分发字体。
+  Added transparent sizes, Chinese lockups, monochrome/reverse symbols, avatars, share cover, favicon, presentation and reproducible ZIP with provenance.
+- 更新支付宝/抖音共用品牌、首页和原生标题/工程显示名，重建源码与预览截图、录屏、GIF；更新双语 README、品牌规则、维护约定与校验。
+  Updated shared/native branding, home, navigation/project titles, screenshots, recording and GIFs; refreshed bilingual guides and integrity checks.
+- 冻结 B 原稿、旧证据及需求合同保持原字节；本轮不更新服务器运行版本，不改变仓库/路径/服务标识，不声明真实平台发布或验收。
+  Preserved frozen references/contracts and historical evidence. No server update, technical identifier rename or native-platform release/acceptance is included.
+
 ## 2026-11-01 — 10 款 Logo 候选 / Ten logo directions
 
 - 使用用户指定的 Sub2 图像技能与 `gpt-image-2.5` 实际生成 10 个独立方向：资料夹、瑞士网格、负形汇流、TP 连字、清泉、折纸、朱印、极光、小格伙伴和手作秩序。未替换模型。

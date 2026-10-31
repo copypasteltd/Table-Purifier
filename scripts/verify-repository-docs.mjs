@@ -10,7 +10,8 @@ const hash = data => createHash('sha256').update(data).digest('hex');
 const inside = file => { const rel = path.relative(root, file); return rel !== '..' && !rel.startsWith(`..${path.sep}`) && !path.isAbsolute(rel); };
 const entries = ['README.md', 'README.en.md', 'SOURCE_README.md', 'AGENTS.md', 'CONTRIBUTING.md', 'CHANGELOG.md', 'docs/README.md',
   'docs/implementation-decisions.md', 'docs/repository-verification.md', 'docs/preview/README.md', 'docs/media/README.md','docs/实施/B方案前端还原与验收.md',
-  'docs/deployment/README.md','docs/deployment/README.en.md','docs/brand/README.md','assets/brand/logo-exploration/2026-11-01/README.md'];
+  'docs/deployment/README.md','docs/deployment/README.en.md','docs/brand/README.md','docs/brand/logo-exploration.md',
+  'assets/brand/ciyuan-shixu/v1.0.0/README.md','assets/brand/logo-exploration/2026-11-01/README.md'];
 let links = 0;
 for (const entry of entries) {
   const full = path.join(root, entry), text = await readFile(full, 'utf8');
@@ -38,7 +39,7 @@ check('capture_count', capture.screenshots.length === 38);
 check('browser_resources_closed', capture.browser_closed === true);
 check('preview_boundaries', ['live_codex', 'native_devices', 'real_payments', 'ubuntu_cleanup'].every(key => capture[key] === 'NOT_RUN' && manifest.verification[key] === 'NOT_RUN'));
 for (const source of capture.source_files) check(`captured_source:${source.path}`, hash(await readFile(path.join(root, source.path))) === source.sha256);
-const design=JSON.parse(await readFile(path.join(root,'docs/实施/验证记录/ui-design-fidelity-2026-10-28.json'),'utf8'));
+const design=JSON.parse(await readFile(path.join(root,'docs/实施/验证记录/ui-design-fidelity-2026-11-01.json'),'utf8'));
 check('design_failures',design.failures.length===0);
 check('design_resources_closed',design.browser_closed===true);
 for(const provider of ['ALIPAY','DOUYIN'])for(const width of [320,375,390,430])for(let n=1;n<=18;n++)check(`design_matrix:${provider}:${width}:${n}`,design.cases.some(c=>c.provider===provider&&c.page==='MP'+String(n).padStart(2,'0')&&c.viewport.width===width&&c.variant==='standard'&&c.passed));
@@ -103,7 +104,7 @@ const logoRoot = path.join(root, 'assets/brand/logo-exploration/2026-11-01');
 const logos = JSON.parse(await readFile(path.join(logoRoot, 'concepts.json'), 'utf8'));
 const logoManifest = JSON.parse(await readFile(path.join(logoRoot, 'manifest.json'), 'utf8'));
 check('logo_count', logos.concepts.length === 10 && logoManifest.generated_originals === 10);
-check('logo_pending_selection', logos.status === 'TEN_GENERATED_CANDIDATES_AWAITING_SELECTION' && logoManifest.selection_status === 'AWAITING_USER_SELECTION');
+check('logo_historical_generation_state', logos.status === 'TEN_GENERATED_CANDIDATES_AWAITING_SELECTION' && logoManifest.selection_status === 'AWAITING_USER_SELECTION');
 check('logo_requested_route', logoManifest.provider_route === 'sub2-image-gen' && logoManifest.requested_model === 'gpt-image-2.5' && logoManifest.fallback_model_used === false);
 check('logo_asset_count', logoManifest.files.length === 81);
 check('logo_no_frozen_design_change', logoManifest.existing_design_baseline_modified === false);
@@ -128,10 +129,33 @@ for (const asset of logoManifest.files) {
   check(`logo_dimensions:${asset.path}`, data.readUInt32BE(16) === asset.width && data.readUInt32BE(20) === asset.height);
 }
 const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
+const identity = JSON.parse(await readFile(path.join(root, 'assets/brand/current.json'), 'utf8'));
+const brandRoot = path.resolve(root, identity.asset_directory);
+const brandManifest = JSON.parse(await readFile(path.join(brandRoot, 'manifest.json'), 'utf8'));
+check('brand_user_approved', identity.status === 'USER_APPROVED' && identity.name_zh === '词元拾序' && identity.selection.concept_id === '06');
+check('brand_release_consistent', identity.release_id === brandManifest.release_id && identity.release_id === design.brand_release_id && design.brand_name === identity.name_zh);
+check('brand_selected_original', hash(await readFile(path.join(root, identity.selection.source))) === identity.selection.source_sha256 && hash(await readFile(path.join(brandRoot, 'originals/06-folded-paper.png'))) === identity.selection.source_sha256);
+check('brand_no_regeneration', brandManifest.new_image_generation === false && brandManifest.source_bytes_unchanged === true);
+check('brand_local_scope', identity.scope.application_deployment === false && identity.scope.new_image_generation === false);
+for (const asset of brandManifest.files) {
+  const file = path.resolve(brandRoot, asset.path), data = await readFile(file);
+  check(`brand_file:${asset.path}`, inside(file) && data.length === asset.bytes && hash(data) === asset.sha256);
+  if (asset.path.endsWith('.png')) check(`brand_dimensions:${asset.path}`, data.readUInt32BE(16) === asset.width && data.readUInt32BE(20) === asset.height);
+}
+const nativeLogo = await readFile(path.join(root, brandManifest.native_asset.path));
+check('brand_native_copy', hash(nativeLogo) === brandManifest.native_asset.sha256 && hash(nativeLogo) === hash(await readFile(path.join(brandRoot, 'marks/logo-color-128.png'))));
+for (const target of ['mini-alipay', 'mini-douyin']) {
+  const directory = path.join(root, 'src', target), native = JSON.parse(await readFile(path.join(directory, 'source-manifest.json'), 'utf8'));
+  const config = JSON.parse(await readFile(path.join(directory, 'app.json'), 'utf8'));
+  const home = JSON.parse(await readFile(path.join(directory, 'pages/MP01/index.json'), 'utf8'));
+  const project = JSON.parse(await readFile(path.join(directory, target === 'mini-alipay' ? 'mini.project.json' : 'project.config.json'), 'utf8'));
+  check(`brand_native:${target}`, native.brand_release_id === identity.release_id && native.brand_name === identity.name_zh && (config.window.defaultTitle ?? config.window.navigationBarTitleText) === identity.name_zh && (home.defaultTitle ?? home.navigationBarTitleText) === identity.name_zh && project.projectname === identity.name_zh);
+  check(`brand_native_image:${target}`, hash(await readFile(path.join(directory, 'assets/brand/logo.png'))) === hash(nativeLogo));
+}
 for (const name of ['docs:preview', 'docs:capture', 'docs:media', 'docs:verify','design:audit','design:before','design:icons']) check(`documented_script:${name}`, typeof pkg.scripts[name] === 'string');
 const report = { status: failures.length ? 'FAIL' : 'PASS', checks_passed: checks.length - failures.length,
   checks_failed: failures.length, links_checked: links, captured_pages: 36, media_files: manifest.files.length, deployment_screenshots: deployment.browser_preview.pages.length,
-  logo_concepts: logos.concepts.length, logo_png_assets: logoManifest.files.length, errors: failures,
+  logo_concepts: logos.concepts.length, logo_png_assets: logoManifest.files.length, approved_brand: identity.name_zh, selected_logo: identity.selection.concept_id, approved_brand_assets: brandManifest.files.length, errors: failures,
   scope: 'Local documentation, source/media integrity and saved deployment evidence; no new live network, model or payment requests.' };
 console.log(JSON.stringify(report, null, 2));
 if (failures.length) process.exitCode = 1;

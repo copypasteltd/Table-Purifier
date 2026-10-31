@@ -1,0 +1,219 @@
+{
+  "protocol": "P07-BRAND-ASSETS-1",
+  "release_id": "P07-BRAND-CIYUANSHIXU-1.0.0",
+  "name_zh": "词元拾序",
+  "status": "USER_APPROVED",
+  "selected_concept": "06",
+  "source": {
+    "authority": "USER_MESSAGE",
+    "instruction": "定稿为 词元拾序；LOGO使用06",
+    "concept_id": "06",
+    "slug": "06-folded-paper",
+    "name_zh": "折纸归档",
+    "name_en": "Folded Paper",
+    "source": "assets/brand/logo-exploration/2026-11-01/originals/06-folded-paper.png",
+    "source_sha256": "bb4f0cc9e23200d060753468f75fe8676e7656f0aa4d93d5fd16a86220f2b830"
+  },
+  "source_bytes_unchanged": true,
+  "new_image_generation": false,
+  "vector_master": "NOT_CREATED",
+  "typography": {
+    "family": "Microsoft YaHei",
+    "locally_typeset": true,
+    "font_files_distributed": false
+  },
+  "native_asset": {
+    "path": "miniapp/src/assets/brand/logo.png",
+    "sha256": "ca76a287171c2e5f2c7104aea63fcb1847756bf6823368b0008285a0f6a2d738"
+  },
+  "files": [
+    {
+      "path": "avatars/avatar-dark-1024.png",
+      "bytes": 312387,
+      "sha256": "8172419872a8b7ce2c945c3b7758b92a8721e080d2388d73d4a17bedfa32a99b",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "avatars/avatar-light-1024.png",
+      "bytes": 316187,
+      "sha256": "9ea3091f29b72f15aa09226488d059b1401bdf383f0fcf95000a44d46698d810",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "brand-board.png",
+      "bytes": 304120,
+      "sha256": "28c88626ee57fdde50420a588f725544e3d0e040f780174a338906e77dd92d96",
+      "width": 1920,
+      "height": 1440,
+      "mode": "RGB"
+    },
+    {
+      "path": "favicon.ico",
+      "bytes": 11641,
+      "sha256": "f8b415e1caa797b1dc635720ad25e99f5da015da2738ef99c4cd77aa75d111ec",
+      "width": 64,
+      "height": 64,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "lockups/logo-horizontal-color.png",
+      "bytes": 141549,
+      "sha256": "33f8c22eede8638056a6a2299c5b642bdfc44fec31368aae486107ce399196f0",
+      "width": 1600,
+      "height": 480,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "lockups/logo-horizontal-reverse.png",
+      "bytes": 139893,
+      "sha256": "067dda6068c5dc6267723737314a55eef84eee91ddccd48172210b7c0330afc5",
+      "width": 1600,
+      "height": 480,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "lockups/logo-stacked.png",
+      "bytes": 279679,
+      "sha256": "07b687ee9a989a0146669b8ce69c19d830349643fbb9f27c311fa993c95c3248",
+      "width": 1200,
+      "height": 1280,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-color-1024.png",
+      "bytes": 421394,
+      "sha256": "9bfb51ec7eb711b972b4880bb213f78e3d2a1f698612c8a36a170ef28b853f50",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-color-128.png",
+      "bytes": 14283,
+      "sha256": "ca76a287171c2e5f2c7104aea63fcb1847756bf6823368b0008285a0f6a2d738",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-color-256.png",
+      "bytes": 41246,
+      "sha256": "185c72d0512fe1d6226f8cc2a82e1a7ece3f8148f75e2a8a1d0e9cf43c5c1105",
+      "width": 256,
+      "height": 256,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-color-32.png",
+      "bytes": 1753,
+      "sha256": "ab2c9764e5915394f0bfe2e7b6c225fe9e034e035f6ca2a6be120a3e690fa1b9",
+      "width": 32,
+      "height": 32,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-color-512.png",
+      "bytes": 128869,
+      "sha256": "3b8afdfd53f8fabaa33a89bd1cfab0486d7a9eeb9409699f89acfca7e2dec1ac",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-color-64.png",
+      "bytes": 5095,
+      "sha256": "44cdde3cf6e220f1bb5d5c67e7b1bc65cd56bcee82cfbb61d450475c02e55ab4",
+      "width": 64,
+      "height": 64,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-mono-1024.png",
+      "bytes": 83036,
+      "sha256": "b662f257bb16c0a9921233b9879c86c19835f5da40614efd367e4c454abce8b9",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "marks/logo-reverse-1024.png",
+      "bytes": 82444,
+      "sha256": "d414a47f8ca78f2724d53f947560b574c662263e1787d6fd65dc6de418804a0f",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "originals/06-folded-paper.png",
+      "bytes": 646668,
+      "sha256": "bb4f0cc9e23200d060753468f75fe8676e7656f0aa4d93d5fd16a86220f2b830",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "social/share-card-1200x630.png",
+      "bytes": 132456,
+      "sha256": "a30a75e60a307158fc69b4d7e6bac195e12ab40c273ef99874b56ada6bc33885",
+      "width": 1200,
+      "height": 630,
+      "mode": "RGB"
+    }
+  ]
+}
