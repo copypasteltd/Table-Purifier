@@ -2,6 +2,15 @@
 
 产品源码版本与需求/设计冻结版本分别记录。Source releases and frozen specification versions are tracked separately.
 
+## 2026-11-01 — 10 款 Logo 候选 / Ten logo directions
+
+- 使用用户指定的 Sub2 图像技能与 `gpt-image-2.5` 实际生成 10 个独立方向：资料夹、瑞士网格、负形汇流、TP 连字、清泉、折纸、朱印、极光、小格伙伴和手作秩序。未替换模型。
+  Generated ten distinct candidates through the requested Sub2 skill and model, without provider/model substitution.
+- 保存 10 张 RGBA 原图、60 张标准尺寸透明 PNG、10 张中英品牌展示和 1 张总览；留存提示词、透明度/尺寸实测和原始摘要，排版不分发字体或密钥。
+  Retained ten originals, sixty transparent size exports, ten brand presentations, one overview, prompts and sanitized provenance; no credentials or font files distributed.
+- 新增双语选型说明、素材说明与本地 ZIP 生成流程，更新中英 README 与文档导航。所有方案等待用户选定，冻结 B 设计、当前小程序及服务器品牌没有替换。
+  Added bilingual selection guidance, asset documentation and local ZIP packaging; updated both READMEs. Selection remains pending, with the frozen B design and deployed product assets preserved.
+
 ## 2026-10-31 — 内网 HTTP 部署 / LAN HTTP deployment
 
 - 按用户授权在 Ubuntu 22.04 主机 `192.168.31.20` 原生部署，HTTP 入口 `18707`；API `18708` 和独立 PostgreSQL 集群 `18709` 仅监听环回，配置系统服务和开机启动。

@@ -1,0 +1,25 @@
+{
+  "id": "01",
+  "name_zh": "青绿资料夹",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:02:09.151844+00:00",
+  "elapsed_seconds": 36.31,
+  "prompt_sha256": "52abdd3415d72f9024d29a7121b23120f8291a4f6fe61a69db3d2b46d6c110e3",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 631927,
+  "sha256": "f2b0bdfa3ca0aa46d72e070a6adcc5e52ecfe0d9eef85df6486850d4582e2c10",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/01-jade-folder.png",
+  "retained_file": "originals/01-jade-folder.png"
+}

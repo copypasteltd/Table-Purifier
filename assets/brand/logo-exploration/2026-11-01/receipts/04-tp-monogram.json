@@ -1,0 +1,25 @@
+{
+  "id": "04",
+  "name_zh": "TP 连字",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:03:49.931266+00:00",
+  "elapsed_seconds": 36.22,
+  "prompt_sha256": "c3f990cb0c579d9d1cc7f0d8eece454a814eb350248d34d2784b3c5c1cf5cf9e",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 321894,
+  "sha256": "0cce962da0cc0c7dfc610e79f5d3ea11adb419500c20c0f16cf55573d795c051",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/04-tp-monogram.png",
+  "retained_file": "originals/04-tp-monogram.png"
+}

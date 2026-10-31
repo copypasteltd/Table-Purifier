@@ -1,0 +1,25 @@
+{
+  "id": "03",
+  "name_zh": "负形汇流",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:02:10.930169+00:00",
+  "elapsed_seconds": 38.09,
+  "prompt_sha256": "5b6ebb169458ce7598b5fd75ae91f7b300e6248b1f8b525b3cd2d2db5ba1a143",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 579971,
+  "sha256": "86c95337d530ff34ed70f3cb565177f5795a6ed43970fc357303bae4c8ff8531",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/03-converge.png",
+  "retained_file": "originals/03-converge.png"
+}

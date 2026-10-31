@@ -1,0 +1,25 @@
+{
+  "id": "09",
+  "name_zh": "小格伙伴",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:06:00.836065+00:00",
+  "elapsed_seconds": 46.01,
+  "prompt_sha256": "26e97258a36d49c11ff177bca652ff28f190d88d6b0321495336dec8e2946b53",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 659299,
+  "sha256": "9966ff0b8cb2e54feaf3f1d9b3b9b1b054eda891e34b29c767f7ba0c4dc80e60",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/09-grid-buddy.png",
+  "retained_file": "originals/09-grid-buddy.png"
+}

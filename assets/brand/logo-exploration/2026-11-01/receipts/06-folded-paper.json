@@ -1,0 +1,25 @@
+{
+  "id": "06",
+  "name_zh": "折纸归档",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:03:53.781228+00:00",
+  "elapsed_seconds": 40.03,
+  "prompt_sha256": "b8de1dc29112ccf84e45916acb68fd1e1f2dc6b309eb806aac8dc86af55956f8",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 646668,
+  "sha256": "bb4f0cc9e23200d060753468f75fe8676e7656f0aa4d93d5fd16a86220f2b830",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/06-folded-paper.png",
+  "retained_file": "originals/06-folded-paper.png"
+}

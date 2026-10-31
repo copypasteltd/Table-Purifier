@@ -1,0 +1,582 @@
+{
+  "protocol": "P07-LOGO-ASSETS-1",
+  "date": "2026-11-01",
+  "selection_status": "AWAITING_USER_SELECTION",
+  "requested_model": "gpt-image-2.5",
+  "provider_route": "sub2-image-gen",
+  "fallback_model_used": false,
+  "generated_originals": 10,
+  "raster_artwork": true,
+  "vector_master": "NOT_CREATED",
+  "existing_design_baseline_modified": false,
+  "browser_or_virtualization_used": false,
+  "files": [
+    {
+      "path": "exports/01-jade-folder/1024.png",
+      "bytes": 365651,
+      "sha256": "3931524d436c42657036ab8826023c8680ad8a750e590f4da86ded079f141c7c",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/01-jade-folder/128.png",
+      "bytes": 7915,
+      "sha256": "cabd42305f2d779ac6ee66a6ed2f54bd7f61bbff70cf2de173262414c8d261ff",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/01-jade-folder/256.png",
+      "bytes": 28291,
+      "sha256": "e26899f20ff40f9aa84882bcde7872c2c5d0248e1f9ad08bfe05e3807a3c36c1",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/01-jade-folder/32.png",
+      "bytes": 1018,
+      "sha256": "54136d7d48656b30088b9882f2c144e31613b6b3617605217cb3141e24cca791",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/01-jade-folder/512.png",
+      "bytes": 108395,
+      "sha256": "99dbb0bc5e0f1bdf290fdbc31589ccfb6c0fbdec4161cd3a9d46faadefd53ca9",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/01-jade-folder/64.png",
+      "bytes": 2629,
+      "sha256": "f3eea16ec61c136e7ed8e94993e6b1bebc7931aedbec57df20a0920260cc1c4b",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/02-swiss-grid/1024.png",
+      "bytes": 363894,
+      "sha256": "5eb4caf8c3fbc74067fc5791b1e417462e4f470a8737540b39dde790e9d9f88c",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/02-swiss-grid/128.png",
+      "bytes": 8663,
+      "sha256": "6d8ee87a5af30c6ef6bca109713d6dd3b0d6d0fded08c17dd8492e60d47560b0",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/02-swiss-grid/256.png",
+      "bytes": 34488,
+      "sha256": "bbb03cb6cc652206d5eeb6ac8cb460b674ca68554729044d3d71ca7867084cd1",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/02-swiss-grid/32.png",
+      "bytes": 1009,
+      "sha256": "47636fb2784ccb75636fe3761c7fd58a63ceb6b90db1a51517cb694b986ae1c3",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/02-swiss-grid/512.png",
+      "bytes": 124216,
+      "sha256": "8dbee9cacb2255e82a9a239281dff2e6c7b73231df1cab210bdf23f8d3136588",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/02-swiss-grid/64.png",
+      "bytes": 2593,
+      "sha256": "99d574748d4dec1c15ab76e84fe7227f83d84edf0d4116f4b5970a7193aadaba",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/03-converge/1024.png",
+      "bytes": 353272,
+      "sha256": "a80d7c0e9b53e262453f35c85bd87441bd655b86aeddb5e1112c2127883a30b0",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/03-converge/128.png",
+      "bytes": 10852,
+      "sha256": "a299fc300ec5b863f96d1ab6800ff44948c4d1f30378fb573f106216779d572b",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/03-converge/256.png",
+      "bytes": 32269,
+      "sha256": "76f7c8aac3e33ff6cb367a076557cf6b521a68f087945b110110882f774d1f44",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/03-converge/32.png",
+      "bytes": 1652,
+      "sha256": "87d165da942b7a9c492f05a8c264fa46a0fce866ea4e5b97ef8713b8cff8c5ab",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/03-converge/512.png",
+      "bytes": 106436,
+      "sha256": "3b8b19ea915afc06e58fe6d5aa9e73cfa6ac31397ed931da0f2ede66b7f527e8",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/03-converge/64.png",
+      "bytes": 4201,
+      "sha256": "cd428051b4b749782843c33f0add869640002a0cbddb588a2cc20e31beb2f90f",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/04-tp-monogram/1024.png",
+      "bytes": 220332,
+      "sha256": "a7b03bad362437a934d43d344c6df75f038c71515c385ec9d47dce5aa025632b",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/04-tp-monogram/128.png",
+      "bytes": 5914,
+      "sha256": "ff4d7585391e7d849506eb11e724c51afd4c025db075d7593f8e0630138e37b5",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/04-tp-monogram/256.png",
+      "bytes": 19394,
+      "sha256": "10d435f28274ca070635f09718bb6cf6ee2bf1411d7b53ad4148dd0053119850",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/04-tp-monogram/32.png",
+      "bytes": 935,
+      "sha256": "1656324267b2f179fd5a890e3c8934c6b4ed595d3025c79eb5cd98c3c432f104",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/04-tp-monogram/512.png",
+      "bytes": 66773,
+      "sha256": "760510bb959ee0ff7471797ce34d99058559fad4a49d7aff1fa2fffc36868e2f",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/04-tp-monogram/64.png",
+      "bytes": 2271,
+      "sha256": "6399d1d9cb80981a6042b5c0704787ccb3da4f09ac36cfb1438e82ea08085b3d",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/05-clear-spring/1024.png",
+      "bytes": 310768,
+      "sha256": "9ac7062e520a3d10bd22126b11dca588b423c62145ffd237184319058b51b603",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/05-clear-spring/128.png",
+      "bytes": 9831,
+      "sha256": "ad95b2e11c2974c645464aca968128287699710e1c0417556b28a5ff3ef89482",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/05-clear-spring/256.png",
+      "bytes": 29185,
+      "sha256": "c92992ff67ded85ecbb94fd3d31c725e7de2a5cba1a3a3240a7267a710ba417e",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/05-clear-spring/32.png",
+      "bytes": 1393,
+      "sha256": "f687860998d32812c287fb89be6f449183143c9bffc94c285e69756596b604e2",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/05-clear-spring/512.png",
+      "bytes": 94201,
+      "sha256": "187337a5711d88f2604c0bdb0029cee32f8de86ea18dc12a60bbbf7a28c70000",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/05-clear-spring/64.png",
+      "bytes": 3681,
+      "sha256": "fed51ca977d114252e0397cb8e94dad244377df61805afaae264a9da5a043bb2",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/06-folded-paper/1024.png",
+      "bytes": 421394,
+      "sha256": "9bfb51ec7eb711b972b4880bb213f78e3d2a1f698612c8a36a170ef28b853f50",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/06-folded-paper/128.png",
+      "bytes": 14283,
+      "sha256": "ca76a287171c2e5f2c7104aea63fcb1847756bf6823368b0008285a0f6a2d738",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/06-folded-paper/256.png",
+      "bytes": 41246,
+      "sha256": "185c72d0512fe1d6226f8cc2a82e1a7ece3f8148f75e2a8a1d0e9cf43c5c1105",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/06-folded-paper/32.png",
+      "bytes": 1753,
+      "sha256": "ab2c9764e5915394f0bfe2e7b6c225fe9e034e035f6ca2a6be120a3e690fa1b9",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/06-folded-paper/512.png",
+      "bytes": 128869,
+      "sha256": "3b8afdfd53f8fabaa33a89bd1cfab0486d7a9eeb9409699f89acfca7e2dec1ac",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/06-folded-paper/64.png",
+      "bytes": 5095,
+      "sha256": "44cdde3cf6e220f1bb5d5c67e7b1bc65cd56bcee82cfbb61d450475c02e55ab4",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/07-vermilion-seal/1024.png",
+      "bytes": 336599,
+      "sha256": "526147534c88f99fb44b7c5aaae81193f2424f02a58c9165d11849f49a156252",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/07-vermilion-seal/128.png",
+      "bytes": 9336,
+      "sha256": "0e43238c41dbc0c5c4eb6c2907465d1cd2867ca5cfc3fb8574b7487a1ebf5c9b",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/07-vermilion-seal/256.png",
+      "bytes": 29784,
+      "sha256": "47c254b95c9a475e0fdca283178645ef266e9f7a03e9cb89717074554bb77284",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/07-vermilion-seal/32.png",
+      "bytes": 1422,
+      "sha256": "fd6e11b3942ae185af1ebab749acaa4c735795af11796954b4488d55aea2d5e0",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/07-vermilion-seal/512.png",
+      "bytes": 100373,
+      "sha256": "4407efb80197303195f2e905b8bfc03ec6524220ad36123fec813379ac47410f",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/07-vermilion-seal/64.png",
+      "bytes": 3621,
+      "sha256": "ef15c903e784e55d2b25c998367384246e4a7c57f0f79e1e35c8fe5202403982",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/08-aurora-flow/1024.png",
+      "bytes": 398824,
+      "sha256": "5acf3cb28f2429362e55ad6b1b17ea4be2bef05a07f6a6764961915dc303a9b6",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/08-aurora-flow/128.png",
+      "bytes": 11687,
+      "sha256": "00b7a80cb23781f9d2fa543f8f2ade563814f954494de978f729fc51eb8f1cc1",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/08-aurora-flow/256.png",
+      "bytes": 33197,
+      "sha256": "dbd9063411adc55ceffd0fe75b0e0a036b317b026f37c11a59ac2ea70ed6fd5d",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/08-aurora-flow/32.png",
+      "bytes": 1517,
+      "sha256": "c60f9366497392096b3cf8d8e836ec218c1da55318fabfa619b2a0c1d955f55c",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/08-aurora-flow/512.png",
+      "bytes": 108879,
+      "sha256": "09d95e1abb621aaff5b51babe9ae991c475c7696a124d4a8721caaf20da8f6e7",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/08-aurora-flow/64.png",
+      "bytes": 4309,
+      "sha256": "4ce90745268220783672cae22cd181b80bc844533c831d469b24f8160d0f3cff",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/09-grid-buddy/1024.png",
+      "bytes": 362087,
+      "sha256": "b837bf705b0c0978bf2e00d94dbf51bd2b896692713384862a2245097a501afe",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/09-grid-buddy/128.png",
+      "bytes": 10347,
+      "sha256": "8cc80e8643eea4859f70a45b1e7d197cd0f635a38257186f69f6a0309d4b400b",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/09-grid-buddy/256.png",
+      "bytes": 31711,
+      "sha256": "d750881af069839c9bbcabadcc33f73efff9b0b425d87da6d6e10134cce57000",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/09-grid-buddy/32.png",
+      "bytes": 1532,
+      "sha256": "accb4110213de92688325e14fec2e8d4983139a4b2389decd8831a9dfc969132",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/09-grid-buddy/512.png",
+      "bytes": 109595,
+      "sha256": "c8ae7fb0923cf57993d2226ddffa21f8e00a99027cef38c932d932deffb6a187",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/09-grid-buddy/64.png",
+      "bytes": 3839,
+      "sha256": "ca18044308dddaf7fb50728989cfcc25d653b2d04f030ab73d023ec01246831a",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "exports/10-crafted-order/1024.png",
+      "bytes": 444345,
+      "sha256": "c0300d235f2dab132f6c472bd5247602a3796192f3f6821ed338bd9664fa0b79",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "exports/10-crafted-order/128.png",
+      "bytes": 13371,
+      "sha256": "eb4788213245ef5e947d2428f38cb6f74aac53c4f0f5100f8165f559f7e129cf",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "exports/10-crafted-order/256.png",
+      "bytes": 40227,
+      "sha256": "c18e1a9c046007636de5b3a3ef268cf40663a98192c220bba78bc6caa29c24a4",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "exports/10-crafted-order/32.png",
+      "bytes": 1734,
+      "sha256": "cb70396f1a57183767c9d834f9dd0a0ef1a40c5810287f21839822621d4736b3",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "exports/10-crafted-order/512.png",
+      "bytes": 131846,
+      "sha256": "42fae6013e9b77c37abf4e99b0c1aa3ca50f71c5db2a931030d362591709edea",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "exports/10-crafted-order/64.png",
+      "bytes": 4636,
+      "sha256": "783250796ecbd5e16ea3102b17ac92f159004c673ce91d8c7b232510ad54f167",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "logo-overview.png",
+      "bytes": 797019,
+      "sha256": "e56ec1f7941a7e8813eb5418892831e3323a1037c1888fc730bf67a02f059062",
+      "width": 2600,
+      "height": 1620
+    },
+    {
+      "path": "originals/01-jade-folder.png",
+      "bytes": 631927,
+      "sha256": "f2b0bdfa3ca0aa46d72e070a6adcc5e52ecfe0d9eef85df6486850d4582e2c10",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/02-swiss-grid.png",
+      "bytes": 432461,
+      "sha256": "f9e704d223374ddc95f0f736220ebc16c3dabfd9779051182b8ba1ef59ae9f42",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/03-converge.png",
+      "bytes": 579971,
+      "sha256": "86c95337d530ff34ed70f3cb565177f5795a6ed43970fc357303bae4c8ff8531",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/04-tp-monogram.png",
+      "bytes": 321894,
+      "sha256": "0cce962da0cc0c7dfc610e79f5d3ea11adb419500c20c0f16cf55573d795c051",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/05-clear-spring.png",
+      "bytes": 532533,
+      "sha256": "6ec641ef0958374ad057ccd3aa69e8c6a11ae0a89b8757b5034eff8b2c742aed",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/06-folded-paper.png",
+      "bytes": 646668,
+      "sha256": "bb4f0cc9e23200d060753468f75fe8676e7656f0aa4d93d5fd16a86220f2b830",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/07-vermilion-seal.png",
+      "bytes": 472641,
+      "sha256": "6c3313519b3b98b53fe734581b0092a184cc360b68dcd3b1c344dafa327fc681",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/08-aurora-flow.png",
+      "bytes": 592855,
+      "sha256": "a8d04fe3bad220341d1e6d9d7402759832a15b5d86f8d5ea504d213ed95e36ce",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/09-grid-buddy.png",
+      "bytes": 659299,
+      "sha256": "9966ff0b8cb2e54feaf3f1d9b3b9b1b054eda891e34b29c767f7ba0c4dc80e60",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "originals/10-crafted-order.png",
+      "bytes": 676883,
+      "sha256": "1943d6d5c7184a8cf24f9fab7e1f66c454c869822352a45f8f2d73ec0674a977",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "previews/01-jade-folder.png",
+      "bytes": 331726,
+      "sha256": "3a8b7bad63e7b3d2bcc824ad83a2c36d650fba0451ea55ea2f1d19739b039682",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/02-swiss-grid.png",
+      "bytes": 291073,
+      "sha256": "a37018285289642235858bbeed981867545d5c7614b1a689d4663cfd48c4c42f",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/03-converge.png",
+      "bytes": 261431,
+      "sha256": "78041eea219aa0b70686c13c094d8038ff82ba7772e0adeec332c8465ea4b651",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/04-tp-monogram.png",
+      "bytes": 207696,
+      "sha256": "4fbc030b8ea43865b504d0abe04bc63de1fd20f99563cdb62029d47e1b33943d",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/05-clear-spring.png",
+      "bytes": 227846,
+      "sha256": "e7e0c4dd993c2198fcc7394774647dadb0a69af39fcf555837322564b7989aa3",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/06-folded-paper.png",
+      "bytes": 276683,
+      "sha256": "0d3ed85a00cd786140b36c1fc164f07f57d1bc65ff9fbf6361030a5e0c379219",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/07-vermilion-seal.png",
+      "bytes": 241901,
+      "sha256": "7ca96eae4f72e4afdf7d94c5c35c74d974de1e5bf5bc2aef7e66e424c4270094",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/08-aurora-flow.png",
+      "bytes": 252765,
+      "sha256": "b049164664843ccb8fc12eb90b73d835c2734685923b670dc125825261428168",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/09-grid-buddy.png",
+      "bytes": 313585,
+      "sha256": "a2b373a95c1cf126428a80e9e4a8163880c7e571c01dd3b69b811bf3db042df9",
+      "width": 1600,
+      "height": 1320
+    },
+    {
+      "path": "previews/10-crafted-order.png",
+      "bytes": 288722,
+      "sha256": "e8816fa6fe2f56c91bf5efd225dad2c3bbc9e9a8f2582e2330b527ac9ca44ed0",
+      "width": 1600,
+      "height": 1320
+    }
+  ]
+}

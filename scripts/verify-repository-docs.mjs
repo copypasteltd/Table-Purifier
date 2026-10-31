@@ -10,7 +10,7 @@ const hash = data => createHash('sha256').update(data).digest('hex');
 const inside = file => { const rel = path.relative(root, file); return rel !== '..' && !rel.startsWith(`..${path.sep}`) && !path.isAbsolute(rel); };
 const entries = ['README.md', 'README.en.md', 'SOURCE_README.md', 'AGENTS.md', 'CONTRIBUTING.md', 'CHANGELOG.md', 'docs/README.md',
   'docs/implementation-decisions.md', 'docs/repository-verification.md', 'docs/preview/README.md', 'docs/media/README.md','docs/实施/B方案前端还原与验收.md',
-  'docs/deployment/README.md','docs/deployment/README.en.md'];
+  'docs/deployment/README.md','docs/deployment/README.en.md','docs/brand/README.md','assets/brand/logo-exploration/2026-11-01/README.md'];
 let links = 0;
 for (const entry of entries) {
   const full = path.join(root, entry), text = await readFile(full, 'utf8');
@@ -99,10 +99,39 @@ for (const capture of deployment.browser_preview.pages) {
   check(`deployment_screenshot:${capture.provider}`, inside(file) && data.length === capture.bytes && hash(data) === capture.sha256);
   check(`deployment_browser:${capture.provider}`, capture.status === 200 && capture.synthetic_marker.includes('SYNTHETIC') && capture.javascript_errors.length === 0 && capture.broken_images.length === 0);
 }
+const logoRoot = path.join(root, 'assets/brand/logo-exploration/2026-11-01');
+const logos = JSON.parse(await readFile(path.join(logoRoot, 'concepts.json'), 'utf8'));
+const logoManifest = JSON.parse(await readFile(path.join(logoRoot, 'manifest.json'), 'utf8'));
+check('logo_count', logos.concepts.length === 10 && logoManifest.generated_originals === 10);
+check('logo_pending_selection', logos.status === 'TEN_GENERATED_CANDIDATES_AWAITING_SELECTION' && logoManifest.selection_status === 'AWAITING_USER_SELECTION');
+check('logo_requested_route', logoManifest.provider_route === 'sub2-image-gen' && logoManifest.requested_model === 'gpt-image-2.5' && logoManifest.fallback_model_used === false);
+check('logo_asset_count', logoManifest.files.length === 81);
+check('logo_no_frozen_design_change', logoManifest.existing_design_baseline_modified === false);
+const logoHashes = new Set();
+for (const logo of logos.concepts) {
+  const receipt = JSON.parse(await readFile(path.join(logoRoot, logo.receipt), 'utf8'));
+  const original = await readFile(path.join(logoRoot, logo.original));
+  logoHashes.add(receipt.sha256);
+  check(`logo_generated:${logo.id}`, receipt.status === 'GENERATED' && receipt.requested_model === 'gpt-image-2.5' && receipt.fallback_model_used === false);
+  check(`logo_original:${logo.id}`, hash(original) === receipt.sha256 && receipt.retained_file === logo.original);
+  check(`logo_transparent:${logo.id}`, receipt.has_transparent_pixels === true && receipt.alpha_extrema[0] === 0 && original[25] === 6);
+  check(`logo_prompt:${logo.id}`, hash(await readFile(path.join(logoRoot, logo.prompt))) === receipt.prompt_sha256);
+  for (const size of [1024, 512, 256, 128, 64, 32]) {
+    const image = await readFile(path.join(logoRoot, logo.exports, `${size}.png`));
+    check(`logo_export:${logo.id}:${size}`, image.readUInt32BE(16) === size && image.readUInt32BE(20) === size && image[25] === 6);
+  }
+}
+check('logo_distinct_originals', logoHashes.size === 10);
+for (const asset of logoManifest.files) {
+  const file = path.resolve(logoRoot, asset.path), data = await readFile(file);
+  check(`logo_file:${asset.path}`, inside(file) && data.length === asset.bytes && hash(data) === asset.sha256);
+  check(`logo_dimensions:${asset.path}`, data.readUInt32BE(16) === asset.width && data.readUInt32BE(20) === asset.height);
+}
 const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
 for (const name of ['docs:preview', 'docs:capture', 'docs:media', 'docs:verify','design:audit','design:before','design:icons']) check(`documented_script:${name}`, typeof pkg.scripts[name] === 'string');
 const report = { status: failures.length ? 'FAIL' : 'PASS', checks_passed: checks.length - failures.length,
-  checks_failed: failures.length, links_checked: links, captured_pages: 36, media_files: manifest.files.length, deployment_screenshots: deployment.browser_preview.pages.length, errors: failures,
+  checks_failed: failures.length, links_checked: links, captured_pages: 36, media_files: manifest.files.length, deployment_screenshots: deployment.browser_preview.pages.length,
+  logo_concepts: logos.concepts.length, logo_png_assets: logoManifest.files.length, errors: failures,
   scope: 'Local documentation, source/media integrity and saved deployment evidence; no new live network, model or payment requests.' };
 console.log(JSON.stringify(report, null, 2));
 if (failures.length) process.exitCode = 1;

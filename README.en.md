@@ -10,6 +10,14 @@ Alipay and Douyin mini programs are the first surfaces, using the selected **B J
 
 > Media scope: screenshots, MP4 and GIF are captured from a **browser documentation adapter running the actual native templates, components and controller**. Data, Agent progress, quotes, orders and cleanup states are synthetic fixtures. These are not native-device screenshots, live Codex results, real payments or proof of Ubuntu isolation and cleanup. Demo amounts are not service prices.
 
+## Brand logo exploration · 2026-11-01
+
+**Ten distinct logo directions** were generated through the requested `sub2-image-gen / gpt-image-2.5` route. The collection includes transparent originals, six PNG sizes, Chinese/English brand presentations, an overview and generation provenance. Suggested shortlist: **01 Jade Folder, 04 TP Monogram and 09 Grid Buddy**. Selection is pending; existing B design and product icons remain unchanged.
+
+[Comparison and selection guide](docs/brand/README.md) · [Individual sheets, transparent PNGs and prompts](assets/brand/logo-exploration/2026-11-01/README.md)
+
+![Ten candidate logo directions](assets/brand/logo-exploration/2026-11-01/logo-overview.png)
+
 ## LAN HTTP deployment · 2026-10-31
 
 The authorized native deployment is available at **[http://192.168.31.20:18707/](http://192.168.31.20:18707/)**, opening the Alipay documentation preview; a [Douyin preview](http://192.168.31.20:18707/preview/douyin.html) is also available. Both use synthetic fixtures without API connections. The P1 Web product remains a future phase.

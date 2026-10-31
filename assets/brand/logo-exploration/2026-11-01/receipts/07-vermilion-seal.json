@@ -1,0 +1,25 @@
+{
+  "id": "07",
+  "name_zh": "朱印表格",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:06:00.860257+00:00",
+  "elapsed_seconds": 45.93,
+  "prompt_sha256": "458ff59f4c4172ec240e7045b1836222c8f6f8498208088d93015d52e7113b30",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 472641,
+  "sha256": "6c3313519b3b98b53fe734581b0092a184cc360b68dcd3b1c344dafa327fc681",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/07-vermilion-seal.png",
+  "retained_file": "originals/07-vermilion-seal.png"
+}

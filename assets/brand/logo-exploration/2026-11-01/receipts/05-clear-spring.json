@@ -1,0 +1,25 @@
+{
+  "id": "05",
+  "name_zh": "清泉成表",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:03:50.448332+00:00",
+  "elapsed_seconds": 36.73,
+  "prompt_sha256": "46a75ef0d048a38375e08479e722c6f0b6d42eed0cafad9221a1268ab51b9962",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 532533,
+  "sha256": "6ec641ef0958374ad057ccd3aa69e8c6a11ae0a89b8757b5034eff8b2c742aed",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/05-clear-spring.png",
+  "retained_file": "originals/05-clear-spring.png"
+}

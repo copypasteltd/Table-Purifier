@@ -1,0 +1,25 @@
+{
+  "id": "08",
+  "name_zh": "极光流线",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:06:00.829315+00:00",
+  "elapsed_seconds": 45.98,
+  "prompt_sha256": "f8da10c7f6fb1aef6a2bac4bb99c2142c8312c2075a1966bba126fb0f4c3ba25",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 592855,
+  "sha256": "a8d04fe3bad220341d1e6d9d7402759832a15b5d86f8d5ea504d213ed95e36ce",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/08-aurora-flow.png",
+  "retained_file": "originals/08-aurora-flow.png"
+}

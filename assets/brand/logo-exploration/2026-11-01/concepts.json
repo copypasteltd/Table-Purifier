@@ -1,0 +1,375 @@
+{
+  "protocol": "P07-LOGO-EXPLORATION-1",
+  "date": "2026-11-01",
+  "brand_zh": "表格修复站",
+  "brand_en": "Table Purifier",
+  "status": "TEN_GENERATED_CANDIDATES_AWAITING_SELECTION",
+  "model": "gpt-image-2.5",
+  "size": "1024x1024",
+  "quality": "high",
+  "output_format": "png",
+  "background": "transparent",
+  "design_baseline": "B1.0.0 unchanged",
+  "concepts": [
+    {
+      "id": "01",
+      "slug": "01-jade-folder",
+      "name_zh": "青绿资料夹",
+      "name_en": "Jade Folder",
+      "style": "与 B 方案最连贯的现代扁平图形",
+      "meaning": "资料夹、表头与归档口形成一个整体图形，强调资料进入后有序归档。",
+      "palette": [
+        "#17745E",
+        "#203C32",
+        "#BED8C9"
+      ],
+      "suitable_for": "小程序主图标、产品导航",
+      "prompt": "prompts/01-jade-folder.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/01-jade-folder.png",
+      "preview": "previews/01-jade-folder.png",
+      "exports": "exports/01-jade-folder",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          148,
+          257,
+          1110,
+          991
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/01-jade-folder.json"
+    },
+    {
+      "id": "02",
+      "slug": "02-swiss-grid",
+      "name_zh": "瑞士模数",
+      "name_en": "Swiss Grid",
+      "style": "黑白与荧光黄的瑞士理性主义",
+      "meaning": "不齐的输入模块与严整网格形成独特的节奏，突出整理与规范。",
+      "palette": [
+        "#202320",
+        "#C9EE54"
+      ],
+      "suitable_for": "技术品牌、开发者入口",
+      "prompt": "prompts/02-swiss-grid.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/02-swiss-grid.png",
+      "preview": "previews/02-swiss-grid.png",
+      "exports": "exports/02-swiss-grid",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          274,
+          295,
+          982,
+          960
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/02-swiss-grid.json"
+    },
+    {
+      "id": "03",
+      "slug": "03-converge",
+      "name_zh": "负形汇流",
+      "name_en": "Converge",
+      "style": "深海蓝的负形几何标志",
+      "meaning": "分散资料沿两条路径汇入中间表格，强调多源成表。",
+      "palette": [
+        "#163A66",
+        "#48C5B6"
+      ],
+      "suitable_for": "企业官网、商务材料",
+      "prompt": "prompts/03-converge.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/03-converge.png",
+      "preview": "previews/03-converge.png",
+      "exports": "exports/03-converge",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          131,
+          149,
+          1123,
+          1106
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/03-converge.json"
+    },
+    {
+      "id": "04",
+      "slug": "04-tp-monogram",
+      "name_zh": "TP 连字",
+      "name_en": "TP Monogram",
+      "style": "高级企业字母连字",
+      "meaning": "将 T 的表头与 P 的收纳腔结合，适合长期独立品牌。",
+      "palette": [
+        "#25343A",
+        "#B9DACA"
+      ],
+      "suitable_for": "企业品牌、站点页头、名片",
+      "prompt": "prompts/04-tp-monogram.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/04-tp-monogram.png",
+      "preview": "previews/04-tp-monogram.png",
+      "exports": "exports/04-tp-monogram",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          212,
+          294,
+          1080,
+          1035
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/04-tp-monogram.json"
+    },
+    {
+      "id": "05",
+      "slug": "05-clear-spring",
+      "name_zh": "清泉成表",
+      "name_en": "Clear Spring",
+      "style": "清透水滴与数据格",
+      "meaning": "用清澈水滴表达清洗，通过内部表格避免被误认成纯水品牌。",
+      "palette": [
+        "#16AAB6",
+        "#2768D9",
+        "#A5EEE4"
+      ],
+      "suitable_for": "AI 整理产品、轻量工具",
+      "prompt": "prompts/05-clear-spring.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/05-clear-spring.png",
+      "preview": "previews/05-clear-spring.png",
+      "exports": "exports/05-clear-spring",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          228,
+          115,
+          1026,
+          1153
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/05-clear-spring.json"
+    },
+    {
+      "id": "06",
+      "slug": "06-folded-paper",
+      "name_zh": "折纸归档",
+      "name_en": "Folded Paper",
+      "style": "暖橙与青绿的折纸几何",
+      "meaning": "散页经过一次折叠成为表单，表达从杂乱到可交付。",
+      "palette": [
+        "#167864",
+        "#EB9B4A",
+        "#FADEB7"
+      ],
+      "suitable_for": "海报、品牌故事、产品介绍",
+      "prompt": "prompts/06-folded-paper.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/06-folded-paper.png",
+      "preview": "previews/06-folded-paper.png",
+      "exports": "exports/06-folded-paper",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          208,
+          158,
+          1047,
+          1136
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/06-folded-paper.json"
+    },
+    {
+      "id": "07",
+      "slug": "07-vermilion-seal",
+      "name_zh": "朱印表格",
+      "name_en": "Vermilion Seal",
+      "style": "现代东方印记",
+      "meaning": "抽象印面与表格格线结合，强调依据、留痕与可信交付。",
+      "palette": [
+        "#B64D37",
+        "#783B30"
+      ],
+      "suitable_for": "中文品牌、报告封面、质量说明",
+      "prompt": "prompts/07-vermilion-seal.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/07-vermilion-seal.png",
+      "preview": "previews/07-vermilion-seal.png",
+      "exports": "exports/07-vermilion-seal",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          183,
+          210,
+          1070,
+          1055
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/07-vermilion-seal.json"
+    },
+    {
+      "id": "08",
+      "slug": "08-aurora-flow",
+      "name_zh": "极光流线",
+      "name_en": "Aurora Flow",
+      "style": "蓝紫渐变的科技流线",
+      "meaning": "连续带状结构汇成表单，强调 AI 处理与流畅自动化。",
+      "palette": [
+        "#6847E8",
+        "#3D9FE8",
+        "#A482F5"
+      ],
+      "suitable_for": "AI 产品宣传、深色站点、发布物料",
+      "prompt": "prompts/08-aurora-flow.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/08-aurora-flow.png",
+      "preview": "previews/08-aurora-flow.png",
+      "exports": "exports/08-aurora-flow",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          312,
+          166,
+          995,
+          1099
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/08-aurora-flow.json"
+    },
+    {
+      "id": "09",
+      "slug": "09-grid-buddy",
+      "name_zh": "小格伙伴",
+      "name_en": "Grid Buddy",
+      "style": "温暖亲和的品牌小伙伴",
+      "meaning": "将表格格子拟成可靠的小伙伴，降低整理工具的使用距离。",
+      "palette": [
+        "#28705B",
+        "#F4CA62",
+        "#213D32"
+      ],
+      "suitable_for": "抖音触达、新手引导、社媒头像",
+      "prompt": "prompts/09-grid-buddy.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/09-grid-buddy.png",
+      "preview": "previews/09-grid-buddy.png",
+      "exports": "exports/09-grid-buddy",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          103,
+          224,
+          1141,
+          1052
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/09-grid-buddy.json"
+    },
+    {
+      "id": "10",
+      "slug": "10-crafted-order",
+      "name_zh": "手作秩序",
+      "name_en": "Crafted Order",
+      "style": "自然手绘的独立工作室气质",
+      "meaning": "有温度的格线与纸页轮廓，让工具更像值得信赖的整理助手。",
+      "palette": [
+        "#345C4B",
+        "#D4A06C",
+        "#E7DCCA"
+      ],
+      "suitable_for": "创作者品牌、内容封面、生活化宣传",
+      "prompt": "prompts/10-crafted-order.txt",
+      "status": "GENERATED_AWAITING_SELECTION",
+      "original": "originals/10-crafted-order.png",
+      "preview": "previews/10-crafted-order.png",
+      "exports": "exports/10-crafted-order",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "transparent_background_verified": true,
+      "normalization": {
+        "alpha_threshold_for_crop": 12,
+        "crop_bbox": [
+          194,
+          168,
+          1083,
+          1111
+        ],
+        "visible_mark_canvas_fraction": 0.78
+      },
+      "receipt": "receipts/10-crafted-order.json"
+    }
+  ],
+  "exports": [
+    1024,
+    512,
+    256,
+    128,
+    64,
+    32
+  ],
+  "typography": {
+    "zh": "Microsoft YaHei",
+    "en": "Microsoft YaHei",
+    "typeset_after_generation": true,
+    "font_files_distributed": false
+  }
+}

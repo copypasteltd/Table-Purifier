@@ -1,0 +1,25 @@
+{
+  "id": "02",
+  "name_zh": "瑞士模数",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:02:09.112627+00:00",
+  "elapsed_seconds": 36.27,
+  "prompt_sha256": "18e2bb11c879c513703148d0fbeca7cd98956d51f6453ec9264661156220870b",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 432461,
+  "sha256": "f9e704d223374ddc95f0f736220ebc16c3dabfd9779051182b8ba1ef59ae9f42",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/02-swiss-grid.png",
+  "retained_file": "originals/02-swiss-grid.png"
+}

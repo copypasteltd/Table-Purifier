@@ -1,0 +1,25 @@
+{
+  "id": "10",
+  "name_zh": "手作秩序",
+  "requested_model": "gpt-image-2.5",
+  "size_requested": "1024x1024",
+  "quality_requested": "high",
+  "background_requested": "transparent",
+  "at_utc": "2026-10-31T19:06:00.863095+00:00",
+  "elapsed_seconds": 46.02,
+  "prompt_sha256": "c448d9faeebbce9f68e29b8a0b1edb8184a5b81da4f3b69d989b9969d528d682",
+  "fallback_model_used": false,
+  "status": "GENERATED",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "has_transparent_pixels": true,
+  "bytes": 676883,
+  "sha256": "1943d6d5c7184a8cf24f9fab7e1f66c454c869822352a45f8f2d73ec0674a977",
+  "original_output": "output/imagegen/table-purifier-logos-2026-11-01/10-crafted-order.png",
+  "retained_file": "originals/10-crafted-order.png"
+}
